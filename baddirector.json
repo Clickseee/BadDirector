@@ -2,7 +2,7 @@
 	"id": "baddirector",
 	"name": "Bad Director",
 	"display_name": "Bad Director",
-	"author": ["Nxkoo"],
+	"author": ["Nxkoo", "3xpl", "w speed"],
 	"description": "A vanilla? Mod that tries to be hip with the kids!",
 	"prefix": "bd",
 	"main_file": "baddirector.lua",
