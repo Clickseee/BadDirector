@@ -1,5 +1,10 @@
 --#region MISC STUFF
 
+--opens balatro
+--wins round
+--❤❤ W SPEED ❤❤
+
+
 BadDirector = SMODS.current_mod
 
 local path = SMODS.current_mod.path .. 'jokers/'
