@@ -1,0 +1,16 @@
+[
+  {
+    "id": "baddirector",
+    "name": "Bad Director",
+    "description": "A vanilla? Mod that tries to be hip with the kids!",
+    "enabled": false,
+    "version": "1.0.0",
+    "prefix": "bd",
+    "installed": true,
+    "modPath": "C:\\Users\\HP\\AppData\\Roaming\\Balatro\\Mods\\BadDirector",
+    "modFullPath": "C:\\Users\\HP\\AppData\\Roaming\\Balatro\\Mods\\BadDirector",
+    "specialPaths": [],
+    "canUpdate": false,
+    "core": false
+  }
+]
