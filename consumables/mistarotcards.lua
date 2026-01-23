@@ -609,54 +609,88 @@ SMODS.Consumable {
     key = 'starprint',
     set = 'mistarot',
     pos = { x = 7, y = 1 },
-    config = { max_highlighted = 3 },
+    config = { max_highlighted = 3, suit_allowed1 = 'Diamonds', suit_allowed2 = 'Hearts' },
+    
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.max_highlighted } }
     end,
-    use = function(self, card, area, copier)
-        local targets = G.hand.highlighted
 
+    use = function(self, card, area, copier)
+        local count = #G.consumeables.cards
+        local xchips = count * 0.5
         G.E_MANAGER:add_event(Event({
             trigger = 'after',
             delay = 0.4,
             func = function()
                 play_sound('tarot1')
                 card:juice_up(0.3, 0.5)
-
-                for i = 1, #targets do
-                    local c = targets[i]
-                    local chips = c:get_chip_bonus() or 0
-                    local x_gain = math.floor(chips / 0.1)
-
-                    if x_gain > 0 then
-                        c.ability.perma_x_mult =
-                            (c.ability.perma_x_mult or 0) + x_gain
-
-                        c:juice_up(0.25, 0.3)
-                    end
-                end
                 return true
             end
         }))
-
-        delay(0.6)
-    end,
-    can_use = function(self, card)
-        if not G.hand then return false end
-        local sel = G.hand.highlighted
-
-        if #sel == 0 or #sel > card.ability.max_highlighted then
-            return false
+        for i = 1, #G.hand.highlighted do
+            local percent = 1.15 - (i - 0.999) / (#G.hand.highlighted - 0.998) * 0.3
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.15,
+                func = function()
+                    G.hand.highlighted[i]:flip()
+                    play_sound('card1', percent)
+                    G.hand.highlighted[i]:juice_up(0.3, 0.3)
+                    return true
+                end
+            }))
         end
+        delay(0.2)
+        for i = 1, #G.hand.highlighted do
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.1,
+                func = function()
+                    local chips = G.hand.highlighted[i]:get_chip_bonus() or 0
+                    local x_mult_gain = (chips * 0.1)
+                    G.hand.highlighted[i].ability.perma_x_mult = (G.hand.highlighted[i].ability.perma_x_mult or 0) + x_mult_gain
+                    return true
+                end
+            }))
+        end
+        for i = 1, #G.hand.highlighted do
+            local percent = 0.85 + (i - 0.999) / (#G.hand.highlighted - 0.998) * 0.3
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.15,
+                func = function()
+                    G.hand.highlighted[i]:flip()
+                    play_sound('tarot2', percent, 0.6)
+                    G.hand.highlighted[i]:juice_up(0.3, 0.3)
+                    return true
+                end
+            }))
+        end
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.2,
+            func = function()
+                G.hand:unhighlight_all()
+                return true
+            end
+        }))
+        delay(0.5)
+    end,
 
-        for i = 1, #sel do
-            local suit = sel[i].base and sel[i].base.suit
-            if suit ~= 'Hearts' and suit ~= 'Diamonds' then
-                return false
+    can_use = function(self, card)
+        local true_suit = false
+        local wrong_suit = true
+        if #G.hand.highlighted > 0 and #G.hand.highlighted <= card.ability.max_highlighted then
+            for i = 1, #G.hand.highlighted do
+                if (G.hand.highlighted[i]:is_suit(card.ability.suit_allowed1) or G.hand.highlighted[i]:is_suit(card.ability.suit_allowed2)) then
+                    true_suit = true
+                end
+                if not (G.hand.highlighted[i]:is_suit(card.ability.suit_allowed1) or G.hand.highlighted[i]:is_suit(card.ability.suit_allowed2)) then
+                    wrong_suit = false
+                end
             end
         end
-
-        return true
+        return true_suit and wrong_suit
     end
 }
 
@@ -665,36 +699,86 @@ SMODS.Consumable {
     key = 'moonprint',
     set = 'mistarot',
     pos = { x = 8, y = 1 },
-    config = { max_highlighted = 3 },
+    config = { max_highlighted = 3, suit_allowed1 = 'Clubs', suit_allowed2 = 'Spades' },
+
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.max_highlighted } }
     end,
+
     use = function(self, card, area, copier)
         local count = #G.consumeables.cards
         local xchips = count * 0.5
-        for _, c in ipairs(G.hand.highlighted) do
-            if c.base and (c.base.suit == 'Clubs' or c.base.suit == 'Spades') then
-                c.ability.perma_x_chips = (c.ability.perma_x_chips or 1) + xchips
-                c:juice_up(0.3, 0.3)
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.4,
+            func = function()
+                play_sound('tarot1')
+                card:juice_up(0.3, 0.5)
+                return true
             end
+        }))
+        for i = 1, #G.hand.highlighted do
+            local percent = 1.15 - (i - 0.999) / (#G.hand.highlighted - 0.998) * 0.3
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.15,
+                func = function()
+                    G.hand.highlighted[i]:flip()
+                    play_sound('card1', percent)
+                    G.hand.highlighted[i]:juice_up(0.3, 0.3)
+                    return true
+                end
+            }))
         end
+        delay(0.2)
+        for i = 1, #G.hand.highlighted do
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.1,
+                func = function()
+                    G.hand.highlighted[i].ability.perma_x_chips = (G.hand.highlighted[i].ability.perma_x_chips or 1) + xchips
+                    return true
+                end
+            }))
+        end
+        for i = 1, #G.hand.highlighted do
+            local percent = 0.85 + (i - 0.999) / (#G.hand.highlighted - 0.998) * 0.3
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.15,
+                func = function()
+                    G.hand.highlighted[i]:flip()
+                    play_sound('tarot2', percent, 0.6)
+                    G.hand.highlighted[i]:juice_up(0.3, 0.3)
+                    return true
+                end
+            }))
+        end
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.2,
+            func = function()
+                G.hand:unhighlight_all()
+                return true
+            end
+        }))
+        delay(0.5)
     end,
+
     can_use = function(self, card)
-        if not G.hand then return false end
-        local sel = G.hand.highlighted
-
-        if #sel == 0 or #sel > card.ability.max_highlighted then
-            return false
-        end
-
-        for i = 1, #sel do
-            local suit = sel[i].base and sel[i].base.suit
-            if suit ~= 'Clubs' and suit ~= 'Spades' then
-                return false
+        local true_suit = false
+        local wrong_suit = true
+        if #G.hand.highlighted > 0 and #G.hand.highlighted <= card.ability.max_highlighted then
+            for i = 1, #G.hand.highlighted do
+                if (G.hand.highlighted[i]:is_suit(card.ability.suit_allowed1) or G.hand.highlighted[i]:is_suit(card.ability.suit_allowed2)) then
+                    true_suit = true
+                end
+                if not (G.hand.highlighted[i]:is_suit(card.ability.suit_allowed1) or G.hand.highlighted[i]:is_suit(card.ability.suit_allowed2)) then
+                    wrong_suit = false
+                end
             end
         end
-
-        return true
+        return true_suit and wrong_suit
     end
 }
 
@@ -703,54 +787,88 @@ SMODS.Consumable {
     key = 'sunprint',
     set = 'mistarot',
     pos = { x = 9, y = 1 },
-    config = { max_highlighted = 3 },
+    config = { max_highlighted = 3, suit_allowed1 = 'Hearts', suit_allowed2 = 'Diamonds' },
+    
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.max_highlighted } }
     end,
-    use = function(self, card, area, copier)
-        local targets = G.hand.highlighted
 
+    use = function(self, card, area, copier)
+        local count = #G.consumeables.cards
+        local xchips = count * 0.5
         G.E_MANAGER:add_event(Event({
             trigger = 'after',
             delay = 0.4,
             func = function()
                 play_sound('tarot1')
                 card:juice_up(0.3, 0.5)
-
-                for i = 1, #targets do
-                    local c = targets[i]
-                    local chips = c:get_chip_bonus() or 0
-                    local mult_gain = math.floor(chips / 2)
-
-                    if mult_gain > 0 then
-                        c.ability.perma_mult =
-                            (c.ability.perma_mult or 0) + mult_gain
-
-                        c:juice_up(0.25, 0.3)
-                    end
-                end
                 return true
             end
         }))
-
-        delay(0.6)
-    end,
-    can_use = function(self, card)
-        if not G.hand then return false end
-        local sel = G.hand.highlighted
-
-        if #sel == 0 or #sel > card.ability.max_highlighted then
-            return false
+        for i = 1, #G.hand.highlighted do
+            local percent = 1.15 - (i - 0.999) / (#G.hand.highlighted - 0.998) * 0.3
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.15,
+                func = function()
+                    G.hand.highlighted[i]:flip()
+                    play_sound('card1', percent)
+                    G.hand.highlighted[i]:juice_up(0.3, 0.3)
+                    return true
+                end
+            }))
         end
+        delay(0.2)
+        for i = 1, #G.hand.highlighted do
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.1,
+                func = function()
+                    local chips = G.hand.highlighted[i]:get_chip_bonus() or 0
+                    local mult_gain = (chips / 2)
+                    G.hand.highlighted[i].ability.perma_mult = (G.hand.highlighted[i].ability.perma_mult or 0) + mult_gain
+                    return true
+                end
+            }))
+        end
+        for i = 1, #G.hand.highlighted do
+            local percent = 0.85 + (i - 0.999) / (#G.hand.highlighted - 0.998) * 0.3
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.15,
+                func = function()
+                    G.hand.highlighted[i]:flip()
+                    play_sound('tarot2', percent, 0.6)
+                    G.hand.highlighted[i]:juice_up(0.3, 0.3)
+                    return true
+                end
+            }))
+        end
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.2,
+            func = function()
+                G.hand:unhighlight_all()
+                return true
+            end
+        }))
+        delay(0.5)
+    end,
 
-        for i = 1, #sel do
-            local suit = sel[i].base and sel[i].base.suit
-            if suit ~= 'Hearts' and suit ~= 'Diamonds' then
-                return false
+    can_use = function(self, card)
+        local true_suit = false
+        local wrong_suit = true
+        if #G.hand.highlighted > 0 and #G.hand.highlighted <= card.ability.max_highlighted then
+            for i = 1, #G.hand.highlighted do
+                if (G.hand.highlighted[i]:is_suit(card.ability.suit_allowed1) or G.hand.highlighted[i]:is_suit(card.ability.suit_allowed2)) then
+                    true_suit = true
+                end
+                if not (G.hand.highlighted[i]:is_suit(card.ability.suit_allowed1) or G.hand.highlighted[i]:is_suit(card.ability.suit_allowed2)) then
+                    wrong_suit = false
+                end
             end
         end
-
-        return true
+        return true_suit and wrong_suit
     end
 }
 
@@ -800,40 +918,89 @@ SMODS.Consumable {
     key = 'worldprint',
     set = 'mistarot',
     pos = { x = 1, y = 2 },
-    config = { max_highlighted = 3 },
+    config = { max_highlighted = 3, suit_allowed1 = 'Spades', suit_allowed2 = 'Clubs' },
+
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.max_highlighted } }
     end,
+
     use = function(self, card, area, copier)
-        local total = 0
+        local chips = 0
         for _, j in ipairs(G.jokers.cards) do
             if j.sell_cost then
-                total = total + j.sell_cost
+                chips = chips + j.sell_cost
             end
         end
-        local chips = total * 2
-        for _, c in ipairs(G.hand.highlighted) do
-            if c.base and (c.base.suit == 'Clubs' or c.base.suit == 'Spades') then
-                c.ability.perma_bonus = (c.ability.perma_bonus or 0) + chips
-                c:juice_up(0.3, 0.3)
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.4,
+            func = function()
+                play_sound('tarot1')
+                card:juice_up(0.3, 0.5)
+                return true
             end
+        }))
+        for i = 1, #G.hand.highlighted do
+            local percent = 1.15 - (i - 0.999) / (#G.hand.highlighted - 0.998) * 0.3
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.15,
+                func = function()
+                    G.hand.highlighted[i]:flip()
+                    play_sound('card1', percent)
+                    G.hand.highlighted[i]:juice_up(0.3, 0.3)
+                    return true
+                end
+            }))
         end
+        delay(0.2)
+        for i = 1, #G.hand.highlighted do
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.1,
+                func = function()
+                    G.hand.highlighted[i].ability.perma_bonus = (G.hand.highlighted[i].ability.perma_bonus or 0) + chips
+                    return true
+                end
+            }))
+        end
+        for i = 1, #G.hand.highlighted do
+            local percent = 0.85 + (i - 0.999) / (#G.hand.highlighted - 0.998) * 0.3
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.15,
+                func = function()
+                    G.hand.highlighted[i]:flip()
+                    play_sound('tarot2', percent, 0.6)
+                    G.hand.highlighted[i]:juice_up(0.3, 0.3)
+                    return true
+                end
+            }))
+        end
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.2,
+            func = function()
+                G.hand:unhighlight_all()
+                return true
+            end
+        }))
+        delay(0.5)
     end,
+
     can_use = function(self, card)
-        if not G.hand then return false end
-        local sel = G.hand.highlighted
-
-        if #sel == 0 or #sel > card.ability.max_highlighted then
-            return false
-        end
-
-        for i = 1, #sel do
-            local suit = sel[i].base and sel[i].base.suit
-            if suit ~= 'Clubs' and suit ~= 'Spades' then
-                return false
+        local true_suit = false
+        local wrong_suit = true
+        if #G.hand.highlighted > 0 and #G.hand.highlighted <= card.ability.max_highlighted then
+            for i = 1, #G.hand.highlighted do
+                if (G.hand.highlighted[i]:is_suit(card.ability.suit_allowed1) or G.hand.highlighted[i]:is_suit(card.ability.suit_allowed2)) then
+                    true_suit = true
+                end
+                if not (G.hand.highlighted[i]:is_suit(card.ability.suit_allowed1) or G.hand.highlighted[i]:is_suit(card.ability.suit_allowed2)) then
+                    wrong_suit = false
+                end
             end
         end
-
-        return true
+        return true_suit and wrong_suit
     end
 }
