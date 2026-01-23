@@ -14,26 +14,22 @@ SMODS.Joker {
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    config = { extra = { xchips = 3.5, triggered = false } },
+    config = { extra = { odds = 2, enhrep = 1 } },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.xmult } }
+        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'imadeyouasteak')
+        return { vars = { card.ability.extra.enhrep, numerator, denominator } }
     end,
     calculate = function(self, card, context)
-        if context.before and context.main_eval and not context.blueprint then
-            card.ability.extra.triggered = false
-        end
-        if context.individual and context.cardarea == 'unscored' and not context.blueprint then
-            if not card.ability.extra.triggered and context.other_card:is_face() then
-                card.ability.extra.triggered = true
-                context.other_card.scored = true
+        if context.repetition and context.cardarea == G.play then
+            local c = context.other_card
+            if c.ability and c.ability.set == "Enhanced" then
+                if SMODS.pseudorandom_probability(card, "imissmyex", 1, 2) then
+                    c:set_ability(G.P_CENTERS.c_base)
+                end
                 return {
-                    xchips = card.ability.extra.xchips,
-                    colour = G.C.BLUE
+                    repetitions = card.ability.extra.enhrep
                 }
             end
-        end
-        if context.end_of_round and not context.blueprint then
-            card.ability.extra.triggered = false
         end
     end
 }

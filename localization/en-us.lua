@@ -1,5 +1,18 @@
 return {
     descriptions = {
+        Mod = {
+            baddirector = {
+					name = "Bad Director",
+                    text = {
+                        "{s:1.2}A {C:dark_edition}?allinaV{}-adjacent Balatro Mod",
+                        "inspired by the idea of {C:attention}Misprint Joker{} and",
+                        "a bunch of Big Vanilla-esque Mod.",
+                        "Most of the Additions here are thematic, but some are non-thematic",
+                        "that i come up with by myself.",
+                        "Check out my other stuff such as: {C:attention}Tangents{}, and more!",
+                    }
+				}
+        },
         Back = {
             b_bd_missingdeck = {
                 name = "MissingDeck",
@@ -96,12 +109,13 @@ return {
                     }
                 }
             },
-            j_bd_finewine = {
-                name = "Fine Wine",
+            j_bd_cheapwine = {
+                name = "Cheap Wine",
                 text = {
                     "{C:mult}+#1#{} Mult",
-                    "{C:mult}-#2#{} Mult for every {C:money}$5{}",
-                    "the player has at the end of every round"
+                    "{C:mult}-#2#{} Mult for every",
+                    "{C:money}$5{} the player has",
+                    "at end of every round"
                 }
             },
             j_bd_p03 = {
@@ -123,7 +137,9 @@ return {
             j_bd_binded = {
                 name = "Binded",
                 text = {
-                    "#"
+                    "Retrigger each played {C:attention}enhanced{} cards,",
+                    "{C:green}#2# in #3#{} chance to",
+                    "remove card {C:attention}Enhancement"
                 }
             },
             j_bd_longface = {
@@ -132,6 +148,15 @@ return {
                     "This Joker gains {C:mult}+{E:bd_glitching,C:mult}67{} Mult",
                     "if played hand has {C:attention}3{} or more",
                     "unscored {C:attention}face{} cards"
+                }
+            },
+            j_bd_impulsebuyer = {
+                name = "Impulse Buyer",
+                text = {
+                    "This Joker gains {X:mult,C:white}X#2#{} Mult",
+                    "per bought cards in the shop,",
+                    "resets when skipping a shop",
+                    "{C:inactive}(Currently {X:mult,C:white}X#1#{} {C:inactive}Mult)"
                 }
             },
         },
@@ -192,7 +217,7 @@ return {
                     "{C:attention}#1#{} selected {C:hearts}Hearts{}",
                     "and {C:diamonds}Diamonds{}",
                     "{X:mult,C:white}XMult{} equal to",
-                    "{C:attention}1/4{} of their {C:chips}Chips{}",
+                    "{C:attention}10%{} of their {C:chips}Chips{}",
                 }
             },
             c_bd_sunprint = {
@@ -205,12 +230,32 @@ return {
                     "{C:attention}half{} of their {C:chips}Chips{}",
                 }
             },
+            c_bd_moonprint = {
+                name = "onThe Mo",
+                text = {
+                    "Gi{E:bd_glitching,C:dark_edition}v{}e{E:bd_glitching,C:dark_edition}t{}s up to",
+                    "{C:attention}#1#{} selected {C:clubs}Clubs{}",
+                    "and {C:spades}Spades{}",
+                    "{X:chips,C:white}XChips{} equal to",
+                    "all held {C:attention}Consumables{}",
+                }
+            },
+            c_bd_worldprint = {
+                name = "rldThe Wo",
+                text = {
+                    "Gi{E:bd_glitching,C:dark_edition}v{}e{E:bd_glitching,C:dark_edition}t{}s up to",
+                    "{C:attention}#1#{} selected {C:clubs}Clubs{}",
+                    "and {C:spades}Spades{}",
+                    "{C:chips}Chips{} equal to",
+                    "all {C:attention}Jokers{} sell value",
+                }
+            },
             c_bd_judgeprint = {
                 name = "ementJudg",
                 text = {
                     "Destroy a selected {C:attention}Joker{} and",
                     "Ra{E:bd_glitching,C:dark_edition}n{}d{E:bd_glitching,C:dark_edition}o{}{E:bd_glitching,C:dark_edition}miz{}es up to {C:attention}2{}",
-                    "{C:attention}Misprintized{} consumables"
+                    "{C:attention}Misprinted{} consumables"
                 }
             },
             c_bd_wheelofprint = {
@@ -262,6 +307,9 @@ return {
     },
     misc = {
         dictionary = {
+            k_specialthanks = "{C:edition,E:1,s:2}Special Thanks to:",
+            b_bad_director_wiki = "Wiki",
+            b_bad_director_other = "My Other Mods",
             k_mistarot = 'rotTa',
             b_mistarot_cards = "ot CardsTar",
             k_misplanet = 'netPla',

@@ -1,3 +1,4 @@
+--[[
 SMODS.Consumable {
     atlas = "consumisprints",
     key = 'planetprint',
@@ -95,3 +96,4 @@ SMODS.Consumable {
     set = 'misplanet',
     pos = { x = 2, y = 4 },
 }
+]]

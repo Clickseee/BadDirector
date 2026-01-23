@@ -626,7 +626,7 @@ SMODS.Consumable {
                 for i = 1, #targets do
                     local c = targets[i]
                     local chips = c:get_chip_bonus() or 0
-                    local x_gain = chips / 4
+                    local x_gain = math.floor(chips / 0.1)
 
                     if x_gain > 0 then
                         c.ability.perma_x_mult =
@@ -665,6 +665,37 @@ SMODS.Consumable {
     key = 'moonprint',
     set = 'mistarot',
     pos = { x = 8, y = 1 },
+    config = { max_highlighted = 3 },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.max_highlighted } }
+    end,
+    use = function(self, card, area, copier)
+        local count = #G.consumeables.cards
+        local xchips = count * 0.5
+        for _, c in ipairs(G.hand.highlighted) do
+            if c.base and (c.base.suit == 'Clubs' or c.base.suit == 'Spades') then
+                c.ability.perma_x_chips = (c.ability.perma_x_chips or 1) + xchips
+                c:juice_up(0.3, 0.3)
+            end
+        end
+    end,
+    can_use = function(self, card)
+        if not G.hand then return false end
+        local sel = G.hand.highlighted
+
+        if #sel == 0 or #sel > card.ability.max_highlighted then
+            return false
+        end
+
+        for i = 1, #sel do
+            local suit = sel[i].base and sel[i].base.suit
+            if suit ~= 'Clubs' and suit ~= 'Spades' then
+                return false
+            end
+        end
+
+        return true
+    end
 }
 
 SMODS.Consumable {
@@ -689,7 +720,7 @@ SMODS.Consumable {
                 for i = 1, #targets do
                     local c = targets[i]
                     local chips = c:get_chip_bonus() or 0
-                    local mult_gain = chips / 2
+                    local mult_gain = math.floor(chips / 2)
 
                     if mult_gain > 0 then
                         c.ability.perma_mult =
@@ -769,4 +800,40 @@ SMODS.Consumable {
     key = 'worldprint',
     set = 'mistarot',
     pos = { x = 1, y = 2 },
+    config = { max_highlighted = 3 },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.max_highlighted } }
+    end,
+    use = function(self, card, area, copier)
+        local total = 0
+        for _, j in ipairs(G.jokers.cards) do
+            if j.sell_cost then
+                total = total + j.sell_cost
+            end
+        end
+        local chips = total * 2
+        for _, c in ipairs(G.hand.highlighted) do
+            if c.base and (c.base.suit == 'Clubs' or c.base.suit == 'Spades') then
+                c.ability.perma_bonus = (c.ability.perma_bonus or 0) + chips
+                c:juice_up(0.3, 0.3)
+            end
+        end
+    end,
+    can_use = function(self, card)
+        if not G.hand then return false end
+        local sel = G.hand.highlighted
+
+        if #sel == 0 or #sel > card.ability.max_highlighted then
+            return false
+        end
+
+        for i = 1, #sel do
+            local suit = sel[i].base and sel[i].base.suit
+            if suit ~= 'Clubs' and suit ~= 'Spades' then
+                return false
+            end
+        end
+
+        return true
+    end
 }

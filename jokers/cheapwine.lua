@@ -1,5 +1,5 @@
 SMODS.Joker {
-    key = "finewine",
+    key = "cheapwine",
     rarity = 1,
     atlas = "rattlingsnow",
     pos = { x = 3, y = 0 },
@@ -21,9 +21,9 @@ SMODS.Joker {
             local money = G.GAME.dollars or 0
             local penalty = math.floor(money / 5) * card.ability.extra.per5
             if penalty > 0 then
+                card.ability.extra.base = card.ability.extra.base - penalty
                 return {
-                    mult = -penalty,
-                    message = "-" .. penalty .. " Mult",
+                    message = localize { type = "variable", key = "a_mult_minus", vars = {penalty} },
                     colour = G.C.RED
                 }
             end
