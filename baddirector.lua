@@ -25,10 +25,12 @@ BadDirector.optional_features = {
     post_trigger = true
 }
 
+--[[
 local jpath = SMODS.current_mod.path .. 'jokers/'
 for _, v in pairs(NFS.getDirectoryItems(jpath)) do
     assert(SMODS.load_file('jokers/' .. v))()
 end
+]]
 
 local dpath = SMODS.current_mod.path .. 'decks/'
 for _, v in pairs(NFS.getDirectoryItems(dpath)) do
