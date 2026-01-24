@@ -36,13 +36,13 @@ SMODS.Edition {
     end,
     on_apply = function(card)
 		if not card.edition or not card.edition.lowres then
-			Cryptid.manipulate(card, {
+			BadDirector.manipulate(card, {
 				value = 2
 			}, nil, true)
 		end
 	end,
 	on_remove = function(card)
-		Cryptid.manipulate(card, {
+		BadDirector.manipulate(card, {
             value = 0.5
         }, nil, true)
 	end,
