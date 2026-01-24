@@ -3,7 +3,6 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 9, y = 6 },
-    
 }
 
 SMODS.Consumable {
@@ -11,7 +10,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 0, y = 5 },
-    
+    misprint_original = "c_familiar"
 }
 
 SMODS.Consumable {
@@ -19,7 +18,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 1, y = 5 },
-    
+    misprint_original = "c_grim"
 }
 
 SMODS.Consumable {
@@ -27,7 +26,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 2, y = 5 },
-    
+    misprint_original = "c_incantation"
 }
 
 SMODS.Consumable {
@@ -35,7 +34,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 3, y = 5 },
-    
+    misprint_original = "c_talisman"
 }
 
 SMODS.Consumable {
@@ -43,7 +42,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 4, y = 5 },
-    
+    misprint_original = "c_aura"
 }
 
 SMODS.Consumable {
@@ -51,7 +50,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 5, y = 5 },
-    
+    misprint_original = "c_wrath"
 }
 
 SMODS.Consumable {
@@ -59,7 +58,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 6, y = 5 },
-    
+    misprint_original = "c_sigil"
 }
 
 SMODS.Consumable {
@@ -67,7 +66,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 7, y = 5 },
-    
+    misprint_original = "c_ouija"
 }
 
 SMODS.Consumable {
@@ -75,7 +74,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 8, y = 5 },
-    
+    misprint_original = "c_ectoplasm"
 }
 
 SMODS.Consumable {
@@ -83,7 +82,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 9, y = 5 },
-    
+    misprint_original = "c_immolate"
 }
 
 SMODS.Consumable {
@@ -91,7 +90,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 0, y = 6 },
-    
+    misprint_original = "c_ankh"
 }
 
 SMODS.Consumable {
@@ -99,7 +98,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 1, y = 6 },
-    
+    misprint_original = "c_deja_vu"
 }
 
 SMODS.Consumable {
@@ -107,7 +106,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 2, y = 6 },
-    
+    misprint_original = "c_hex"
 }
 
 SMODS.Consumable {
@@ -115,7 +114,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 3, y = 6 },
-    
+    misprint_original = "c_trance"
 }
 
 SMODS.Consumable {
@@ -123,7 +122,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 4, y = 6 },
-    
+    misprint_original = "c_medium"
 }
 
 SMODS.Consumable {
@@ -131,7 +130,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 5, y = 6 },
-    
+    misprint_original = "c_cryptid"
 }
 
 SMODS.Consumable {
@@ -191,5 +190,6 @@ SMODS.Consumable {
             end
         end,
     },
-    hidden = true
+    hidden = true,
+    misprint_original = "c_soul"
 }

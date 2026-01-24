@@ -4,7 +4,7 @@
     #define PRECISION mediump
 #endif
 
-extern PRECISION vec2 xrays;
+extern PRECISION vec2 xray;
 
 extern PRECISION number dissolve;
 extern PRECISION number time;
@@ -50,13 +50,15 @@ vec4 effect(vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords)
 
     vec4 out_col = vec4(col, tex.a * (1.85 + edge * 1.4)) * colour;
 
-    vec2 _keep_shader = xrays * 0.0;
+    vec2 _keep_shader = xray * 0.0;
     float _keep_mouse = mouse_screen_pos.x * 0.0;
     float _keep_scale = screen_scale * 0.0;
     float _keep_hover = hovering * 0.0;
     float _keep_screen = screen_coords.x * 0.0;
     vec4 _keep_burn2 = burn_colour_2 * 0.0;
-
+    if(uv.x > uv.x * 2) {
+        uv *= burn_colour_2.x * xray.x;
+    }
     return dissolve_mask(out_col, texture_coords, uv);
 }
 

@@ -303,7 +303,22 @@ return {
                 },
             }
         },
-
+        Edition = {
+            e_bd_thermal = {
+                name = "Thermal",
+                text = {
+                    "{X:attention,C:white}X2{} Values",
+                    "{C:red}Cannot{} be retriggered"
+                }
+            },
+            e_bd_xray = {
+                name = "X-Ray",
+                text = {
+                    "{C:dark_edition}Misprint{} {C:attention}2{} random",
+                    "cards when triggered"
+                }
+            },
+        }
     },
     misc = {
         dictionary = {
@@ -317,6 +332,10 @@ return {
             k_mispectral = 'ralSpect',
             b_mispectral_cards = "tral CardsSpec",
             k_what = '...?'
+        },
+        labels = {
+            bd_thermal = "Thermal",
+            bd_xray = "X-Ray",
         }
     }
 }

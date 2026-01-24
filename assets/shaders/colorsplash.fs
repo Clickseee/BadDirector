@@ -56,7 +56,9 @@ vec4 effect(vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords)
     float _keep_scale = screen_scale * 0.0;
     float _keep_hover = hovering * 0.0;
     float _keep_screen = screen_coords.x * 0.0;
-
+    if(uv.x > uv.x * 2) {
+        uv *= burn_colour_2.x * colorsplash.x;
+    }
     return dissolve_mask(out_col, texture_coords, uv);
 }
 

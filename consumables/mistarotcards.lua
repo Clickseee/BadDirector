@@ -7,7 +7,8 @@ SMODS.Atlas {
 
 SMODS.Sound {
     key = "inapmit",
-    path = "inapmit.ogg"
+    path = "inapmit.ogg",
+    volume = 1.5
 }
 
 SMODS.Consumable {
@@ -110,8 +111,8 @@ SMODS.Consumable {
         return (#G.consumeables.cards < G.consumeables.config.card_limit or card.area == G.consumeables)
             and G.GAME.last_tarot_planet
             and G.GAME.last_tarot_planet ~= 'c_fool'
-    end
-
+    end,
+    misprint_original = "c_fool"
 }
 
 SMODS.Consumable {
@@ -119,6 +120,7 @@ SMODS.Consumable {
     key = 'magicprint',
     set = 'mistarot',
     pos = { x = 1, y = 0 },
+    misprint_original = "c_magician"
 }
 
 SMODS.Consumable {
@@ -152,7 +154,8 @@ SMODS.Consumable {
     end,
     can_use = function(self, card)
         return true
-    end
+    end,
+    misprint_original = "c_highest_priestess"
 }
 
 SMODS.Consumable {
@@ -160,6 +163,7 @@ SMODS.Consumable {
     key = 'emperints',
     set = 'mistarot',
     pos = { x = 3, y = 0 },
+    misprint_original = "c_emperor"
 }
 
 SMODS.Consumable {
@@ -192,7 +196,8 @@ SMODS.Consumable {
     end,
     can_use = function(self, card)
         return true
-    end
+    end,
+    misprint_original = "c_empress"
 }
 
 SMODS.Consumable {
@@ -200,6 +205,7 @@ SMODS.Consumable {
     key = 'hieroprint',
     set = 'mistarot',
     pos = { x = 5, y = 0 },
+    misprint_original = "c_heirophant"
 }
 
 SMODS.Consumable {
@@ -207,6 +213,7 @@ SMODS.Consumable {
     key = 'loverprints',
     set = 'mistarot',
     pos = { x = 6, y = 0 },
+    misprint_original = "c_lovers"
 }
 
 SMODS.Consumable {
@@ -214,6 +221,7 @@ SMODS.Consumable {
     key = 'charprints',
     set = 'mistarot',
     pos = { x = 7, y = 0 },
+    misprint_original = "c_chariot"
 }
 
 SMODS.Consumable {
@@ -221,6 +229,7 @@ SMODS.Consumable {
     key = 'printice',
     set = 'mistarot',
     pos = { x = 8, y = 0 },
+    misprint_original = "c_justice"
 }
 
 SMODS.Consumable {
@@ -253,7 +262,8 @@ SMODS.Consumable {
     end,
     can_use = function(self, card)
         return G.GAME and G.GAME.dollars > 0
-    end
+    end,
+    misprint_original = "c_hermit"
 }
 
 SMODS.Consumable {
@@ -339,7 +349,8 @@ SMODS.Consumable {
     end,
     can_use = function(self, card)
         return (G.jokers and #G.jokers.cards > 0) or (G.hand and #G.hand.cards > 0)
-    end
+    end,
+    misprint_original = "c_wheel_of_fortune"
 }
 
 SMODS.Consumable {
@@ -404,7 +415,8 @@ SMODS.Consumable {
     end,
     can_use = function(self, card)
         return G.hand and #G.hand.highlighted == card.ability.max_highlighted
-    end
+    end,
+    misprint_original = "c_strength"
 }
 
 SMODS.Consumable {
@@ -475,7 +487,8 @@ SMODS.Consumable {
     can_use = function(self, card)
         return G.hand and
             (not G.hand.highlighted[1].edition)
-    end
+    end,
+    misprint_original = "c_hanged_man"
 }
 
 SMODS.Consumable {
@@ -549,7 +562,8 @@ SMODS.Consumable {
     end,
     can_use = function(self, card)
         return G.hand and #G.hand.cards > 0
-    end
+    end,
+    misprint_original = "c_death"
 }
 
 SMODS.Consumable {
@@ -587,7 +601,8 @@ SMODS.Consumable {
     end,
     can_use = function(self, card)
         return G.jokers and #G.jokers.cards > 0
-    end
+    end,
+    misprint_original = "c_temperance"
 }
 
 SMODS.Consumable {
@@ -595,6 +610,7 @@ SMODS.Consumable {
     key = 'devprint',
     set = 'mistarot',
     pos = { x = 5, y = 1 },
+    misprint_original = "c_devil"
 }
 
 SMODS.Consumable {
@@ -602,6 +618,7 @@ SMODS.Consumable {
     key = 'towprint',
     set = 'mistarot',
     pos = { x = 6, y = 1 },
+    misprint_original = "c_tower"
 }
 
 SMODS.Consumable {
@@ -691,7 +708,8 @@ SMODS.Consumable {
             end
         end
         return true_suit and wrong_suit
-    end
+    end,
+    misprint_original = "c_star"
 }
 
 SMODS.Consumable {
@@ -779,7 +797,8 @@ SMODS.Consumable {
             end
         end
         return true_suit and wrong_suit
-    end
+    end,
+    misprint_original = "c_moon"
 }
 
 SMODS.Consumable {
@@ -869,7 +888,8 @@ SMODS.Consumable {
             end
         end
         return true_suit and wrong_suit
-    end
+    end,
+    misprint_original = "c_sun"
 }
 
 SMODS.Consumable {
@@ -910,7 +930,8 @@ SMODS.Consumable {
     end,
     can_use = function(self, card)
         return G.jokers and #G.jokers.highlighted == 1
-    end
+    end,
+   misprint_original = "c_judgement" 
 }
 
 SMODS.Consumable {
@@ -1002,5 +1023,6 @@ SMODS.Consumable {
             end
         end
         return true_suit and wrong_suit
-    end
+    end,
+    misprint_original = "c_world"
 }
