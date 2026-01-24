@@ -515,3 +515,5 @@ SMODS.Edition {
     calculate = function(self, card, context)
     end
 }
+
+SMODS.Joker:take_ownership("j_misprint", {})
