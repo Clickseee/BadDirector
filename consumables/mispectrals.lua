@@ -3,6 +3,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 9, y = 6 },
+    no_collection = true
 }
 
 SMODS.Consumable {

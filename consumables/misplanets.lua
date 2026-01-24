@@ -4,6 +4,7 @@ SMODS.Consumable {
     set = 'misplanet',
     draw = function(self, card, layer) card.children.center:draw_shader('hologram', nil, card.ARGS.send_to_shader) end,
     pos = { x = 9, y = 4 },
+    no_collection = true
 }
 
 SMODS.Consumable {
