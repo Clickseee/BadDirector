@@ -1,8 +1,66 @@
-if Cryptid then 
+if (SMODS.Mods.Cryptid or {}).can_load or (SMODS.Mods.Cryptlib or {}).can_load then 
 	return
 end
 
 BadDirector.base_values = {}
+
+-- Check G.GAME as well as joker info for banned keys
+function Card:no(m, no_no)
+	if no_no then
+		-- Infinifusion Compat
+		if self.infinifusion then
+			for i = 1, #self.infinifusion do
+				if
+					G.P_CENTERS[self.infinifusion[i].key][m]
+					or (G.GAME and G.GAME[m] and G.GAME[m][self.infinifusion[i].key])
+				then
+					return true
+				end
+			end
+			return false
+		end
+		if not self.config then
+			--assume this is from one component of infinifusion
+			return G.P_CENTERS[self.key][m] or (G.GAME and G.GAME[m] and G.GAME[m][self.key])
+		end
+
+		return self.config.center[m] or (G.GAME and G.GAME[m] and G.GAME[m][self.config.center_key]) or false
+	end
+	return Card.no(self, "no_" .. m, true)
+end
+
+function BadDirector.no(center, m, key, no_no)
+	if no_no then
+		return center[m] or (G.GAME and G.GAME[m] and G.GAME[m][key]) or false
+	end
+	return BadDirector.no(center, "no_" .. m, key, true)
+end
+
+function BadDirector.deck_effects(card, func)
+	if not card.added_to_deck then
+		return func(card)
+	else
+		card.from_quantum = true
+		card:remove_from_deck(true)
+		local ret = func(card)
+		card:add_to_deck(true)
+		card.from_quantum = nil
+		return ret
+	end
+end
+
+function BadDirector.with_deck_effects(card, func)
+	if not card.added_to_deck then
+		return func(card)
+	else
+		card.from_quantum = true
+		card:remove_from_deck(true)
+		local ret = func(card)
+		card:add_to_deck(true)
+		card.from_quantum = nil
+		return ret
+	end
+end
 
 BadDirector.misprintize_value_blacklist = {
 	perish_tally = false,
@@ -291,60 +349,33 @@ function BadDirector.sanity_check(val, is_big)
 	return val
 end
 
--- Check G.GAME as well as joker info for banned keys
-function Card:no(m, no_no)
-	if no_no then
-		-- Infinifusion Compat
-		if self.infinifusion then
-			for i = 1, #self.infinifusion do
-				if
-					G.P_CENTERS[self.infinifusion[i].key][m]
-					or (G.GAME and G.GAME[m] and G.GAME[m][self.infinifusion[i].key])
-				then
-					return true
-				end
-			end
-			return false
-		end
-		if not self.config then
-			--assume this is from one component of infinifusion
-			return G.P_CENTERS[self.key][m] or (G.GAME and G.GAME[m] and G.GAME[m][self.key])
-		end
-
-		return self.config.center[m] or (G.GAME and G.GAME[m] and G.GAME[m][self.config.center_key]) or false
-	end
-	return Card.no(self, "no_" .. m, true)
+function BadDirector.is_number(x)
+	return type(x) == "number" or (type(x) == "table" and is_number and is_number(x)) or (is_big and is_big(x))
+end
+function BadDirector.is_big(x)
+	return (type(x) == "table" and is_number and is_number(x)) or (is_big and is_big(x))
 end
 
-function BadDirector.no(center, m, key, no_no)
-	if no_no then
-		return center[m] or (G.GAME and G.GAME[m] and G.GAME[m][key]) or false
+function BadDirector.is_card_big(joker)
+	if not Talisman then
+		return false
 	end
-	return BadDirector.no(center, "no_" .. m, key, true)
-end
+	local center = joker.config and joker.config.center
+	if not center then
+		return false
+	end
 
-function BadDirector.deck_effects(card, func)
-	if not card.added_to_deck then
-		return func(card)
-	else
-		card.from_quantum = true
-		card:remove_from_deck(true)
-		local ret = func(card)
-		card:add_to_deck(true)
-		card.from_quantum = nil
-		return ret
+	if center.immutable and center.immutable == true then
+		return false
 	end
-end
+    -- im making bignums not work with Cryptid. since i dont see the point
+    -- could be changed but i dont feel like making 2 blacklists or making this mod use the cryptid table either
+	if center.mod and not (Cryptid or {}).mod_whitelist[center.mod.name] then
+		return false
+	end
 
-function BadDirector.with_deck_effects(card, func)
-	if not card.added_to_deck then
-		return func(card)
-	else
-		card.from_quantum = true
-		card:remove_from_deck(true)
-		local ret = func(card)
-		card:add_to_deck(true)
-		card.from_quantum = nil
-		return ret
-	end
+	local in_blacklist = ((Cryptid or {}).big_num_blacklist or {})[center.key or "Nope!"] or false
+
+	return not in_blacklist --[[or
+	       (center.mod and center.mod.id == "Cryptid" and not center.no_break_infinity) or center.break_infinity--]]
 end
