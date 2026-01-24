@@ -35,6 +35,8 @@ Author: Nxkoo (Creator of [Tangents](https://github.com/Clickseee/Tangents), [1 
 
 [IncognitoN71](https://github.com/IncognitoN71) for the Misprinted Consumables Sprite and the Mod Logo/Icon, and a couple of Coding help from him
 
+[lord.ruby](https://github.com/lord-ruby) for the Misprinted Planet code and Edition code, plus some other stuff
+
 The Official Balatro [Discord Server](https://discord.gg/qxdtKRBf7s) #modding-chat
 
 The entirety of [VanillaRemade](https://github.com/nh6574/VanillaRemade)
