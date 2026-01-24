@@ -1,7 +1,5 @@
 if Cryptid then 
-	BadDirector.manipulate = Cryptid.manipulate
 	return
-
 end
 
 BadDirector.base_values = {}
@@ -291,4 +289,36 @@ function BadDirector.sanity_check(val, is_big)
 		return to_number(val)
 	end
 	return val
+end
+
+-- Check G.GAME as well as joker info for banned keys
+function Card:no(m, no_no)
+	if no_no then
+		-- Infinifusion Compat
+		if self.infinifusion then
+			for i = 1, #self.infinifusion do
+				if
+					G.P_CENTERS[self.infinifusion[i].key][m]
+					or (G.GAME and G.GAME[m] and G.GAME[m][self.infinifusion[i].key])
+				then
+					return true
+				end
+			end
+			return false
+		end
+		if not self.config then
+			--assume this is from one component of infinifusion
+			return G.P_CENTERS[self.key][m] or (G.GAME and G.GAME[m] and G.GAME[m][self.key])
+		end
+
+		return self.config.center[m] or (G.GAME and G.GAME[m] and G.GAME[m][self.config.center_key]) or false
+	end
+	return Card.no(self, "no_" .. m, true)
+end
+
+function BadDirector.no(center, m, key, no_no)
+	if no_no then
+		return center[m] or (G.GAME and G.GAME[m] and G.GAME[m][key]) or false
+	end
+	return BadDirector.no(center, "no_" .. m, key, true)
 end
