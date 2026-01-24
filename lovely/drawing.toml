@@ -1,0 +1,14 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 9999999
+
+# I AM LORD.RUBY AND NXKOO IS A FA
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/card_draw.lua"]'
+pattern = '''if (self.ability.set == 'Booster' or self.ability.set == 'Spectral') and self:should_draw_base_shader() then'''
+position = "at"
+payload = '''if (self.ability.set == 'Booster' or self.ability.set == 'Spectral' or self.ability.set == 'mispectral') and self:should_draw_base_shader() then'''
+match_indent = true
+times = 1

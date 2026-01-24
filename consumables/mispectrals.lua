@@ -3,11 +3,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 9, y = 6 },
-    draw = function(self, card, layer)
-        if (layer == 'card' or layer == 'both') and card.sprite_facing == 'front' then
-            card.children.center:draw_shader('booster', nil, card.ARGS.send_to_shader)
-        end
-    end
+    
 }
 
 SMODS.Consumable {
@@ -15,11 +11,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 0, y = 5 },
-    draw = function(self, card, layer)
-        if (layer == 'card' or layer == 'both') and card.sprite_facing == 'front' then
-            card.children.center:draw_shader('booster', nil, card.ARGS.send_to_shader)
-        end
-    end
+    
 }
 
 SMODS.Consumable {
@@ -27,11 +19,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 1, y = 5 },
-    draw = function(self, card, layer)
-        if (layer == 'card' or layer == 'both') and card.sprite_facing == 'front' then
-            card.children.center:draw_shader('booster', nil, card.ARGS.send_to_shader)
-        end
-    end
+    
 }
 
 SMODS.Consumable {
@@ -39,11 +27,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 2, y = 5 },
-    draw = function(self, card, layer)
-        if (layer == 'card' or layer == 'both') and card.sprite_facing == 'front' then
-            card.children.center:draw_shader('booster', nil, card.ARGS.send_to_shader)
-        end
-    end
+    
 }
 
 SMODS.Consumable {
@@ -51,11 +35,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 3, y = 5 },
-    draw = function(self, card, layer)
-        if (layer == 'card' or layer == 'both') and card.sprite_facing == 'front' then
-            card.children.center:draw_shader('booster', nil, card.ARGS.send_to_shader)
-        end
-    end
+    
 }
 
 SMODS.Consumable {
@@ -63,11 +43,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 4, y = 5 },
-    draw = function(self, card, layer)
-        if (layer == 'card' or layer == 'both') and card.sprite_facing == 'front' then
-            card.children.center:draw_shader('booster', nil, card.ARGS.send_to_shader)
-        end
-    end
+    
 }
 
 SMODS.Consumable {
@@ -75,11 +51,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 5, y = 5 },
-    draw = function(self, card, layer)
-        if (layer == 'card' or layer == 'both') and card.sprite_facing == 'front' then
-            card.children.center:draw_shader('booster', nil, card.ARGS.send_to_shader)
-        end
-    end
+    
 }
 
 SMODS.Consumable {
@@ -87,11 +59,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 6, y = 5 },
-    draw = function(self, card, layer)
-        if (layer == 'card' or layer == 'both') and card.sprite_facing == 'front' then
-            card.children.center:draw_shader('booster', nil, card.ARGS.send_to_shader)
-        end
-    end
+    
 }
 
 SMODS.Consumable {
@@ -99,11 +67,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 7, y = 5 },
-    draw = function(self, card, layer)
-        if (layer == 'card' or layer == 'both') and card.sprite_facing == 'front' then
-            card.children.center:draw_shader('booster', nil, card.ARGS.send_to_shader)
-        end
-    end
+    
 }
 
 SMODS.Consumable {
@@ -111,11 +75,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 8, y = 5 },
-    draw = function(self, card, layer)
-        if (layer == 'card' or layer == 'both') and card.sprite_facing == 'front' then
-            card.children.center:draw_shader('booster', nil, card.ARGS.send_to_shader)
-        end
-    end
+    
 }
 
 SMODS.Consumable {
@@ -123,11 +83,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 9, y = 5 },
-    draw = function(self, card, layer)
-        if (layer == 'card' or layer == 'both') and card.sprite_facing == 'front' then
-            card.children.center:draw_shader('booster', nil, card.ARGS.send_to_shader)
-        end
-    end
+    
 }
 
 SMODS.Consumable {
@@ -135,11 +91,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 0, y = 6 },
-    draw = function(self, card, layer)
-        if (layer == 'card' or layer == 'both') and card.sprite_facing == 'front' then
-            card.children.center:draw_shader('booster', nil, card.ARGS.send_to_shader)
-        end
-    end
+    
 }
 
 SMODS.Consumable {
@@ -147,11 +99,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 1, y = 6 },
-    draw = function(self, card, layer)
-        if (layer == 'card' or layer == 'both') and card.sprite_facing == 'front' then
-            card.children.center:draw_shader('booster', nil, card.ARGS.send_to_shader)
-        end
-    end
+    
 }
 
 SMODS.Consumable {
@@ -159,11 +107,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 2, y = 6 },
-    draw = function(self, card, layer)
-        if (layer == 'card' or layer == 'both') and card.sprite_facing == 'front' then
-            card.children.center:draw_shader('booster', nil, card.ARGS.send_to_shader)
-        end
-    end
+    
 }
 
 SMODS.Consumable {
@@ -171,11 +115,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 3, y = 6 },
-    draw = function(self, card, layer)
-        if (layer == 'card' or layer == 'both') and card.sprite_facing == 'front' then
-            card.children.center:draw_shader('booster', nil, card.ARGS.send_to_shader)
-        end
-    end
+    
 }
 
 SMODS.Consumable {
@@ -183,11 +123,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 4, y = 6 },
-    draw = function(self, card, layer)
-        if (layer == 'card' or layer == 'both') and card.sprite_facing == 'front' then
-            card.children.center:draw_shader('booster', nil, card.ARGS.send_to_shader)
-        end
-    end
+    
 }
 
 SMODS.Consumable {
@@ -195,11 +131,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 5, y = 6 },
-    draw = function(self, card, layer)
-        if (layer == 'card' or layer == 'both') and card.sprite_facing == 'front' then
-            card.children.center:draw_shader('booster', nil, card.ARGS.send_to_shader)
-        end
-    end
+    
 }
 
 SMODS.Consumable {
