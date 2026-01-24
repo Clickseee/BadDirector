@@ -8,8 +8,8 @@ SMODS.Atlas {
 SMODS.Atlas {
     key = "modlogo",
     path = "modlogo.png",
-    px = 258,
-    py = 194,
+    px = 172,
+    py = 129,
 }
 
 SMODS.Atlas { -- ALL ARTS BELONG TO RATTLINGSNOW353 WITH PERMISSION
