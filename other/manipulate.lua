@@ -322,3 +322,29 @@ function BadDirector.no(center, m, key, no_no)
 	end
 	return BadDirector.no(center, "no_" .. m, key, true)
 end
+
+function BadDirector.deck_effects(card, func)
+	if not card.added_to_deck then
+		return func(card)
+	else
+		card.from_quantum = true
+		card:remove_from_deck(true)
+		local ret = func(card)
+		card:add_to_deck(true)
+		card.from_quantum = nil
+		return ret
+	end
+end
+
+function BadDirector.with_deck_effects(card, func)
+	if not card.added_to_deck then
+		return func(card)
+	else
+		card.from_quantum = true
+		card:remove_from_deck(true)
+		local ret = func(card)
+		card:add_to_deck(true)
+		card.from_quantum = nil
+		return ret
+	end
+end
