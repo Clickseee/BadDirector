@@ -18,6 +18,11 @@ SMODS.Shader {
     path = "blueprint.fs"
 }
 
+SMODS.Shader {
+    key = "misprint",
+    path = "misprint.fs"
+}
+
 
 SMODS.Edition {
     key = "thermal", --i hate you niko (jk)
@@ -126,5 +131,37 @@ SMODS.Edition {
     loc_vars = function(self, info_queue)
     end,
     calculate = function(self, card, context)
+    end
+}
+
+SMODS.Edition {
+    key = "misprinted",
+    order = 1,
+    loc_txt = {
+        name = "Misprinted",
+        label = "?@!;$",
+        text = {
+            "Test"
+        }
+    },
+    weight = 21,
+    shader = "misprint",
+    in_shop = true,
+    extra_cost = 3,
+    get_weight = function(self)
+        return G.GAME.edition_rate * self.weight
+    end,
+    loc_vars = function(self, info_queue)
+    end,
+    calculate = function(self, card, context)
+        if (context.post_trigger and context.other_card == card) or (context.main_scoring and context.cardarea == G.play) then
+            BadDirector.manipulate(card, {
+                min = 0.2, max = 5
+            })
+            return {
+                message = localize("k_upgrade_q"),
+                colour = G.C.DARK_EDITION
+            }
+        end
     end
 }

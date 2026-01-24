@@ -318,6 +318,14 @@ return {
                     "cards when triggered"
                 }
             },
+            e_bd_misprinted = {
+                name = "Misprinted",
+                text = {
+                    "Values are {C:attention}randomized{}",
+                    "between {X:attention,C:white}X0.2{} and",
+                    "{X:attention,C:white}X5{} when triggered"
+                }
+            }
         }
     },
     misc = {
@@ -331,11 +339,13 @@ return {
             b_misplanet_cards = "net CardsPla",
             k_mispectral = 'ralSpect',
             b_mispectral_cards = "tral CardsSpec",
-            k_what = '...?'
+            k_what = '...?',
+            k_upgrade_q = "Upgrade?"
         },
         labels = {
             bd_thermal = "Thermal",
             bd_xray = "X-Ray",
+            bd_misprinted = "?@!;$"
         }
     }
 }

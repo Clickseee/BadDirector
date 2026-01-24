@@ -45,6 +45,9 @@ local loadmodsref = SMODS.injectItems
 function SMODS.injectItems(...)
     local ret = loadmodsref(...)
     BadDirector.build_misprint_table()
+    if Cryptid and Cryptid.manipulate then
+        BadDirector.manipulate = Cryptid.manipulate
+    end
     return ret
 end
 
