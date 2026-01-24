@@ -80,6 +80,35 @@ SMODS.current_mod.custom_ui = function(nodes)
     return nodes
 end
 
+SMODS.Sound {
+    key = "woof1",
+    path = "woof1.ogg",
+    volume = 1.5
+}
+SMODS.Sound {
+    key = "woof2",
+    path = "woof2.ogg",
+    volume = 1.5
+}
+SMODS.Sound {
+    key = "woof3",
+    path = "woof3.ogg",
+    volume = 1.5
+}
+
+local card_click_ref = Card.click
+function Card:click(...)
+    if self.config.center.key == "j_bd_rubyjoker" and G.SETTINGS.paused then
+        play_sound(pseudorandom_element({
+            "bd_woof1",
+            "bd_woof2",
+            "bd_woof3",
+        }, pseudoseed("bd_ruby_woof")))
+    else
+        return card_click_ref(self, ...)
+    end
+end
+
 BadDirector.extra_tabs = function()
     return {
         {
