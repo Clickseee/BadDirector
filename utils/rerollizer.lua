@@ -3,9 +3,8 @@ function BadDirector.replacecards(area, replace, bypass_eternal, keep, keeporigi
         if area == G.shop_booster.cards then                                                                  -- shoutout to Revo btw
             for i = 1, #area do
                 local tab = {}
-                for i = 1, #G.P_CENTER_POOLS.Booster do
-                    tab[#tab + 1] = G.P_CENTER_POOLS.Booster[i].key
-                end
+                local _pool = get_current_pool("Booster")
+                for i, v in pairs(_pool) do if v ~= "UNAVAILABLE" then tab[#tab+1] = v end end
                 if area[i] ~= keeporiginal and area[i].ability.set == "Booster" then
                     local tab2 = pseudorandom_element(tab)
                     if _flip then
@@ -38,9 +37,8 @@ function BadDirector.replacecards(area, replace, bypass_eternal, keep, keeporigi
         if area == G.shop_vouchers.cards then
             for i = 1, #area do
                 local tab = {}
-                for i = 1, #G.P_CENTER_POOLS.Voucher do
-                    tab[#tab + 1] = G.P_CENTER_POOLS.Voucher[i].key
-                end
+                local _pool = get_current_pool("Voucher")
+                for i, v in pairs(_pool) do if v ~= "UNAVAILABLE" then tab[#tab+1] = v end end
                 if area[i] ~= keeporiginal and area[i].ability.set == "Voucher" then
                     local tab2 = pseudorandom_element(tab)
                     if _flip then
@@ -94,11 +92,9 @@ function BadDirector.replacecards(area, replace, bypass_eternal, keep, keeporigi
                         end
                         local set = area[i].ability.set
                         local tab = {}
-                        for i = 1, #G.P_CENTER_POOLS.Joker do
-                            if G.P_CENTER_POOLS.Joker[i].rarity == b then
-                                tab[#tab + 1] = G.P_CENTER_POOLS.Joker[i].key
-                            end
-                        end
+                        local _pool = get_current_pool("Joker", rarity, rarity == "Legendary")
+                        for i, v in pairs(_pool) do if v ~= "UNAVAILABLE" then tab[#tab+1] = v end end
+
                         if area[i] ~= keeporiginal then
                             local tab2 = pseudorandom_element(tab)
                             if _flip then
@@ -140,11 +136,9 @@ function BadDirector.replacecards(area, replace, bypass_eternal, keep, keeporigi
                             rarity = "Legendary"
                         end
                         local tab = {}
-                        for i = 1, #G.P_CENTER_POOLS.Joker do
-                            if G.P_CENTER_POOLS.Joker[i].rarity == b then
-                                tab[#tab + 1] = G.P_CENTER_POOLS.Joker[i].key
-                            end
-                        end
+                        local _pool = get_current_pool("Joker", rarity, rarity == "Legendary")
+                        for i, v in pairs(_pool) do if v ~= "UNAVAILABLE" then tab[#tab+1] = v end end
+
                         if area[i] ~= keeporiginal then
                             local tab2 = pseudorandom_element(tab)
                             if _flip then
@@ -178,11 +172,8 @@ function BadDirector.replacecards(area, replace, bypass_eternal, keep, keeporigi
                     local tab = {}
 
 
-                    for i = 1, #G.P_CENTER_POOLS.Consumeables do
-                        if G.P_CENTER_POOLS.Consumeables[i].set == set then
-                            tab[#tab + 1] = G.P_CENTER_POOLS.Consumeables[i].key
-                        end
-                    end
+                    local _pool = get_current_pool("Consumeables")
+                    for i, v in pairs(_pool) do if v ~= "UNAVAILABLE" then tab[#tab+1] = v end end
 
 
                     if area[i] ~= keeporiginal then
@@ -260,12 +251,7 @@ function BadDirector.replacecards(area, replace, bypass_eternal, keep, keeporigi
                                 area = G.pack_cards,
                             })
                         elseif area[i].ability.set and area[i] ~= keeporiginal then
-                            for i = 1, #G.P_CENTER_POOLS.Consumeables do
-                                if G.P_CENTER_POOLS.Consumeables[i].set == set then
-                                    tab[#tab + 1] = G.P_CENTER_POOLS.Consumeables[i].key --unused?
-                                end
-                            end
-
+                            
                             local set = area[i].ability.set
                             SMODS.destroy_cards(area[i], true)
                             SMODS.add_card({
