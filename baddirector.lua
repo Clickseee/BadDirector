@@ -29,9 +29,6 @@ BadDirector.optional_features = {
     post_trigger = true
 }
 
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
 local jpath = SMODS.current_mod.path .. 'jokers/'
 for _, v in pairs(NFS.getDirectoryItems(jpath)) do
     assert(SMODS.load_file('jokers/' .. v))()
@@ -89,9 +86,6 @@ SMODS.Atlas {
     py = 95,
 }
 
-=======
->>>>>>> 9ca9872780a69073a116e0399704a80404efdbef
->>>>>>> Stashed changes
 SMODS.Joker {
     key = "nxkoojoker",
     rarity = 4,
