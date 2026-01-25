@@ -29,6 +29,69 @@ BadDirector.optional_features = {
     post_trigger = true
 }
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+local jpath = SMODS.current_mod.path .. 'jokers/'
+for _, v in pairs(NFS.getDirectoryItems(jpath)) do
+    assert(SMODS.load_file('jokers/' .. v))()
+end
+
+local dpath = SMODS.current_mod.path .. 'decks/'
+for _, v in pairs(NFS.getDirectoryItems(dpath)) do
+    assert(SMODS.load_file('decks/' .. v))()
+end
+
+local cpath = SMODS.current_mod.path .. 'consumables/'
+for _, v in pairs(NFS.getDirectoryItems(cpath)) do
+    assert(SMODS.load_file('consumables/' .. v))()
+end
+
+SMODS.Atlas {
+    key = "modicon",
+    path = "modicon.png",
+    px = 34,
+    py = 34,
+}
+
+SMODS.Atlas {
+    key = "modlogo",
+    path = "modlogo.png",
+    px = 516,
+    py = 387,
+}
+
+SMODS.Atlas { -- ALL ARTS BELONG TO RATTLINGSNOW353 WITH PERMISSION
+    key = "rattlingsnow",
+    path = "rattling.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas {
+    key = "nxkooselfinsert",
+    path = "nxkoo.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas {
+    key = "rubyselfinsert",
+    path = "lordruby.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas {
+    key = "nickselfinsert",
+    path = "incognito.png",
+    px = 71,
+    py = 95,
+}
+
+=======
+>>>>>>> 9ca9872780a69073a116e0399704a80404efdbef
+>>>>>>> Stashed changes
 SMODS.Joker {
     key = "nxkoojoker",
     rarity = 4,

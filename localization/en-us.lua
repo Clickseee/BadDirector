@@ -214,8 +214,8 @@ return {
                 name = "rsThe Sta",
                 text = {
                     "Gi{E:bd_glitching,C:dark_edition}v{}e{E:bd_glitching,C:dark_edition}t{}s up to",
-                    "{C:attention}#1#{} selected {C:hearts}Hearts{}",
-                    "and {C:diamonds}Diamonds{}",
+                    "{C:attention}#1#{} selected {C:diamonds}#2#{}",
+                    "or {C:hearts}#3#{}",
                     "{X:mult,C:white}XMult{} equal to",
                     "{C:attention}10%{} of their {C:chips}Chips{}",
                 }
@@ -224,8 +224,8 @@ return {
                 name = "unThe S",
                 text = {
                     "Gi{E:bd_glitching,C:dark_edition}v{}e{E:bd_glitching,C:dark_edition}t{}s up to",
-                    "{C:attention}#1#{} selected {C:hearts}Hearts{}",
-                    "and {C:diamonds}Diamonds{}",
+                    "{C:attention}#1#{} selected {C:hearts}#2#{}",
+                    "or {C:diamonds}#3#{}",
                     "{C:mult}+Mult{} equal to",
                     "{C:attention}half{} of their {C:chips}Chips{}",
                 }
@@ -234,8 +234,8 @@ return {
                 name = "onThe Mo",
                 text = {
                     "Gi{E:bd_glitching,C:dark_edition}v{}e{E:bd_glitching,C:dark_edition}t{}s up to",
-                    "{C:attention}#1#{} selected {C:clubs}Clubs{}",
-                    "and {C:spades}Spades{}",
+                    "{C:attention}#1#{} selected {C:clubs}#2#{}",
+                    "or {C:spades}#3#{}",
                     "{X:chips,C:white}XChips{} equal to",
                     "all held {C:attention}Consumables{}",
                 }
@@ -244,8 +244,8 @@ return {
                 name = "rldThe Wo",
                 text = {
                     "Gi{E:bd_glitching,C:dark_edition}v{}e{E:bd_glitching,C:dark_edition}t{}s up to",
-                    "{C:attention}#1#{} selected {C:clubs}Clubs{}",
-                    "and {C:spades}Spades{}",
+                    "{C:attention}#1#{} selected {C:spades}#2#{}",
+                    "or {C:clubs}#3#{}",
                     "{C:chips}Chips{} equal to",
                     "all {C:attention}Jokers{} sell value",
                 }

@@ -135,7 +135,7 @@ SMODS.Consumable {
     use = function(self, card, area, copier)
         local amount = pseudorandom('milfdetected', card.ability.extra.min, card.ability.extra.max)
 
-        for i = 1, math.min(amount, G.consumeables.config.card_limit - #G.consumeables.cards) do
+        for i = 1, amount do
             G.E_MANAGER:add_event(Event({
                 trigger = 'after',
                 delay = 0.3 + i * 0.1,
@@ -177,7 +177,8 @@ SMODS.Consumable {
     end,
     use = function(self, card, area, copier)
         local amount = pseudorandom('milfdetected', card.ability.extra.min, card.ability.extra.max)
-        for i = 1, math.min(amount, G.consumeables.config.card_limit - #G.consumeables.cards) do
+
+        for i = 1, amount do
             G.E_MANAGER:add_event(Event({
                 trigger = 'after',
                 delay = 0.3 + i * 0.1,
@@ -629,7 +630,7 @@ SMODS.Consumable {
     config = { max_highlighted = 3, suit_allowed1 = 'Diamonds', suit_allowed2 = 'Hearts' },
     
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.max_highlighted } }
+        return { vars = { card.ability.max_highlighted, card.ability.suit_allowed1, card.ability.suit_allowed2 } }
     end,
 
     use = function(self, card, area, copier)
@@ -720,7 +721,7 @@ SMODS.Consumable {
     config = { max_highlighted = 3, suit_allowed1 = 'Clubs', suit_allowed2 = 'Spades' },
 
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.max_highlighted } }
+        return { vars = { card.ability.max_highlighted, card.ability.suit_allowed1, card.ability.suit_allowed2 } }
     end,
 
     use = function(self, card, area, copier)
@@ -809,7 +810,7 @@ SMODS.Consumable {
     config = { max_highlighted = 3, suit_allowed1 = 'Hearts', suit_allowed2 = 'Diamonds' },
     
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.max_highlighted } }
+        return { vars = { card.ability.max_highlighted, card.ability.suit_allowed1, card.ability.suit_allowed2 } }
     end,
 
     use = function(self, card, area, copier)
@@ -942,7 +943,7 @@ SMODS.Consumable {
     config = { max_highlighted = 3, suit_allowed1 = 'Spades', suit_allowed2 = 'Clubs' },
 
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.max_highlighted } }
+        return { vars = { card.ability.max_highlighted, card.ability.suit_allowed1, card.ability.suit_allowed2 } }
     end,
 
     use = function(self, card, area, copier)
