@@ -128,9 +128,18 @@ SMODS.Edition {
     get_weight = function(self)
         return G.GAME.edition_rate * self.weight
     end,
-    loc_vars = function(self, info_queue)
-    end,
     calculate = function(self, card, context)
+        if context.retrigger_joker_check or context.repetition then
+            local index
+            for i, v in pairs(card.area.cards) do
+                if v == card then index = i; break end
+            end
+            if context.other_card == card.area.cards[index+1] then
+                return {
+                    repetitions = 1
+                }
+            end
+        end
     end
 }
 

@@ -325,6 +325,13 @@ return {
                     "between {X:attention,C:white}X0.2{} and",
                     "{X:attention,C:white}X5{} when triggered"
                 }
+            },
+            e_bd_blueprint = {
+                name = "Blueprint",
+                text = {
+                    "Retrigger card to",
+                    "the right"
+                }
             }
         }
     },
@@ -345,7 +352,8 @@ return {
         labels = {
             bd_thermal = "Thermal",
             bd_xray = "X-Ray",
-            bd_misprinted = "?@!;$"
+            bd_misprinted = "?@!;$",
+            bd_blueprint = "Blueprint?"
         }
     }
 }
