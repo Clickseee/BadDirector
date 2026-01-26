@@ -2,16 +2,16 @@ return {
     descriptions = {
         Mod = {
             baddirector = {
-					name = "Bad Director",
-                    text = {
-                        "{s:1.2}A {C:dark_edition}?allinaV{}-adjacent Balatro Mod",
-                        "inspired by the idea of {C:attention}Misprint Joker{} and",
-                        "a bunch of Big Vanilla-esque Mod.",
-                        "Most of the Additions here are thematic, but some are non-thematic",
-                        "that i come up with by myself.",
-                        "Check out my other stuff such as: {C:attention}Tangents{}, and more!",
-                    }
-				}
+                name = "Bad Director",
+                text = {
+                    "{s:1.2}A {C:dark_edition}?allinaV{}-adjacent Balatro Mod",
+                    "inspired by the idea of {C:attention}Misprint Joker{} and",
+                    "a bunch of Big Vanilla-esque Mod.",
+                    "Most of the Additions here are thematic, but some are non-thematic",
+                    "that i come up with by myself.",
+                    "Check out my other stuff such as: {C:attention}Tangents{}, and more!",
+                }
+            }
         },
         Back = {
             b_bd_missingdeck = {
@@ -21,6 +21,26 @@ return {
                     "rerolled after defeating",
                     "a {C:attention}Boss Blind",
                     '{s:0.8}(Respective to their rarities)'
+                }
+            }
+        },
+        Voucher = {
+            v_bd_carton = {
+                name = "Carton",
+                text = {
+                    "All Joker gains",
+                    "{C:money}$#1#{} sell value",
+                    "after defeating a",
+                    "{C:attention}Boss Blind"
+                }
+            },
+            v_bd_coup = {
+                name = "Coup",
+                text = {
+                    "All Joker gains",
+                    "{C:money}$#1#{} sell value",
+                    "at end of",
+                    "every round"
                 }
             }
         },
@@ -279,9 +299,9 @@ return {
             c_bd_hangedprint = {
                 name = "nged ManThe Ha",
                 text = {
-                    "Debu{E:bd_glitching,C:dark_edition}f{}fs up to {C:attention}#1#{} selected cards,",
-                    "{C:green}#2# in #3#{} chance to permanently add",
-                    "{C:attention}1{} retrigger to selected cards"
+                    "Destroys {C:attention}#1#{} selected cards",
+                    "Then destroys {C:attention}#2#{}",
+                    "random unselected cards"
                 }
             },
             c_bd_deathprint = {
@@ -292,6 +312,19 @@ return {
                     "forcibly select all cards {C:attention}held in hand{}"
                 }
             },
+        },
+        misplanet = {
+            c_bd_mercprint = {
+                name = "uryMerc",
+                text = {
+                    "For {C:attention}Pair{} poker hand:",
+                    "{C:green}#1# in #2#{} chance to multiply",
+                    "{C:chips}Chips{} and {C:mult}Mult{} by {X:attention,C:white}X0.7{} ~ {X:attention,C:white}X2{}",
+                    "otherwise {C:green}#3# in #4#{} chance to add",
+                    "{C:attention}+1{} ~ {C:attention}+50{} to {C:chips}Chips{} and {C:mult}Mult",
+                    "otherwise level up hand by {C:tarot}+0.5"
+                }
+            }
         },
         mispectral = {
             c_bd_soulprint = {

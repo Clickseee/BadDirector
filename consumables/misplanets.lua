@@ -20,7 +20,9 @@ SMODS.Consumable {
         local n, d = SMODS.get_probability_vars(card, 1, 4, 'bd_mercprint')
         local n2, d2 = SMODS.get_probability_vars(card, 1, 2, 'bd_mercprint2')
         return {
-            n, d, n2, d2
+            vars = {
+                n, d, n2, d2
+            }
         }
     end,
     misprint_original = "c_mercury"
@@ -39,7 +41,9 @@ SMODS.Consumable {
         local n, d = SMODS.get_probability_vars(card, 1, 4, 'bd_venprint')
         local n2, d2 = SMODS.get_probability_vars(card, 1, 2, 'bd_venprint2')
         return {
-            n, d, n2, d2
+            vars = {
+                n, d, n2, d2
+            }
         }
     end,
     misprint_original = "c_venus"
@@ -58,7 +62,9 @@ SMODS.Consumable {
         local n, d = SMODS.get_probability_vars(card, 1, 4, 'bd_earprint')
         local n2, d2 = SMODS.get_probability_vars(card, 1, 2, 'bd_earprint2')
         return {
-            n, d, n2, d2
+            vars = {
+                n, d, n2, d2
+            }
         }
     end,
     misprint_original = "c_earth"
@@ -77,7 +83,9 @@ SMODS.Consumable {
         local n, d = SMODS.get_probability_vars(card, 1, 4, 'bd_marsprint')
         local n2, d2 = SMODS.get_probability_vars(card, 1, 2, 'bd_marsprint2')
         return {
-            n, d, n2, d2
+            vars = {
+                n, d, n2, d2
+            }
         }
     end,
     misprint_original = "c_mars"
@@ -96,7 +104,9 @@ SMODS.Consumable {
         local n, d = SMODS.get_probability_vars(card, 1, 4, 'bd_juprint')
         local n2, d2 = SMODS.get_probability_vars(card, 1, 2, 'bd_juprint2')
         return {
-            n, d, n2, d2
+            vars = {
+                n, d, n2, d2
+            }
         }
     end,
     misprint_original = "c_jupiter"
@@ -115,7 +125,9 @@ SMODS.Consumable {
         local n, d = SMODS.get_probability_vars(card, 1, 4, 'bd_satprint')
         local n2, d2 = SMODS.get_probability_vars(card, 1, 2, 'bd_satprint2')
         return {
-            n, d, n2, d2
+            vars = {
+                n, d, n2, d2
+            }
         }
     end,
     misprint_original = "c_saturn"
@@ -134,7 +146,9 @@ SMODS.Consumable {
         local n, d = SMODS.get_probability_vars(card, 1, 4, 'bd_uraprint')
         local n2, d2 = SMODS.get_probability_vars(card, 1, 2, 'bd_uraprint2')
         return {
-            n, d, n2, d2
+            vars = {
+                n, d, n2, d2
+            }
         }
     end,
     misprint_original = "c_uranus"
@@ -153,7 +167,9 @@ SMODS.Consumable {
         local n, d = SMODS.get_probability_vars(card, 1, 4, 'bd_nepprint')
         local n2, d2 = SMODS.get_probability_vars(card, 1, 2, 'bd_nepprint2')
         return {
-            n, d, n2, d2
+            vars = {
+                n, d, n2, d2
+            }
         }
     end,
     misprint_original = "c_neptune"
@@ -172,7 +188,9 @@ SMODS.Consumable {
         local n, d = SMODS.get_probability_vars(card, 1, 4, 'bd_printo')
         local n2, d2 = SMODS.get_probability_vars(card, 1, 2, 'bd_printo2')
         return {
-            n, d, n2, d2
+            vars = {
+                n, d, n2, d2
+            }
         }
     end,
     misprint_original = "c_pluto"
@@ -191,7 +209,9 @@ SMODS.Consumable {
         local n, d = SMODS.get_probability_vars(card, 1, 4, 'bd_cerprint')
         local n2, d2 = SMODS.get_probability_vars(card, 1, 2, 'bd_cerprint2')
         return {
-            n, d, n2, d2
+            vars = {
+                n, d, n2, d2
+            }
         }
     end,
     misprint_original = "c_ceres"
@@ -209,7 +229,9 @@ SMODS.Consumable {
         local n, d = SMODS.get_probability_vars(card, 1, 4, 'bd_printx')
         local n2, d2 = SMODS.get_probability_vars(card, 1, 2, 'bd_printx2')
         return {
-            n, d, n2, d2
+            vars = {
+                n, d, n2, d2
+            }
         }
     end,
     misprint_original = "c_planet_x"
@@ -228,7 +250,9 @@ SMODS.Consumable {
         local n, d = SMODS.get_probability_vars(card, 1, 4, 'bd_peris')
         local n2, d2 = SMODS.get_probability_vars(card, 1, 2, 'bd_peris2')
         return {
-            n, d, n2, d2
+            vars = {
+                n, d, n2, d2
+            }
         }
     end,
     misprint_original = "c_eris"
@@ -247,7 +271,9 @@ SMODS.Consumable {
         local n, d = SMODS.get_probability_vars(card, 1, 4, 'bd_bh')
         local n2, d2 = SMODS.get_probability_vars(card, 1, 2, 'bd_bh2')
         return {
-            n, d, n2, d2
+            vars = {
+                n, d, n2, d2
+            }
         }
     end,
     misprint_original = "c_black_hole"

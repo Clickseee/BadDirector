@@ -54,6 +54,9 @@ SMODS.Consumable {
     atlas = "consumisprints",
     key = 'foolprint',
     set = 'mistarot',
+    config = {
+        coder = {"Nxkoo"}
+    },
     pos = { x = 0, y = 0 },
     loc_vars = function(self, info_queue, card)
         local last_key = G.GAME.last_tarot_planet
@@ -244,7 +247,7 @@ SMODS.Consumable {
     end,
     use = function(self, card, area, copier)
         local mult = pseudorandom('notmarioshotdeadinwelsh', card.ability.extra.min * 10, card.ability.extra.max * 10) /
-        10
+            10
         local current = G.GAME.dollars
         local target = math.floor(current * mult)
         local diff = target - current
@@ -425,69 +428,38 @@ SMODS.Consumable {
     key = 'hangedprint',
     set = 'mistarot',
     pos = { x = 2, y = 1 },
-    config = { max_highlighted = 2 },
+    config = {
+        max_highlighted = 2,
+        extra_destroy = 3
+    },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.max_highlighted } }
+        return { vars = { self.config.max_highlighted, self.config.extra_destroy } }
     end,
     use = function(self, card, area, copier)
-        local enhanced = {}
-
-        for i = 1, #G.hand.cards do
-            local c = G.hand.cards[i]
-            if c.ability and c.ability.effect then
-                enhanced[#enhanced + 1] = c
+        local selected = {}
+        for _, c in ipairs(G.hand.cards) do
+            if c.highlighted then
+                selected[#selected + 1] = c
             end
         end
+        if #selected ~= self.config.max_highlighted then return end
 
-        for i = #enhanced, 2, -1 do
-            local j = pseudorandom('severance_shuffle', 1, i)
-            enhanced[i], enhanced[j] = enhanced[j], enhanced[i]
+        local pool = {}
+        for _, c in ipairs(G.hand.cards) do
+            if not c.highlighted then
+                pool[#pool + 1] = c
+            end
+        end
+        if #pool < self.config.extra_destroy then return end
+
+        for i = 1, self.config.extra_destroy do
+            local idx = pseudorandom("double_cull", 1, #pool)
+            selected[#selected + 1] = table.remove(pool, idx)
         end
 
-        local targets = G.hand.highlighted
-
-        G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            delay = 0.4,
-            func = function()
-                play_sound('tarot1')
-                card:juice_up(0.3, 0.5)
-
-                for i = 1, #enhanced do
-                    local c = enhanced[i]
-                    c:juice_up(0.4, 0.5)
-                    c:start_dissolve()
-                end
-
-                for i = 1, #targets do
-                    local c = targets[i]
-                    c.ability.perma_repetitions =
-                        (c.ability.perma_repetitions or 0) + 1
-
-                    card_eval_status_text(
-                        c,
-                        "extra",
-                        nil,
-                        nil,
-                        nil,
-                        {
-                            message = "+1 Retrigger",
-                            colour = G.C.MULT
-                        }
-                    )
-
-                    c:juice_up(0.25, 0.3)
-                end
-
-                return true
-            end
-        }))
-
-        delay(0.6)
-    end,
-    can_use = function(self, card)
-        return G.hand and
-            (not G.hand.highlighted[1].edition)
+        for _, c in ipairs(selected) do
+            c:start_dissolve()
+        end
     end,
     misprint_original = "c_hanged_man"
 }
@@ -517,11 +489,11 @@ SMODS.Consumable {
 
                 for i = 1, #originals do
                     if SMODS.pseudorandom_probability(
-                        card,
-                        'fuck' .. i,
-                        1,
-                        card.ability.extra.odds
-                    ) then
+                            card,
+                            'fuck' .. i,
+                            1,
+                            card.ability.extra.odds
+                        ) then
                         G.playing_card = (G.playing_card and G.playing_card + 1) or 1
 
                         local card_copied = copy_card(
@@ -628,7 +600,7 @@ SMODS.Consumable {
     set = 'mistarot',
     pos = { x = 7, y = 1 },
     config = { max_highlighted = 3, suit_allowed1 = 'Diamonds', suit_allowed2 = 'Hearts' },
-    
+
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.max_highlighted, card.ability.suit_allowed1, card.ability.suit_allowed2 } }
     end,
@@ -666,7 +638,8 @@ SMODS.Consumable {
                 func = function()
                     local chips = G.hand.highlighted[i]:get_chip_bonus() or 0
                     local x_mult_gain = (chips * 0.1)
-                    G.hand.highlighted[i].ability.perma_x_mult = (G.hand.highlighted[i].ability.perma_x_mult or 0) + x_mult_gain
+                    G.hand.highlighted[i].ability.perma_x_mult = (G.hand.highlighted[i].ability.perma_x_mult or 0) +
+                    x_mult_gain
                     return true
                 end
             }))
@@ -755,7 +728,8 @@ SMODS.Consumable {
                 trigger = 'after',
                 delay = 0.1,
                 func = function()
-                    G.hand.highlighted[i].ability.perma_x_chips = (G.hand.highlighted[i].ability.perma_x_chips or 1) + xchips
+                    G.hand.highlighted[i].ability.perma_x_chips = (G.hand.highlighted[i].ability.perma_x_chips or 1) +
+                    xchips
                     return true
                 end
             }))
@@ -808,7 +782,7 @@ SMODS.Consumable {
     set = 'mistarot',
     pos = { x = 9, y = 1 },
     config = { max_highlighted = 3, suit_allowed1 = 'Hearts', suit_allowed2 = 'Diamonds' },
-    
+
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.max_highlighted, card.ability.suit_allowed1, card.ability.suit_allowed2 } }
     end,
@@ -846,7 +820,8 @@ SMODS.Consumable {
                 func = function()
                     local chips = G.hand.highlighted[i]:get_chip_bonus() or 0
                     local mult_gain = (chips / 2)
-                    G.hand.highlighted[i].ability.perma_mult = (G.hand.highlighted[i].ability.perma_mult or 0) + mult_gain
+                    G.hand.highlighted[i].ability.perma_mult = (G.hand.highlighted[i].ability.perma_mult or 0) +
+                    mult_gain
                     return true
                 end
             }))
@@ -932,7 +907,7 @@ SMODS.Consumable {
     can_use = function(self, card)
         return G.jokers and #G.jokers.highlighted == 1
     end,
-   misprint_original = "c_judgement" 
+    misprint_original = "c_judgement"
 }
 
 SMODS.Consumable {

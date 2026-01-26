@@ -20,6 +20,7 @@ end
 _load_folder("utils/")
 _load_folder("decks/")
 _load_folder("consumables/")
+_load_folder("vouchers/")
 _load_folder("other/")
 --_load_folder("jokers/")
 
