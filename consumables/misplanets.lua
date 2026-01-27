@@ -214,6 +214,7 @@ SMODS.Consumable {
             }
         }
     end,
+    in_pool = function() return G.GAME.hands and G.GAME.hands["Flush House"].visible end,
     misprint_original = "c_ceres"
 }
 SMODS.Consumable {
@@ -234,6 +235,7 @@ SMODS.Consumable {
             }
         }
     end,
+    in_pool = function() return G.GAME.hands and G.GAME.hands["Five of a Kind"].visible end,
     misprint_original = "c_planet_x"
 }
 
@@ -255,7 +257,8 @@ SMODS.Consumable {
             }
         }
     end,
-    misprint_original = "c_eris"
+    misprint_original = "c_eris",
+    in_pool = function() return G.GAME.hands and G.GAME.hands["Flush Five"].visible end,
 }
 
 SMODS.Consumable {
@@ -266,6 +269,7 @@ SMODS.Consumable {
     use = function(self, card)
         BadDirector.misprint_all(card)
     end,
+    soul_set = "misplanet",
     can_use = function() return true end,
     loc_vars = function(self, q, card)
         local n, d = SMODS.get_probability_vars(card, 1, 4, 'bd_bh')
