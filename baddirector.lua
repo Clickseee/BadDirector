@@ -21,6 +21,7 @@ _load_folder("utils/")
 _load_folder("decks/")
 _load_folder("consumables/")
 _load_folder("vouchers/")
+_load_folder("enhancements/")
 _load_folder("other/")
 --_load_folder("jokers/")
 
@@ -29,21 +30,6 @@ BadDirector.optional_features = {
     retrigger_joker = true,
     post_trigger = true
 }
-
-local jpath = SMODS.current_mod.path .. 'jokers/'
-for _, v in pairs(NFS.getDirectoryItems(jpath)) do
-    assert(SMODS.load_file('jokers/' .. v))()
-end
-
-local dpath = SMODS.current_mod.path .. 'decks/'
-for _, v in pairs(NFS.getDirectoryItems(dpath)) do
-    assert(SMODS.load_file('decks/' .. v))()
-end
-
-local cpath = SMODS.current_mod.path .. 'consumables/'
-for _, v in pairs(NFS.getDirectoryItems(cpath)) do
-    assert(SMODS.load_file('consumables/' .. v))()
-end
 
 SMODS.Atlas {
     key = "modicon",

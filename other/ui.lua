@@ -1,9 +1,84 @@
+BadDirector.STATE = BadDirector.STATE or {}
+BadDirector.STATE.credit_page = BadDirector.STATE.credit_page or 1
+
 function G.FUNCS.bad_director_wiki(e)
     love.system.openURL("The url of your wiki here")
 end
+
 function G.FUNCS.bad_director_other_link(e)
     love.system.openURL("https://nxkoo.straw.page/")
 end
+
+G.FUNCS.open_bad_director = function()
+
+    if G.bad_director then return end
+
+    G.bad_director = UIBox{
+        definition = BadDirector:create_UIBox(),
+        config = {
+            align = "cm",
+            major = G.ROOM_ATTACH
+        }
+    }
+
+    G.bad_director:align_to_major()
+end
+
+
+G.FUNCS.reload_bad_director = function()
+    if G.bad_director then
+        G.bad_director:remove()
+        G.bad_director = nil
+        G.FUNCS.open_bad_director()
+    end
+end
+
+G.FUNCS.bd_switch_tab = function(e)
+    local i = e.config.tab_index
+    if not i then return end
+
+    BadDirector.active_tab = i
+
+    G.FUNCS.reload_bad_director()
+end
+
+G.FUNCS.bd_prev_credit_page = function(e)
+    BadDirector.credit_page =
+        math.max(1, (BadDirector.credit_page or 1) - 1)
+
+    G.FUNCS.reload_bad_director()
+end
+
+
+G.FUNCS.bd_next_credit_page = function(e)
+    local max_page = math.max(1,
+        math.ceil(#BadDirector.contributors / BadDirector.PER_PAGE)
+    )
+
+    BadDirector.credit_page =
+        math.min(max_page, (BadDirector.credit_page or 1) + 1)
+
+    G.FUNCS.reload_bad_director()
+end
+
+
+
+function BadDirector:create_UIBox()
+
+    return {
+        n = G.UIT.ROOT,
+        config = { align = "cm" },
+        nodes = {
+            {
+                n = G.UIT.R,
+                nodes = {
+                    { n = G.UIT.T, config = { text = "Credits" } }
+                }
+            }
+        }
+    }
+end
+
 
 BadDirector.description_loc_vars = function()
     return {
@@ -46,7 +121,7 @@ SMODS.current_mod.custom_ui = function(nodes)
 
     table.insert(nodes, 2, logo)
 
-        nodes[#nodes + 1] = {
+    nodes[#nodes + 1] = {
         n = G.UIT.R,
         config = { align = "cm", padding = 0.05 },
         nodes = {
@@ -114,15 +189,42 @@ BadDirector.extra_tabs = function()
         {
             label = "Credits",
             tab_definition_function = function()
-                local jokers = {
-                    { key = "j_bd_nxkoojoker",        text = "Nxkoo" },
-                    { key = "j_bd_nickjoker", text = "IncognitoN71" },
+                local PER_PAGE = 3
+                local contributors = {
+                    { key = "j_bd_nxkoojoker", text = "Nxkoo" },
+                    { key = "j_bd_nickjoker",  text = "IncognitoN71" },
                     { key = "j_bd_rubyjoker",  text = "lord.ruby" },
                 }
 
+                local max_page = math.max(1, math.ceil(#contributors / PER_PAGE))
+
+                BadDirector.STATE.credit_page = math.min(max_page, math.max(1, BadDirector.STATE.credit_page))
+
+                BadDirector.STATE.credit_page = BadDirector.STATE.credit_page or 1
+
+                local function get_page(list, page, per_page)
+                    per_page = per_page or 1
+
+                    local t = {}
+
+                    local start = (page - 1) * per_page + 1
+                    local stop = math.min(#list, start + per_page - 1)
+
+                    for i = start, stop do
+                        t[#t + 1] = list[i]
+                    end
+
+                    return t
+                end
+
+
+
+
                 local columns = {}
 
-                for _, v in ipairs(jokers) do
+                local page_data = get_page(contributors, BadDirector.STATE.credit_page, PER_PAGE)
+
+                for _, v in ipairs(page_data) do
                     local area = CardArea(
                         G.ROOM.T.x, G.ROOM.T.y,
                         G.CARD_W,
@@ -142,25 +244,6 @@ BadDirector.extra_tabs = function()
                     area:emplace(card)
 
                     columns[#columns + 1] = {
-                        n = G.UIT.C,
-                        config = { align = "cm", padding = 0.1 },
-                        nodes = {
-                            {
-                                n = G.UIT.R,
-                                config = { align = "cm", padding = 0.02 },
-                                nodes = {
-                                    {
-                                        n = G.UIT.T,
-                                        config = {
-                                            text = "{C:edition,E:1,s:2}Special Thanks to:",
-                                            scale = 0.35,
-                                            colour = G.C.UI.TEXT_LIGHT,
-                                            shadow = true
-                                        }
-                                    }
-                                }
-                            }
-                        },
                         n = G.UIT.C,
                         config = { align = "cm", padding = 0.1 },
                         nodes = {
@@ -203,6 +286,47 @@ BadDirector.extra_tabs = function()
                                 padding = 0.2
                             },
                             nodes = columns
+                        },
+
+
+                        {
+                            n = G.UIT.R,
+                            config = { align = "cm", padding = 0.15 },
+                            nodes = {
+
+
+                                {
+                                    n = G.UIT.B,
+                                    config = {
+                                        align = "cm",
+                                        text = "< Prev",
+                                        button = "bd_prev_credit_page",
+                                        minw = 1
+                                    }
+                                },
+
+
+                                {
+                                    n = G.UIT.T,
+                                    config = {
+                                        text = BadDirector.STATE.credit_page .. " / " .. max_page,
+                                        scale = 0.4,
+                                        colour = G.C.UI.TEXT_LIGHT,
+                                        padding = 0.1
+                                    }
+                                },
+
+
+                                {
+                                    n = G.UIT.B,
+                                    config = {
+                                        align = "cm",
+                                        text = "Next >",
+                                        button = "bd_next_credit_page",
+                                        minw = 1
+                                    }
+                                }
+                            }
                         }
                     }
                 }

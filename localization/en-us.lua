@@ -317,7 +317,128 @@ return {
             c_bd_mercprint = {
                 name = "uryMerc",
                 text = {
-                    "For {C:attention}Pair{} poker hand:",
+                    "For {C:attention}Pair{} {C:legendary,E:1}poker hand{}:",
+                    "{C:green}#1# in #2#{} chance to multiply",
+                    "{C:chips}Chips{} and {C:mult}Mult{} by {X:attention,C:white}X0.7{} ~ {X:attention,C:white}X2{}",
+                    "otherwise {C:green}#3# in #4#{} chance to add",
+                    "{C:attention}+1{} ~ {C:attention}+50{} to {C:chips}Chips{} and {C:mult}Mult",
+                    "otherwise level up hand by {C:tarot}+0.5"
+                }
+            },
+            c_bd_venprint = {
+                name = "nusVe",
+                text = {
+                    "For {C:attention}Three of a Kind{} {C:legendary,E:1}poker hand{}:",
+                    "{C:green}#1# in #2#{} chance to multiply",
+                    "{C:chips}Chips{} and {C:mult}Mult{} by {X:attention,C:white}X0.7{} ~ {X:attention,C:white}X2{}",
+                    "otherwise {C:green}#3# in #4#{} chance to add",
+                    "{C:attention}+1{} ~ {C:attention}+50{} to {C:chips}Chips{} and {C:mult}Mult",
+                    "otherwise level up hand by {C:tarot}+0.5"
+                }
+            },
+            c_bd_earprint = {
+                name = "rthEa",
+                text = {
+                    "For {C:attention}Full House{} {C:legendary,E:1}poker hand{}:",
+                    "{C:green}#1# in #2#{} chance to multiply",
+                    "{C:chips}Chips{} and {C:mult}Mult{} by {X:attention,C:white}X0.7{} ~ {X:attention,C:white}X2{}",
+                    "otherwise {C:green}#3# in #4#{} chance to add",
+                    "{C:attention}+1{} ~ {C:attention}+50{} to {C:chips}Chips{} and {C:mult}Mult",
+                    "otherwise level up hand by {C:tarot}+0.5"
+                }
+            },
+            c_bd_marsprint = {
+                name = "rsMa",
+                text = {
+                    "For {C:attention}Four of a Kind{} {C:legendary,E:1}poker hand{}:",
+                    "{C:green}#1# in #2#{} chance to multiply",
+                    "{C:chips}Chips{} and {C:mult}Mult{} by {X:attention,C:white}X0.7{} ~ {X:attention,C:white}X2{}",
+                    "otherwise {C:green}#3# in #4#{} chance to add",
+                    "{C:attention}+1{} ~ {C:attention}+50{} to {C:chips}Chips{} and {C:mult}Mult",
+                    "otherwise level up hand by {C:tarot}+0.5"
+                }
+            },
+            c_bd_juprint = {
+                name = "iterJup",
+                text = {
+                    "For {C:attention}Flush{} {C:legendary,E:1}poker hand{}:",
+                    "{C:green}#1# in #2#{} chance to multiply",
+                    "{C:chips}Chips{} and {C:mult}Mult{} by {X:attention,C:white}X0.7{} ~ {X:attention,C:white}X2{}",
+                    "otherwise {C:green}#3# in #4#{} chance to add",
+                    "{C:attention}+1{} ~ {C:attention}+50{} to {C:chips}Chips{} and {C:mult}Mult",
+                    "otherwise level up hand by {C:tarot}+0.5"
+                }
+            },
+            c_bd_satprint = {
+                name = "rnusSatu",
+                text = {
+                    "For {C:attention}Straight{} {C:legendary,E:1}poker hand{}:",
+                    "{C:green}#1# in #2#{} chance to multiply",
+                    "{C:chips}Chips{} and {C:mult}Mult{} by {X:attention,C:white}X0.7{} ~ {X:attention,C:white}X2{}",
+                    "otherwise {C:green}#3# in #4#{} chance to add",
+                    "{C:attention}+1{} ~ {C:attention}+50{} to {C:chips}Chips{} and {C:mult}Mult",
+                    "otherwise level up hand by {C:tarot}+0.5"
+                }
+            },
+            c_bd_uraprint = {
+                name = "anusUr",
+                text = {
+                    "For {C:attention}Two Pair{} {C:legendary,E:1}poker hand{}:",
+                    "{C:green}#1# in #2#{} chance to multiply",
+                    "{C:chips}Chips{} and {C:mult}Mult{} by {X:attention,C:white}X0.7{} ~ {X:attention,C:white}X2{}",
+                    "otherwise {C:green}#3# in #4#{} chance to add",
+                    "{C:attention}+1{} ~ {C:attention}+50{} to {C:chips}Chips{} and {C:mult}Mult",
+                    "otherwise level up hand by {C:tarot}+0.5"
+                }
+            },
+            c_bd_nepprint = {
+                name = "unusNept",
+                text = {
+                    "For {C:attention}Straight Flush{} {C:legendary,E:1}poker hand{}:",
+                    "{C:green}#1# in #2#{} chance to multiply",
+                    "{C:chips}Chips{} and {C:mult}Mult{} by {X:attention,C:white}X0.7{} ~ {X:attention,C:white}X2{}",
+                    "otherwise {C:green}#3# in #4#{} chance to add",
+                    "{C:attention}+1{} ~ {C:attention}+50{} to {C:chips}Chips{} and {C:mult}Mult",
+                    "otherwise level up hand by {C:tarot}+0.5"
+                }
+            },
+            c_bd_printo = {
+                name = "toPlu",
+                text = {
+                    "For {C:attention}High Card{} {C:legendary,E:1}poker hand{}:",
+                    "{C:green}#1# in #2#{} chance to multiply",
+                    "{C:chips}Chips{} and {C:mult}Mult{} by {X:attention,C:white}X0.7{} ~ {X:attention,C:white}X2{}",
+                    "otherwise {C:green}#3# in #4#{} chance to add",
+                    "{C:attention}+1{} ~ {C:attention}+50{} to {C:chips}Chips{} and {C:mult}Mult",
+                    "otherwise level up hand by {C:tarot}+0.5"
+                }
+            },
+            c_bd_cerprint = {
+                name = "resCe",
+                text = {
+                    "For {C:attention}Flush House{} {C:legendary,E:1}poker hand{}:",
+                    "{C:green}#1# in #2#{} chance to multiply",
+                    "{C:chips}Chips{} and {C:mult}Mult{} by {X:attention,C:white}X0.7{} ~ {X:attention,C:white}X2{}",
+                    "otherwise {C:green}#3# in #4#{} chance to add",
+                    "{C:attention}+1{} ~ {C:attention}+50{} to {C:chips}Chips{} and {C:mult}Mult",
+                    "otherwise level up hand by {C:tarot}+0.5"
+                }
+            },
+            c_bd_printx = {
+                name = "net XPla",
+                text = {
+                    "For {C:attention}Five of a Kind{} {C:legendary,E:1}poker hand{}:",
+                    "{C:green}#1# in #2#{} chance to multiply",
+                    "{C:chips}Chips{} and {C:mult}Mult{} by {X:attention,C:white}X0.7{} ~ {X:attention,C:white}X2{}",
+                    "otherwise {C:green}#3# in #4#{} chance to add",
+                    "{C:attention}+1{} ~ {C:attention}+50{} to {C:chips}Chips{} and {C:mult}Mult",
+                    "otherwise level up hand by {C:tarot}+0.5"
+                }
+            },
+            c_bd_peris = {
+                name = "isEr",
+                text = {
+                    "For {C:attention}Flush Five{} {C:legendary,E:1}poker hand{}:",
                     "{C:green}#1# in #2#{} chance to multiply",
                     "{C:chips}Chips{} and {C:mult}Mult{} by {X:attention,C:white}X0.7{} ~ {X:attention,C:white}X2{}",
                     "otherwise {C:green}#3# in #4#{} chance to add",
@@ -334,6 +455,17 @@ return {
                     "{E:bd_glitching,C:dark_edition,s:1.5}ki{}{E:bd_glitching,C:red,s:1.5}lls{} {E:bd_glitching,C:legendary,s:1.5}yo{}{E:bd_glitching,C:edition,s:1.5}u.{}",
                     "{E:bd_glitching,C:chips,s:1.5}ki{}{E:bd_glitching,C:red,s:1.5}also ki{} {E:bd_glitching,C:planet,s:1.5}yours{}{E:bd_glitching,C:tarot,s:1.5}self{}"
                 },
+            },
+            c_bd_blackprint = {
+                name = "oleBlack H",
+                text = {
+                    "For {C:attention}every{} {C:legendary,E:1}poker hand{}:",
+                    "{C:green}#1# in #2#{} chance to multiply",
+                    "{C:chips}Chips{} and {C:mult}Mult{} by {X:attention,C:white}X0.7{} ~ {X:attention,C:white}X2{}",
+                    "otherwise {C:green}#3# in #4#{} chance to add",
+                    "{C:attention}+1{} ~ {C:attention}+50{} to {C:chips}Chips{} and {C:mult}Mult",
+                    "otherwise level up hand by {C:tarot}+0.5"
+                }
             }
         },
         Edition = {
@@ -364,6 +496,54 @@ return {
                 text = {
                     "Retrigger card to",
                     "the right"
+                }
+            }
+        },
+        Enhanced = {
+            m_bd_misprintstone = {
+                name = "tone CardS",
+                text = {
+                    "All other scored cards are unscored,",
+                    "accumulate all unscored chips and",
+                    "score it to this card instead"
+                }
+            },
+            m_bd_misprintgold = {
+                name = "old CardG",
+            },
+            m_bd_misprintbonus = {
+                name = "nus CardBo",
+            },
+            m_bd_misprintmult = {
+                name = "ult CardM",
+            },
+            m_bd_misprintwild = {
+                name = "ild CardW",
+                text = {
+                    "Retrigger {C:attention}once{}",
+                    "for each played {V:1}#2#{},",
+                    "{s:0.8}suit changes at end of round"
+                }
+            },
+            m_bd_misprintluckycard = {
+                name = "cky CardLu",
+                text = {
+                    "{C:green}#1# in #4#{} chance",
+                    "to give {C:mult}+#3#{} Mult",
+                    "to all {C:attention}scored{} cards",
+                    "{C:green}#2# in #6#{} chance",
+                    "to double your money by {X:money,C:white}X2{}",
+                }
+            },
+            m_bd_misprintglass = {
+                name = "ass CardGl"
+            },
+            m_bd_misprintsteel = {
+                name = "eel CardSt",
+                text = {
+                    "While {C:attention}held in hand{},",
+                    "each {C:attention}played{} card",
+                    "gives {X:chips,C:white}X#1#{} Chips",
                 }
             }
         }

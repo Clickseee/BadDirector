@@ -20,6 +20,13 @@ SMODS.Atlas { -- ALL ARTS BELONG TO RATTLINGSNOW353 WITH PERMISSION
 }
 
 SMODS.Atlas {
+    key = "misprintenhanced",
+    path = "enhancerprint.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas {
     key = "nxkooselfinsert",
     path = "nxkoo.png",
     px = 71,
