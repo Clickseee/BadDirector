@@ -49,6 +49,12 @@ G.FUNCS.bd_prev_credit_page = function(e)
     G.FUNCS.reload_bad_director()
 end
 
+BadDirector.contributors = {
+    { key = "j_bd_nxkoojoker", text = "Nxkoo" },
+    { key = "j_bd_nickjoker",  text = "IncognitoN71" },
+    { key = "j_bd_rubyjoker",  text = "lord.ruby" },
+}
+BadDirector.PER_PAGE = 3
 
 G.FUNCS.bd_next_credit_page = function(e)
     local max_page = math.max(1,
@@ -151,8 +157,6 @@ SMODS.current_mod.custom_ui = function(nodes)
             },
         },
     }
-
-    return nodes
 end
 
 SMODS.Sound {
@@ -189,12 +193,8 @@ BadDirector.extra_tabs = function()
         {
             label = "Credits",
             tab_definition_function = function()
-                local PER_PAGE = 3
-                local contributors = {
-                    { key = "j_bd_nxkoojoker", text = "Nxkoo" },
-                    { key = "j_bd_nickjoker",  text = "IncognitoN71" },
-                    { key = "j_bd_rubyjoker",  text = "lord.ruby" },
-                }
+                local PER_PAGE = BadDirector.PER_PAGE
+                local contributors = BadDirector.contributors
 
                 local max_page = math.max(1, math.ceil(#contributors / PER_PAGE))
 
@@ -275,7 +275,7 @@ BadDirector.extra_tabs = function()
 
                 return {
                     n = G.UIT.ROOT,
-                    config = { align = "cm", padding = 0.2 },
+                    config = { align = "cm", padding = 0.2, r = 0.1, colour = G.C.BLACK },
                     nodes = {
                         {
                             n = G.UIT.R,
@@ -293,39 +293,81 @@ BadDirector.extra_tabs = function()
                             n = G.UIT.R,
                             config = { align = "cm", padding = 0.15 },
                             nodes = {
-
-
                                 {
-                                    n = G.UIT.B,
+                                    n = G.UIT.C,
                                     config = {
                                         align = "cm",
-                                        text = "< Prev",
+                                        minw = 1,
                                         button = "bd_prev_credit_page",
-                                        minw = 1
+                                        colour = G.C.L_BLACK,
+                                        r = 0.1,
+                                        padding = 0.1,
+                                        emboss = 0.05,
+                                        hover = true,
+                                        shadow = true,
+                                    },
+                                    nodes = {
+                                        {
+                                            n = G.UIT.T,
+                                            config = {
+                                                text = "< Prev",
+                                                scale = 0.4,
+                                                colour = G.C.UI.TEXT_LIGHT,
+                                                padding = 0.1
+                                            }
+                                        },
                                     }
                                 },
-
-
                                 {
-                                    n = G.UIT.T,
-                                    config = {
-                                        text = BadDirector.STATE.credit_page .. " / " .. max_page,
-                                        scale = 0.4,
-                                        colour = G.C.UI.TEXT_LIGHT,
-                                        padding = 0.1
-                                    }
-                                },
-
-
-                                {
-                                    n = G.UIT.B,
+                                    n = G.UIT.C,
                                     config = {
                                         align = "cm",
-                                        text = "Next >",
+                                        minw = 1,
                                         button = "bd_next_credit_page",
-                                        minw = 1
+                                        colour = G.C.L_BLACK,
+                                        r = 0.1,
+                                        padding = 0.1,
+                                        emboss = 0.05,
+                                        hover = true,
+                                        shadow = true,
+                                    },
+                                    nodes = {
+                                        {
+                                            n = G.UIT.T,
+                                            config = {
+                                                text = BadDirector.STATE.credit_page .. " / " .. max_page,
+                                                scale = 0.4,
+                                                colour = G.C.UI.TEXT_LIGHT,
+                                                padding = 0.1
+                                            }
+                                        },
                                     }
-                                }
+                                },
+                                {
+                                    n = G.UIT.C,
+                                    config = {
+                                        align = "cm",
+                                        minw = 1,
+                                        button = "bd_next_credit_page",
+                                        colour = G.C.L_BLACK,
+                                        r = 0.1,
+                                        padding = 0.1,
+                                        emboss = 0.05,
+                                        hover = true,
+                                        shadow = true,
+                                    },
+                                    nodes = {
+                                        {
+                                            n = G.UIT.T,
+                                            config = {
+                                                text = "Next >",
+                                                scale = 0.4,
+                                                colour = G.C.UI.TEXT_LIGHT,
+                                                padding = 0.1
+                                            }
+                                        },
+                                    }
+                                },
                             }
                         }
                     }
