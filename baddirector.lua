@@ -1,5 +1,7 @@
 --#region this fucking sucks, death to Talisman, CDATAMAN RULES GRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHHHH
 
+local NFS = SMODS.NFS or NFS
+
 to_big = to_big or function(n)
     return n
 end
