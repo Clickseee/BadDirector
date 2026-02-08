@@ -1,5 +1,5 @@
 BadDirector.STATE = BadDirector.STATE or {}
-BadDirector.STATE.credit_page = BadDirector.STATE.credit_page or 1
+BadDirector.credit_page = BadDirector.credit_page or 1
 
 function G.FUNCS.bad_director_wiki(e)
     love.system.openURL("The url of your wiki here")
@@ -46,6 +46,8 @@ G.FUNCS.bd_prev_credit_page = function(e)
         math.max(1, (BadDirector.credit_page or 1) - 1)
 
     G.FUNCS.reload_bad_director()
+    local element = G.OVERLAY_MENU:get_UIE_by_ID("tab_but_Credits")
+	G.FUNCS.change_tab(element)
 end
 
 BadDirector.contributors = {
@@ -61,11 +63,11 @@ G.FUNCS.bd_next_credit_page = function(e)
     local max_page = math.max(1,
         math.ceil(#BadDirector.contributors / BadDirector.PER_PAGE)
     )
-
     BadDirector.credit_page =
         math.min(max_page, (BadDirector.credit_page or 1) + 1)
-
     G.FUNCS.reload_bad_director()
+    local element = G.OVERLAY_MENU:get_UIE_by_ID("tab_but_Credits")
+	G.FUNCS.change_tab(element)
 end
 
 
@@ -201,9 +203,9 @@ BadDirector.extra_tabs = function()
 
                 local max_page = math.max(1, math.ceil(#contributors / PER_PAGE))
 
-                BadDirector.STATE.credit_page = math.min(max_page, math.max(1, BadDirector.STATE.credit_page))
+                BadDirector.credit_page = math.min(max_page, math.max(1, BadDirector.credit_page))
 
-                BadDirector.STATE.credit_page = BadDirector.STATE.credit_page or 1
+                BadDirector.credit_page = BadDirector.credit_page or 1
 
                 local function get_page(list, page, per_page)
                     per_page = per_page or 1
@@ -225,7 +227,7 @@ BadDirector.extra_tabs = function()
 
                 local columns = {}
 
-                local page_data = get_page(contributors, BadDirector.STATE.credit_page, PER_PAGE)
+                local page_data = get_page(contributors, BadDirector.credit_page, PER_PAGE)
 
                 for _, v in ipairs(page_data) do
                     local area = CardArea(
@@ -338,7 +340,7 @@ BadDirector.extra_tabs = function()
                                         {
                                             n = G.UIT.T,
                                             config = {
-                                                text = BadDirector.STATE.credit_page .. " / " .. max_page,
+                                                text = BadDirector.credit_page .. " / " .. max_page,
                                                 scale = 0.4,
                                                 colour = G.C.UI.TEXT_LIGHT,
                                                 padding = 0.1
