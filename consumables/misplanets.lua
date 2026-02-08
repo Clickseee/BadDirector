@@ -1,3 +1,5 @@
+-- THANK YOU RUBYYYYY MWAAAAAAAAAAHHHHH
+
 SMODS.Consumable {
     atlas = "consumisprints",
     key = 'planetprint',

@@ -54,9 +54,7 @@ SMODS.Consumable {
     atlas = "consumisprints",
     key = 'foolprint',
     set = 'mistarot',
-    config = {
-        coder = {"Nxkoo"}
-    },
+    config = {  },
     pos = { x = 0, y = 0 },
     loc_vars = function(self, info_queue, card)
         local last_key = G.GAME.last_tarot_planet

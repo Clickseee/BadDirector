@@ -10,10 +10,9 @@ function G.FUNCS.bad_director_other_link(e)
 end
 
 G.FUNCS.open_bad_director = function()
-
     if G.bad_director then return end
 
-    G.bad_director = UIBox{
+    G.bad_director = UIBox {
         definition = BadDirector:create_UIBox(),
         config = {
             align = "cm",
@@ -53,6 +52,8 @@ BadDirector.contributors = {
     { key = "j_bd_nxkoojoker", text = "Nxkoo" },
     { key = "j_bd_nickjoker",  text = "IncognitoN71" },
     { key = "j_bd_rubyjoker",  text = "lord.ruby" },
+    { key = "j_bd_nhjoker",  text = "Nh6574" },
+    { key = "j_bd_thunderjoker",  text = "ThunderEdge" },
 }
 BadDirector.PER_PAGE = 3
 
@@ -70,7 +71,6 @@ end
 
 
 function BadDirector:create_UIBox()
-
     return {
         n = G.UIT.ROOT,
         config = { align = "cm" },
@@ -84,7 +84,6 @@ function BadDirector:create_UIBox()
         }
     }
 end
-
 
 BadDirector.description_loc_vars = function()
     return {
@@ -184,7 +183,11 @@ function Card:click(...)
             "bd_woof3",
         }, pseudoseed("bd_ruby_woof")))
     else
-        return card_click_ref(self, ...)
+        if self.config.center.key == "j_bd_nhjoker" and G.SETTINGS.paused then
+            love.system.openURL("https://github.com/nh6574/JoyousSpring")
+        else
+            return card_click_ref(self, ...)
+        end
     end
 end
 

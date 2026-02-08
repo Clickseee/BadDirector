@@ -46,3 +46,17 @@ SMODS.Atlas {
     px = 71,
     py = 95,
 }
+
+SMODS.Atlas {
+    key = "nhselfinsert",
+    path = "nh.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas {
+    key = "thunderselfinsert",
+    path = "thunderedge.png",
+    px = 71,
+    py = 95,
+}

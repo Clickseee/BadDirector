@@ -73,6 +73,13 @@ SMODS.Atlas {
     py = 95,
 }
 
+SMODS.Atlas {
+    key = "nhselfinsert",
+    path = "nh.png",
+    px = 71,
+    py = 95,
+}
+
 SMODS.Joker {
     key = "nxkoojoker",
     rarity = 4,
@@ -121,4 +128,38 @@ SMODS.Joker {
     end
 }
 
-SMODS.Joker:take_ownership("j_misprint", {})
+SMODS.Joker {
+    key = "nhjoker",
+    rarity = 4,
+    pos = { x = 0, y = 0 },
+    soul_pos = { x = 0, y = 1 },
+    atlas = "nhselfinsert",
+    cost = 666,
+    no_collection = true,
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = true,
+    in_pool = function(self, args)
+        return false
+    end
+}
+
+SMODS.Joker {
+    key = "thunderjoker",
+    rarity = 4,
+    pos = { x = 0, y = 0 },
+    soul_pos = { x = 0, y = 1 },
+    atlas = "thunderselfinsert",
+    cost = 666,
+    no_collection = true,
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = true,
+    in_pool = function(self, args)
+        return false
+    end
+}
+
+SMODS.Joker:take_ownership("j_misprint", {
+    partner = "Nxkoo"
+})
