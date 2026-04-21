@@ -1,13 +1,59 @@
+local function BadDirector_reset_crt_smooth()
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.1,
+        blocking = false,
+        func = function()
+            BadDirector_crt_glitch = math.max(0, BadDirector_crt_glitch - 0.1)
+            BadDirector_crt_noise = math.max(0, BadDirector_crt_noise - 0.1)
+            BadDirector_crt_intensity = math.max(0, BadDirector_crt_intensity - 0.1)
+
+            if BadDirector_crt_glitch > 0 then
+                return false
+            end
+
+            return true
+        end
+    }))
+end
+
+
 SMODS.Consumable {
     key = 'spectralprint',
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 9, y = 6 },
-    no_collection = true
+    can_use = function(self, card)
+        return #G.jokers.cards > 0
+    end,
+
+    use = function(self, card, area, copier)
+        BadDirector_set_crt_vals('glitch', 2)
+        BadDirector_set_crt_vals('noise', 1.0)
+        BadDirector_set_crt_vals('intensity', 1.5)
+        for i = 1, #G.jokers.cards do
+            local joker = G.jokers.cards[i]
+
+            if joker and joker.config then
+                BadDirector.manipulate(joker, {
+                    min = 0.5,
+                    max = 3,
+                    type = "X",
+                    dont_stack = true,
+                    no_deck_effects = true,
+                    seed = "fuckme5sides" .. G.GAME.round
+                })
+
+                joker:juice_up(0.4, 0.4)
+                play_sound('bd_inapmit')
+                BadDirector_reset_crt_smooth()
+            end
+        end
+    end
 }
 
 SMODS.Consumable {
-    key = 'familiarprint',  
+    key = 'familiarprint',
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 0, y = 5 },

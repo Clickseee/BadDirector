@@ -47,10 +47,11 @@ G.FUNCS.bd_prev_credit_page = function(e)
 
     G.FUNCS.reload_bad_director()
     local element = G.OVERLAY_MENU:get_UIE_by_ID("tab_but_Credits")
-	G.FUNCS.change_tab(element)
+    G.FUNCS.change_tab(element)
 end
 
 BadDirector.contributors = {
+<<<<<<< Updated upstream
     { key = "j_bd_nxkoojoker", text = "Nxkoo" },
     { key = "j_bd_nickjoker",  text = "IncognitoN71" },
     { key = "j_bd_rubyjoker",  text = "lord.ruby" },
@@ -68,7 +69,7 @@ G.FUNCS.bd_next_credit_page = function(e)
         math.min(max_page, (BadDirector.credit_page or 1) + 1)
     G.FUNCS.reload_bad_director()
     local element = G.OVERLAY_MENU:get_UIE_by_ID("tab_but_Credits")
-	G.FUNCS.change_tab(element)
+    G.FUNCS.change_tab(element)
 end
 
 
@@ -185,11 +186,24 @@ function Card:click(...)
             "bd_woof2",
             "bd_woof3",
         }, pseudoseed("bd_ruby_woof")))
+        love.system.openURL("https://github.com/lord-ruby/Entropy")
     else
         if self.config.center.key == "j_bd_nhjoker" and G.SETTINGS.paused then
             love.system.openURL("https://github.com/nh6574/JoyousSpring")
         else
-            return card_click_ref(self, ...)
+            if self.config.center.key == "j_bd_thunderjoker" and G.SETTINGS.paused then
+                love.system.openURL("https://github.com/ThunderEdge73/Multiverse")
+            else
+                if self.config.center.key == "j_bd_nickjoker" and G.SETTINGS.paused then
+                    love.system.openURL("https://github.com/IncognitoN71/Incognito")
+                else
+                    if self.config.center.key == "j_bd_nxkoojoker" and G.SETTINGS.paused then
+                        love.system.openURL("https://i.pinimg.com/736x/89/0d/a6/890da63d77f3e832ef9c4faafa177421.jpg")
+                    else
+                        return card_click_ref(self, ...)
+                    end
+                end
+            end
         end
     end
 end

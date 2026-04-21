@@ -18,35 +18,27 @@ SMODS.Consumable {
     draw = function(self, card, layer) card.children.center:draw_shader('hologram', nil, card.ARGS.send_to_shader) end,
     pos = { x = 9, y = 2 },
     config = { extra = { count = 2 } },
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.count } }
-    end,
-    use = function(self, card, area, copier)
-        for i = 1, card.ability.extra.count do
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = 0.4,
-                func = function()
-                    play_sound('bd_inapmit')
-                    card:juice_up(0.3, 0.5)
-
-                    local types = {
-                        function() SMODS.add_card({ set = 'Joker' }) end,
-                        function() SMODS.add_card({ set = 'Tarot' }) end,
-                        function() SMODS.add_card({ set = 'Planet' }) end,
-                        function() SMODS.add_card({ set = 'Spectral' }) end
-                    }
-                    local choice = pseudorandom_element(types, 'everything')
-                    choice()
-                    return true
-                end
-            }))
-        end
-        delay(0.6)
-    end,
-    no_collection = true,
     can_use = function(self, card)
-        return true
+        return #G.consumeables.cards > 0
+    end,
+
+    use = function(self, card, area, copier)
+        for i = 1, #G.consumeables.cards do
+            local target = G.consumeables.cards[i]
+
+            if target and target.config then
+                BadDirector.manipulate(target, {
+                    min = 0.5,
+                    max = 3,
+                    type = "X",
+                    dont_stack = true,
+                    no_deck_effects = true,
+                    seed = "giggity" .. G.GAME.round
+                })
+            end
+        end
+
+        play_sound('bd_inapmit')
     end
 }
 

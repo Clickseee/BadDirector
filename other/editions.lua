@@ -154,6 +154,7 @@ SMODS.Edition {
         }
     },
     weight = 21,
+    artist = "stupid",
     shader = "misprint",
     in_shop = true,
     extra_cost = 3,

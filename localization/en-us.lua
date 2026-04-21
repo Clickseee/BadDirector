@@ -182,11 +182,11 @@ return {
         },
         mistarot = {
             c_bd_defaultprint = {
-                name = "{E:bd_glitching,C:dark_edition}u{}nde{E:bd_glitching,C:dark_edition}f{}ined",
+                name = "nil  {E:bd_glitching,C:dark_edition}1{}{E:bd_glitching,C:dark_edition}1{}{E:bd_glitching,C:dark_edition}1{}{E:bd_glitching,C:dark_edition}1{}",
                 text = {
-                    "Creates up to",
-                    "{C:attention}#1#{} of {E:bd_glitching,C:dark_edition}dick{}",
-                    "{C:inactive}(Doesn't need room)"
+                    "Ra{E:bd_glitching,C:dark_edition}n{}d{E:bd_glitching,C:dark_edition}o{}{E:bd_glitching,C:dark_edition}miz{}es values of",
+                    "all held {C:attention}consumables",
+                    "between {X:attention,C:white}X0.5{} ~ {X:attention,C:white}X3{}"
                 }
             },
             c_bd_foolprint = {
@@ -448,6 +448,14 @@ return {
             }
         },
         mispectral = {
+            c_bd_spectralprint = {
+                name = "und{E:bd_glitching,C:green}1{}fi{E:bd_glitching,C:red}1{}e{E:bd_glitching,C:attention}1{}",
+                text = {
+                    "Ra{E:bd_glitching,C:dark_edition}n{}d{E:bd_glitching,C:dark_edition}o{}{E:bd_glitching,C:dark_edition}miz{}es values of",
+                    "all held {C:attention}Jokers",
+                    "between {X:attention,C:white}X0.5{} ~ {X:attention,C:white}X3{}"
+                }
+            },
             c_bd_soulprint = {
                 name = "ulSo",
                 text = {
