@@ -136,7 +136,8 @@ SMODS.Enhancement {
     pos = { x = 3, y = 1 },
     config = {
         extra = {
-            wildrep = 1
+            wildrep = 1, -- repetitions total
+            wildstep = 1 --  increase in repetitions
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -144,11 +145,18 @@ SMODS.Enhancement {
         return { vars = { card.ability.extra.xmult, localize(suit, 'suits_singular'), colours = { G.C.SUITS[suit] } } }
     end,
     calculate = function(self, card, context)
-        if context.repetition and context.cardarea == G.play then
+        if context.before and context.cardarea == G.play then
             local suit = G.GAME.current_round.suitwash.suit
-            if context.other_card:is_suit(suit) then
-                return { repetitions = card.ability.extra.wildrep }
+            card.ability.extra.wildrep = 0
+            for i=1, #context.scoring_hand do 
+                if context.scoring_hand[i]:is_suit(suit) then
+                    card.ability.extra.wildrep = card.ability.extra.wildrep + card.ability.extra.wildstep
+                end
             end
+            print(card.ability.extra.wildrep)
+        end
+        if context.repetition and context.cardarea == G.play then
+            return { repetitions = card.ability.extra.wildrep }
         end
     end
 }
