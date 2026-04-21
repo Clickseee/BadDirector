@@ -56,6 +56,7 @@ BadDirector.contributors = {
     { key = "j_bd_rubyjoker",  text = "lord.ruby" },
     { key = "j_bd_nhjoker",  text = "Nh6574" },
     { key = "j_bd_thunderjoker",  text = "ThunderEdge" },
+    { key = "j_bd_nixjoker",  text = "nixthatoneartist" },
 }
 BadDirector.PER_PAGE = 3
 

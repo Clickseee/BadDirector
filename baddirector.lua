@@ -160,6 +160,23 @@ SMODS.Joker {
     end
 }
 
+SMODS.Joker {
+    key = "nixjoker",
+    rarity = 4,
+    pos = { x = 0, y = 0 },
+    soul_pos = { x = 1, y = 0 },
+    atlas = "nixselfinsert",
+    cost = 666,
+    no_collection = true,
+    discovered = true,
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = true,
+    in_pool = function(self, args)
+        return false
+    end
+}
+
 SMODS.Joker:take_ownership("j_misprint", {
     partner = "Nxkoo"
 })
