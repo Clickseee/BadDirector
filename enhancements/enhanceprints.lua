@@ -2,18 +2,18 @@ SMODS.Enhancement {
     key = "misprintstone",
     atlas = "misprintenhanced",
     pos = { x = 5, y = 0 },
-    config = { bonus = 40, extra = { max = 20, min = -10 } }, -- can also be adjusted as need be ofc
+    config = { bonus = 40, extra = { original_bonus = 40, max = 20, min = -10 } }, -- can also be adjusted as need be ofc
     replace_base_card = true,
     no_rank = true,
     no_suit = true,
     always_scores = true, -- as im guessing this is still adjacent to stones this way
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.bonus } }
+        return { vars = { card.ability.extra.original_bonus } }
     end,
     calculate = function(self, card, context)
         if context.main_scoring and context.cardarea == G.play then
             card.ability.bonus = card.ability.bonus + pseudorandom('tmtrainuh', card.ability.extra.min, card.ability.extra.max)
-            if card.ability.bonus < 40 then card.ability.bonus = 40 end
+            if card.ability.bonus < card.ability.extra.original_bonus then card.ability.bonus = card.ability.extra.original_bonus end
             return {
                 message = localize('k_upgrade_q'),
                 colour = G.C.CHIPS,

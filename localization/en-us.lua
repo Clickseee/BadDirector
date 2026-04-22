@@ -544,7 +544,9 @@ return {
                 name = "tone CardS",
                 text = {
                     "{C:blue}+#1#{} Chips",
-                    "Gains(?) {E:bd_glitching,C:blue}+69{} Chips when scored" -- desc could maybe be changed but 
+                    "Gains(?) {E:bd_glitching,C:blue}+69{} Chips",
+                    "when scored",
+                    "no rank or suit" -- desc could maybe be changed but 
                 }
             },
             m_bd_misprintgold = {
