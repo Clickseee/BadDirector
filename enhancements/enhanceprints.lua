@@ -224,15 +224,41 @@ SMODS.Enhancement {
     end
 }
 
+-- wip, this does not work as intended yet LMAO
 SMODS.Enhancement {
     key = "misprintglass",
     atlas = "misprintenhanced",
     pos = { x = 5, y = 1 },
-    config = {},
+    config = { Xmult = 2, extra = { odds = 3, location = 1 } },
     loc_vars = function(self, info_queue, card)
-        return {}
+        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'edibles aint sh')
+        return { vars = { card.ability.Xmult, numerator, denominator } }
     end,
     calculate = function(self, card, context)
+        if context.main_scoring and context.cardarea == G.play then
+            for i = 1, #G.play do
+                if G.play.cards[i] = card then
+                    card.ability.extra.location = i
+                end
+            end
+        end
+        if context.destroy_card and context.cardarea == G.play then
+            if context.destroy_card == card and
+                SMODS.pseudorandom_probability(card, 'this shit laced', 1, card.ability.extra.odds) then
+                -- card.glass_trigger = true             er, should this be here or
+                return { remove = true }
+            end
+            --[[if context.destroy_card == G.play.cards[card.ability.extra.location + 1] and
+                SMODS.pseudorandom_probability(card, 'this shit laced', 1, card.ability.extra.odds) then
+                -- card.glass_trigger = true             ehhhhhh? dunno if this should be here lmao  
+                return { remove = true }
+            end
+            if context.destroy_card == G.play.cards[card.ability.extra.location - 1] and
+                SMODS.pseudorandom_probability(card, 'this shit laced', 1, card.ability.extra.odds) then
+                -- card.glass_trigger = true             ehhhhhh? dunno if this should be here lmao  
+                return { remove = true }
+            end]]
+        end
     end
 }
 
