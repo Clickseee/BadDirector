@@ -464,6 +464,30 @@ return {
                     "to each {E:bd_glitching}card in{} your hand",
                 }
             },
+            c_bd_dejaprint = {
+                name = "ja Vu De",
+                text = {
+                    "{E:bd_glitching,C:green}#1#{}{C:green} in {C:green}#2#{} chance to",
+                    "{E:bd_glitching}add a{} {C:attention}Red Seal{}",
+                    "to each {E:bd_glitching}card in{} your hand",
+                }
+            },
+            c_bd_tranceprint = {
+                name = "ceTran",
+                text = {
+                    "{E:bd_glitching,C:green}#1#{}{C:green} in {C:green}#2#{} chance to",
+                    "{E:bd_glitching}add a{} {C:attention}Blue Seal{}",
+                    "to each {E:bd_glitching}card in{} your hand",
+                }
+            },
+            c_bd_mediumprint = {
+                name = "umMedi",
+                text = {
+                    "{E:bd_glitching,C:green}#1#{}{C:green} in {C:green}#2#{} chance to",
+                    "{E:bd_glitching}add a{} {C:attention}Purple Seal{}",
+                    "to each {E:bd_glitching}card in{} your hand",
+                }
+            },
             c_bd_soulprint = {
                 name = "ulSo",
                 text = {
