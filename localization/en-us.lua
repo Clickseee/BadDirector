@@ -456,6 +456,14 @@ return {
                     "between {X:attention,C:white}X0.5{} ~ {X:attention,C:white}X3{}"
                 }
             },
+            c_bd_talisprint = {
+                name = "anTalism",
+                text = {
+                    "{E:bd_glitching,C:green}#1#{}{C:green} in {C:green}#2#{} chance to",
+                    "{E:bd_glitching}add a{} {C:attention}Gold Seal{}",
+                    "to each {E:bd_glitching}card in{} your hand",
+                }
+            },
             c_bd_soulprint = {
                 name = "ulSo",
                 text = {

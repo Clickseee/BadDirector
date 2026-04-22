@@ -81,7 +81,58 @@ SMODS.Consumable {
     atlas = "consumisprints",
     set = 'mispectral',
     pos = { x = 3, y = 5 },
-    misprint_original = "c_talisman"
+    misprint_original = "c_talisman",
+    config = { extra = { seal = 'Gold' }, odds = 6 }, -- can be adjusted as need be ofc
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal]
+        return { vars = { G.GAME.probabilities.normal, card.ability.odds } }
+    end,
+    can_use = function(self, card)
+        return G.hand and #G.hand.cards > 0
+    end,
+    use = function(self, card, area, copier)
+        play_sound('bd_inapmit') -- was unsure if it should play every time a seal is applied lol
+        for i=1, #G.hand.cards do
+            local woah = G.hand.cards[i]
+            if pseudorandom('blud is golden') < G.GAME.probabilities.normal / card.ability.odds then
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        woah:juice_up(0.3, 0.5)
+                        return true
+                    end
+                }))
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'after',
+                    delay = 0.1,
+                    func = function()
+                        woah:set_seal(card.ability.extra.seal, nil, true)
+                        return true
+                    end
+                }))
+                delay(0.5)
+            else -- we probably dont HAVE to have the Nope! here so i can remove if need be i just thought it might help visually
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'after',
+                    delay = 0.6,
+                    func = function()
+                        attention_text({
+                            text = localize('k_nope_ex'),
+                            scale = 1,
+                            hold = 1,
+                            major = woah,
+                            backdrop_colour = G.C.SECONDARY_SET.Tarot,
+                            align = 'cm',
+                            offset = { x = 0 + ((G.hand.cards[(math.floor(#G.hand.cards / 2))].T.x - woah.T.x) / -50), y = -2 },
+                            silent = true,
+                        })
+                        play_sound('generic1')
+                        woah:juice_up(0.3, 0.5)
+                        return true
+                    end
+                }))
+            end
+        end
+    end
 }
 
 SMODS.Consumable {
