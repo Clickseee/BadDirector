@@ -543,9 +543,8 @@ return {
             m_bd_misprintstone = {
                 name = "tone CardS",
                 text = {
-                    "All other scored cards are unscored,",
-                    "accumulate all unscored chips and",
-                    "score it to this card instead"
+                    "{C:blue}+#1#{} Chips",
+                    "Gains(?) {E:bd_glitching,C:blue}+69{} Chips when scored" -- desc could maybe be changed but 
                 }
             },
             m_bd_misprintgold = {

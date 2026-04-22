@@ -2,29 +2,23 @@ SMODS.Enhancement {
     key = "misprintstone",
     atlas = "misprintenhanced",
     pos = { x = 5, y = 0 },
-    config = {},
+    config = { bonus = 40, extra = { max = 20, min = -10 } }, -- can also be adjusted as need be ofc
+    replace_base_card = true,
+    no_rank = true,
+    no_suit = true,
+    always_scores = true, -- as im guessing this is still adjacent to stones this way
     loc_vars = function(self, info_queue, card)
-        return {}
+        return { vars = { card.ability.bonus } }
     end,
     calculate = function(self, card, context)
-        if context.cardarea == G.play and context.scoring_hand and context.scoring_hand.cards then
-            local total_chips = 0
-
-            for i = #context.scoring_hand.cards, 1, -1 do
-                local c = context.scoring_hand.cards[i]
-                if c ~= card then
-                    total_chips = total_chips + (c:get_chip_bonus() or 0)
-                    c.scored = false
-                end
-            end
-
-            if total_chips > 0 then
-                return {
-                    chips = total_chips * 2,
-                    message = localize("k_chips"),
-                    colour = G.C.CHIPS
-                }
-            end
+        if context.main_scoring and context.cardarea == G.play then
+            card.ability.bonus = card.ability.bonus + pseudorandom('tmtrainuh', card.ability.extra.min, card.ability.extra.max)
+            if card.ability.bonus < 40 then card.ability.bonus = 40 end
+            return {
+                message = localize('k_upgrade_q'),
+                colour = G.C.CHIPS,
+                message_card = card,
+            }
         end
     end
 }
