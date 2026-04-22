@@ -168,7 +168,6 @@ SMODS.Joker {
     atlas = "nixselfinsert",
     cost = 666,
     no_collection = true,
-    discovered = true,
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,

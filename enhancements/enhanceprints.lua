@@ -190,7 +190,7 @@ SMODS.Enhancement {
             card, 1, card.ability.extra.mult_odds, 'ohmygod'
         )
         local money_num, money_den = SMODS.get_probability_vars(
-            card, 1, card.ability.extra.dollars_odds, 'imhumpingmyCOUCH'
+            card, 1, card.ability.extra.dollars_odds, 'imhumpingmyCOUCH' -- WHAT are we doing
         )
         return {
             vars = {
