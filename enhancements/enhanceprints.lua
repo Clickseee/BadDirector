@@ -243,7 +243,6 @@ SMODS.Enhancement {
                     proper_flag = true
                 end
             end
-            print(proper_flag)
             if proper_flag then
                 if G.play.cards[card.ability.extra.location - 1] then
                     table.insert(to_destroy, G.play.cards[card.ability.extra.location - 1])
