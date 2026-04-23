@@ -577,7 +577,13 @@ return {
                 }
             },
             m_bd_misprintglass = {
-                name = "ass CardGl"
+                name = "ass CardGl",
+                text = {
+                    "{X:mult,C:white}X#1#{} Mult",
+                    "{E:bd_glitching,C:green}#2#{}{C:green} in {C:green}#3#{} chance to",
+                    "shatter this card and adjacent cards",
+                    "{C:inactive}(Probabilities rolled for each card){}"
+                }
             },
             m_bd_misprintsteel = {
                 name = "eel CardSt",

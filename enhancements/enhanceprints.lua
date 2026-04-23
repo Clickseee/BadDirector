@@ -224,40 +224,49 @@ SMODS.Enhancement {
     end
 }
 
--- wip, this does not work as intended yet LMAO
 SMODS.Enhancement {
     key = "misprintglass",
     atlas = "misprintenhanced",
     pos = { x = 5, y = 1 },
-    config = { Xmult = 2, extra = { odds = 3, location = 1 } },
+    config = { Xmult = 2.5, extra = { odds = 4, location = 1 } },
     loc_vars = function(self, info_queue, card)
-        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'edibles aint sh')
+        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'the fitnessgram pacer test is a')
         return { vars = { card.ability.Xmult, numerator, denominator } }
     end,
     calculate = function(self, card, context)
-        if context.main_scoring and context.cardarea == G.play then
-            for i = 1, #G.play do
-                if G.play.cards[i] = card then
+        if context.destroy_card and context.cardarea == G.play then
+            local to_destroy = {}
+            local proper_flag = false
+            for i = 1, #G.play.cards do
+                if G.play.cards[i] == card then
                     card.ability.extra.location = i
+                    proper_flag = true
                 end
             end
-        end
-        if context.destroy_card and context.cardarea == G.play then
-            if context.destroy_card == card and
-                SMODS.pseudorandom_probability(card, 'this shit laced', 1, card.ability.extra.odds) then
-                -- card.glass_trigger = true             er, should this be here or
-                return { remove = true }
+            print(proper_flag)
+            if proper_flag then
+                if G.play.cards[card.ability.extra.location - 1] then
+                    table.insert(to_destroy, G.play.cards[card.ability.extra.location - 1])
+                end
+                table.insert(to_destroy, G.play.cards[card.ability.extra.location])
+                if G.play.cards[card.ability.extra.location + 1] then
+                    table.insert(to_destroy, G.play.cards[card.ability.extra.location + 1])
+                end
+                for i = 1, #to_destroy do
+                    if SMODS.pseudorandom_probability(card, 'multistage aerobic capacity test', 1, card.ability.extra.odds) then
+                        G.E_MANAGER:add_event(Event {
+                            func = function()
+                                if SMODS.has_enhancement(to_destroy[i], 'm_glass') then -- should it have its own shatter now that i think of it lol
+                                    to_destroy[i]:shatter()
+                                else
+                                    to_destroy[i]:start_dissolve()
+                                end
+                                return true
+                            end
+                        })
+                    end
+                end
             end
-            --[[if context.destroy_card == G.play.cards[card.ability.extra.location + 1] and
-                SMODS.pseudorandom_probability(card, 'this shit laced', 1, card.ability.extra.odds) then
-                -- card.glass_trigger = true             ehhhhhh? dunno if this should be here lmao  
-                return { remove = true }
-            end
-            if context.destroy_card == G.play.cards[card.ability.extra.location - 1] and
-                SMODS.pseudorandom_probability(card, 'this shit laced', 1, card.ability.extra.odds) then
-                -- card.glass_trigger = true             ehhhhhh? dunno if this should be here lmao  
-                return { remove = true }
-            end]]
         end
     end
 }
