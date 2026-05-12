@@ -89,6 +89,15 @@ return {
                     "{C:attention}Wild{} Card",
                 }
             },
+            j_bd_heartburn = {
+                name = "Heartburn",
+                text = {
+                    "If scored hand {C:attention}catches fire{},",
+                    "convert all",
+                    "{C:attention}held in hand{} cards",
+                    "into {C:hearts}Hearts{}"
+                }
+            },
         },
         mistarot = {
             c_bd_defaultprint = {

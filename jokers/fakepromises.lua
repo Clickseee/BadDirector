@@ -36,10 +36,10 @@ SMODS.Consumable:take_ownership(
 
 SMODS.Joker {
     key = "fakepromises",
-    rarity = 2,
+    rarity = 3,
     atlas = "<3",
     pos = { x = 0, y = 0 },
-    cost = 4,
+    cost = 5,
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
