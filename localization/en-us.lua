@@ -55,6 +55,16 @@ return {
                     "into {C:hearts}Hearts{}"
                 }
             },
+        j_bd_lovesick = {
+                name = "Lovesick",
+                text = {
+                    "Gains {X:mult,C:white}X#1#{} Mult",
+                    "per consecutive played",
+                    "hand containing only",
+                    "{C:hearts}Heart{} cards",
+                    "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
+                }
+            },
         },
         mistarot = {
             c_bd_defaultprint = {
