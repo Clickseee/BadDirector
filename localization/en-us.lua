@@ -98,6 +98,14 @@ return {
                     "into {C:hearts}Hearts{}"
                 }
             },
+            j_bd_heartbreak = {
+                name = "Heartbroken",
+                text = {
+                    "{C:attention}Glass Cards{} that",
+                    "would break instead",
+                    "become {C:hearts}Hearts{}"
+                }
+            },
         },
         mistarot = {
             c_bd_defaultprint = {
