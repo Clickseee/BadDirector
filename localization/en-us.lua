@@ -106,6 +106,17 @@ return {
                     "become {C:hearts}Hearts{}"
                 }
             },
+            j_bd_newlove = {
+                name = "Newlove",
+                text = {
+                    "If played hand contains",
+                    "{C:attention}3{} or more {C:attention}face cards{},",
+                    "destroy the last",
+                    "{C:attention}face card{} and convert",
+                    "the first two into",
+                    "{C:hearts}Hearts{}"
+                }
+            },
         },
         mistarot = {
             c_bd_defaultprint = {
