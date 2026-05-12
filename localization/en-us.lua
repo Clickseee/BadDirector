@@ -127,6 +127,14 @@ return {
                     "it to {C:attention}hand"
                 }
             },
+            j_bd_suicide = {
+                name = "Rebound",
+                text = {
+                    "If a {C:hearts}Heart{} card",
+                    "is {C:red}destroyed{},",
+                    "{C:red}crash the game :){}"
+                }
+            },
         },
         mistarot = {
             c_bd_defaultprint = {
