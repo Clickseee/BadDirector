@@ -1,6 +1,6 @@
 SMODS.Atlas {
-    key = "whythelongface",
-    path = "longface.png",
+    key = "<3",
+    path = "lessthanthree.png",
     px = 71,
     py = 95,
 }
