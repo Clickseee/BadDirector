@@ -1,3 +1,4 @@
+--[[
 SMODS.Atlas {
     key = "consumisprints",
     path = "consumisprints.png",
@@ -992,3 +993,4 @@ SMODS.Consumable {
     end,
     misprint_original = "c_world"
 }
+]]
