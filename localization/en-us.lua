@@ -117,6 +117,16 @@ return {
                     "{C:hearts}Hearts{}"
                 }
             },
+            j_bd_rebound = {
+                name = "Rebound",
+                text = {
+                    "When {C:attention}played{} or {C:attention}selected",
+                    "cards are {C:red}destroyed{},",
+                    "add a permanent copy",
+                    "to deck and draw",
+                    "it to {C:attention}hand"
+                }
+            },
         },
         mistarot = {
             c_bd_defaultprint = {
