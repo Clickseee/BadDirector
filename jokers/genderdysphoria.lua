@@ -1,3 +1,12 @@
+local oldcardgetid = Card.get_id
+function Card:get_id()
+    local g = oldcardgetid(self)
+    if next(SMODS.find_card('j_bd_genderdysphoria')) and (g == 12 or g == 13) then
+        return 11
+    end
+    return g
+end
+
 SMODS.Joker {
     key = "genderdysphoria",
     rarity = 2,

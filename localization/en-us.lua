@@ -70,7 +70,7 @@ return {
                 text = {
                     "All played",
                     "{C:attention}Kings{} and {C:attention}Queens{}",
-                    "are turned into {C:attention}Jacks{}"
+                    "count as {C:attention}Jacks{}"
                 }
             },
             j_bd_hopelessromantic = {
@@ -79,6 +79,14 @@ return {
                     "Each held in hand",
                     "{C:attention}Ace{} of {C:hearts}Hearts{}",
                     "gives {X:mult,C:white}X#1#{} Mult",
+                }
+            },
+            j_bd_fakepromises = {
+                name = "Fake Promises",
+                text = {
+                    "{C:tarot}The Sun{} now turn",
+                    "selected cards into",
+                    "{C:attention}Wild{} Card",
                 }
             },
         },
