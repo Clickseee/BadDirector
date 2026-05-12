@@ -1,3 +1,4 @@
+--[[
 local function BadDirector_reset_crt_smooth()
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
@@ -444,3 +445,4 @@ SMODS.Consumable {
     hidden = true,
     misprint_original = "c_soul"
 }
+]]
