@@ -45,144 +45,21 @@ return {
             }
         },
         Joker = {
-            j_bd_polaroid = {
-                name = "Polaroid",
+            j_bd_lovebomb = {
+                name = "Lovebomb",
                 text = {
-                    "First played and unscored",
-                    "{C:attention}face{} card gives",
-                    "{X:chips,C:white}X3.5{} Chips"
-                }
-            },
-            j_bd_forgery = {
-                name = "Forgery",
-                text = {
-                    "Played {C:attention}Steel{} card",
-                    "now has {C:green}#1# in #2#{} chance",
-                    "to increase it's rank by {C:attention}#3#{}"
-                }
-            },
-            j_bd_contents = {
-                name = "Contents [{s:0.7,C:blue}hide{}]",
-                text = {
-                    "Gains {X:mult,C:white}X#1#{} Mult if all",
-                    "{C:attention}poker hands{} mentioned are played,",
-                    "{C:mult}+#2#{} Mult if it's half completed,",
-                    "poker hand resets when {C:attention}Blind{} is selected",
-                    "{C:inactive}(Currently {X:mult,C:white}X#3#{} {C:inactive}and {C:mult}+#4#{} {C:inactive}Mult)"
-                }
-            },
-            j_bd_jello = {
-                name = "Popsicle",
-                text = {
-                    {
-                        "#"
-                    },
-                    {
-                        "{C:green,E:bd_glitching}#1#{} {C:green}in{} {C:green,E:bd_glitching}#2#{} chance this is destroyed",
-                        "at the end of the round"
-                    }
-                }
-            },
-            j_bd_lefty = {
-                name = "Lefty",
-                text = {
-                    "If the leftmost scored card",
-                    "is {C:attention}#2#{} of {V:1}#3#{}, gain {C:money}$#1#{}",
-                    "{C:inactive,s:0.8}(Card changes every round){}"
-                }
-            },
-            j_bd_pregnantchad = {
-                name = "Pregnant Chad",
-                text = {
-                    "Retrigger {C:attention}first{} Joker's",
-                    "trigger effect used in scoring",
-                    "{C:attention}#1#{} additional times",
-                }
-            },
-            j_bd_timeline = {
-                name = "Timeline",
-                text = {
-                    "When an adjacent Joker triggers,",
-                    "permanently gain {C:mult}+{E:bd_glitching,C:mult}N{}{C:mult}/{E:bd_glitching,C:mult}A{} Mult and {C:chips}+{E:bd_glitching,C:chips}N{}{C:chips}/{}{E:bd_glitching,C:chips}A{} chips",
-                    "{C:inactive}(Currently {C:mult}+#1#{}{C:inactive} Mult and {C:chips}+#2#{} {C:inactive}Chips)",
-                }
-            },
-            j_bd_counterfeitslab = {
-                name = "Counterfeit Slab",
-                text = {
-                    "Jokers with {C:edition}Edition{} has",
-                    "{C:green}#1# in #2#{} chance to duplicate",
-                    "after beating a {C:attention}Showdown{} blind"
-                }
-            },
-            j_bd_damocles = {
-                name = "Sword of Damocles",
-                text = {
-                    {
-                        "{C:money}Money{} is doubled at the end of every round,",
-                        "triples all {C:attention}listed {C:green}probabilities,",
-                        "other {C:attention}Jokers{} now retrigger {C:attention}#1#{} times,",
-                        "every played {C:attention}card{} now retrigger {C:attention}#2#{} times"
-                    },
-                    {
-                        "Set {C:blue}Hands{} to {C:attention}#3#{}"
-                    }
-                }
-            },
-            j_bd_cheapwine = {
-                name = "Cheap Wine",
-                text = {
-                    "{C:mult}+#1#{} Mult",
-                    "{C:mult}-#2#{} Mult for every",
-                    "{C:money}$5{} the player has",
-                    "at end of every round"
-                }
-            },
-            j_bd_p03 = {
-                name = "Wicked Computer",
-                text = {
-                    {
-                        "{X:mult,C:white}X1{} Mult for each",
-                        "Browsers tabs used by {f:bd_p03font,C:dark_edition}P{E:bd_glitching,C:dark_edition}03{}",
-                        "to upload his consciousness",
-                        "{C:inactive}(Currently {X:mult,C:white}X#3#{}{C:inactive} Mult)"
-                    },
-                    {
-                        "{C:green}1 in 2{} chance to be killed",
-                        "at the end of the round",
-                        "if it uses more than {C:attention}#4#{} Browsers tabs",
-                    }
-                }
-            },
-            j_bd_binded = {
-                name = "Binded",
-                text = {
-                    "Retrigger each played {C:attention}enhanced{} cards,",
-                    "{C:green}#2# in #3#{} chance to",
-                    "remove card {C:attention}Enhancement"
-                }
-            },
-            j_bd_longface = {
-                name = "Long Face",
-                text = {
-                    "This Joker gains {C:mult}+{E:bd_glitching,C:mult}67{} Mult",
-                    "if played hand has {C:attention}3{} or more",
-                    "unscored {C:attention}face{} cards"
-                }
-            },
-            j_bd_impulsebuyer = {
-                name = "Impulse Buyer",
-                text = {
-                    "This Joker gains {X:mult,C:white}X#2#{} Mult",
-                    "per bought cards in the shop,",
-                    "resets when skipping a shop",
-                    "{C:inactive}(Currently {X:mult,C:white}X#1#{} {C:inactive}Mult)"
+                    "If played hand is a",
+                    "{C:attention}Pair{} and contains",
+                    "a {C:hearts}Heart{} card, convert",
+                    "all played cards",
+                    "into {C:hearts}Hearts{}"
                 }
             },
         },
         mistarot = {
             c_bd_defaultprint = {
-                name = "nil  {E:bd_glitching,C:dark_edition}1{}{E:bd_glitching,C:dark_edition}1{}{E:bd_glitching,C:dark_edition}1{}{E:bd_glitching,C:dark_edition}1{}",
+                name =
+                "nil  {E:bd_glitching,C:dark_edition}1{}{E:bd_glitching,C:dark_edition}1{}{E:bd_glitching,C:dark_edition}1{}{E:bd_glitching,C:dark_edition}1{}",
                 text = {
                     "Ra{E:bd_glitching,C:dark_edition}n{}d{E:bd_glitching,C:dark_edition}o{}{E:bd_glitching,C:dark_edition}miz{}es values of",
                     "all held {C:attention}consumables",
@@ -546,7 +423,7 @@ return {
                     "{C:blue}+#1#{} Chips",
                     "Gains(?) {E:bd_glitching,C:blue}+69{} Chips",
                     "when scored",
-                    "no rank or suit" -- desc could maybe be changed but 
+                    "no rank or suit" -- desc could maybe be changed but
                 }
             },
             m_bd_misprintgold = {

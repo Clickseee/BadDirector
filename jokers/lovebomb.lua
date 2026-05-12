@@ -6,36 +6,39 @@ SMODS.Atlas {
 }
 
 SMODS.Joker {
-    key = "longface",
-    rarity = 2,
-    atlas = "whythelongface",
+    key = "lovebomb",
+    rarity = 1,
+    atlas = "<3",
     pos = { x = 0, y = 0 },
-    cost = 4,
+    cost = 3,
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    config = { extra = { odds = 2, rankup = 1 } },
     loc_vars = function(self, info_queue, card)
-        local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'blacksmith')
-        return { vars = { numerator, denominator, card.ability.extra.rankup } }
+        return {}
     end,
+
     calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.play and not context.blueprint then
-            if SMODS.has_enhancement(context.other_card, 'm_steel') then
-                if SMODS.pseudorandom_probability(card, 'blacksmith', 1, card.ability.extra.odds) then
-                    local thecard = context.other_card
-                    G.E_MANAGER:add_event(Event({
-                        func = function()
-                            assert(SMODS.modify_rank(thecard, card.ability.extra.rankup))
-                            thecard:juice_up(0.5, 0.5)
-                            return true
-                        end
-                    }))
-                    return {
-                        message = localize { type = 'variable', key = 'k_rank_up', vars = { original_rank, context.other_card.base.value } },
-                        colour = G.C.SECONDARY_SET.Enhanced
-                    }
+        if context.before and context.cardarea == G.jokers then
+            local is_flush = next(context.poker_hands["Pair"])
+            local has_heart = false
+
+            for _, played_card in ipairs(context.full_hand) do
+                if played_card:is_suit("Hearts") then
+                    has_heart = true
+                    break
                 end
+            end
+
+            if is_flush and has_heart then
+                for _, played_card in ipairs(context.full_hand) do
+                    SMODS.change_base(played_card, "Hearts")
+                end
+
+                return {
+                    message = "I love you.",
+                    colour = G.C.SUITS.Hearts
+                }
             end
         end
     end
