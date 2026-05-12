@@ -1,9 +1,9 @@
 SMODS.Joker {
     key = "lovesick",
-    rarity = 1,
+    rarity = 3,
     atlas = "<3",
     pos = { x = 0, y = 0 },
-    cost = 3,
+    cost = 6,
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,

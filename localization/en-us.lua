@@ -55,7 +55,7 @@ return {
                     "into {C:hearts}Hearts{}"
                 }
             },
-        j_bd_lovesick = {
+            j_bd_lovesick = {
                 name = "Lovesick",
                 text = {
                     "Gains {X:mult,C:white}X#1#{} Mult",
@@ -63,6 +63,14 @@ return {
                     "hand containing only",
                     "{C:hearts}Heart{} cards",
                     "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
+                }
+            },
+            j_bd_genderdysphoria = {
+                name = "Gender Dysphoria",
+                text = {
+                    "All played",
+                    "{C:attention}Kings{} and {C:attention}Queens{}",
+                    "count as {C:attention}Jacks{}"
                 }
             },
         },
