@@ -70,7 +70,15 @@ return {
                 text = {
                     "All played",
                     "{C:attention}Kings{} and {C:attention}Queens{}",
-                    "count as {C:attention}Jacks{}"
+                    "are turned into {C:attention}Jacks{}"
+                }
+            },
+            j_bd_hopelessromantic = {
+                name = "Hopeless Romantic",
+                text = {
+                    "Each held in hand",
+                    "{C:attention}Ace{} of {C:hearts}Hearts{}",
+                    "gives {X:mult,C:white}X#1#{} Mult",
                 }
             },
         },
