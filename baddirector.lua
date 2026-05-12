@@ -85,7 +85,6 @@ SMODS.Joker {
     rarity = 4,
     atlas = "nxkooselfinsert",
     pos = { x = 0, y = 0 },
-    soul_pos = { x = 0, y = 1 },
     cost = 666,
     no_collection = true,
     blueprint_compat = true,
@@ -175,7 +174,3 @@ SMODS.Joker {
         return false
     end
 }
-
-SMODS.Joker:take_ownership("j_misprint", {
-    partner = "Nxkoo"
-})
