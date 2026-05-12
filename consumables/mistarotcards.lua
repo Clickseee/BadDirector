@@ -1,4 +1,3 @@
---[[
 SMODS.Atlas {
     key = "consumisprints",
     path = "consumisprints.png",
@@ -12,6 +11,7 @@ SMODS.Sound {
     volume = 1.5
 }
 
+--[[
 SMODS.Consumable {
     atlas = "consumisprints",
     key = 'defaultprint',

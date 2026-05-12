@@ -128,11 +128,12 @@ return {
                 }
             },
             j_bd_suicide = {
-                name = "Rebound",
+                name = "Suicide",
                 text = {
-                    "If a {C:hearts}Heart{} card",
-                    "is {C:red}destroyed{},",
-                    "{C:red}crash the game :){}"
+                    "Break some {C:hearts}Hearts{}.",
+                    "{C:inactive}Currently :{}",
+                    "{C:inactive}({C:mult}+#1#{} {C:inactive}Mult,{} {C:chips}+#2#{} {C:inactive}Chips,{}",
+                    "{X:mult,C:white}X#3#{} {C:inactive}Mult,{} {C:money}$#4#{}{C:inactive}){}"
                 }
             },
         },
