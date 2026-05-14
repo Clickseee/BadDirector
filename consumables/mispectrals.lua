@@ -66,10 +66,9 @@ BadDirector.MisSpect {
         end
     end
 }
-
+--[[
 BadDirector.MisSpect {
     key = 'familiarprint',
-
     pos = { x = 0, y = 5 },
     misprint_original = "c_familiar"
 }
@@ -82,10 +81,10 @@ BadDirector.MisSpect {
 
 BadDirector.MisSpect {
     key = 'incantaprint',
-
     pos = { x = 2, y = 5 },
     misprint_original = "c_incantation"
 }
+]]
 
 BadDirector.MisSpect {
     key = 'talisprint',
@@ -144,18 +143,19 @@ BadDirector.MisSpect {
         end
     end
 }
-
+--[[
 BadDirector.MisSpect {
     key = 'auraprint',
     pos = { x = 4, y = 5 },
     misprint_original = "c_aura"
 }
-
+]]
 BadDirector.MisSpect {
     key = 'wrathprint',
     pos = { x = 5, y = 5 },
     misprint_original = "c_wrath"
 }
+--[[
 
 BadDirector.MisSpect {
     key = 'sigilprint',
@@ -186,7 +186,7 @@ BadDirector.MisSpect {
     pos = { x = 0, y = 6 },
     misprint_original = "c_ankh"
 }
-
+]]
 BadDirector.MisSpect {
     key = 'dejaprint',
     pos = { x = 1, y = 6 },
@@ -243,13 +243,13 @@ BadDirector.MisSpect {
         end
     end
 }
-
+--[[
 BadDirector.MisSpect {
     key = 'hexprint',
     pos = { x = 2, y = 6 },
     misprint_original = "c_hex"
 }
-
+]]
 BadDirector.MisSpect {
     key = 'tranceprint',
     pos = { x = 3, y = 6 },
@@ -363,13 +363,13 @@ BadDirector.MisSpect {
         end
     end
 }
-
+--[[
 BadDirector.MisSpect {
     key = 'cryptidprint',
     pos = { x = 5, y = 6 },
     misprint_original = "c_cryptid"
 }
-
+]]
 BadDirector.MisSpect {
     key = 'soulprint',
     pos = { x = 2, y = 2 },
