@@ -1,4 +1,10 @@
---[[
+SMODS.Atlas {
+    key = "consumisprints",
+    path = "consumisprints.png",
+    px = 71,
+    py = 95,
+}
+
 local function BadDirector_reset_crt_smooth()
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
@@ -18,16 +24,23 @@ local function BadDirector_reset_crt_smooth()
     }))
 end
 
+BadDirector.MisSpect = SMODS.Consumable:extend{
+    atlas = "bd_consumisprints",
+	set = 'mispectral',
+	draw = function(self, card, layer)
+        if (layer == 'card' or layer == 'both') and card.sprite_facing == 'front' then
+            card.children.center:draw_shader('booster', nil, card.ARGS.send_to_shader)
+        end
+    end
+}
 
-SMODS.Consumable {
+
+BadDirector.MisSpect {
     key = 'spectralprint',
-    atlas = "consumisprints",
-    set = 'mispectral',
     pos = { x = 9, y = 6 },
     can_use = function(self, card)
         return #G.jokers.cards > 0
     end,
-
     use = function(self, card, area, copier)
         BadDirector_set_crt_vals('glitch', 2)
         BadDirector_set_crt_vals('noise', 1.0)
@@ -53,34 +66,29 @@ SMODS.Consumable {
     end
 }
 
-SMODS.Consumable {
+BadDirector.MisSpect {
     key = 'familiarprint',
-    atlas = "consumisprints",
-    set = 'mispectral',
+
     pos = { x = 0, y = 5 },
     misprint_original = "c_familiar"
 }
 
-SMODS.Consumable {
+BadDirector.MisSpect {
     key = 'grimprint',
-    atlas = "consumisprints",
-    set = 'mispectral',
     pos = { x = 1, y = 5 },
     misprint_original = "c_grim"
 }
 
-SMODS.Consumable {
+BadDirector.MisSpect {
     key = 'incantaprint',
-    atlas = "consumisprints",
-    set = 'mispectral',
+
     pos = { x = 2, y = 5 },
     misprint_original = "c_incantation"
 }
 
-SMODS.Consumable {
+BadDirector.MisSpect {
     key = 'talisprint',
-    atlas = "consumisprints",
-    set = 'mispectral',
+
     pos = { x = 3, y = 5 },
     misprint_original = "c_talisman",
     config = { extra = { seal = 'Gold' }, odds = 6 }, -- can be adjusted as need be ofc
@@ -136,66 +144,50 @@ SMODS.Consumable {
     end
 }
 
-SMODS.Consumable {
+BadDirector.MisSpect {
     key = 'auraprint',
-    atlas = "consumisprints",
-    set = 'mispectral',
     pos = { x = 4, y = 5 },
     misprint_original = "c_aura"
 }
 
-SMODS.Consumable {
+BadDirector.MisSpect {
     key = 'wrathprint',
-    atlas = "consumisprints",
-    set = 'mispectral',
     pos = { x = 5, y = 5 },
     misprint_original = "c_wrath"
 }
 
-SMODS.Consumable {
+BadDirector.MisSpect {
     key = 'sigilprint',
-    atlas = "consumisprints",
-    set = 'mispectral',
     pos = { x = 6, y = 5 },
     misprint_original = "c_sigil"
 }
 
-SMODS.Consumable {
+BadDirector.MisSpect {
     key = 'ouijaprint',
-    atlas = "consumisprints",
-    set = 'mispectral',
     pos = { x = 7, y = 5 },
     misprint_original = "c_ouija"
 }
 
-SMODS.Consumable {
+BadDirector.MisSpect {
     key = 'ectoprint',
-    atlas = "consumisprints",
-    set = 'mispectral',
     pos = { x = 8, y = 5 },
     misprint_original = "c_ectoplasm"
 }
 
-SMODS.Consumable {
+BadDirector.MisSpect {
     key = 'immoprint',
-    atlas = "consumisprints",
-    set = 'mispectral',
     pos = { x = 9, y = 5 },
     misprint_original = "c_immolate"
 }
 
-SMODS.Consumable {
+BadDirector.MisSpect {
     key = 'ankhprint',
-    atlas = "consumisprints",
-    set = 'mispectral',
     pos = { x = 0, y = 6 },
     misprint_original = "c_ankh"
 }
 
-SMODS.Consumable {
+BadDirector.MisSpect {
     key = 'dejaprint',
-    atlas = "consumisprints",
-    set = 'mispectral',
     pos = { x = 1, y = 6 },
     misprint_original = "c_deja_vu",
     config = { extra = { seal = 'Red' }, odds = 6 }, -- refer to the comments in talisprint as this is just the same codde copied from it LOL :sob:
@@ -251,18 +243,14 @@ SMODS.Consumable {
     end
 }
 
-SMODS.Consumable {
+BadDirector.MisSpect {
     key = 'hexprint',
-    atlas = "consumisprints",
-    set = 'mispectral',
     pos = { x = 2, y = 6 },
     misprint_original = "c_hex"
 }
 
-SMODS.Consumable {
+BadDirector.MisSpect {
     key = 'tranceprint',
-    atlas = "consumisprints",
-    set = 'mispectral',
     pos = { x = 3, y = 6 },
     misprint_original = "c_trance",
     config = { extra = { seal = 'Blue' }, odds = 6 }, -- refer to the comments in talisprint as this is just the same codde copied from it LOL :sob:
@@ -318,10 +306,8 @@ SMODS.Consumable {
     end
 }
 
-SMODS.Consumable {
+BadDirector.MisSpect {
     key = 'mediumprint',
-    atlas = "consumisprints",
-    set = 'mispectral',
     pos = { x = 4, y = 6 },
     misprint_original = "c_medium",
     config = { extra = { seal = 'Purple' }, odds = 6 }, -- refer to the comments in talisprint as this is just the same codde copied from it LOL :sob:
@@ -377,18 +363,14 @@ SMODS.Consumable {
     end
 }
 
-SMODS.Consumable {
+BadDirector.MisSpect {
     key = 'cryptidprint',
-    atlas = "consumisprints",
-    set = 'mispectral',
     pos = { x = 5, y = 6 },
     misprint_original = "c_cryptid"
 }
 
-SMODS.Consumable {
-    atlas = "consumisprints",
+BadDirector.MisSpect {
     key = 'soulprint',
-    set = 'mispectral',
     pos = { x = 2, y = 2 },
     soul_pos = {
         x = 3, y = 2,
@@ -445,4 +427,3 @@ SMODS.Consumable {
     hidden = true,
     misprint_original = "c_soul"
 }
-]]

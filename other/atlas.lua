@@ -67,3 +67,10 @@ SMODS.Atlas {
     px = 71,
     py = 95,
 }
+
+SMODS.Atlas {
+    key = "consumisprints",
+    path = "consumisprints.png",
+    px = 71,
+    py = 95,
+}
