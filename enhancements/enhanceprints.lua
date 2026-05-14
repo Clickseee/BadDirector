@@ -27,11 +27,22 @@ SMODS.Enhancement {
     key = "misprintgold",
     atlas = "misprintenhanced",
     pos = { x = 6, y = 0 },
-    config = {},
+    config = {h_dollars = 0, extra = { max = 3, min = 0.5 }},
     loc_vars = function(self, info_queue, card)
         return {}
     end,
     calculate = function(self, card, context)
+        if context.main_scoring and context.cardarea == G.hand then
+            local money = 0
+            for i = 1, #G.jokers.cards do
+                if G.jokers.cards[i].ability.set == 'Joker' then
+                    money = money + G.jokers.cards[i].sell_cost
+                end
+            end
+
+            local multiply = pseudorandom('baddirectormorelikegooddirector', card.ability.extra.min*100, card.ability.extra.max*100)/100
+            card.ability.h_dollars = money * multiply
+        end
     end
 }
 

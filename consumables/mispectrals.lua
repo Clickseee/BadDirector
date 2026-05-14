@@ -1,10 +1,11 @@
-SMODS.Atlas {
-    key = "consumisprints",
-    path = "consumisprints.png",
-    px = 71,
-    py = 95,
-}
-
+SMODS.ConsumableType({
+    key = "mispectral",
+    collection_rows = { 4, 5 },
+    primary_colour = G.C.SECONDARY_SET.Spectral,
+    secondary_colour = SMODS.Gradients.bd_ralspect,
+    default = "c_bd_familiarprint",
+    cards = {},
+})
 local function BadDirector_reset_crt_smooth()
     G.E_MANAGER:add_event(Event({
         trigger = 'after',

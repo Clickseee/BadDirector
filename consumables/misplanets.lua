@@ -1,6 +1,16 @@
+
+SMODS.ConsumableType({
+    key = "misplanet",
+    collection_rows = { 6, 6 },
+    primary_colour = G.C.SECONDARY_SET.Planet,
+    secondary_colour = SMODS.Gradients.bd_netpla,
+    default = "c_bd_mercprint",
+    cards = {},
+    shop_rate = 4
+})
+
+
 -- THANK YOU RUBYYYYY MWAAAAAAAAAAHHHHH
-
-
 SMODS.Consumable {
     atlas = "consumisprints",
     key = 'mercprint',

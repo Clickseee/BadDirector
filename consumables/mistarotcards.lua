@@ -4,14 +4,24 @@ SMODS.Sound {
     volume = 1.5
 }
 
---[[
+SMODS.ConsumableType({
+    key = "mistarot",
+    collection_rows = { 5, 6 },
+    primary_colour = G.C.SECONDARY_SET.Tarot,
+    secondary_colour = SMODS.Gradients.bd_rotta,--SMODS.Gradient(rotta),
+    default = "c_bd_foolprint",
+    cards = {},
+    shop_rate = 4
+})
+
+
 SMODS.Consumable {
     atlas = "consumisprints",
     key = 'defaultprint',
     set = 'mistarot',
     draw = function(self, card, layer) card.children.center:draw_shader('hologram', nil, card.ARGS.send_to_shader) end,
     pos = { x = 9, y = 2 },
-    config = { extra = { count = 2 } },
+    config = { extra = { count = 2 }, },
     can_use = function(self, card)
         return #G.consumeables.cards > 0
     end,
@@ -106,8 +116,13 @@ SMODS.Consumable {
     atlas = "consumisprints",
     key = 'magicprint',
     set = 'mistarot',
+    config = {max_highlighted = 2,mod_conv = "m_bd_misprintluckycard"},
     pos = { x = 1, y = 0 },
-    misprint_original = "c_magician"
+    misprint_original = "c_magician",
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
+        return { vars = { card.ability.max_highlighted, localize{ type = 'name_text', set = 'Enhanced', key = card.ability.mod_conv } } }
+    end,
 }
 
 SMODS.Consumable {
@@ -120,7 +135,7 @@ SMODS.Consumable {
         return { vars = { card.ability.extra.min, card.ability.extra.max } }
     end,
     use = function(self, card, area, copier)
-        local amount = pseudorandom('milfdetected', card.ability.extra.min, card.ability.extra.max)
+        local amount = pseudorandom('highestprintess', card.ability.extra.min, card.ability.extra.max)
 
         for i = 1, amount do
             G.E_MANAGER:add_event(Event({
@@ -149,8 +164,13 @@ SMODS.Consumable {
     atlas = "consumisprints",
     key = 'emperints',
     set = 'mistarot',
+    config = {max_highlighted = 2, mod_conv = "m_bd_misprintmult"},
     pos = { x = 3, y = 0 },
-    misprint_original = "c_emperor"
+    misprint_original = "c_empress",
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
+        return { vars = { card.ability.max_highlighted, localize { type = 'name_text', set = 'Enhanced', key = card.ability.mod_conv } } }
+    end,
 }
 
 SMODS.Consumable {
@@ -163,7 +183,7 @@ SMODS.Consumable {
         return { vars = { card.ability.extra.min, card.ability.extra.max } }
     end,
     use = function(self, card, area, copier)
-        local amount = pseudorandom('milfdetected', card.ability.extra.min, card.ability.extra.max)
+        local amount = pseudorandom('emprints', card.ability.extra.min, card.ability.extra.max)
 
         for i = 1, amount do
             G.E_MANAGER:add_event(Event({
@@ -185,7 +205,7 @@ SMODS.Consumable {
     can_use = function(self, card)
         return true
     end,
-    misprint_original = "c_empress"
+    misprint_original = "c_emperor"
 }
 
 SMODS.Consumable {
@@ -193,7 +213,12 @@ SMODS.Consumable {
     key = 'hieroprint',
     set = 'mistarot',
     pos = { x = 5, y = 0 },
-    misprint_original = "c_heirophant"
+    misprint_original = "c_heirophant",
+    config = {max_highlighted = 2,mod_conv = "m_bd_misprintbonus"},
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
+        return { vars = { card.ability.max_highlighted, localize { type = 'name_text', set = 'Enhanced', key = card.ability.mod_conv } } }
+    end,
 }
 
 SMODS.Consumable {
@@ -201,7 +226,12 @@ SMODS.Consumable {
     key = 'loverprints',
     set = 'mistarot',
     pos = { x = 6, y = 0 },
-    misprint_original = "c_lovers"
+    misprint_original = "c_lovers",
+    config = {max_highlighted = 1 ,mod_conv = "m_bd_misprintwild"},
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
+        return { vars = { card.ability.max_highlighted, localize { type = 'name_text', set = 'Enhanced', key = card.ability.mod_conv } } }
+    end,
 }
 
 SMODS.Consumable {
@@ -209,7 +239,12 @@ SMODS.Consumable {
     key = 'charprints',
     set = 'mistarot',
     pos = { x = 7, y = 0 },
-    misprint_original = "c_chariot"
+    misprint_original = "c_chariot",
+    config = {max_highlighted = 1,mod_conv = "m_bd_misprintsteel"},
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
+        return { vars = { card.ability.max_highlighted, localize { type = 'name_text', set = 'Enhanced', key = card.ability.mod_conv } } }
+    end,
 }
 
 SMODS.Consumable {
@@ -217,7 +252,12 @@ SMODS.Consumable {
     key = 'printice',
     set = 'mistarot',
     pos = { x = 8, y = 0 },
-    misprint_original = "c_justice"
+    misprint_original = "c_justice",
+    config = {max_highlighted = 1,mod_conv = "m_bd_misprintglass"},
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
+        return { vars = { card.ability.max_highlighted, localize { type = 'name_text', set = 'Enhanced', key = card.ability.mod_conv } } }
+    end,
 }
 
 SMODS.Consumable {
@@ -562,20 +602,33 @@ SMODS.Consumable {
     misprint_original = "c_temperance"
 }
 
+
 SMODS.Consumable {
     atlas = "consumisprints",
     key = 'devprint',
     set = 'mistarot',
     pos = { x = 5, y = 1 },
-    misprint_original = "c_devil"
+    misprint_original = "c_devil",
+    config = {max_highlighted = 1,mod_conv = "m_bd_misprintgold"},
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
+        return { vars = { card.ability.max_highlighted, localize { type = 'name_text', set = 'Enhanced', key = card.ability.mod_conv } } }
+    end,
+
 }
+
 
 SMODS.Consumable {
     atlas = "consumisprints",
     key = 'towprint',
     set = 'mistarot',
     pos = { x = 6, y = 1 },
-    misprint_original = "c_tower"
+    misprint_original = "c_tower",
+    config = {max_highlighted = 1,mod_conv = "m_bd_misprintstone"},
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
+        return { vars = { card.ability.max_highlighted, localize { type = 'name_text', set = 'Enhanced', key = card.ability.mod_conv } } }
+    end,
 }
 
 SMODS.Consumable {
@@ -986,4 +1039,3 @@ SMODS.Consumable {
     end,
     misprint_original = "c_world"
 }
-]]
