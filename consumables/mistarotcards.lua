@@ -2,8 +2,8 @@ SMODS.Sound {
     key = "inapmit",
     path = "inapmit.ogg",
     volume = 1.5
-}
-
+} 
+ 
 SMODS.ConsumableType({
     key = "mistarot",
     collection_rows = { 5, 6 },
