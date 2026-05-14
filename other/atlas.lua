@@ -69,6 +69,13 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+    key = "feliselfinsert",
+    path = "feli.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas {
     key = "consumisprints",
     path = "consumisprints.png",
     px = 71,

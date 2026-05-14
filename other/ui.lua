@@ -2,7 +2,7 @@ BadDirector.STATE = BadDirector.STATE or {}
 BadDirector.credit_page = BadDirector.credit_page or 1
 
 function G.FUNCS.bad_director_wiki(e)
-    love.system.openURL("The url of your wiki here")
+    love.system.openURL("https://balatromods.miraheze.org/wiki/Bad_Director")
 end
 
 function G.FUNCS.bad_director_other_link(e)
@@ -11,7 +11,7 @@ end
 
 G.FUNCS.open_bad_director = function()
     if G.bad_director then return end
-
+    
     G.bad_director = UIBox {
         definition = BadDirector:create_UIBox(),
         config = {
@@ -19,7 +19,7 @@ G.FUNCS.open_bad_director = function()
             major = G.ROOM_ATTACH
         }
     }
-
+    
     G.bad_director:align_to_major()
 end
 
@@ -35,41 +35,42 @@ end
 G.FUNCS.bd_switch_tab = function(e)
     local i = e.config.tab_index
     if not i then return end
-
+    
     BadDirector.active_tab = i
-
+    
     G.FUNCS.reload_bad_director()
 end
 
 G.FUNCS.bd_prev_credit_page = function(e)
     BadDirector.credit_page =
-        math.max(1, (BadDirector.credit_page or 1) - 1)
-
+    math.max(1, (BadDirector.credit_page or 1) - 1)
+    
     G.FUNCS.reload_bad_director()
     local element = G.OVERLAY_MENU:get_UIE_by_ID("tab_but_Credits")
     G.FUNCS.change_tab(element)
 end
 
 BadDirector.contributors = {
--- <<<<<<< Updated upstream
+    -- <<<<<<< Updated upstream
     { key = "j_bd_nxkoojoker", text = "Nxkoo" },
     { key = "j_bd_nickjoker",  text = "IncognitoN71" },
     { key = "j_bd_rubyjoker",  text = "lord.ruby" },
     { key = "j_bd_nhjoker",  text = "Nh6574" },
     { key = "j_bd_thunderjoker",  text = "ThunderEdge" },
     { key = "j_bd_nixjoker",  text = "nixthatoneartist" },
+    { key = "j_bd_felijoker",  text = "LasagnaFelidae" },
 }
 BadDirector.PER_PAGE = 3
 
 G.FUNCS.bd_next_credit_page = function(e)
     local max_page = math.max(1,
-        math.ceil(#BadDirector.contributors / BadDirector.PER_PAGE)
-    )
-    BadDirector.credit_page =
-        math.min(max_page, (BadDirector.credit_page or 1) + 1)
-    G.FUNCS.reload_bad_director()
-    local element = G.OVERLAY_MENU:get_UIE_by_ID("tab_but_Credits")
-    G.FUNCS.change_tab(element)
+    math.ceil(#BadDirector.contributors / BadDirector.PER_PAGE)
+)
+BadDirector.credit_page =
+math.min(max_page, (BadDirector.credit_page or 1) + 1)
+G.FUNCS.reload_bad_director()
+local element = G.OVERLAY_MENU:get_UIE_by_ID("tab_but_Credits")
+G.FUNCS.change_tab(element)
 end
 
 
@@ -99,7 +100,7 @@ end
 
 SMODS.current_mod.custom_ui = function(nodes)
     local logo = {
-
+        
         n = G.UIT.R,
         config = {
             align = 'cm',
@@ -116,50 +117,50 @@ SMODS.current_mod.custom_ui = function(nodes)
                         n = G.UIT.O,
                         config = {
                             object = SMODS.create_sprite(
-                                0, 0,
-                                6.5, 4.5,
-                                'bd_modlogo',
-                                { x = 0, y = 0 }
-                            )
-                        }
+                            0, 0,
+                            6.5, 4.5,
+                            'bd_modlogo',
+                            { x = 0, y = 0 }
+                        )
                     }
                 }
             }
         }
     }
+}
 
-    table.insert(nodes, 2, logo)
+table.insert(nodes, 2, logo)
 
-    nodes[#nodes + 1] = {
-        n = G.UIT.R,
-        config = { align = "cm", padding = 0.05 },
-        nodes = {
-            {
-                n = G.UIT.C,
-                config = { align = "cm", padding = 0.05 },
-                nodes = {
-                    UIBox_button({
-                        button = "bad_director_wiki",
-                        label = { localize("b_bad_director_wiki") },
-                        minw = 4.75,
-                        colour = G.C.RED
-                    }),
-                },
-            },
-            {
-                n = G.UIT.C,
-                config = { align = "cm", padding = 0.05 },
-                nodes = {
-                    UIBox_button({
-                        button = "bad_director_other_link",
-                        label = { localize("b_bad_director_other") },
-                        minw = 4.75,
-                        colour = G.C.RED
-                    }),
-                },
+nodes[#nodes + 1] = {
+    n = G.UIT.R,
+    config = { align = "cm", padding = 0.05 },
+    nodes = {
+        {
+            n = G.UIT.C,
+            config = { align = "cm", padding = 0.05 },
+            nodes = {
+                UIBox_button({
+                    button = "bad_director_wiki",
+                    label = { localize("b_bad_director_wiki") },
+                    minw = 4.75,
+                    colour = G.C.RED
+                }),
             },
         },
-    }
+        {
+            n = G.UIT.C,
+            config = { align = "cm", padding = 0.05 },
+            nodes = {
+                UIBox_button({
+                    button = "bad_director_other_link",
+                    label = { localize("b_bad_director_other") },
+                    minw = 4.75,
+                    colour = G.C.RED
+                }),
+            },
+        },
+    },
+}
 end
 
 SMODS.Sound {
@@ -177,6 +178,11 @@ SMODS.Sound {
     path = "woof3.ogg",
     volume = 1.5
 }
+SMODS.Sound {
+    key = "meow",
+    path = "meow.ogg",
+    volume = 1
+}
 
 local card_click_ref = Card.click
 function Card:click(...)
@@ -187,24 +193,24 @@ function Card:click(...)
             "bd_woof3",
         }, pseudoseed("bd_ruby_woof")))
         love.system.openURL("https://github.com/lord-ruby/Entropy")
-    else
-        if self.config.center.key == "j_bd_nhjoker" and G.SETTINGS.paused then
-            love.system.openURL("https://github.com/nh6574/JoyousSpring")
-        else
-            if self.config.center.key == "j_bd_thunderjoker" and G.SETTINGS.paused then
-                love.system.openURL("https://github.com/ThunderEdge73/Multiverse")
-            else
-                if self.config.center.key == "j_bd_nickjoker" and G.SETTINGS.paused then
-                    love.system.openURL("https://github.com/IncognitoN71/Incognito")
-                else
-                    if self.config.center.key == "j_bd_nxkoojoker" and G.SETTINGS.paused then
-                        love.system.openURL("https://i.pinimg.com/736x/89/0d/a6/890da63d77f3e832ef9c4faafa177421.jpg")
-                    else
-                        return card_click_ref(self, ...)
-                    end
-                end
-            end
+    elseif self.config.center.key == "j_bd_nhjoker" and G.SETTINGS.paused then
+        love.system.openURL("https://github.com/nh6574/JoyousSpring")
+    elseif self.config.center.key == "j_bd_thunderjoker" and G.SETTINGS.paused then
+        love.system.openURL("https://github.com/ThunderEdge73/Multiverse")
+    elseif self.config.center.key == "j_bd_nickjoker" and G.SETTINGS.paused then
+        love.system.openURL("https://github.com/IncognitoN71/Incognito")
+    elseif self.config.center.key == "j_bd_nxkoojoker" and G.SETTINGS.paused then
+        love.system.openURL("https://i.pinimg.com/736x/89/0d/a6/890da63d77f3e832ef9c4faafa177421.jpg")
+    elseif self.config.center.key == "j_bd_felijoker" and G.SETTINGS.paused then
+        if self.cardcount == nil then self.cardcount = 0 end
+        local pitch = 0.2 + (0.8 * math.min(1, self.cardcount / 16))
+        self.cardcount = self.cardcount + 1
+        play_sound("bd_meow", pitch, 1)
+        if self.cardcount == 17 then
+            love.system.openURL("https://github.com/LasagnaFelidae/Balatro-FelisJokeria")
         end
+    else
+        return card_click_ref(self, ...)
     end
 end
 
@@ -215,186 +221,186 @@ BadDirector.extra_tabs = function()
             tab_definition_function = function()
                 local PER_PAGE = BadDirector.PER_PAGE
                 local contributors = BadDirector.contributors
-
+                
                 local max_page = math.max(1, math.ceil(#contributors / PER_PAGE))
-
+                
                 BadDirector.credit_page = math.min(max_page, math.max(1, BadDirector.credit_page))
-
+                
                 BadDirector.credit_page = BadDirector.credit_page or 1
-
+                
                 local function get_page(list, page, per_page)
                     per_page = per_page or 1
-
+                    
                     local t = {}
-
+                    
                     local start = (page - 1) * per_page + 1
                     local stop = math.min(#list, start + per_page - 1)
-
+                    
                     for i = start, stop do
                         t[#t + 1] = list[i]
                     end
-
+                    
                     return t
                 end
-
-
-
-
+                
+                
+                
+                
                 local columns = {}
-
+                
                 local page_data = get_page(contributors, BadDirector.credit_page, PER_PAGE)
-
+                
                 for _, v in ipairs(page_data) do
                     local area = CardArea(
-                        G.ROOM.T.x, G.ROOM.T.y,
-                        G.CARD_W,
-                        G.CARD_H,
-                        { card_limit = 1, type = 'title', highlight_limit = 0, collection = true }
-                    )
-
-                    local card = Card(
-                        area.T.x, area.T.y,
-                        G.CARD_W, G.CARD_H,
-                        G.P_CARDS.empty,
-                        G.P_CENTERS[v.key]
-                    )
-
-                    card.no_ui = true
-
-                    area:emplace(card)
-
-                    columns[#columns + 1] = {
-                        n = G.UIT.C,
-                        config = { align = "cm", padding = 0.1 },
+                    G.ROOM.T.x, G.ROOM.T.y,
+                    G.CARD_W,
+                    G.CARD_H,
+                    { card_limit = 1, type = 'title', highlight_limit = 0, collection = true }
+                )
+                
+                local card = Card(
+                area.T.x, area.T.y,
+                G.CARD_W, G.CARD_H,
+                G.P_CARDS.empty,
+                G.P_CENTERS[v.key]
+            )
+            
+            card.no_ui = true
+            
+            area:emplace(card)
+            
+            columns[#columns + 1] = {
+                n = G.UIT.C,
+                config = { align = "cm", padding = 0.1 },
+                nodes = {
+                    {
+                        n = G.UIT.R,
+                        config = { align = "cm", padding = 0.05 },
                         nodes = {
                             {
-                                n = G.UIT.R,
-                                config = { align = "cm", padding = 0.05 },
-                                nodes = {
-                                    {
-                                        n = G.UIT.T,
-                                        config = {
-                                            text = v.text,
-                                            scale = 0.45,
-                                            colour = G.C.UI.TEXT_LIGHT,
-                                            shadow = true
-                                        }
-                                    }
-                                }
-                            },
-                            {
-                                n = G.UIT.R,
-                                config = { align = "cm" },
-                                nodes = {
-                                    { n = G.UIT.O, config = { object = area } }
+                                n = G.UIT.T,
+                                config = {
+                                    text = v.text,
+                                    scale = 0.45,
+                                    colour = G.C.UI.TEXT_LIGHT,
+                                    shadow = true
                                 }
                             }
                         }
-                    }
-                end
-
-                return {
-                    n = G.UIT.ROOT,
-                    config = { align = "cm", padding = 0.2, r = 0.1, colour = G.C.BLACK },
-                    nodes = {
-                        {
-                            n = G.UIT.R,
-                            config = {
-                                align = "cm",
-                                colour = G.C.L_BLACK,
-                                r = 0.2,
-                                padding = 0.2
-                            },
-                            nodes = columns
-                        },
-
-
-                        {
-                            n = G.UIT.R,
-                            config = { align = "cm", padding = 0.15 },
-                            nodes = {
-                                {
-                                    n = G.UIT.C,
-                                    config = {
-                                        align = "cm",
-                                        minw = 1,
-                                        button = "bd_prev_credit_page",
-                                        colour = G.C.L_BLACK,
-                                        r = 0.1,
-                                        padding = 0.1,
-                                        emboss = 0.05,
-                                        hover = true,
-                                        shadow = true,
-                                    },
-                                    nodes = {
-                                        {
-                                            n = G.UIT.T,
-                                            config = {
-                                                text = "< Prev",
-                                                scale = 0.4,
-                                                colour = G.C.UI.TEXT_LIGHT,
-                                                padding = 0.1
-                                            }
-                                        },
-                                    }
-                                },
-                                {
-                                    n = G.UIT.C,
-                                    config = {
-                                        align = "cm",
-                                        minw = 1,
-                                        button = "bd_next_credit_page",
-                                        colour = G.C.L_BLACK,
-                                        r = 0.1,
-                                        padding = 0.1,
-                                        emboss = 0.05,
-                                        hover = true,
-                                        shadow = true,
-                                    },
-                                    nodes = {
-                                        {
-                                            n = G.UIT.T,
-                                            config = {
-                                                text = BadDirector.credit_page .. " / " .. max_page,
-                                                scale = 0.4,
-                                                colour = G.C.UI.TEXT_LIGHT,
-                                                padding = 0.1
-                                            }
-                                        },
-                                    }
-                                },
-                                {
-                                    n = G.UIT.C,
-                                    config = {
-                                        align = "cm",
-                                        minw = 1,
-                                        button = "bd_next_credit_page",
-                                        colour = G.C.L_BLACK,
-                                        r = 0.1,
-                                        padding = 0.1,
-                                        emboss = 0.05,
-                                        hover = true,
-                                        shadow = true,
-                                    },
-                                    nodes = {
-                                        {
-                                            n = G.UIT.T,
-                                            config = {
-                                                text = "Next >",
-                                                scale = 0.4,
-                                                colour = G.C.UI.TEXT_LIGHT,
-                                                padding = 0.1
-                                            }
-                                        },
-                                    }
-                                },
-                            }
+                    },
+                    {
+                        n = G.UIT.R,
+                        config = { align = "cm" },
+                        nodes = {
+                            { n = G.UIT.O, config = { object = area } }
                         }
                     }
                 }
-            end
+            }
+        end
+        
+        return {
+            n = G.UIT.ROOT,
+            config = { align = "cm", padding = 0.2, r = 0.1, colour = G.C.BLACK },
+            nodes = {
+                {
+                    n = G.UIT.R,
+                    config = {
+                        align = "cm",
+                        colour = G.C.L_BLACK,
+                        r = 0.2,
+                        padding = 0.2
+                    },
+                    nodes = columns
+                },
+                
+                
+                {
+                    n = G.UIT.R,
+                    config = { align = "cm", padding = 0.15 },
+                    nodes = {
+                        {
+                            n = G.UIT.C,
+                            config = {
+                                align = "cm",
+                                minw = 1,
+                                button = "bd_prev_credit_page",
+                                colour = G.C.L_BLACK,
+                                r = 0.1,
+                                padding = 0.1,
+                                emboss = 0.05,
+                                hover = true,
+                                shadow = true,
+                            },
+                            nodes = {
+                                {
+                                    n = G.UIT.T,
+                                    config = {
+                                        text = "< Prev",
+                                        scale = 0.4,
+                                        colour = G.C.UI.TEXT_LIGHT,
+                                        padding = 0.1
+                                    }
+                                },
+                            }
+                        },
+                        {
+                            n = G.UIT.C,
+                            config = {
+                                align = "cm",
+                                minw = 1,
+                                button = "bd_next_credit_page",
+                                colour = G.C.L_BLACK,
+                                r = 0.1,
+                                padding = 0.1,
+                                emboss = 0.05,
+                                hover = true,
+                                shadow = true,
+                            },
+                            nodes = {
+                                {
+                                    n = G.UIT.T,
+                                    config = {
+                                        text = BadDirector.credit_page .. " / " .. max_page,
+                                        scale = 0.4,
+                                        colour = G.C.UI.TEXT_LIGHT,
+                                        padding = 0.1
+                                    }
+                                },
+                            }
+                        },
+                        {
+                            n = G.UIT.C,
+                            config = {
+                                align = "cm",
+                                minw = 1,
+                                button = "bd_next_credit_page",
+                                colour = G.C.L_BLACK,
+                                r = 0.1,
+                                padding = 0.1,
+                                emboss = 0.05,
+                                hover = true,
+                                shadow = true,
+                            },
+                            nodes = {
+                                {
+                                    n = G.UIT.T,
+                                    config = {
+                                        text = "Next >",
+                                        scale = 0.4,
+                                        colour = G.C.UI.TEXT_LIGHT,
+                                        padding = 0.1
+                                    }
+                                },
+                            }
+                        },
+                    }
+                }
+            }
         }
-    }
+    end
+}
+}
 end
 
 SMODS.current_mod.ui_config = {
