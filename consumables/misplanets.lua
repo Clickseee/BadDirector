@@ -22,6 +22,12 @@ SMODS.Consumable {
     misprint_original = "c_mercury"
 }
 
+SMODS.UndiscoveredSprite {
+  key = "misplanet",
+  atlas = "consumisprints",
+  pos = { x = 9, y = 4 },
+}
+
 SMODS.Consumable {
     atlas = "consumisprints",
     key = 'venprint',

@@ -36,6 +36,12 @@ SMODS.Consumable {
     end
 }
 
+SMODS.UndiscoveredSprite {
+  key = "defaultprint",
+  atlas = "consumisprints",
+  pos = { x = 9, y = 2 },
+}
+
 SMODS.Consumable {
     atlas = "consumisprints",
     key = 'foolprint',

@@ -62,3 +62,21 @@ SMODS.ConsumableType({
     default = "c_bd_familiarprint",
     cards = {},
 })
+
+SMODS.UndiscoveredSprite {
+  key = "mistarot",
+  atlas = "consumisprints",
+  pos = { x = 9, y = 2 },
+}
+
+SMODS.UndiscoveredSprite {
+  key = "misplanet",
+  atlas = "consumisprints",
+  pos = { x = 9, y = 4 },
+}
+
+SMODS.UndiscoveredSprite {
+  key = "mispectral",
+  atlas = "consumisprints",
+  pos = { x = 9, y = 6 },
+}
