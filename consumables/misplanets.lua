@@ -6,12 +6,31 @@ SMODS.ConsumableType({
     secondary_colour = SMODS.Gradients.bd_netpla,
     default = "c_bd_mercprint",
     cards = {},
-    shop_rate = 4
+    shop_rate = 4,
+    loc_txt = {
+		undiscovered = {
+			name = "Not Discovered",
+			text = {
+				"Purchase or use",
+				"this card in an",
+				"unseeded run to",
+				"learn what it does"
+			},
+		},
+	},
+	
 })
 
-
+BadDirector.MisprPlanet = SMODS.Consumable:extend {
+    discovered = false,
+	unlocked = true,
+    hidden = true,
+    soul_set = "Planet",
+    soul_rate = 0.01,
+	
+}
 -- THANK YOU RUBYYYYY MWAAAAAAAAAAHHHHH
-SMODS.Consumable {
+BadDirector.MisprPlanet {
     atlas = "consumisprints",
     key = 'mercprint',
     set = 'misplanet',
@@ -32,7 +51,7 @@ SMODS.Consumable {
     misprint_original = "c_mercury"
 }
 
-SMODS.Consumable {
+BadDirector.MisprPlanet {
     atlas = "consumisprints",
     key = 'venprint',
     set = 'misplanet',
@@ -53,7 +72,7 @@ SMODS.Consumable {
     misprint_original = "c_venus"
 }
 
-SMODS.Consumable {
+BadDirector.MisprPlanet {
     atlas = "consumisprints",
     key = 'earprint',
     set = 'misplanet',
@@ -74,7 +93,7 @@ SMODS.Consumable {
     misprint_original = "c_earth"
 }
 
-SMODS.Consumable {
+BadDirector.MisprPlanet {
     atlas = "consumisprints",
     key = 'marsprint',
     set = 'misplanet',
@@ -95,7 +114,7 @@ SMODS.Consumable {
     misprint_original = "c_mars"
 }
 
-SMODS.Consumable {
+BadDirector.MisprPlanet {
     atlas = "consumisprints",
     key = 'juprint',
     set = 'misplanet',
@@ -116,7 +135,7 @@ SMODS.Consumable {
     misprint_original = "c_jupiter"
 }
 
-SMODS.Consumable {
+BadDirector.MisprPlanet {
     atlas = "consumisprints",
     key = 'satprint',
     set = 'misplanet',
@@ -137,7 +156,7 @@ SMODS.Consumable {
     misprint_original = "c_saturn"
 }
 
-SMODS.Consumable {
+BadDirector.MisprPlanet {
     atlas = "consumisprints",
     key = 'uraprint',
     set = 'misplanet',
@@ -158,7 +177,7 @@ SMODS.Consumable {
     misprint_original = "c_uranus"
 }
 
-SMODS.Consumable {
+BadDirector.MisprPlanet {
     atlas = "consumisprints",
     key = 'nepprint',
     set = 'misplanet',
@@ -179,7 +198,7 @@ SMODS.Consumable {
     misprint_original = "c_neptune"
 }
 
-SMODS.Consumable {
+BadDirector.MisprPlanet {
     atlas = "consumisprints",
     key = 'printo',
     set = 'misplanet',
@@ -200,7 +219,7 @@ SMODS.Consumable {
     misprint_original = "c_pluto"
 }
 
-SMODS.Consumable {
+BadDirector.MisprPlanet {
     atlas = "consumisprints",
     key = 'cerprint',
     set = 'misplanet',
@@ -221,7 +240,7 @@ SMODS.Consumable {
     in_pool = function() return G.GAME.hands and G.GAME.hands["Flush House"].visible end,
     misprint_original = "c_ceres"
 }
-SMODS.Consumable {
+BadDirector.MisprPlanet {
     atlas = "consumisprints",
     key = 'printx',
     set = 'misplanet',
@@ -243,7 +262,7 @@ SMODS.Consumable {
     misprint_original = "c_planet_x"
 }
 
-SMODS.Consumable {
+BadDirector.MisprPlanet {
     atlas = "consumisprints",
     key = 'peris',
     set = 'misplanet',
@@ -265,7 +284,7 @@ SMODS.Consumable {
     in_pool = function() return G.GAME.hands and G.GAME.hands["Flush Five"].visible end,
 }
 
-SMODS.Consumable {
+BadDirector.MisprPlanet {
     atlas = "consumisprints",
     key = 'blackprint',
     set = 'mispectral',

@@ -11,11 +11,31 @@ SMODS.ConsumableType({
     secondary_colour = SMODS.Gradients.bd_rotta,--SMODS.Gradient(rotta),
     default = "c_bd_foolprint",
     cards = {},
-    shop_rate = 4
+    shop_rate = 4,
+    loc_txt = {
+		undiscovered = {
+			name = "Not Discovered",
+			text = {
+				"Purchase or use",
+				"this card in an",
+				"unseeded run to",
+				"learn what it does"
+			},
+		},
+	},
+	
 })
 
+BadDirector.MisprTarots = SMODS.Consumable:extend {
+    discovered = false,
+	unlocked = true,
+    hidden = true,
+    soul_set = "Tarot",
+    soul_rate = 0.01,
+	
+}
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'defaultprint',
     set = 'mistarot',
@@ -46,7 +66,13 @@ SMODS.Consumable {
     end
 }
 
-SMODS.Consumable {
+SMODS.UndiscoveredSprite {
+  key = "defaultprint",
+  atlas = "consumisprints",
+  pos = { x = 9, y = 2 },
+}
+
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'foolprint',
     set = 'mistarot',
@@ -107,12 +133,11 @@ SMODS.Consumable {
     can_use = function(self, card)
         return (#G.consumeables.cards < G.consumeables.config.card_limit or card.area == G.consumeables)
             and G.GAME.last_tarot_planet
-            and G.GAME.last_tarot_planet ~= 'c_fool'
     end,
     misprint_original = "c_fool"
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'magicprint',
     set = 'mistarot',
@@ -125,7 +150,7 @@ SMODS.Consumable {
     end,
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'highestprintess',
     set = 'mistarot',
@@ -160,7 +185,7 @@ SMODS.Consumable {
     misprint_original = "c_highest_priestess"
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'emperints',
     set = 'mistarot',
@@ -173,7 +198,7 @@ SMODS.Consumable {
     end,
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'emprints',
     set = 'mistarot',
@@ -208,7 +233,7 @@ SMODS.Consumable {
     misprint_original = "c_emperor"
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'hieroprint',
     set = 'mistarot',
@@ -221,7 +246,7 @@ SMODS.Consumable {
     end,
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'loverprints',
     set = 'mistarot',
@@ -234,7 +259,7 @@ SMODS.Consumable {
     end,
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'charprints',
     set = 'mistarot',
@@ -247,7 +272,7 @@ SMODS.Consumable {
     end,
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'printice',
     set = 'mistarot',
@@ -260,7 +285,7 @@ SMODS.Consumable {
     end,
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'herprint',
     set = 'mistarot',
@@ -294,7 +319,7 @@ SMODS.Consumable {
     misprint_original = "c_hermit"
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'wheelofprint',
     set = 'mistarot',
@@ -381,7 +406,7 @@ SMODS.Consumable {
     misprint_original = "c_wheel_of_fortune"
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'strenghtprints',
     set = 'mistarot',
@@ -447,7 +472,7 @@ SMODS.Consumable {
     misprint_original = "c_strength"
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'hangedprint',
     set = 'mistarot',
@@ -488,7 +513,7 @@ SMODS.Consumable {
     misprint_original = "c_hanged_man"
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'deathprint',
     set = 'mistarot',
@@ -563,7 +588,7 @@ SMODS.Consumable {
     misprint_original = "c_death"
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'temprint',
     set = 'mistarot',
@@ -603,7 +628,7 @@ SMODS.Consumable {
 }
 
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'devprint',
     set = 'mistarot',
@@ -618,7 +643,7 @@ SMODS.Consumable {
 }
 
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'towprint',
     set = 'mistarot',
@@ -631,7 +656,7 @@ SMODS.Consumable {
     end,
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'starprint',
     set = 'mistarot',
@@ -723,7 +748,7 @@ SMODS.Consumable {
     misprint_original = "c_star"
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'moonprint',
     set = 'mistarot',
@@ -813,7 +838,7 @@ SMODS.Consumable {
     misprint_original = "c_moon"
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'sunprint',
     set = 'mistarot',
@@ -905,7 +930,7 @@ SMODS.Consumable {
     misprint_original = "c_sun"
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'judgeprint',
     set = 'mistarot',
@@ -947,7 +972,7 @@ SMODS.Consumable {
     misprint_original = "c_judgement"
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'worldprint',
     set = 'mistarot',

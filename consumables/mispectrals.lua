@@ -5,6 +5,23 @@ SMODS.ConsumableType({
     secondary_colour = SMODS.Gradients.bd_ralspect,
     default = "c_bd_familiarprint",
     cards = {},
+    shop_rate = 0,
+	discovered = false,
+	unlocked = true,
+    hidden = true,
+    soul_set = "Spectral",
+    soul_rate = 0.01,
+	loc_txt = {
+		undiscovered = {
+			name = "Not Discovered",
+			text = {
+				"Purchase or use",
+				"this card in an",
+				"unseeded run to",
+				"learn what it does"
+			},
+		},
+	},
 })
 local function BadDirector_reset_crt_smooth()
     G.E_MANAGER:add_event(Event({

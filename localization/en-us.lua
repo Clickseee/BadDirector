@@ -203,8 +203,7 @@ return {
                 }
             },
             c_bd_defaultprint = {
-                name =
-                "nil  {E:bd_glitching,C:dark_edition}1{}{E:bd_glitching,C:dark_edition}1{}{E:bd_glitching,C:dark_edition}1{}{E:bd_glitching,C:dark_edition}1{}",
+                name = "nil  {E:bd_glitching,C:dark_edition}1{}{E:bd_glitching,C:dark_edition}1{}{E:bd_glitching,C:dark_edition}1{}{E:bd_glitching,C:dark_edition}1{}",
                 text = {
                     "Ra{E:bd_glitching,C:dark_edition}n{}d{E:bd_glitching,C:dark_edition}o{}{E:bd_glitching,C:dark_edition}miz{}es values of",
                     "all held {C:attention}consumables",
