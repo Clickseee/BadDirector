@@ -1,10 +1,3 @@
-SMODS.Atlas {
-    key = "consumisprints",
-    path = "consumisprints.png",
-    px = 71,
-    py = 95,
-}
-
 SMODS.Sound {
     key = "inapmit",
     path = "inapmit.ogg",
