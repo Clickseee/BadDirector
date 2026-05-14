@@ -51,7 +51,11 @@ BadDirector.MisSpect = SMODS.Consumable:extend{
         end
     end
 }
-
+SMODS.UndiscoveredSprite {
+  key = "mispectral",
+  atlas = "consumisprints",
+  pos = { x = 9, y = 6 },
+}
 
 BadDirector.MisSpect {
     key = 'spectralprint',
