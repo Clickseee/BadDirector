@@ -51,6 +51,12 @@ BadDirector.MisprPlanet {
     misprint_original = "c_mercury"
 }
 
+SMODS.UndiscoveredSprite {
+  key = "misplanet",
+  atlas = "consumisprints",
+  pos = { x = 9, y = 4 },
+}
+
 BadDirector.MisprPlanet {
     atlas = "consumisprints",
     key = 'venprint',
