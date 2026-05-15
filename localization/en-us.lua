@@ -130,8 +130,19 @@ return {
                 name = "Trauma Bonding",
                 text = {
                     "If a {C:hearts}Heart{} card",
-                    "is {C:red}destroyed{}, increase all",
-                    "{C:attention}Joker{} values by {C:attention}1{}"
+                    "is {C:red}destroyed{}, all {C:hearts}Heart{} card",
+                    "held in hand gain {C:mult}+1{} permanent Mult"
+                }
+            },
+            j_bd_propinquity = {
+                name = "Propinquity",
+                text = {
+                    "If played hand is",
+                    "your most played hand",
+                    "and contains a",
+                    "{C:hearts}Heart{} card, create",
+                    "{C:tarot}The Lovers{}",
+                    "{C:inactive}(Must have room){}"
                 }
             },
             j_bd_suicide = {

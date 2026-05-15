@@ -12,42 +12,31 @@ SMODS.Joker {
         if context.remove_playing_cards
         and context.removed then
 
-            local triggered = false
+            local destroyed_heart = false
 
             for _, removed_card in ipairs(context.removed) do
-
                 if removed_card:is_suit("Hearts") then
-                    triggered = true
+                    destroyed_heart = true
                     break
                 end
             end
 
-            if triggered then
+            if destroyed_heart then
 
-                for _, joker in ipairs(G.jokers.cards) do
+                for _, hand_card in ipairs(G.hand.cards) do
 
-                    if joker ~= card
-                    and joker.ability
-                    and joker.ability.extra then
+                    if hand_card:is_suit("Hearts") then
 
-                        for k, v in pairs(joker.ability.extra) do
+                        hand_card.ability.perma_mult =
+                            (hand_card.ability.perma_mult or 0) + 1
 
-                            if type(v) == "number" then
-
-                                if v >= 1 then
-                                    joker.ability.extra[k] =
-                                        joker.ability.extra[k] + 1
-                                end
-                            end
-                        end
-
-                        joker:juice_up()
+                        hand_card:juice_up()
                     end
                 end
 
                 return {
                     message = "I'm here for you.",
-                    colour = G.C.RED
+                    colour = G.C.MULT
                 }
             end
         end
