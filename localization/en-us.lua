@@ -68,8 +68,7 @@ return {
             j_bd_genderdysphoria = {
                 name = "Gender Dysphoria",
                 text = {
-                    "All played",
-                    "{C:attention}Kings{} and {C:attention}Queens{}",
+                    "All {C:attention}Kings{} and {C:attention}Queens{}",
                     "count as {C:attention}Jacks{}"
                 }
             },
@@ -125,6 +124,14 @@ return {
                     "add a permanent copy",
                     "to deck and draw",
                     "it to {C:attention}hand"
+                }
+            },
+            j_bd_traumabonding = {
+                name = "Trauma Bonding",
+                text = {
+                    "If a {C:hearts}Heart{} card",
+                    "is {C:red}destroyed{}, increase all",
+                    "{C:attention}Joker{} values by {C:attention}1{}"
                 }
             },
             j_bd_suicide = {
@@ -203,7 +210,8 @@ return {
                 }
             },
             c_bd_defaultprint = {
-                name = "nil  {E:bd_glitching,C:dark_edition}1{}{E:bd_glitching,C:dark_edition}1{}{E:bd_glitching,C:dark_edition}1{}{E:bd_glitching,C:dark_edition}1{}",
+                name =
+                "nil  {E:bd_glitching,C:dark_edition}1{}{E:bd_glitching,C:dark_edition}1{}{E:bd_glitching,C:dark_edition}1{}{E:bd_glitching,C:dark_edition}1{}",
                 text = {
                     "Ra{E:bd_glitching,C:dark_edition}n{}d{E:bd_glitching,C:dark_edition}o{}{E:bd_glitching,C:dark_edition}miz{}es values of",
                     "all held {C:attention}consumables",
