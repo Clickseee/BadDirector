@@ -2,16 +2,46 @@ SMODS.Sound {
     key = "inapmit",
     path = "inapmit.ogg",
     volume = 1.5
+} 
+ 
+SMODS.ConsumableType({
+    key = "mistarot",
+    collection_rows = { 5, 6 },
+    primary_colour = G.C.SECONDARY_SET.Tarot,
+    secondary_colour = SMODS.Gradients.bd_rotta,--SMODS.Gradient(rotta),
+    default = "c_bd_foolprint",
+    cards = {},
+    shop_rate = 4,
+    loc_txt = {
+		undiscovered = {
+			name = "Not Discovered",
+			text = {
+				"Purchase or use",
+				"this card in an",
+				"unseeded run to",
+				"learn what it does"
+			},
+		},
+	},
+	
+})
+
+BadDirector.MisprTarots = SMODS.Consumable:extend {
+    discovered = false,
+	unlocked = true,
+    hidden = true,
+    soul_set = "Tarot",
+    soul_rate = 0.01,
+	
 }
 
---[[
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'defaultprint',
     set = 'mistarot',
     draw = function(self, card, layer) card.children.center:draw_shader('hologram', nil, card.ARGS.send_to_shader) end,
     pos = { x = 9, y = 2 },
-    config = { extra = { count = 2 } },
+    config = { extra = { count = 2 }, },
     can_use = function(self, card)
         return #G.consumeables.cards > 0
     end,
@@ -42,7 +72,7 @@ SMODS.UndiscoveredSprite {
   pos = { x = 9, y = 2 },
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'foolprint',
     set = 'mistarot',
@@ -103,20 +133,24 @@ SMODS.Consumable {
     can_use = function(self, card)
         return (#G.consumeables.cards < G.consumeables.config.card_limit or card.area == G.consumeables)
             and G.GAME.last_tarot_planet
-            and G.GAME.last_tarot_planet ~= 'c_fool'
     end,
     misprint_original = "c_fool"
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'magicprint',
     set = 'mistarot',
+    config = {max_highlighted = 2,mod_conv = "m_bd_misprintluckycard"},
     pos = { x = 1, y = 0 },
-    misprint_original = "c_magician"
+    misprint_original = "c_magician",
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
+        return { vars = { card.ability.max_highlighted, localize{ type = 'name_text', set = 'Enhanced', key = card.ability.mod_conv } } }
+    end,
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'highestprintess',
     set = 'mistarot',
@@ -126,7 +160,7 @@ SMODS.Consumable {
         return { vars = { card.ability.extra.min, card.ability.extra.max } }
     end,
     use = function(self, card, area, copier)
-        local amount = pseudorandom('milfdetected', card.ability.extra.min, card.ability.extra.max)
+        local amount = pseudorandom('highestprintess', card.ability.extra.min, card.ability.extra.max)
 
         for i = 1, amount do
             G.E_MANAGER:add_event(Event({
@@ -151,15 +185,20 @@ SMODS.Consumable {
     misprint_original = "c_highest_priestess"
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'emperints',
     set = 'mistarot',
+    config = {max_highlighted = 2, mod_conv = "m_bd_misprintmult"},
     pos = { x = 3, y = 0 },
-    misprint_original = "c_emperor"
+    misprint_original = "c_empress",
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
+        return { vars = { card.ability.max_highlighted, localize { type = 'name_text', set = 'Enhanced', key = card.ability.mod_conv } } }
+    end,
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'emprints',
     set = 'mistarot',
@@ -169,7 +208,7 @@ SMODS.Consumable {
         return { vars = { card.ability.extra.min, card.ability.extra.max } }
     end,
     use = function(self, card, area, copier)
-        local amount = pseudorandom('milfdetected', card.ability.extra.min, card.ability.extra.max)
+        local amount = pseudorandom('emprints', card.ability.extra.min, card.ability.extra.max)
 
         for i = 1, amount do
             G.E_MANAGER:add_event(Event({
@@ -191,42 +230,62 @@ SMODS.Consumable {
     can_use = function(self, card)
         return true
     end,
-    misprint_original = "c_empress"
+    misprint_original = "c_emperor"
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'hieroprint',
     set = 'mistarot',
     pos = { x = 5, y = 0 },
-    misprint_original = "c_heirophant"
+    misprint_original = "c_heirophant",
+    config = {max_highlighted = 2,mod_conv = "m_bd_misprintbonus"},
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
+        return { vars = { card.ability.max_highlighted, localize { type = 'name_text', set = 'Enhanced', key = card.ability.mod_conv } } }
+    end,
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'loverprints',
     set = 'mistarot',
     pos = { x = 6, y = 0 },
-    misprint_original = "c_lovers"
+    misprint_original = "c_lovers",
+    config = {max_highlighted = 1 ,mod_conv = "m_bd_misprintwild"},
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
+        return { vars = { card.ability.max_highlighted, localize { type = 'name_text', set = 'Enhanced', key = card.ability.mod_conv } } }
+    end,
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'charprints',
     set = 'mistarot',
     pos = { x = 7, y = 0 },
-    misprint_original = "c_chariot"
+    misprint_original = "c_chariot",
+    config = {max_highlighted = 1,mod_conv = "m_bd_misprintsteel"},
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
+        return { vars = { card.ability.max_highlighted, localize { type = 'name_text', set = 'Enhanced', key = card.ability.mod_conv } } }
+    end,
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'printice',
     set = 'mistarot',
     pos = { x = 8, y = 0 },
-    misprint_original = "c_justice"
+    misprint_original = "c_justice",
+    config = {max_highlighted = 1,mod_conv = "m_bd_misprintglass"},
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
+        return { vars = { card.ability.max_highlighted, localize { type = 'name_text', set = 'Enhanced', key = card.ability.mod_conv } } }
+    end,
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'herprint',
     set = 'mistarot',
@@ -260,7 +319,7 @@ SMODS.Consumable {
     misprint_original = "c_hermit"
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'wheelofprint',
     set = 'mistarot',
@@ -347,7 +406,7 @@ SMODS.Consumable {
     misprint_original = "c_wheel_of_fortune"
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'strenghtprints',
     set = 'mistarot',
@@ -413,7 +472,7 @@ SMODS.Consumable {
     misprint_original = "c_strength"
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'hangedprint',
     set = 'mistarot',
@@ -454,7 +513,7 @@ SMODS.Consumable {
     misprint_original = "c_hanged_man"
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'deathprint',
     set = 'mistarot',
@@ -529,7 +588,7 @@ SMODS.Consumable {
     misprint_original = "c_death"
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'temprint',
     set = 'mistarot',
@@ -568,23 +627,36 @@ SMODS.Consumable {
     misprint_original = "c_temperance"
 }
 
-SMODS.Consumable {
+
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'devprint',
     set = 'mistarot',
     pos = { x = 5, y = 1 },
-    misprint_original = "c_devil"
+    misprint_original = "c_devil",
+    config = {max_highlighted = 1,mod_conv = "m_bd_misprintgold"},
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
+        return { vars = { card.ability.max_highlighted, localize { type = 'name_text', set = 'Enhanced', key = card.ability.mod_conv } } }
+    end,
+
 }
 
-SMODS.Consumable {
+
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'towprint',
     set = 'mistarot',
     pos = { x = 6, y = 1 },
-    misprint_original = "c_tower"
+    misprint_original = "c_tower",
+    config = {max_highlighted = 1,mod_conv = "m_bd_misprintstone"},
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
+        return { vars = { card.ability.max_highlighted, localize { type = 'name_text', set = 'Enhanced', key = card.ability.mod_conv } } }
+    end,
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'starprint',
     set = 'mistarot',
@@ -676,7 +748,7 @@ SMODS.Consumable {
     misprint_original = "c_star"
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'moonprint',
     set = 'mistarot',
@@ -766,7 +838,7 @@ SMODS.Consumable {
     misprint_original = "c_moon"
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'sunprint',
     set = 'mistarot',
@@ -858,7 +930,7 @@ SMODS.Consumable {
     misprint_original = "c_sun"
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'judgeprint',
     set = 'mistarot',
@@ -900,7 +972,7 @@ SMODS.Consumable {
     misprint_original = "c_judgement"
 }
 
-SMODS.Consumable {
+BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'worldprint',
     set = 'mistarot',
@@ -992,4 +1064,3 @@ SMODS.Consumable {
     end,
     misprint_original = "c_world"
 }
-]]

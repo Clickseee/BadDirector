@@ -138,9 +138,72 @@ return {
             },
         },
         mistarot = {
+            c_bd_magicprint = {
+                name = "ician The Mag",
+                text = {
+                    "En{E:bd_glitching,C:black}h{}a{E:bd_glitching,C:black}n{}{E:bd_glitching,C:black}ce{}s {C:attention}#1#{}",
+                    "{E:bd_glitching,C:black}sel{}ecte{E:bd_glitching,C:black}d{} cards to",
+                    "{C:attention}#2#{}"
+                }
+            },
+            c_bd_emperints = {
+                name = "ress The Emp",
+                text = {
+                    "En{E:bd_glitching,C:black}h{}a{E:bd_glitching,C:black}n{}{E:bd_glitching,C:black}ce{}s {C:attention}#1#{}",
+                    "{E:bd_glitching,C:black}sel{}ecte{E:bd_glitching,C:black}d{} cards to",
+                    "{C:attention}#2#{}"
+                }
+            },
+            c_bd_hieroprint = {
+                name = "rophant The Hie",
+                text = {
+                    "En{E:bd_glitching,C:black}h{}a{E:bd_glitching,C:black}n{}{E:bd_glitching,C:black}ce{}s {C:attention}#1#{}",
+                    "{E:bd_glitching,C:black}sel{}ecte{E:bd_glitching,C:black}d{} cards to",
+                    "{C:attention}#2#{}"
+                }
+            },
+            c_bd_loverprints = {
+                name = "ersThe Lov",
+                text = {
+                    "En{E:bd_glitching,C:black}h{}a{E:bd_glitching,C:black}n{}{E:bd_glitching,C:black}ce{}s {C:attention}#1#{}",
+                    "{E:bd_glitching,C:black}sel{}ecte{E:bd_glitching,C:black}d{} cards to",
+                    "{C:attention}#2#{}"
+                }
+            },
+            c_bd_charprints = {
+                name = "riot The Cha",
+                text = {
+                    "En{E:bd_glitching,C:black}h{}a{E:bd_glitching,C:black}n{}{E:bd_glitching,C:black}ce{}s {C:attention}#1#{}",
+                    "{E:bd_glitching,C:black}sel{}ecte{E:bd_glitching,C:black}d{} cards to",
+                    "{C:attention}#2#{}"
+                }
+            },
+            c_bd_printice = {
+                name = "tice Ju",
+                text = {
+                    "En{E:bd_glitching,C:black}h{}a{E:bd_glitching,C:black}n{}{E:bd_glitching,C:black}ce{}s {C:attention}#1#{}",
+                    "{E:bd_glitching,C:black}sel{}ecte{E:bd_glitching,C:black}d{} cards to",
+                    "{C:attention}#2#{}"
+                }
+            },
+            c_bd_towprint = {
+                name = "erThe Tow",
+                text = {
+                    "En{E:bd_glitching,C:black}h{}a{E:bd_glitching,C:black}n{}{E:bd_glitching,C:black}ce{}s {C:attention}#1#{}",
+                    "{E:bd_glitching,C:black}sel{}ecte{E:bd_glitching,C:black}d{} cards to",
+                    "{C:attention}#2#{}"
+                }
+            },
+            c_bd_devprint = {
+                name = "ilThe Dev",
+                text = {
+                    "En{E:bd_glitching,C:black}h{}a{E:bd_glitching,C:black}n{}{E:bd_glitching,C:black}ce{}s {C:attention}#1#{}",
+                    "{E:bd_glitching,C:black}sel{}ecte{E:bd_glitching,C:black}d{} cards to",
+                    "{C:attention}#2#{}"
+                }
+            },
             c_bd_defaultprint = {
-                name =
-                "nil  {E:bd_glitching,C:dark_edition}1{}{E:bd_glitching,C:dark_edition}1{}{E:bd_glitching,C:dark_edition}1{}{E:bd_glitching,C:dark_edition}1{}",
+                name = "nil  {E:bd_glitching,C:dark_edition}1{}{E:bd_glitching,C:dark_edition}1{}{E:bd_glitching,C:dark_edition}1{}{E:bd_glitching,C:dark_edition}1{}",
                 text = {
                     "Ra{E:bd_glitching,C:dark_edition}n{}d{E:bd_glitching,C:dark_edition}o{}{E:bd_glitching,C:dark_edition}miz{}es values of",
                     "all held {C:attention}consumables",
@@ -509,6 +572,14 @@ return {
             },
             m_bd_misprintgold = {
                 name = "old CardG",
+                text = {
+                    "Earn {X:money,C:white}x0.5 - x3{} the tota{E:bd_glitching,C:black}l{}",
+                    "sell v{E:bd_glitching,C:black}a{}lue of all cu{E:bd_glitching,C:black}r{}rent",
+                    "{C:attention}Jokers{} if this",
+                    "c{E:bd_glitching,C:black}c{}rd is held in h{E:bd_glitching,C:black}a{}nd",
+                    "a{E:bd_glitching,C:black}t{} the end of r{E:bd_glitching,C:black}ou{}n{E:bd_glitching,C:black}d{}"
+
+                }
             },
             m_bd_misprintbonus = {
                 name = "nus CardBo",

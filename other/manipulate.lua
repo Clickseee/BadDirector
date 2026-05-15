@@ -126,7 +126,21 @@ function Card:get_nominal(mod)
 		+ 10 * self.base.face_nominal * rank_mult
 		+ 0.000001 * self.unique_val
 end
-
+function BadDirector.deep_copy(obj, seen)
+	if type(obj) ~= "table" then
+		return obj
+	end
+	if seen and seen[obj] then
+		return seen[obj]
+	end
+	local s = seen or {}
+	local res = setmetatable({}, getmetatable(obj))
+	s[obj] = res
+	for k, v in pairs(obj) do
+		res[BadDirector.deep_copy(k, s)] = BadDirector.deep_copy(v, s)
+	end
+	return res
+end
 function BadDirector.manipulate(card, args)
 	if not card or not card.config or not card.config.center then return end
 	if not Card.no(card, "immutable", true) or (args and args.bypass_checks) then

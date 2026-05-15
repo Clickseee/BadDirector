@@ -1,10 +1,28 @@
-SMODS.Atlas {
-    key = "consumisprints",
-    path = "consumisprints.png",
-    px = 71,
-    py = 95,
-}
-
+SMODS.ConsumableType({
+    key = "mispectral",
+    collection_rows = { 4, 5 },
+    primary_colour = G.C.SECONDARY_SET.Spectral,
+    secondary_colour = SMODS.Gradients.bd_ralspect,
+    default = "c_bd_familiarprint",
+    cards = {},
+    shop_rate = 0,
+	discovered = false,
+	unlocked = true,
+    hidden = true,
+    soul_set = "Spectral",
+    soul_rate = 0.01,
+	loc_txt = {
+		undiscovered = {
+			name = "Not Discovered",
+			text = {
+				"Purchase or use",
+				"this card in an",
+				"unseeded run to",
+				"learn what it does"
+			},
+		},
+	},
+})
 local function BadDirector_reset_crt_smooth()
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
@@ -33,7 +51,11 @@ BadDirector.MisSpect = SMODS.Consumable:extend{
         end
     end
 }
-
+SMODS.UndiscoveredSprite {
+  key = "mispectral",
+  atlas = "consumisprints",
+  pos = { x = 9, y = 6 },
+}
 
 BadDirector.MisSpect {
     key = 'spectralprint',
@@ -65,10 +87,9 @@ BadDirector.MisSpect {
         end
     end
 }
-
+--[[
 BadDirector.MisSpect {
     key = 'familiarprint',
-
     pos = { x = 0, y = 5 },
     misprint_original = "c_familiar"
 }
@@ -81,10 +102,10 @@ BadDirector.MisSpect {
 
 BadDirector.MisSpect {
     key = 'incantaprint',
-
     pos = { x = 2, y = 5 },
     misprint_original = "c_incantation"
 }
+]]
 
 BadDirector.MisSpect {
     key = 'talisprint',
@@ -143,18 +164,19 @@ BadDirector.MisSpect {
         end
     end
 }
-
+--[[
 BadDirector.MisSpect {
     key = 'auraprint',
     pos = { x = 4, y = 5 },
     misprint_original = "c_aura"
 }
-
+]]
 BadDirector.MisSpect {
     key = 'wrathprint',
     pos = { x = 5, y = 5 },
     misprint_original = "c_wrath"
 }
+--[[
 
 BadDirector.MisSpect {
     key = 'sigilprint',
@@ -185,7 +207,7 @@ BadDirector.MisSpect {
     pos = { x = 0, y = 6 },
     misprint_original = "c_ankh"
 }
-
+]]
 BadDirector.MisSpect {
     key = 'dejaprint',
     pos = { x = 1, y = 6 },
@@ -242,13 +264,13 @@ BadDirector.MisSpect {
         end
     end
 }
-
+--[[
 BadDirector.MisSpect {
     key = 'hexprint',
     pos = { x = 2, y = 6 },
     misprint_original = "c_hex"
 }
-
+]]
 BadDirector.MisSpect {
     key = 'tranceprint',
     pos = { x = 3, y = 6 },
@@ -362,13 +384,13 @@ BadDirector.MisSpect {
         end
     end
 }
-
+--[[
 BadDirector.MisSpect {
     key = 'cryptidprint',
     pos = { x = 5, y = 6 },
     misprint_original = "c_cryptid"
 }
-
+]]
 BadDirector.MisSpect {
     key = 'soulprint',
     pos = { x = 2, y = 2 },

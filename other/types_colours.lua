@@ -1,4 +1,4 @@
-local rotta_gradient = SMODS.Gradient({
+SMODS.Gradient({
     key = "rotta",
     colours = {
         HEX("ffe5b4"),
@@ -9,17 +9,9 @@ local rotta_gradient = SMODS.Gradient({
     cycle = 2,
 })
 
-SMODS.ConsumableType({
-    key = "mistarot",
-    collection_rows = { 5, 6 },
-    primary_colour = G.C.SECONDARY_SET.Tarot,
-    secondary_colour = rotta_gradient,
-    default = "c_bd_foolprint",
-    cards = {},
-    shop_rate = 4
-})
 
-local netpla_gradient = SMODS.Gradient({
+
+SMODS.Gradient({
     key = "netpla",
     colours = {
         HEX("dff5fc"),
@@ -30,17 +22,9 @@ local netpla_gradient = SMODS.Gradient({
     cycle = 2,
 })
 
-SMODS.ConsumableType({
-    key = "misplanet",
-    collection_rows = { 6, 6 },
-    primary_colour = G.C.SECONDARY_SET.Planet,
-    secondary_colour = netpla_gradient,
-    default = "c_bd_mercprint",
-    cards = {},
-    shop_rate = 4
-})
 
-local ralspect_gradient = SMODS.Gradient({
+
+SMODS.Gradient({
     key = "ralspect",
     colours = {
         HEX("638fe1"),
@@ -54,29 +38,5 @@ local ralspect_gradient = SMODS.Gradient({
     cycle = 2,
 })
 
-SMODS.ConsumableType({
-    key = "mispectral",
-    collection_rows = { 4, 5 },
-    primary_colour = G.C.SECONDARY_SET.Spectral,
-    secondary_colour = ralspect_gradient,
-    default = "c_bd_familiarprint",
-    cards = {},
-})
 
-SMODS.UndiscoveredSprite {
-  key = "mistarot",
-  atlas = "consumisprints",
-  pos = { x = 9, y = 2 },
-}
 
-SMODS.UndiscoveredSprite {
-  key = "misplanet",
-  atlas = "consumisprints",
-  pos = { x = 9, y = 4 },
-}
-
-SMODS.UndiscoveredSprite {
-  key = "mispectral",
-  atlas = "consumisprints",
-  pos = { x = 9, y = 6 },
-}
