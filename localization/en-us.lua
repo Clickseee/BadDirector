@@ -145,6 +145,15 @@ return {
                     "{C:inactive}(Must have room){}"
                 }
             },
+            j_bd_silenttreament = {
+                name = "Silent Treatment",
+                text = {
+                    "All played {C:hearts}Heart{}",
+                    "cards become {C:attention}unscored{},",
+                    "each unscored card",
+                    "gives {C:mult}+#1#{} Mult",
+                }
+            },
             j_bd_suicide = {
                 name = "Suicide",
                 text = {
