@@ -29,9 +29,13 @@ SMODS.ConsumableType({
 BadDirector.MisprTarots = SMODS.Consumable:extend {
     discovered = false,
 	unlocked = true,
-    hidden = true,
+    set = 'mistarot',
+--    hidden = true,
     soul_set = "Tarot",
     soul_rate = 0.01,
+    in_pool = function (self, args)
+       return true
+    end,
 	
 }
 

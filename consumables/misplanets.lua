@@ -24,7 +24,7 @@ SMODS.ConsumableType({
 BadDirector.MisprPlanet = SMODS.Consumable:extend {
     discovered = false,
 	unlocked = true,
-    hidden = true,
+    --hidden = true,
     soul_set = "Planet",
     soul_rate = 0.01,
 	
@@ -299,6 +299,8 @@ BadDirector.MisprPlanet {
         BadDirector.misprint_all(card)
     end,
     soul_set = "misplanet",
+    soul_rate = 0.007,
+    hidden = true,
     can_use = function() return true end,
     loc_vars = function(self, q, card)
         local n, d = SMODS.get_probability_vars(card, 1, 4, 'bd_bh')
@@ -309,5 +311,10 @@ BadDirector.MisprPlanet {
             }
         }
     end,
-    misprint_original = "c_black_hole"
+    misprint_original = "c_black_hole",
+    draw = function(self, card, layer)
+        if (layer == 'card' or layer == 'both') and card.sprite_facing == 'front' then
+            card.children.center:draw_shader('booster', nil, card.ARGS.send_to_shader)
+        end
+    end
 }
