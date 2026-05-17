@@ -15,7 +15,7 @@ return {
         },
         Back = {
             b_bd_missingdeck = {
-                name = "MissingDeck",
+                name = "Missing Deck",
                 text = {
                     "All Jokers are",
                     "rerolled after defeating",
@@ -23,6 +23,131 @@ return {
                     '{s:0.8}(Respective to their rarities)'
                 }
             }
+        },
+        Sleeve = {
+            sleeve_bd_missingdeck = {
+                name = "Missing Sleeve",
+                text = {
+                    "All Jokers are",
+                    "rerolled after defeating",
+                    "a {C:attention}Boss Blind",
+                    '{s:0.8}(Respective to their rarities)'
+                }
+            },
+            sleeve_bd_missingdeck_alt = {
+                name = "Missing Sleeve",
+                text = {
+                    "{C:attention}+#1#{} Joker slot"
+                }
+            },
+        },
+        Other = {
+            p_bd_misarcana_jumbo = {
+                name = "bo Arcana Pack Jum",
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2# {C:bd_rotta}rot CardsTa{} to",
+                    "be used immediately",
+                },
+            },
+            p_bd_misarcana_mega = {
+                name = "a Arcana Pack Meg",
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2# {C:bd_rotta}rot CardsTa{} to",
+                    "be used immediately",
+                },
+            },
+            p_bd_misarcana_normal = {
+                name = "cana PackAr",
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2# {C:bd_rotta}rot CardsTa{} to",
+                    "be used immediately",
+                },
+            },
+            p_bd_miscelestial_jumbo = {
+                name = "bo Celestial Pack Jum",
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2# {C:bd_netpla}net CardsPla{} to",
+                    "be used immediately",
+                },
+            },
+            p_bd_miscelestial_mega = {
+                name = "a Celestial Pack Meg",
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2# {C:bd_netpla}net CardsPla{} to",
+                    "be used immediately",
+                },
+            },
+            p_bd_miscelestial_normal = {
+                name = "cana PackAr",
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2# {C:bd_netpla}net CardsPla{} to",
+                    "be used immediately",
+                },
+            },
+            p_bd_misspectral_jumbo = {
+                name = "bo Spectral Pack Jum",
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2# {C:bd_ralspect}ral CardsSpect{} to",
+                    "be used immediately",
+                },
+            },
+            p_bd_misspectral_mega = {
+                name = "a Spectral Pack Meg",
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2# {C:bd_ralspect}ral CardsSpect{} to",
+                    "be used immediately",
+                },
+            },
+            p_bd_misspectral_normal = {
+                name = "tral PackSpec",
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2# {C:bd_ralspect}ral CardsSpect{} to",
+                    "be used immediately",
+                },
+            },
+
+        },
+        Tag = {
+            tag_bd_charm = {
+                name = "arm TagCh",
+                text = {
+                    "Gives a free",
+                    "{C:bd_rotta}a Arcana Pack Meg",
+                },
+            },
+            tag_bd_meteor = {
+                name = "eor TagMet",
+                text = {
+                    "Gives a free",
+                    "{C:bd_netpla}a Celestial Pack Meg",
+                },
+            },
+            tag_bd_ethereal = {
+                name = "real TagEthe",
+                text = {
+                    "Gives a free",
+                    "{C:bd_ralspect}tral PackSpec",
+                },
+            },
+            tag_bd_brokenheart = {
+                name = "Bleeding Heart Tag",
+                text = {
+                    "Shop has a free",
+                    "{C:red}Rare{} Bad Director",
+                    "{C:attention}Joker",
+                },
+            },
+
+
         },
         Voucher = {
             v_bd_carton = {
@@ -130,37 +255,45 @@ return {
                 name = "Trauma Bonding",
                 text = {
                     "If a {C:hearts}Heart{} card",
-                    "is {C:red}destroyed{}, all {C:hearts}Heart{} card",
-                    "held in hand gain {C:mult}+1{} permanent Mult"
+                    "is {C:red}destroyed{}, increase",
+                    "values of the",
+                    "other Jokers by {C:attention}#1#",
                 }
             },
             j_bd_propinquity = {
                 name = "Propinquity",
                 text = {
                     "If played hand is",
-                    "your most played hand",
+                    "your {C:attention}most played hand",
                     "and contains a",
                     "{C:hearts}Heart{} card, create",
                     "{C:tarot}The Lovers{}",
                     "{C:inactive}(Must have room){}"
                 }
             },
-            j_bd_silenttreament = {
+            j_bd_silenttreatment = {
                 name = "Silent Treatment",
                 text = {
-                    "All played {C:hearts}Heart{}",
-                    "cards become {C:attention}unscored{},",
-                    "each unscored card",
-                    "gives {C:mult}+#1#{} Mult",
+                    {
+                    "All played {C:hearts}Hearts{}",
+                    "get {C:red}debuffed{}",
+                    },
+                    {
+                    "{C:mult}+#1#{} Mult for every",
+                    "played {C:red}debuffed{} {C:hearts}Hearts{}"
+                    }
                 }
             },
             j_bd_suicide = {
                 name = "Suicide",
                 text = {
+                    {
                     "Break some {C:hearts}Hearts{}.",
-                    "{C:inactive}Currently :{}",
+                    },
+                    {
                     "{C:inactive}({C:mult}+#1#{} {C:inactive}Mult,{} {C:chips}+#2#{} {C:inactive}Chips,{}",
                     "{X:mult,C:white}X#3#{} {C:inactive}Mult,{} {C:money}$#4#{}{C:inactive}){}"
+                    }
                 }
             },
         },
@@ -664,7 +797,10 @@ return {
             k_mispectral = 'ralSpect',
             b_mispectral_cards = "tral CardsSpec",
             k_what = '...?',
-            k_upgrade_q = "Upgrade?"
+            k_upgrade_q = "Upgrade?",
+            k_bd_arcana_pack = "cana PackAr",
+            k_bd_celestial_pack = "estial PackCel",
+            k_bd_spectral_pack = "tral PackSpec",
         },
         labels = {
             bd_thermal = "Thermal",

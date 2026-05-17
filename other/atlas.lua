@@ -12,6 +12,20 @@ SMODS.Atlas {
     py = 129,
 }
 
+SMODS.Atlas { 
+    key = "bddecks",
+    path = "decks.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas { 
+    key = "bdsleeves",
+    path = "sleeves.png",
+    px = 73,
+    py = 95,
+}
+
 SMODS.Atlas { -- ALL ARTS BELONG TO RATTLINGSNOW353 WITH PERMISSION
     key = "rattlingsnow",
     path = "rattling.png",
@@ -25,7 +39,18 @@ SMODS.Atlas {
     px = 71,
     py = 95,
 }
-
+SMODS.Atlas {
+    key = "misprintpacks",
+    path = "packmisprints.png",
+    px = 71,
+    py = 95,
+}
+SMODS.Atlas {
+    key = "misprinttags",
+    path = "tags.png",
+    px = 34,
+    py = 34,
+}
 SMODS.Atlas {
     key = "nxkooselfinsert",
     path = "nxkoo.png",
