@@ -42,12 +42,17 @@ SMODS.Enhancement:take_ownership(
     true
 )
 
+
 SMODS.Joker {
     key = "heartbreak",
     rarity = 2,
     atlas = "<3",
     pos = { x = 0, y = 0 },
     cost = 4,
+    pools = {
+        ["BadDirector_Jokers"] = true,
+    },
+    attributes = {"enhancements","hearts","modify_card"},
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,

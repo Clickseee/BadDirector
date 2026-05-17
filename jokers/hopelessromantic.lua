@@ -12,7 +12,10 @@ SMODS.Joker {
             xmult = 1.7
         }
     },
-
+    pools = {
+        ["BadDirector_Jokers"] = true,
+    },
+    attributes = {"hearts","xmult","ace"},
     loc_vars = function(self, info_queue, card)
         return {
             vars = {

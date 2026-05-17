@@ -14,6 +14,10 @@ SMODS.Joker {
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
+    pools = {
+        ["BadDirector_Jokers"] = true,
+    },
+    attributes = {"hand_type","hearts","modify_card"},
     loc_vars = function(self, info_queue, card)
         return {}
     end,

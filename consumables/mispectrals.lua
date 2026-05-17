@@ -1,3 +1,5 @@
+
+
 SMODS.ConsumableType({
     key = "mispectral",
     collection_rows = { 4, 5 },
@@ -8,7 +10,7 @@ SMODS.ConsumableType({
     shop_rate = 0,
 	discovered = false,
 	unlocked = true,
-    hidden = true,
+    --hidden = true,
     soul_set = "Spectral",
     soul_rate = 0.01,
 	loc_txt = {
@@ -51,6 +53,7 @@ BadDirector.MisSpect = SMODS.Consumable:extend{
         end
     end
 }
+
 SMODS.UndiscoveredSprite {
   key = "mispectral",
   atlas = "consumisprints",

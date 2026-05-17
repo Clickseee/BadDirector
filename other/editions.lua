@@ -53,7 +53,7 @@ SMODS.calculate_repetitions = function(card, context, reps)
     if card.edition and card.edition.bd_thermal then return 0 end
     return calculate_repetitions_ref(card, context, reps)
 end
-
+--[[
 SMODS.Edition {
     key = "colorsplash",
     order = 2,
@@ -77,7 +77,7 @@ SMODS.Edition {
     calculate = function(self, card, context)
     end
 }
-
+]]
 SMODS.Edition {
     key = "xray",
     order = 3,
@@ -116,10 +116,6 @@ SMODS.Edition {
     loc_txt = {
         name = '"Blueprint"?',
         label = '"Blueprint"?',
-        text = {
-            "Ascension Power now",
-            "deals X2 more"
-        }
     },
     weight = 21,
     shader = "blueprint",

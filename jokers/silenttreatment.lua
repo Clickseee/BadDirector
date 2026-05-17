@@ -12,6 +12,10 @@ SMODS.Joker {
             mult = 15
         }
     },
+    pools = {
+        ["BadDirector_Jokers"] = true,
+    },
+    attributes = {"mult","hearts","debuff","modify_card"},
 
     loc_vars = function(self, info_queue, card)
         return {
@@ -29,12 +33,19 @@ SMODS.Joker {
             if context.other_card:is_suit("Hearts") then
 
                 context.other_card.debuff = true
-
-                return {
-                    mult = card.ability.extra.mult,
-                    card = context.other_card
-                }
             end
+        end
+        if context.joker_main then
+            local tmult = 0
+            for _, playing_card in ipairs(G.play.cards) do
+
+                if playing_card.debuff == true and playing_card:is_suit("Hearts") then
+                    tmult = tmult + card.ability.extra.mult
+                end
+            end
+            return {
+                mult = tmult
+            }
         end
     end,
 

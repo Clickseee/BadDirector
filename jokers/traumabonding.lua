@@ -3,6 +3,16 @@ SMODS.Joker {
     rarity = 3,
     atlas = "<3",
     pos = { x = 0, y = 0 },
+    config = {extra = {increment = 1}},
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {card.ability.extra.increment}
+        }
+    end,
+    pools = {
+        ["BadDirector_Jokers"] = true,
+    },
+    attributes = {"joker","hearts","scaling"},
     cost = 6,
     blueprint_compat = true,
     eternal_compat = true,
@@ -22,15 +32,22 @@ SMODS.Joker {
             end
 
             if destroyed_heart then
-
-                for _, hand_card in ipairs(G.hand.cards) do
-
-                    if hand_card:is_suit("Hearts") then
-
-                        hand_card.ability.perma_mult =
-                            (hand_card.ability.perma_mult or 0) + 1
-
-                        hand_card:juice_up()
+                for _, joker in ipairs(G.jokers.cards) do
+                    if joker ~= card then
+                        if joker.ability.extra and type(joker.ability.extra) == "table" then
+                            for _, v in pairs(joker.ability.extra) do
+                                if type(v) == "number" and v ~= 0 then
+                                    joker.ability.extra[_] = joker.ability.extra[_] + card.ability.extra.increment
+                                end
+                            end
+                        end
+                        if joker.ability and type(joker.ability) == "table" then
+                            for _, v in pairs(joker.ability) do
+                                if type(v) == "number" and _ ~= "order" and _ ~= "rarity" and v ~= 0 and v ~= 1 then
+                                    joker.ability[_] = joker.ability[_] + card.ability.extra.increment
+                                end
+                            end
+                        end
                     end
                 end
 

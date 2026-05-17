@@ -7,6 +7,10 @@ SMODS.Joker {
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
+    pools = {
+        ["BadDirector_Jokers"] = true,
+    },
+    attributes = {"hearts","modify_card"},
     calculate = function(self, card, context)
 
         if context.after and SMODS.last_hand_oneshot then
