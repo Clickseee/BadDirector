@@ -146,7 +146,38 @@ return {
                     "{C:attention}Joker",
                 },
             },
-
+            tag_bd_thermaledition = {
+                name = "Thermal Tag",
+                text = {
+                    "Next base edition shop",
+                    "Joker is free and",
+                    "becomes {C:dark_edition}Thermal",
+                },
+            },
+            tag_bd_xrayedition = {
+                name = "X-ray Tag",
+                text = {
+                    "Next base edition shop",
+                    "Joker is free and",
+                    "becomes {C:dark_edition}X-ray",
+                },
+            },
+            tag_bd_blueprintedition = {
+                name = "Blueprint? Tag",
+                text = {
+                    "Next base edition shop",
+                    "Joker is free and",
+                    "becomes {C:dark_edition}Blueprint?",
+                },
+            },
+            tag_bd_misprintedition = {
+                name = "Misprint Tag",
+                text = {
+                    "Next base edition shop",
+                    "Joker is free and",
+                    "becomes {C:dark_edition}Misprinted",
+                },
+            },
 
         },
         Voucher = {
