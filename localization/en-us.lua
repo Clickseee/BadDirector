@@ -306,24 +306,33 @@ return {
                 name = "Silent Treatment",
                 text = {
                     {
-                    "All played {C:hearts}Hearts{}",
-                    "get {C:red}debuffed{}",
+                        "All played {C:hearts}Hearts{}",
+                        "get {C:red}debuffed{}",
                     },
                     {
-                    "{C:mult}+#1#{} Mult for every",
-                    "played {C:red}debuffed{} {C:hearts}Hearts{}"
+                        "{C:mult}+#1#{} Mult for every",
+                        "played {C:red}debuffed{} {C:hearts}Hearts{}"
                     }
+                }
+            },
+            j_bd_futurefaking = {
+                name = "Future Faking",
+                text = {
+                    "When skipping a {C:attention}Blind{},",
+                    "gain {C:attention}+#1#{} Hand Size",
+                    "for this {C:attention}Ante{}",
+                    "{C:inactive}(Currently +#2# Hand Size){}"
                 }
             },
             j_bd_suicide = {
                 name = "Suicide",
                 text = {
                     {
-                    "Break some {C:hearts}Hearts{}.",
+                        "Break some {C:hearts}Hearts{}.",
                     },
                     {
-                    "{C:inactive}({C:mult}+#1#{} {C:inactive}Mult,{} {C:chips}+#2#{} {C:inactive}Chips,{}",
-                    "{X:mult,C:white}X#3#{} {C:inactive}Mult,{} {C:money}$#4#{}{C:inactive}){}"
+                        "{C:inactive}({C:mult}+#1#{} {C:inactive}Mult,{} {C:chips}+#2#{} {C:inactive}Chips,{}",
+                        "{X:mult,C:white}X#3#{} {C:inactive}Mult,{} {C:money}$#4#{}{C:inactive}){}"
                     }
                 }
             },
