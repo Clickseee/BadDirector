@@ -40,6 +40,10 @@ SMODS.Joker {
     atlas = "<3",
     pos = { x = 0, y = 0 },
     cost = 5,
+    pools = {
+        ["BadDirector_Jokers"] = true,
+    },
+    attributes = {"enhancements","tarot"},
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,

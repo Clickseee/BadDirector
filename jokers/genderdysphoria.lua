@@ -7,12 +7,17 @@ function Card:get_id()
     return g
 end
 
+
 SMODS.Joker {
     key = "genderdysphoria",
     rarity = 2,
     atlas = "<3",
     pos = { x = 0, y = 0 },
     cost = 4,
+    pools = {
+        ["BadDirector_Jokers"] = true,
+    },
+    attributes = {"king","queen","jack"},
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,

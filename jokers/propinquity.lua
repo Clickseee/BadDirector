@@ -7,6 +7,10 @@ SMODS.Joker {
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
+    pools = {
+        ["BadDirector_Jokers"] = true,
+    },
+    attributes = {"hand_type","generation","hearts","tarot"},
     calculate = function(self, card, context)
 
         if context.before

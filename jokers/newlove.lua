@@ -7,6 +7,10 @@ SMODS.Joker {
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
+    pools = {
+        ["BadDirector_Jokers"] = true,
+    },
+    attributes = {"destroy_card","face","hearts","modify_card"},
     calculate = function(self, card, context)
 
         if context.before and context.cardarea == G.jokers then

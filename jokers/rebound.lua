@@ -7,6 +7,10 @@ SMODS.Joker {
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
+    pools = {
+        ["BadDirector_Jokers"] = true,
+    },
+    attributes = {"generation",},
     calculate = function(self, card, context)
 
         if context.remove_playing_cards
