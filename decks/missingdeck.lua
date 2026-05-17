@@ -1,6 +1,7 @@
 SMODS.Back {
     key = "missingdeck",
-    pos = { x = 1, y = 0 },
+    atlas = "bddecks",
+    pos = { x = 0, y = 0 },
     calculate = function(self, back, context)
         if context.round_eval and G.GAME.last_blind and G.GAME.last_blind.boss then
             play_sound('bd_inapmit')
