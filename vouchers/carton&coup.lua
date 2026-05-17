@@ -6,6 +6,11 @@ function Card:set_cost(...)
     end
 end
 
+--[[
+Smell you later :)))
+
+
+
 
 SMODS.Voucher{
     key = 'carton',
@@ -60,3 +65,4 @@ SMODS.Voucher{
         end
     end
 }
+]]
