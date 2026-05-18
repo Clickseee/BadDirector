@@ -59,6 +59,7 @@ BadDirector.contributors = {
     { key = "j_bd_thunderjoker",  text = "ThunderEdge" },
     { key = "j_bd_nixjoker",  text = "nixthatoneartist" },
     { key = "j_bd_felijoker",  text = "LasagnaFelidae" },
+    { key = "j_bd_ghostjoker",  text = "GhostSalt" },
 }
 BadDirector.PER_PAGE = 3
 

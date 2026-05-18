@@ -120,3 +120,19 @@ SMODS.Joker {
         return false
     end,
 }
+
+SMODS.Joker {
+    key = "ghostjoker",
+    selfinsert = true,
+    rarity = 4,
+    pos = { x = 0, y = 0 },
+    atlas = "ghostselfinsert",
+    cost = 666,
+    no_collection = true,
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = true,
+    in_pool = function(self, args)
+        return false
+    end
+}

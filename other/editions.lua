@@ -23,6 +23,25 @@ SMODS.Shader {
     path = "misprint.fs"
 }
 
+SMODS.Sound {
+    key = "thermalsfx",
+    path = "thermalsfx.ogg"
+}
+
+SMODS.Sound {
+    key = "xraysfx",
+    path = "xraysfx.ogg"
+}
+
+SMODS.Sound {
+    key = "blueprintsfx",
+    path = "blueprintsfx.ogg"
+}
+
+SMODS.Sound {
+    key = "misprintedsfx",
+    path = "misprintsfx.ogg"
+}
 
 SMODS.Edition {
     key = "thermal", --i hate you niko (jk)
@@ -31,6 +50,7 @@ SMODS.Edition {
     shader = "thermal",
     in_shop = true,
     extra_cost = 3,
+    sound = { sound = "bd_thermalsfx" },
     get_weight = function(self)
         return G.GAME.edition_rate * self.weight
     end,
@@ -85,6 +105,7 @@ SMODS.Edition {
     shader = "xray",
     in_shop = true,
     extra_cost = 3,
+    sound = { sound = "bd_xraysfx" },
     get_weight = function(self)
         return G.GAME.edition_rate * self.weight
     end,
@@ -121,6 +142,7 @@ SMODS.Edition {
     shader = "blueprint",
     in_shop = true,
     extra_cost = 3,
+    sound = { sound = "bd_blueprintsfx" },
     get_weight = function(self)
         return G.GAME.edition_rate * self.weight
     end,
@@ -154,6 +176,7 @@ SMODS.Edition {
     shader = "misprint",
     in_shop = true,
     extra_cost = 3,
+    sound = { sound = "bd_misprintedsfx" },
     get_weight = function(self)
         return G.GAME.edition_rate * self.weight
     end,
