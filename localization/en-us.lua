@@ -324,6 +324,16 @@ return {
                     "{C:inactive}(Currently +#2# Hand Size){}"
                 }
             },
+            j_bd_redflag = {
+                name = "Red Flag",
+                text = {
+                    "Gains {C:mult}+#2#{} Mult",
+                    "for each discarded",
+                    "{C:hearts}Heart{} card",
+                    "{C:inactive}(Currently{}",
+                    "{C:mult}+#1#{} {C:inactive}Mult){}"
+                }
+            },
             j_bd_suicide = {
                 name = "Suicide",
                 text = {
