@@ -838,7 +838,7 @@ return {
             bl_bd_ache = {
                 name = "The Ache",
                 text = {
-                    "Captures all owned {C:hearts}Hearts{}",
+                    "Captures all owned Hearts",
                     "for the Blind"
                 }
             }
