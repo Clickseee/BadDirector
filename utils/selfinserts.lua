@@ -83,12 +83,12 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-    key = "nixjoker",
+    key = "gabbyjoker",
     selfinsert = true,
     rarity = 4,
     pos = { x = 0, y = 0 },
     soul_pos = { x = 1, y = 0 },
-    atlas = "nixselfinsert",
+    atlas = "gabbyselfinsert",
     cost = 666,
     no_collection = true,
     blueprint_compat = true,

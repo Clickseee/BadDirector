@@ -87,8 +87,8 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
-    key = "nixselfinsert",
-    path = "nixthatoneartist.png",
+    key = "gabbyselfinsert",
+    path = "squeax09.png",
     px = 71,
     py = 95,
 }

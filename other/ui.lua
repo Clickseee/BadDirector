@@ -57,7 +57,7 @@ BadDirector.contributors = {
     { key = "j_bd_rubyjoker",  text = "lord.ruby" },
     { key = "j_bd_nhjoker",  text = "Nh6574" },
     { key = "j_bd_thunderjoker",  text = "ThunderEdge" },
-    { key = "j_bd_nixjoker",  text = "nixthatoneartist" },
+    { key = "j_bd_gabbyjoker",  text = "squeax09" },
     { key = "j_bd_felijoker",  text = "LasagnaFelidae" },
     { key = "j_bd_ghostjoker",  text = "GhostSalt" },
 }
