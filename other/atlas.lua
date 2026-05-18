@@ -26,6 +26,15 @@ SMODS.Atlas {
     py = 95,
 }
 
+SMODS.Atlas {
+	key = "bdblinds",
+    path = "blinds.png",
+	atlas_table = 'ANIMATION_ATLAS',
+	frames = 21,
+	px = 34,
+	py = 34,
+}
+
 SMODS.Atlas { -- ALL ARTS BELONG TO RATTLINGSNOW353 WITH PERMISSION
     key = "rattlingsnow",
     path = "rattling.png",

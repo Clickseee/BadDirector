@@ -833,7 +833,16 @@ return {
                     "gives {X:chips,C:white}X#1#{} Chips",
                 }
             }
-        }
+        },
+        Blind = {
+            bl_bd_ache = {
+                name = "The Ache",
+                text = {
+                    "Captures all owned {C:hearts}Hearts{}",
+                    "for the Blind"
+                }
+            }
+        },
     },
     misc = {
         dictionary = {

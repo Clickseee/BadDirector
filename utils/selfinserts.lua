@@ -87,7 +87,6 @@ SMODS.Joker {
     selfinsert = true,
     rarity = 4,
     pos = { x = 0, y = 0 },
-    soul_pos = { x = 1, y = 0 },
     atlas = "gabbyselfinsert",
     cost = 666,
     no_collection = true,
