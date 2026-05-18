@@ -71,7 +71,7 @@ BadDirector.MisprTarots {
 }
 
 SMODS.UndiscoveredSprite {
-  key = "defaultprint",
+  key = "mistarot",
   atlas = "consumisprints",
   pos = { x = 9, y = 2 },
 }
