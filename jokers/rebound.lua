@@ -2,7 +2,7 @@ SMODS.Joker {
     key = "rebound",
     rarity = 3,
     atlas = "<3",
-    pos = { x = 0, y = 0 },
+    pos = { x = 0, y = 2 },
     cost = 4,
     blueprint_compat = true,
     eternal_compat = true,

@@ -2,7 +2,7 @@ SMODS.Joker {
     key = "newlove",
     rarity = 1,
     atlas = "<3",
-    pos = { x = 0, y = 0 },
+    pos = { x = 3, y = 1 },
     cost = 3,
     blueprint_compat = true,
     eternal_compat = true,
