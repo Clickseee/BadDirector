@@ -7,7 +7,7 @@ SMODS.Blind {
     dollars = 5,
     mult = 2,
     boss = { min = 2 },
-    boss_colour = HEX('000000'),
+    boss_colour = HEX('ad0055'),
     calculate = function(self, blind, context)
         if context.setting_blind then
             if not blind.disabled then

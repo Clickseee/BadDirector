@@ -25,7 +25,7 @@ function BadDirector.banned_cards_heartless()
     -- for some godforsaken reason the challenges ui did not like me trying to apply the heart attribute BD jokers through this loop
     -- like here it just deadass doesn't work??????
     -- i tried a few methods but it Did Not Cooperate soooo
-    -- so i decided to just manually add them :sob:
+    -- i decided to just manually add them :sob:
     return ret
 end
 
