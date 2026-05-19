@@ -866,6 +866,9 @@ return {
             bd_xray = "X-Ray",
             bd_misprinted = "?@!;$",
             bd_blueprint = "Blueprint?"
-        }
+        },
+        challenge_names = {
+			c_bd_heartless = "Heartless"
+		},
     }
 }
