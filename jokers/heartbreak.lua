@@ -47,7 +47,7 @@ SMODS.Joker {
     key = "heartbreak",
     rarity = 2,
     atlas = "<3",
-    pos = { x = 0, y = 0 },
+    pos = { x = 3, y = 0 },
     cost = 4,
     pools = {
         ["BadDirector_Jokers"] = true,

@@ -2,7 +2,7 @@ SMODS.Joker {
     key = "silenttreatment",
     rarity = 3,
     atlas = "<3",
-    pos = { x = 0, y = 0 },
+    pos = { x = 2, y = 2 },
     cost = 6,
     blueprint_compat = true,
     eternal_compat = true,
