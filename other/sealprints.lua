@@ -28,7 +28,6 @@ SMODS.Seal {
     key = 'bluesprint',
     atlas = "misprintenhanced",
     pos = { x = 6, y = 4 },
-    --artist = {"IncognitoN71"}, ? i think
     coder = {"squeax09"},
     badge_colour = G.C.BLUE,
     calculate = function(self, card, context)

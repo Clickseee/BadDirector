@@ -8,6 +8,8 @@ BadDirector.Spectral = SMODS.Consumable:extend {
 -- Heat
 BadDirector.Spectral {
     key = 'bd_heat',
+    artist = {"GhostSalt"},
+    coder = {"LasagnaFelidae"},
     pos = { x = 0, y = 0 },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS.e_bd_thermal
@@ -23,7 +25,7 @@ BadDirector.Spectral {
                 eligible_card:set_edition("e_bd_thermal")
 
                 G.GAME.bd_heat_minus = G.GAME.bd_heat_minus or 1
-                ease_discard(-G.GAME.bd_heat_minus)
+                G.GAME.round_resets.discards = G.GAME.round_resets.discards - G.GAME.bd_heat_minus
                 G.GAME.bd_heat_minus = G.GAME.bd_heat_minus + 1
 
                 card:juice_up(0.3, 0.5)
@@ -39,6 +41,8 @@ BadDirector.Spectral {
 -- Transluscent
 BadDirector.Spectral {
     key = 'bd_transluscent',
+    artist = {"GhostSalt"},
+    coder = {"LasagnaFelidae"},
     pos = { x = 1, y = 0 },
     config = { extra = { mod_slots = 1 } },
     loc_vars = function(self, info_queue, card)
@@ -69,6 +73,8 @@ BadDirector.Spectral {
 --Project
 BadDirector.Spectral {
     key = 'bd_project',
+    artist = {"GhostSalt"},
+    coder = {"LasagnaFelidae"},
     pos = { x = 2, y = 0 },
     config = { extra = { mod_slots = 1 } },
     loc_vars = function(self, info_queue, card)
@@ -99,6 +105,8 @@ BadDirector.Spectral {
 --ZZZZ
 BadDirector.Spectral {
     key = 'bd_zzzz',
+    artist = {"GhostSalt"},
+    coder = {"LasagnaFelidae"},
     pos = { x = 3, y = 0 },
     config = { extra = { mod_slots = 1 } },
     loc_vars = function(self, info_queue, card)
