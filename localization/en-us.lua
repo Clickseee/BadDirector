@@ -977,6 +977,16 @@ return {
                     "when {C:attention}discarded",
                 },
             },
+            bd_redprint_seal = {
+                name = "al Red Se",
+                text = {
+                    "Retrigger this",
+                    "card {C:attention}#2#{} time",
+                    "for every {C:attention}#3#{} {C:inactive}[#4#]{}",
+                    "cards destroyed",
+                    "{C:inactive}(Currently {C:attention}#1#{}{C:inactive} time(s)){}"
+                },
+            },
         }
     },
     misc = {

@@ -6,6 +6,7 @@ SMODS.Seal {
     pos = { x = 2, y = 0 },
     config = { extra = { money = 2 } },
     badge_colour = G.C.GOLD,
+    --artist = {"IncognitoN71"}, ? i think
     coder = {"squeax09"},
     get_p_dollars = function(self, card)
         return card.ability.seal.extra.money * (G.GAME.round_resets.hands - G.GAME.current_round.hands_played)
@@ -28,6 +29,7 @@ SMODS.Seal {
     key = 'bluesprint',
     atlas = "misprintenhanced",
     pos = { x = 6, y = 4 },
+    --artist = {"IncognitoN71"}, ? i think
     coder = {"squeax09"},
     badge_colour = G.C.BLUE,
     calculate = function(self, card, context)
@@ -56,6 +58,7 @@ SMODS.Seal {
     key = 'purpleprint',
     atlas = "misprintenhanced",
     pos = { x = 4, y = 4 },
+    --artist = {"IncognitoN71"}, ? i think
     coder = {"squeax09"},
     badge_colour = G.C.PURPLE,
     calculate = function(self, card, context)
@@ -79,5 +82,41 @@ SMODS.Seal {
             }))
             return { message = localize('k_bd_purpleprint_seal'), colour = G.C.PURPLE }
         end
+    end
+}
+
+SMODS.Seal {
+    key = 'redprint',
+    atlas = "misprintenhanced",
+    pos = { x = 5, y = 4 },
+    --artist = {"IncognitoN71"}, ? i think
+    coder = {"squeax09"},
+    badge_colour = G.C.RED,
+    config = { extra = { retriggers = 0, retrigger_increase = 1, goal = 3, destroyed = 0 } },
+    calculate = function(self, card, context)
+        if context.repetition then
+            return {
+                repetitions = card.ability.seal.extra.retriggers,
+            }
+        end
+        if context.remove_playing_cards and not context.blueprint then
+            cards = 0
+            for _, removed_card in ipairs(context.removed) do
+                cards = cards + 1 
+            end
+            card.ability.seal.extra.destroyed = card.ability.seal.extra.destroyed + cards
+            if card.ability.seal.extra.destroyed >= card.ability.seal.extra.goal then 
+                card.ability.seal.extra.destroyed = card.ability.seal.extra.destroyed - card.ability.seal.extra.goal
+                card.ability.seal.extra.retriggers = card.ability.seal.extra.retriggers + card.ability.seal.extra.retrigger_increase
+                return { message = localize('k_upgrade_ex'), colour = G.C.RED }
+            end
+        end
+    end,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {
+        card.ability.seal.extra.retriggers or self.config.extra.retriggers,
+        card.ability.seal.extra.retrigger_increase or self.config.extra.retrigger_increase, 
+        card.ability.seal.extra.goal or self.config.extra.goal,
+        card.ability.seal.extra.destroyed or self.config.extra.destroyed } }
     end
 }
