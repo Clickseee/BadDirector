@@ -729,7 +729,9 @@ return {
                 name = "anTalism",
                 text = {
                     "{E:bd_glitching,C:green}#1#{}{C:green} in {C:green}#2#{} chance to",
-                    "{E:bd_glitching}add a{} {C:attention}Gold Seal{}",
+                    "{E:bd_glitching}add a{} {C:attention}Gold Seal{} or",
+                    "a {C:attention}al Gold Se",
+
                     "to each {E:bd_glitching}card in{} your hand",
                 }
             },
@@ -737,7 +739,8 @@ return {
                 name = "ja Vu De",
                 text = {
                     "{E:bd_glitching,C:green}#1#{}{C:green} in {C:green}#2#{} chance to",
-                    "{E:bd_glitching}add a{} {C:attention}Red Seal{}",
+                    "{E:bd_glitching}add a{} {C:attention}Red Seal{} or",
+                    "a {C:attention}al Red Se",
                     "to each {E:bd_glitching}card in{} your hand",
                 }
             },
@@ -745,7 +748,8 @@ return {
                 name = "ceTran",
                 text = {
                     "{E:bd_glitching,C:green}#1#{}{C:green} in {C:green}#2#{} chance to",
-                    "{E:bd_glitching}add a{} {C:attention}Blue Seal{}",
+                    "{E:bd_glitching}add a{} {C:attention}Blue Seal{} or",
+                    "a {C:attention}al Blue Se",
                     "to each {E:bd_glitching}card in{} your hand",
                 }
             },
@@ -753,7 +757,8 @@ return {
                 name = "umMedi",
                 text = {
                     "{E:bd_glitching,C:green}#1#{}{C:green} in {C:green}#2#{} chance to",
-                    "{E:bd_glitching}add a{} {C:attention}Purple Seal{}",
+                    "{E:bd_glitching}add a{} {C:attention}Purple Seal{} or",
+                    "a {C:attention}al Purple Se",
                     "to each {E:bd_glitching}card in{} your hand",
                 }
             },
@@ -987,6 +992,45 @@ return {
                 }
             }
         },
+        Other = {
+            bd_goldprint_seal = {
+                name = "al Gold Se",
+                text = {
+                    "Earn {C:money}$#1#{} for each",
+                    "remaining {C:blue}hand{}",
+                    "when this card",
+                    "is played and scores",
+                    "{C:inactive}(Currently {}{C:money}$#2#{}{C:inactive}){}",
+                },
+            },
+            bd_bluesprint_seal = {
+                name = "al Blue Se",
+                text = {
+                    "Creates a random {C:attention}consumable{}",
+                    "at the end of round",
+                    "if {C:attention}held{} in hand",
+                    "{C:inactive}(Must have room)",
+                },
+            },
+            bd_purpleprint_seal = {
+                name = "al Purple Se",
+                text = {
+                    "{C:attention}Enhances{} a random",
+                    "card in hand",
+                    "when {C:attention}discarded",
+                },
+            },
+            bd_redprint_seal = {
+                name = "al Red Se",
+                text = {
+                    "Retrigger this",
+                    "card {C:attention}#2#{} time",
+                    "for every {C:attention}#3#{} {C:inactive}[#4#]{}",
+                    "cards destroyed",
+                    "{C:inactive}(Currently {C:attention}#1#{}{C:inactive} time(s)){}"
+                },
+            },
+        }
     },
     misc = {
         dictionary = {
@@ -1009,7 +1053,11 @@ return {
             bd_thermal = "Thermal",
             bd_xray = "X-Ray",
             bd_misprinted = "?@!;$",
-            bd_blueprint = "Blueprint?"
+            bd_blueprint = "Blueprint?",
+            bd_goldprint_seal = "al Gold Se",
+            bd_bluesprint_seal = "al Blue Se",
+            bd_redprint_seal = "al Red Se",
+            bd_purpleprint_seal = "al Purple Se",
         },
         challenge_names = {
             c_bd_heartless = "Heartless"

@@ -379,9 +379,10 @@ BadDirector.MisSpect {
 
     pos = { x = 3, y = 5 },
     misprint_original = "c_talisman",
-    config = { extra = { seal = 'Gold' }, odds = 6 }, -- can be adjusted as need be ofc
+    config = { extra = { seal = 'Gold', seal_m = 'bd_goldprint' }, odds = 6 }, -- can be adjusted as need be ofc
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal]
+        info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal_m]
         return { vars = { G.GAME.probabilities.normal, card.ability.odds } }
     end,
     can_use = function(self, card)
@@ -402,7 +403,11 @@ BadDirector.MisSpect {
                     trigger = 'after',
                     delay = 0.1,
                     func = function()
-                        woah:set_seal(card.ability.extra.seal, nil, true)
+                        if SMODS.pseudorandom_probability(card,"goodboy",1,5,nil,true) then
+                            woah:set_seal(card.ability.extra.seal_m, nil, true)
+                        else
+                            woah:set_seal(card.ability.extra.seal, nil, true)
+                        end
                         return true
                     end
                 }))
@@ -1411,9 +1416,10 @@ BadDirector.MisSpect {
     key = 'dejaprint',
     pos = { x = 1, y = 6 },
     misprint_original = "c_deja_vu",
-    config = { extra = { seal = 'Red' }, odds = 6 }, -- refer to the comments in talisprint as this is just the same codde copied from it LOL :sob:
+    config = { extra = { seal = 'Red', seal_m = 'bd_redprint' }, odds = 6 }, -- refer to the comments in talisprint as this is just the same codde copied from it LOL :sob:
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal]
+        info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal_m]
         return { vars = { G.GAME.probabilities.normal, card.ability.odds } }
     end,
     can_use = function(self, card)
@@ -1434,7 +1440,11 @@ BadDirector.MisSpect {
                     trigger = 'after',
                     delay = 0.1,
                     func = function()
-                        woah:set_seal(card.ability.extra.seal, nil, true)
+                        if SMODS.pseudorandom_probability(card,"goodboy",1,5,nil,true) then
+                            woah:set_seal(card.ability.extra.seal_m, nil, true)
+                        else
+                            woah:set_seal(card.ability.extra.seal, nil, true)
+                        end
                         return true
                     end
                 }))
@@ -1594,9 +1604,10 @@ BadDirector.MisSpect {
     key = 'tranceprint',
     pos = { x = 3, y = 6 },
     misprint_original = "c_trance",
-    config = { extra = { seal = 'Blue' }, odds = 6 }, -- refer to the comments in talisprint as this is just the same codde copied from it LOL :sob:
+    config = { extra = { seal = 'Blue', seal_m = 'bd_bluesprint' }, odds = 6 }, -- refer to the comments in talisprint as this is just the same codde copied from it LOL :sob:
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal]
+        info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal_m]
         return { vars = { G.GAME.probabilities.normal, card.ability.odds } }
     end,
     can_use = function(self, card)
@@ -1617,7 +1628,11 @@ BadDirector.MisSpect {
                     trigger = 'after',
                     delay = 0.1,
                     func = function()
-                        woah:set_seal(card.ability.extra.seal, nil, true)
+                        if SMODS.pseudorandom_probability(card,"goodboy",1,5,nil,true) then
+                            woah:set_seal(card.ability.extra.seal_m, nil, true)
+                        else
+                            woah:set_seal(card.ability.extra.seal, nil, true)
+                        end
                         return true
                     end
                 }))
@@ -1651,9 +1666,10 @@ BadDirector.MisSpect {
     key = 'mediumprint',
     pos = { x = 4, y = 6 },
     misprint_original = "c_medium",
-    config = { extra = { seal = 'Purple' }, odds = 6 }, -- refer to the comments in talisprint as this is just the same codde copied from it LOL :sob:
+    config = { extra = { seal = 'Purple', seal_m = 'bd_purpleprint' }, odds = 6 }, -- refer to the comments in talisprint as this is just the same codde copied from it LOL :sob:
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal]
+        info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal_m]
         return { vars = { G.GAME.probabilities.normal, card.ability.odds } }
     end,
     can_use = function(self, card)
@@ -1674,7 +1690,11 @@ BadDirector.MisSpect {
                     trigger = 'after',
                     delay = 0.1,
                     func = function()
-                        woah:set_seal(card.ability.extra.seal, nil, true)
+                        if SMODS.pseudorandom_probability(card,"goodboy",1,5,nil,true) then
+                            woah:set_seal(card.ability.extra.seal_m, nil, true)
+                        else
+                            woah:set_seal(card.ability.extra.seal, nil, true)
+                        end
                         return true
                     end
                 }))
