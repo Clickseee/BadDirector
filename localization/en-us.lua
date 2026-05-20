@@ -116,6 +116,44 @@ return {
             },
 
         },
+        Spectral = {
+            c_bd_heat = {
+                name = "Heat",
+                text = {
+                    "Add {C:dark_edition}Thermal{} to",
+                    "a random {C:attention}Joker,",
+                    "{C:red}-#1#{} discard size",
+                },
+            },
+            c_bd_transluscent = {
+                name = "Transluscent",
+                text = {
+                    "Add {C:dark_edition}X-Ray{} to",
+                    "a random {C:attention}Joker,",
+                    "{C:red}-#1#{} Consumable size",
+                },
+            },
+            c_bd_project = {
+                name = "Project",
+                text = {
+                    "{C:red}Destroy{} the right",
+                    "-most {C:attention}Joker{} and",
+                    "add {C:dark_edition}Blueprint?{} to",
+                    "a random {C:attention}Joker",
+                },
+            },
+            c_bd_zzzz = {
+                name = "{E:bd_glitching,C:white}Zzzzz",
+                text = {
+                    "Add {C:dark_edition}Misprinted{} to",
+                    "a random {C:attention}Joker,",
+                    "{C:red}-#1#{} Joker size",
+                },
+            },
+
+
+
+        },
         Tag = {
             tag_bd_charm = {
                 name = "arm TagCh",

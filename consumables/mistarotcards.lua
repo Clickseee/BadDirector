@@ -522,7 +522,7 @@ BadDirector.MisprTarots {
     key = 'deathprint',
     set = 'mistarot',
     pos = { x = 3, y = 1 },
-    config = { extra = { odds = 2 } },
+    config = { extra = { odds =  4 } },
     loc_vars = function(self, info_queue, card)
         local n, d = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'echo_hand')
         return { vars = { n, d } }

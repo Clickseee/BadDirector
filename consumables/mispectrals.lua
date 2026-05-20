@@ -583,7 +583,7 @@ BadDirector.MisSpect {
 
     use = function(self, card, area, copier)
         local selected = G.jokers.highlighted[1]
-
+        local _edition = G.jokers.highlighted[1].edition
         if not selected then
             return
         end
@@ -618,15 +618,17 @@ BadDirector.MisSpect {
             trigger = 'after',
             delay = 0.6,
             func = function()
-                created_joker = create_card(
-                    'Joker',
-                    G.jokers,
-                    nil,
-                    target_rarity,
-                    nil,
-                    nil,
-                    nil,
-                    'hostile_takeover'
+                created_joker = SMODS.create_card({
+                    set = 'Joker',
+                    area = G.jokers,
+                    legendary = true,
+                    rarity = target_rarity,
+                    skip_materialize = nil,
+                    soulable = nil,
+                    key=  nil,
+                    key_append = 'hostile_takeover',
+                    edition = _edition,
+                }
                 )
 
                 created_joker:add_to_deck()
@@ -932,10 +934,10 @@ BadDirector.MisSpect {
             '8',
             '9',
             '10',
-            'J',
-            'Q',
-            'K',
-            'A'
+            'Jack',
+            'Queen',
+            'King',
+            'Ace'
         }
 
         local rank_indexes = {
@@ -972,7 +974,7 @@ BadDirector.MisSpect {
 
                 local new_index =
                     current_index - decrease
-
+                
                 while new_index < 1 do
                     new_index =
                         new_index + #rank_order
@@ -1044,6 +1046,10 @@ BadDirector.MisSpect {
 BadDirector.MisSpect {
     key = 'ectoprint',
     pos = { x = 8, y = 5 },
+    config = {
+        neg_odds = 3,
+        sell_odds = 2
+    },
     loc_vars = function(self, info_queue, card)
 
         local neg_num, neg_den =
@@ -1923,15 +1929,15 @@ BadDirector.MisSpect {
 
                 for i = 1, joker_count do
 
-                    local new_joker = create_card(
-                        'Joker',
-                        G.jokers,
-                        true,
-                        4,
-                        nil,
-                        nil,
-                        nil,
-                        'cunt'
+                    local new_joker = SMODS.create_card({
+                        set = 'Joker',
+                        area = G.jokers,
+                        legendary = true,
+                        rarity = 4,
+                        skip_materialize = nil,
+                        soulable = nil,
+                        key = nil,
+                        key_append = 'cunt',}
                     )
 
                     new_joker:add_to_deck()
