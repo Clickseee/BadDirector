@@ -8,6 +8,8 @@ SMODS.Blind {
     mult = 2,
     boss = { min = 2 },
     boss_colour = HEX('ad0055'),
+    artist = {"squeax09"},
+    coder = {"squeax09"},
     calculate = function(self, blind, context)
         if context.setting_blind then
             if not blind.disabled then
