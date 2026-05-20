@@ -116,6 +116,44 @@ return {
             },
 
         },
+        Spectral = {
+            c_bd_heat = {
+                name = "Heat",
+                text = {
+                    "Add {C:dark_edition}Thermal{} to",
+                    "a random {C:attention}Joker,",
+                    "{C:red}-#1#{} discard size",
+                },
+            },
+            c_bd_transluscent = {
+                name = "Transluscent",
+                text = {
+                    "Add {C:dark_edition}X-Ray{} to",
+                    "a random {C:attention}Joker,",
+                    "{C:red}-#1#{} Consumable size",
+                },
+            },
+            c_bd_project = {
+                name = "Project",
+                text = {
+                    "{C:red}Destroy{} the right",
+                    "-most {C:attention}Joker{} and",
+                    "add {C:dark_edition}Blueprint?{} to",
+                    "a random {C:attention}Joker",
+                },
+            },
+            c_bd_zzzz = {
+                name = "{E:bd_glitching,C:white}Zzzzz",
+                text = {
+                    "Add {C:dark_edition}Misprinted{} to",
+                    "a random {C:attention}Joker,",
+                    "{C:red}-#1#{} Joker size",
+                },
+            },
+
+
+
+        },
         Tag = {
             tag_bd_charm = {
                 name = "arm TagCh",
@@ -691,7 +729,9 @@ return {
                 name = "anTalism",
                 text = {
                     "{E:bd_glitching,C:green}#1#{}{C:green} in {C:green}#2#{} chance to",
-                    "{E:bd_glitching}add a{} {C:attention}Gold Seal{}",
+                    "{E:bd_glitching}add a{} {C:attention}Gold Seal{} or",
+                    "a {C:attention}al Gold Se",
+
                     "to each {E:bd_glitching}card in{} your hand",
                 }
             },
@@ -699,7 +739,8 @@ return {
                 name = "ja Vu De",
                 text = {
                     "{E:bd_glitching,C:green}#1#{}{C:green} in {C:green}#2#{} chance to",
-                    "{E:bd_glitching}add a{} {C:attention}Red Seal{}",
+                    "{E:bd_glitching}add a{} {C:attention}Red Seal{} or",
+                    "a {C:attention}al Red Se",
                     "to each {E:bd_glitching}card in{} your hand",
                 }
             },
@@ -707,7 +748,8 @@ return {
                 name = "ceTran",
                 text = {
                     "{E:bd_glitching,C:green}#1#{}{C:green} in {C:green}#2#{} chance to",
-                    "{E:bd_glitching}add a{} {C:attention}Blue Seal{}",
+                    "{E:bd_glitching}add a{} {C:attention}Blue Seal{} or",
+                    "a {C:attention}al Blue Se",
                     "to each {E:bd_glitching}card in{} your hand",
                 }
             },
@@ -715,7 +757,8 @@ return {
                 name = "umMedi",
                 text = {
                     "{E:bd_glitching,C:green}#1#{}{C:green} in {C:green}#2#{} chance to",
-                    "{E:bd_glitching}add a{} {C:attention}Purple Seal{}",
+                    "{E:bd_glitching}add a{} {C:attention}Purple Seal{} or",
+                    "a {C:attention}al Purple Se",
                     "to each {E:bd_glitching}card in{} your hand",
                 }
             },
