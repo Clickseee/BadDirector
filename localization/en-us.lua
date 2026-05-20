@@ -959,7 +959,16 @@ return {
                     "is played and scores",
                     "{C:inactive}(Currently {}{C:money}$#2#{}{C:inactive}){}",
                 },
-            }
+            },
+            bd_bluesprint_seal = {
+                name = "al Blue Se",
+                text = {
+                    "Creates a random {C:attention}consumable{}",
+                    "at the end of round",
+                    "if {C:attention}held{} in hand",
+                    "{C:inactive}(Must have room)",
+                },
+            },
         }
     },
     misc = {
@@ -978,13 +987,17 @@ return {
             k_bd_arcana_pack = "cana PackAr",
             k_bd_celestial_pack = "estial PackCel",
             k_bd_spectral_pack = "tral PackSpec",
+            k_bd_blueprint_seal = "Consumable?" -- can be adjusted as need be lmao
         },
         labels = {
             bd_thermal = "Thermal",
             bd_xray = "X-Ray",
             bd_misprinted = "?@!;$",
             bd_blueprint = "Blueprint?",
-            bd_goldprint_seal = "al Gold Se"
+            bd_goldprint_seal = "al Gold Se",
+            bd_bluesprint_seal = "al Blue Se",
+            bd_redprint_seal = "al Red Se",
+            bd_purpleprint_seal = "al Purple Se",
         },
         challenge_names = {
             c_bd_heartless = "Heartless"
