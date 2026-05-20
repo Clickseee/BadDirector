@@ -379,7 +379,12 @@ BadDirector.MisSpect {
 
     pos = { x = 3, y = 5 },
     misprint_original = "c_talisman",
+<<<<<<< spectrals
     config = { extra = { seal = 'Gold', seal_m = 'bd_goldprint' }, odds = 6 }, -- can be adjusted as need be ofc
+=======
+    coder = {"squeax09"},
+    config = { extra = { seal = 'Gold' }, odds = 6 }, -- can be adjusted as need be ofc
+>>>>>>> main
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal]
         info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal_m]
@@ -1416,7 +1421,12 @@ BadDirector.MisSpect {
     key = 'dejaprint',
     pos = { x = 1, y = 6 },
     misprint_original = "c_deja_vu",
+<<<<<<< spectrals
     config = { extra = { seal = 'Red', seal_m = 'bd_redprint' }, odds = 6 }, -- refer to the comments in talisprint as this is just the same codde copied from it LOL :sob:
+=======
+    coder = {"squeax09"},
+    config = { extra = { seal = 'Red' }, odds = 6 }, -- refer to the comments in talisprint as this is just the same codde copied from it LOL :sob:
+>>>>>>> main
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal]
         info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal_m]
@@ -1604,7 +1614,12 @@ BadDirector.MisSpect {
     key = 'tranceprint',
     pos = { x = 3, y = 6 },
     misprint_original = "c_trance",
+<<<<<<< spectrals
     config = { extra = { seal = 'Blue', seal_m = 'bd_bluesprint' }, odds = 6 }, -- refer to the comments in talisprint as this is just the same codde copied from it LOL :sob:
+=======
+    coder = {"squeax09"},
+    config = { extra = { seal = 'Blue' }, odds = 6 }, -- refer to the comments in talisprint as this is just the same codde copied from it LOL :sob:
+>>>>>>> main
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal]
         info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal_m]
@@ -1666,7 +1681,12 @@ BadDirector.MisSpect {
     key = 'mediumprint',
     pos = { x = 4, y = 6 },
     misprint_original = "c_medium",
+<<<<<<< spectrals
     config = { extra = { seal = 'Purple', seal_m = 'bd_purpleprint' }, odds = 6 }, -- refer to the comments in talisprint as this is just the same codde copied from it LOL :sob:
+=======
+    coder = {"squeax09"},
+    config = { extra = { seal = 'Purple' }, odds = 6 }, -- refer to the comments in talisprint as this is just the same codde copied from it LOL :sob:
+>>>>>>> main
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal]
         info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal_m]

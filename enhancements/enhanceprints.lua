@@ -1,6 +1,7 @@
 SMODS.Enhancement {
     key = "misprintstone",
     atlas = "misprintenhanced",
+    coder = {"squeax09"},
     pos = { x = 5, y = 0 },
     config = { bonus = 40, extra = { original_bonus = 40, max = 20, min = -10 } }, -- can also be adjusted as need be ofc
     replace_base_card = true,
@@ -139,6 +140,7 @@ SMODS.Enhancement {
     key = "misprintwild",
     atlas = "misprintenhanced",
     pos = { x = 3, y = 1 },
+    coder = {"squeax09"},
     config = {
         extra = {
             wildrep = 1, -- repetitions total
@@ -234,6 +236,7 @@ SMODS.Enhancement {
 SMODS.Enhancement {
     key = "misprintglass",
     atlas = "misprintenhanced",
+    coder = {"squeax09"},
     pos = { x = 5, y = 1 },
     config = { Xmult = 2.5, extra = { odds = 4, location = 1 } },
     loc_vars = function(self, info_queue, card)
