@@ -41,6 +41,12 @@ SMODS.Atlas { -- ALL ARTS BELONG TO RATTLINGSNOW353 WITH PERMISSION
     px = 71,
     py = 95,
 }
+SMODS.Atlas {
+    key = "bd_spectrals_ghost",
+    path = "spectrals.png",
+    px = 71,
+    py = 95,
+}
 
 SMODS.Atlas {
     key = "misprintenhanced",

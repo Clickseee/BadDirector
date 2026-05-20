@@ -379,10 +379,11 @@ BadDirector.MisSpect {
 
     pos = { x = 3, y = 5 },
     misprint_original = "c_talisman",
+    config = { extra = { seal = 'Gold', seal_m = 'bd_goldprint' }, odds = 6 }, -- can be adjusted as need be ofc
     coder = {"squeax09"},
-    config = { extra = { seal = 'Gold' }, odds = 6 }, -- can be adjusted as need be ofc
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal]
+        info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal_m]
         return { vars = { G.GAME.probabilities.normal, card.ability.odds } }
     end,
     can_use = function(self, card)
@@ -403,7 +404,11 @@ BadDirector.MisSpect {
                     trigger = 'after',
                     delay = 0.1,
                     func = function()
-                        woah:set_seal(card.ability.extra.seal, nil, true)
+                        if SMODS.pseudorandom_probability(card,"goodboy",1,5,nil,true) then
+                            woah:set_seal(card.ability.extra.seal_m, nil, true)
+                        else
+                            woah:set_seal(card.ability.extra.seal, nil, true)
+                        end
                         return true
                     end
                 }))
@@ -584,7 +589,7 @@ BadDirector.MisSpect {
 
     use = function(self, card, area, copier)
         local selected = G.jokers.highlighted[1]
-
+        local _edition = G.jokers.highlighted[1].edition
         if not selected then
             return
         end
@@ -619,15 +624,17 @@ BadDirector.MisSpect {
             trigger = 'after',
             delay = 0.6,
             func = function()
-                created_joker = create_card(
-                    'Joker',
-                    G.jokers,
-                    nil,
-                    target_rarity,
-                    nil,
-                    nil,
-                    nil,
-                    'hostile_takeover'
+                created_joker = SMODS.create_card({
+                    set = 'Joker',
+                    area = G.jokers,
+                    legendary = true,
+                    rarity = target_rarity,
+                    skip_materialize = nil,
+                    soulable = nil,
+                    key=  nil,
+                    key_append = 'hostile_takeover',
+                    edition = _edition,
+                }
                 )
 
                 created_joker:add_to_deck()
@@ -933,10 +940,10 @@ BadDirector.MisSpect {
             '8',
             '9',
             '10',
-            'J',
-            'Q',
-            'K',
-            'A'
+            'Jack',
+            'Queen',
+            'King',
+            'Ace'
         }
 
         local rank_indexes = {
@@ -973,7 +980,7 @@ BadDirector.MisSpect {
 
                 local new_index =
                     current_index - decrease
-
+                
                 while new_index < 1 do
                     new_index =
                         new_index + #rank_order
@@ -1045,6 +1052,10 @@ BadDirector.MisSpect {
 BadDirector.MisSpect {
     key = 'ectoprint',
     pos = { x = 8, y = 5 },
+    config = {
+        neg_odds = 3,
+        sell_odds = 2
+    },
     loc_vars = function(self, info_queue, card)
 
         local neg_num, neg_den =
@@ -1406,10 +1417,11 @@ BadDirector.MisSpect {
     key = 'dejaprint',
     pos = { x = 1, y = 6 },
     misprint_original = "c_deja_vu",
+    config = { extra = { seal = 'Red', seal_m = 'bd_redprint' }, odds = 6 }, -- refer to the comments in talisprint as this is just the same codde copied from it LOL :sob:
     coder = {"squeax09"},
-    config = { extra = { seal = 'Red' }, odds = 6 }, -- refer to the comments in talisprint as this is just the same codde copied from it LOL :sob:
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal]
+        info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal_m]
         return { vars = { G.GAME.probabilities.normal, card.ability.odds } }
     end,
     can_use = function(self, card)
@@ -1430,7 +1442,11 @@ BadDirector.MisSpect {
                     trigger = 'after',
                     delay = 0.1,
                     func = function()
-                        woah:set_seal(card.ability.extra.seal, nil, true)
+                        if SMODS.pseudorandom_probability(card,"goodboy",1,5,nil,true) then
+                            woah:set_seal(card.ability.extra.seal_m, nil, true)
+                        else
+                            woah:set_seal(card.ability.extra.seal, nil, true)
+                        end
                         return true
                     end
                 }))
@@ -1590,10 +1606,11 @@ BadDirector.MisSpect {
     key = 'tranceprint',
     pos = { x = 3, y = 6 },
     misprint_original = "c_trance",
+    config = { extra = { seal = 'Blue', seal_m = 'bd_bluesprint' }, odds = 6 }, -- refer to the comments in talisprint as this is just the same codde copied from it LOL :sob:
     coder = {"squeax09"},
-    config = { extra = { seal = 'Blue' }, odds = 6 }, -- refer to the comments in talisprint as this is just the same codde copied from it LOL :sob:
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal]
+        info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal_m]
         return { vars = { G.GAME.probabilities.normal, card.ability.odds } }
     end,
     can_use = function(self, card)
@@ -1614,7 +1631,11 @@ BadDirector.MisSpect {
                     trigger = 'after',
                     delay = 0.1,
                     func = function()
-                        woah:set_seal(card.ability.extra.seal, nil, true)
+                        if SMODS.pseudorandom_probability(card,"goodboy",1,5,nil,true) then
+                            woah:set_seal(card.ability.extra.seal_m, nil, true)
+                        else
+                            woah:set_seal(card.ability.extra.seal, nil, true)
+                        end
                         return true
                     end
                 }))
@@ -1648,10 +1669,11 @@ BadDirector.MisSpect {
     key = 'mediumprint',
     pos = { x = 4, y = 6 },
     misprint_original = "c_medium",
+    config = { extra = { seal = 'Purple', seal_m = 'bd_purpleprint' }, odds = 6 }, -- refer to the comments in talisprint as this is just the same codde copied from it LOL :sob:
     coder = {"squeax09"},
-    config = { extra = { seal = 'Purple' }, odds = 6 }, -- refer to the comments in talisprint as this is just the same codde copied from it LOL :sob:
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal]
+        info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal_m]
         return { vars = { G.GAME.probabilities.normal, card.ability.odds } }
     end,
     can_use = function(self, card)
@@ -1672,7 +1694,11 @@ BadDirector.MisSpect {
                     trigger = 'after',
                     delay = 0.1,
                     func = function()
-                        woah:set_seal(card.ability.extra.seal, nil, true)
+                        if SMODS.pseudorandom_probability(card,"goodboy",1,5,nil,true) then
+                            woah:set_seal(card.ability.extra.seal_m, nil, true)
+                        else
+                            woah:set_seal(card.ability.extra.seal, nil, true)
+                        end
                         return true
                     end
                 }))
@@ -1927,15 +1953,15 @@ BadDirector.MisSpect {
 
                 for i = 1, joker_count do
 
-                    local new_joker = create_card(
-                        'Joker',
-                        G.jokers,
-                        true,
-                        4,
-                        nil,
-                        nil,
-                        nil,
-                        'cunt'
+                    local new_joker = SMODS.create_card({
+                        set = 'Joker',
+                        area = G.jokers,
+                        legendary = true,
+                        rarity = 4,
+                        skip_materialize = nil,
+                        soulable = nil,
+                        key = nil,
+                        key_append = 'cunt',}
                     )
 
                     new_joker:add_to_deck()
