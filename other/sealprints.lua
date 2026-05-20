@@ -6,7 +6,6 @@ SMODS.Seal {
     pos = { x = 2, y = 0 },
     config = { extra = { money = 2 } },
     badge_colour = G.C.GOLD,
-    --artist = {"IncognitoN71"}, ? i think
     coder = {"squeax09"},
     get_p_dollars = function(self, card)
         return card.ability.seal.extra.money * (G.GAME.round_resets.hands - G.GAME.current_round.hands_played)
@@ -58,7 +57,6 @@ SMODS.Seal {
     key = 'purpleprint',
     atlas = "misprintenhanced",
     pos = { x = 4, y = 4 },
-    --artist = {"IncognitoN71"}, ? i think
     coder = {"squeax09"},
     badge_colour = G.C.PURPLE,
     calculate = function(self, card, context)
@@ -89,7 +87,6 @@ SMODS.Seal {
     key = 'redprint',
     atlas = "misprintenhanced",
     pos = { x = 5, y = 4 },
-    --artist = {"IncognitoN71"}, ? i think
     coder = {"squeax09"},
     badge_colour = G.C.RED,
     config = { extra = { retriggers = 0, retrigger_increase = 1, goal = 3, destroyed = 0 } },
