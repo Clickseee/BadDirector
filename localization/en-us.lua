@@ -949,6 +949,18 @@ return {
                 }
             }
         },
+        Other = {
+            bd_goldprint_seal = {
+                name = "al Gold Se",
+                text = {
+                    "Earn {C:money}$#1#{} for each",
+                    "remaining {C:blue}hand{}",
+                    "when this card",
+                    "is played and scores",
+                    "{C:inactive}(Currently {}{C:money}$#2#{}{C:inactive}){}",
+                },
+            }
+        }
     },
     misc = {
         dictionary = {
@@ -971,7 +983,8 @@ return {
             bd_thermal = "Thermal",
             bd_xray = "X-Ray",
             bd_misprinted = "?@!;$",
-            bd_blueprint = "Blueprint?"
+            bd_blueprint = "Blueprint?",
+            bd_goldprint_seal = "al Gold Se"
         },
         challenge_names = {
             c_bd_heartless = "Heartless"
