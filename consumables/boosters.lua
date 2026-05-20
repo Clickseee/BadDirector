@@ -3,6 +3,8 @@
 local MISPRINT_RATE_PLANET = 10
 local MISPRINT_RATE_SPECTRAL = 10
 local MISPRINT_RATE_TAROT = 10
+local MISPRINT_RATE_STANDARD = 10
+local MISPRINT_RATE_BUFFOON = 20
 
 BadDirector.Booster = SMODS.Booster:extend{
     atlas = "bd_misprintpacks",
@@ -1433,7 +1435,11 @@ SMODS.Booster:take_ownership_by_kind("Arcana",
 {
     create_card = function(self, card, i)
         local _card
-        local misprint = SMODS.pseudorandom_probability(card, 'misprint', 1, MISPRINT_RATE_TAROT)
+        local TRUE_RATE = MISPRINT_RATE_TAROT 
+        * (next(SMODS.find_card("v_bd_counterfeitink")) and 0.5 or 1)
+        * (next(SMODS.find_card("v_bd_brokenprinter")) and 0.25 or 1)
+        print(TRUE_RATE)
+        local misprint = SMODS.pseudorandom_probability(card, 'misprint', 1, TRUE_RATE)
         local tarot = (misprint == true) and "mistarot" or "Tarot"
         local keyapp_ar = (misprint == true) and "bd_ar" or "ar"
         local spectral = (misprint == true) and "mispectral" or "Spectral"
@@ -1465,7 +1471,10 @@ SMODS.Booster:take_ownership_by_kind("Celestial",
 {
     create_card = function(self, card, i)
         local _card
-        local misprint = SMODS.pseudorandom_probability(card, 'misprint', 1, MISPRINT_RATE_PLANET)
+        local TRUE_RATE = MISPRINT_RATE_PLANET
+        * (next(SMODS.find_card("v_bd_counterfeitink")) and 0.5 or 1)
+        * (next(SMODS.find_card("v_bd_brokenprinter")) and 0.25 or 1)
+        local misprint = SMODS.pseudorandom_probability(card, 'misprint', 1, TRUE_RATE)
         local planet = (misprint == true) and "misplanet" or "Planet"
         local keyapp_ar = (misprint == true) and "bd_pl" or "pl"
         if G.GAME.used_vouchers.v_telescope and i == 1 then
@@ -1510,7 +1519,10 @@ SMODS.Booster:take_ownership_by_kind("Celestial",
 SMODS.Booster:take_ownership_by_kind("Spectral",
 {
     create_card = function(self, card, i)
-        local misprint = SMODS.pseudorandom_probability(card, 'misprint', 1, MISPRINT_RATE_SPECTRAL)
+        local TRUE_RATE = MISPRINT_RATE_SPECTRAL
+        * (next(SMODS.find_card("v_bd_counterfeitink")) and 0.5 or 1)
+        * (next(SMODS.find_card("v_bd_brokenprinter")) and 0.25 or 1)
+        local misprint = SMODS.pseudorandom_probability(card, 'misprint', 1, TRUE_RATE)
         local spectral = (misprint == true) and "mispectral" or "Spectral"
         local keyapp_ar = (misprint == true) and "bd_spe" or "spe"
         return {
@@ -1527,8 +1539,84 @@ SMODS.Booster:take_ownership_by_kind("Spectral",
 }
 , true)
 
+SMODS.Booster:take_ownership_by_kind("Standard",
+{
+    create_card = function(self, card, i)
+        local TRUE_RATE = MISPRINT_RATE_STANDARD
+        * (next(SMODS.find_card("v_bd_counterfeitink")) and 0.5 or 1)
+        * (next(SMODS.find_card("v_bd_brokenprinter")) and 0.25 or 1)
+        
+        local misprint = SMODS.pseudorandom_probability(card, 'misprint', 1, TRUE_RATE)
+        local keyapp_ar = (misprint == true) and "bd_sta" or "sta"
+
+        local modify_type = BadDirector.quick_pool_pick(BadDirector.misprint_modify)
+
+        
+        local _edition = "e_base"
+        local _enhancement = "c_base"
+        local _seal = nil
+
+        if misprint then
+            if modify_type == "editioned"
+            or modify_type == "enhedi"
+            or modify_type == "edisealed"
+            or modify_type == "everything" then
+                _edition = "e_bd_misprinted"
+            end
+
+            if modify_type == "enhanced"
+            or modify_type == "enhsealed"
+            or modify_type == "enhedi"
+            or modify_type == "everything" then
+                _enhancement = BadDirector.quick_pool_pick(BadDirector.misprint_enhancements)
+            end
+
+            if modify_type == "sealed"
+            or modify_type == "enhsealed"
+            or modify_type == "edisealed"
+            or modify_type == "everything" then
+                _seal = BadDirector.quick_pool_pick(BadDirector.misprint_seals)
+            end
+        end
+        return {
+            set = "Playing Cards",
+            area = G.pack_cards,
+            edition =_edition,
+            enhancement = _enhancement,
+            seal = _seal,
+            skip_materialize = true,
+            soulable = true,
+            key_append = keyapp_ar,
+        }
+    end,
 
 
+}
+, true)
+
+SMODS.Booster:take_ownership_by_kind("Buffoon",
+{
+    create_card = function(self, card, i)
+        local TRUE_RATE = MISPRINT_RATE_BUFFOON
+        * (next(SMODS.find_card("v_bd_counterfeitink")) and 0.5 or 1)
+        * (next(SMODS.find_card("v_bd_brokenprinter")) and 0.5 or 1)
+        local misprint = SMODS.pseudorandom_probability(card, 'misprint', 1, TRUE_RATE)
+        local _edition = (misprint == true) and "e_bd_misprinted" or nil
+        local keyapp_ar = (misprint == true) and "bd_spe" or "spe"
+        return {
+            set = "Joker",
+            edition = _edition,
+            area = G.pack_cards,
+            skip_materialize = true,
+            soulable = true,
+            key_append =
+            keyapp_ar,
+        }
+    end,
+
+
+}
+, true)
 
 
 

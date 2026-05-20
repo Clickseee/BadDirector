@@ -47,6 +47,7 @@ SMODS.Joker {
     key = "heartbreak",
     rarity = 2,
     atlas = "<3",
+    artist = {"IncognitoN71"},
     pos = { x = 3, y = 0 },
     cost = 4,
     pools = {

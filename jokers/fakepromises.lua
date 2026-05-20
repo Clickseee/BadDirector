@@ -38,6 +38,7 @@ SMODS.Joker {
     key = "fakepromises",
     rarity = 3,
     atlas = "<3",
+    artist = {"IncognitoN71"},
     pos = { x = 0, y = 0 },
     cost = 5,
     pools = {

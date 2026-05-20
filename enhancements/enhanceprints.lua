@@ -1,6 +1,7 @@
 SMODS.Enhancement {
     key = "misprintstone",
     atlas = "misprintenhanced",
+    coder = {"squeax09"},
     pos = { x = 5, y = 0 },
     config = { bonus = 40, extra = { original_bonus = 40, max = 20, min = -10 } }, -- can also be adjusted as need be ofc
     replace_base_card = true,
@@ -139,6 +140,7 @@ SMODS.Enhancement {
     key = "misprintwild",
     atlas = "misprintenhanced",
     pos = { x = 3, y = 1 },
+    coder = {"squeax09"},
     config = {
         extra = {
             wildrep = 1, -- repetitions total
@@ -153,12 +155,11 @@ SMODS.Enhancement {
         if context.before and context.cardarea == G.play then
             local suit = G.GAME.current_round.suitwash.suit
             card.ability.extra.wildrep = 0
-            for i=1, #context.scoring_hand do 
-                if context.scoring_hand[i]:is_suit(suit) then
+            for i=1, #context.full_hand do 
+                if context.full_hand[i]:is_suit(suit) then
                     card.ability.extra.wildrep = card.ability.extra.wildrep + card.ability.extra.wildstep
                 end
             end
-            print(card.ability.extra.wildrep)
         end
         if context.repetition and context.cardarea == G.play then
             return { repetitions = card.ability.extra.wildrep }
@@ -168,14 +169,11 @@ SMODS.Enhancement {
 
 local function reset_suitwash()
     G.GAME.current_round.suitwash = G.GAME.current_round.suitwash or { suit = 'Spades' }
-    local suits = {}
-    for _, v in ipairs({ 'Spades', 'Hearts', 'Clubs', 'Diamonds' }) do
-        if v ~= G.GAME.current_round.suitwash.suit then
-            suits[#suits + 1] = v
-        end
+    local new_suit = pseudorandom_element(SMODS.Suits, pseudoseed('suitwash'..G.GAME.round_resets.ante))
+    while G.GAME.current_round.suitwash.suit == new_suit.key do
+        new_suit = pseudorandom_element(SMODS.Suits, 'suitwash' .. G.GAME.round_resets.ante)
     end
-    G.GAME.current_round.suitwash.suit =
-        pseudorandom_element(suits, 'suitwash' .. G.GAME.round_resets.ante)
+    G.GAME.current_round.suitwash.suit = new_suit.key
 end
 
 
@@ -238,6 +236,7 @@ SMODS.Enhancement {
 SMODS.Enhancement {
     key = "misprintglass",
     atlas = "misprintenhanced",
+    coder = {"squeax09"},
     pos = { x = 5, y = 1 },
     config = { Xmult = 2.5, extra = { odds = 4, location = 1 } },
     loc_vars = function(self, info_queue, card)

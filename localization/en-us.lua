@@ -116,6 +116,44 @@ return {
             },
 
         },
+        Spectral = {
+            c_bd_heat = {
+                name = "Heat",
+                text = {
+                    "Add {C:dark_edition}Thermal{} to",
+                    "a random {C:attention}Joker,",
+                    "{C:red}-#1#{} discard size",
+                },
+            },
+            c_bd_transluscent = {
+                name = "Transluscent",
+                text = {
+                    "Add {C:dark_edition}X-Ray{} to",
+                    "a random {C:attention}Joker,",
+                    "{C:red}-#1#{} Consumable size",
+                },
+            },
+            c_bd_project = {
+                name = "Project",
+                text = {
+                    "{C:red}Destroy{} the right",
+                    "-most {C:attention}Joker{} and",
+                    "add {C:dark_edition}Blueprint?{} to",
+                    "a random {C:attention}Joker",
+                },
+            },
+            c_bd_zzzz = {
+                name = "{E:bd_glitching,C:white}Zzzzz",
+                text = {
+                    "Add {C:dark_edition}Misprinted{} to",
+                    "a random {C:attention}Joker,",
+                    "{C:red}-#1#{} Joker size",
+                },
+            },
+
+
+
+        },
         Tag = {
             tag_bd_charm = {
                 name = "arm TagCh",
@@ -197,6 +235,24 @@ return {
                     "{C:money}$#1#{} sell value",
                     "at end of",
                     "every round"
+                }
+            },
+            v_bd_counterfeitink = {
+                name = "Counterfeit Ink",
+                text = {
+                    "Misprints appear",
+                    "{X:attention,C:white}#1#X{} as often",
+                    "in {C:tarot}Arcana{}, {C:planet}Celestial",
+                    "and {C:spectral}Spectral{} packs"
+                }
+            },
+            v_bd_brokenprinter = {
+                name = "Broken Printer",
+                text = {
+                    "Misprints appear",
+                    "{X:attention,C:white}#1#X{} as often",
+                    "in {C:tarot}Arcana{}, {C:planet}Celestial",
+                    "and {C:spectral}Spectral{} packs"
                 }
             }
         },
@@ -330,8 +386,7 @@ return {
                     "Gains {C:mult}+#2#{} Mult",
                     "for each discarded",
                     "{C:hearts}Heart{} card",
-                    "{C:inactive}(Currently{}",
-                    "{C:mult}+#1#{} {C:inactive}Mult){}"
+                    "{C:inactive}(Currently {C:mult}+#1#{} {C:inactive}Mult){}",
                 }
             },
             j_bd_suicide = {
@@ -692,7 +747,9 @@ return {
                 name = "anTalism",
                 text = {
                     "{E:bd_glitching,C:green}#1#{}{C:green} in {C:green}#2#{} chance to",
-                    "{E:bd_glitching}add a{} {C:attention}Gold Seal{}",
+                    "{E:bd_glitching}add a{} {C:attention}Gold Seal{} or",
+                    "a {C:attention}al Gold Se",
+
                     "to each {E:bd_glitching}card in{} your hand",
                 }
             },
@@ -700,7 +757,8 @@ return {
                 name = "ja Vu De",
                 text = {
                     "{E:bd_glitching,C:green}#1#{}{C:green} in {C:green}#2#{} chance to",
-                    "{E:bd_glitching}add a{} {C:attention}Red Seal{}",
+                    "{E:bd_glitching}add a{} {C:attention}Red Seal{} or",
+                    "a {C:attention}al Red Se",
                     "to each {E:bd_glitching}card in{} your hand",
                 }
             },
@@ -708,7 +766,8 @@ return {
                 name = "ceTran",
                 text = {
                     "{E:bd_glitching,C:green}#1#{}{C:green} in {C:green}#2#{} chance to",
-                    "{E:bd_glitching}add a{} {C:attention}Blue Seal{}",
+                    "{E:bd_glitching}add a{} {C:attention}Blue Seal{} or",
+                    "a {C:attention}al Blue Se",
                     "to each {E:bd_glitching}card in{} your hand",
                 }
             },
@@ -716,14 +775,122 @@ return {
                 name = "umMedi",
                 text = {
                     "{E:bd_glitching,C:green}#1#{}{C:green} in {C:green}#2#{} chance to",
-                    "{E:bd_glitching}add a{} {C:attention}Purple Seal{}",
+                    "{E:bd_glitching}add a{} {C:attention}Purple Seal{} or",
+                    "a {C:attention}al Purple Se",
                     "to each {E:bd_glitching}card in{} your hand",
+                }
+            },
+            c_bd_cryptidprint = {
+                name = "tidCryp",
+                text = {
+                    "Select up to {C:attention}#1#{} card",
+                    "{C:green}{E:bd_glitching}#2#{} {C:green}in #3#{} chance to",
+                    "create a copy {E:bd_glitching}rep{}eatedly",
+                    "until the {E:bd_glitching}chances{} fails"
+                }
+            },
+            c_bd_ankhprint = {
+                name = "khAn",
+                text = {
+                    "Create {E:bd_glitching}a{} copy of the",
+                    "{C:attention}highest rarity{} Joker held",
+                    "{C:inactive}(random if {E:bd_glitching,C:inactive}tied){}",
+                    "{C:inactive}(Must have room)"
+                }
+            },
+            c_bd_hexprint = {
+                name = "exH",
+                text = {
+                    "Use on {E:bd_glitching}an{} {C:attention}Editioned{} Joker",
+                    "Split {E:bd_glitching}its{} {C:dark_edition}Edition{} to an",
+                    "{C:attention}adjacent{} {E:bd_glitching}J{}oker"
+                }
+            },
+            c_bd_auraprint = {
+                name = "raAu",
+                text = {
+                    "{E:bd_glitching,C:green}#1#{}{C:green} in {C:green}#2#{} chance to",
+                    "each {E:bd_glitching}card in{} your hand",
+                    "{C:dark_edition}Foil{}, {C:dark_edition}Holographic{},",
+                    "or {C:dark_edition}Polychrome{}"
+                }
+            },
+            c_bd_wrathprint = {
+                name = "ithWra",
+                text = {
+                    "Spend half of your {E:bd_glitching,C:money}m{C:money}oney",
+                    "Trade up to {C:attention}#1#{} sel{E:bd_glitching}ec{ted Joker",
+                    "f{E:bd_glitching}o{}r one of {C:attention}higher rarity{}"
+                }
+            },
+            c_bd_familiarprint = {
+                name = "iarFamil",
+                text = {
+                    "Enh{E:bd_glitching}ance{} all {C:attention}face{} cards",
+                    "in hand into rand{E:bd_glitching}om",
+                    "{C:attention}Enhanced{} cards",
+                    "Destroy all non-face cards"
+                }
+            },
+            c_bd_grimprint = {
+                name = "imGr",
+                text = {
+                    "Enh{E:bd_glitching}ance{} all {C:attention}Ace{} cards",
+                    "in hand into rand{E:bd_glitching}om",
+                    "{C:attention}Enhanced{} cards",
+                    "Destroy all non-Ace cards"
+                }
+            },
+            c_bd_incantaprint = {
+                name = "ationIncant",
+                text = {
+                    "Enh{E:bd_glitching}ance{} all {C:attention}numbered{} cards",
+                    "in hand into rand{E:bd_glitching}om",
+                    "{C:attention}Enhanced{} cards",
+                    "Destroy all non-numbered cards"
+                }
+            },
+            c_bd_ouijaprint = {
+                name = "ijaOu",
+                text = {
+                    "Decrease rank of all",
+                    "cards held {E:bd_glitching}in{} hand",
+                    "by {E:bd_glitching,C:attention}1{} rank",
+                    "{C:attention}+1{} Hand Size"
+                }
+            },
+            c_bd_sigilprint = {
+                name = "gilSi",
+                text = {
+                    "Gain a random {E:bd_glitching,C:attention}bonus{} based",
+                    "on the most {C:attention}common{} suit",
+                    "held in hand",
+                    "{C:inactive}(Effect changes every use){}"
+                }
+            },
+            c_bd_ectoprint = {
+                name = "lasmEctop",
+                text = {
+                    "Each Joker has a",
+                    "{C:green}#1# in #2#{} chance to gain",
+                    "{C:dark_edition}Negative{} Edition",
+                    "and a {C:green}#3# in #4#{} chance",
+                    "to set sell value to {C:money}$0{}"
+                }
+            },
+            c_bd_immoprint = {
+                name = "lateImmo",
+                text = {
+                    "Gain {C:money}money{} based on",
+                    "the {C:attention}average rank value{}",
+                    "of cards held in hand",
+                    "times your most played",
+                    "{C:attention}poker hand{} level"
                 }
             },
             c_bd_soulprint = {
                 name = "ulSo",
                 text = {
-                    "{E:bd_glitching,C:green}1{}{C:green} in {E:bd_glitching,C:green}1{}{C:green}6{} to",
                     "{E:bd_glitching,C:dark_edition,s:1.5}ki{}{E:bd_glitching,C:red,s:1.5}lls{} {E:bd_glitching,C:legendary,s:1.5}yo{}{E:bd_glitching,C:edition,s:1.5}u.{}",
                     "{E:bd_glitching,C:chips,s:1.5}ki{}{E:bd_glitching,C:red,s:1.5}also ki{} {E:bd_glitching,C:planet,s:1.5}yours{}{E:bd_glitching,C:tarot,s:1.5}self{}"
                 },
@@ -843,6 +1010,45 @@ return {
                 }
             }
         },
+        Other = {
+            bd_goldprint_seal = {
+                name = "al Gold Se",
+                text = {
+                    "Earn {C:money}$#1#{} for each",
+                    "remaining {C:blue}hand{}",
+                    "when this card",
+                    "is played and scores",
+                    "{C:inactive}(Currently {}{C:money}$#2#{}{C:inactive}){}",
+                },
+            },
+            bd_bluesprint_seal = {
+                name = "al Blue Se",
+                text = {
+                    "Creates a random {C:attention}consumable{}",
+                    "at the end of round",
+                    "if {C:attention}held{} in hand",
+                    "{C:inactive}(Must have room)",
+                },
+            },
+            bd_purpleprint_seal = {
+                name = "al Purple Se",
+                text = {
+                    "{C:attention}Enhances{} a random",
+                    "card in hand",
+                    "when {C:attention}discarded",
+                },
+            },
+            bd_redprint_seal = {
+                name = "al Red Se",
+                text = {
+                    "Retrigger this",
+                    "card {C:attention}#2#{} time",
+                    "for every {C:attention}#3#{} {C:inactive}[#4#]{}",
+                    "cards destroyed",
+                    "{C:inactive}(Currently {C:attention}#1#{}{C:inactive} time(s)){}"
+                },
+            },
+        }
     },
     misc = {
         dictionary = {
@@ -860,15 +1066,21 @@ return {
             k_bd_arcana_pack = "cana PackAr",
             k_bd_celestial_pack = "estial PackCel",
             k_bd_spectral_pack = "tral PackSpec",
+            k_bd_blueprint_seal = "Consumable?", -- can be adjusted as need be lmao
+            k_bd_purpleprint_seal = "Enhanced?" -- ditto
         },
         labels = {
             bd_thermal = "Thermal",
             bd_xray = "X-Ray",
             bd_misprinted = "?@!;$",
-            bd_blueprint = "Blueprint?"
+            bd_blueprint = "Blueprint?",
+            bd_goldprint_seal = "al Gold Se",
+            bd_bluesprint_seal = "al Blue Se",
+            bd_redprint_seal = "al Red Se",
+            bd_purpleprint_seal = "al Purple Se",
         },
         challenge_names = {
-			c_bd_heartless = "Heartless"
-		},
+            c_bd_heartless = "Heartless"
+        },
     }
 }
