@@ -51,3 +51,33 @@ SMODS.Seal {
         end
     end
 }
+
+SMODS.Seal {
+    key = 'purpleprint',
+    atlas = "misprintenhanced",
+    pos = { x = 4, y = 4 },
+    coder = {"squeax09"},
+    badge_colour = G.C.PURPLE,
+    calculate = function(self, card, context)
+        if context.discard and context.other_card == card then
+            G.E_MANAGER:add_event(Event({
+                trigger = 'before',
+                delay = 0.0,
+                func = function()
+                    local cards_pool = {}
+                    local enhancement = SMODS.poll_enhancement { guaranteed = true, options = cen_pool, key = "bd_purpleprint_seal" }
+                    for k, v in ipairs(G.hand.cards) do
+                        if SMODS.has_enhancement(v, 'c_base') then
+                            table.insert(cards_pool, v)
+                        end
+                    end
+                    local select = pseudorandom_element(cards_pool, pseudoseed("ourpleseal" .. G.GAME.round_resets.ante))
+                    select:set_ability(enhancement)
+                    select:juice_up()
+                    return true
+                end
+            }))
+            return { message = localize('k_bd_purpleprint_seal'), colour = G.C.PURPLE }
+        end
+    end
+}
