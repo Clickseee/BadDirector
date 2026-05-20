@@ -236,6 +236,24 @@ return {
                     "at end of",
                     "every round"
                 }
+            },
+            v_bd_counterfeitink = {
+                name = "Counterfeit Ink",
+                text = {
+                    "Misprints appear",
+                    "{X:attention,C:white}#1#X{} as often",
+                    "in {C:tarot}Arcana{}, {C:planet}Celestial",
+                    "and {C:spectral}Spectral{} packs"
+                }
+            },
+            v_bd_brokenprinter = {
+                name = "Broken Printer",
+                text = {
+                    "Misprints appear",
+                    "{X:attention,C:white}#1#X{} as often",
+                    "in {C:tarot}Arcana{}, {C:planet}Celestial",
+                    "and {C:spectral}Spectral{} packs"
+                }
             }
         },
         Joker = {

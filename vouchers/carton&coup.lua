@@ -66,3 +66,44 @@ SMODS.Voucher{
     end
 }
 ]]
+
+SMODS.Voucher{
+    key = 'counterfeitink',
+    pos = { x = 8, y = 2 },
+    cost = 10,
+    config = { imm = {multiplier = 0.5}},
+    loc_vars = function(self, info_queue, card)
+        return { vars = { 1/card.ability.imm.multiplier } }
+    end,
+    redeem = function(self, card)
+        --it does fuck all
+    end,
+    calculate = function(self, card, context)
+
+    end
+}
+
+SMODS.Voucher{
+    key = 'brokenprinter',
+    pos = { x = 8, y = 2 },
+    cost = 10,
+    config = { imm = {multiplier = 0.25}},
+    requires = { 'v_bd_counterfeitink'},
+    loc_vars = function(self, info_queue, card)
+        return { vars = { 1/card.ability.imm.multiplier } }
+    end,
+
+    in_pool = function(self,args)
+        if G.GAME.round_resets.ante >= 4 then
+            return true
+        end
+
+        return false
+    end,
+    redeem = function(self, card)
+        --it does fuck all
+    end,
+    calculate = function(self, card, context)
+
+    end
+}
