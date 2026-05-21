@@ -42,6 +42,43 @@ return {
             },
         },
         Other = {
+            bd_goldprint_seal = {
+                name = "al Gold Se",
+                text = {
+                    "Earn {C:money}$#1#{} for each",
+                    "remaining {C:blue}hand{}",
+                    "when this card",
+                    "is played and scores",
+                    "{C:inactive}(Currently {}{C:money}$#2#{}{C:inactive}){}",
+                },
+            },
+            bd_bluesprint_seal = {
+                name = "al Blue Se",
+                text = {
+                    "Creates a random {C:attention}consumable{}",
+                    "at the end of round",
+                    "if {C:attention}held{} in hand",
+                    "{C:inactive}(Must have room)",
+                },
+            },
+            bd_purpleprint_seal = {
+                name = "al Purple Se",
+                text = {
+                    "{C:attention}Enhances{} a random",
+                    "card in hand",
+                    "when {C:attention}discarded",
+                },
+            },
+            bd_redprint_seal = {
+                name = "al Red Se",
+                text = {
+                    "Retrigger this",
+                    "card {C:attention}#2#{} time",
+                    "for every {C:attention}#3#{} {C:inactive}[#4#]{}",
+                    "cards destroyed",
+                    "{C:inactive}(Currently {C:attention}#1#{}{C:inactive} time(s)){}"
+                },
+            },
             p_bd_misarcana_jumbo = {
                 name = "bo Arcana Pack Jum",
                 text = {
@@ -1010,45 +1047,7 @@ return {
                 }
             }
         },
-        Other = {
-            bd_goldprint_seal = {
-                name = "al Gold Se",
-                text = {
-                    "Earn {C:money}$#1#{} for each",
-                    "remaining {C:blue}hand{}",
-                    "when this card",
-                    "is played and scores",
-                    "{C:inactive}(Currently {}{C:money}$#2#{}{C:inactive}){}",
-                },
-            },
-            bd_bluesprint_seal = {
-                name = "al Blue Se",
-                text = {
-                    "Creates a random {C:attention}consumable{}",
-                    "at the end of round",
-                    "if {C:attention}held{} in hand",
-                    "{C:inactive}(Must have room)",
-                },
-            },
-            bd_purpleprint_seal = {
-                name = "al Purple Se",
-                text = {
-                    "{C:attention}Enhances{} a random",
-                    "card in hand",
-                    "when {C:attention}discarded",
-                },
-            },
-            bd_redprint_seal = {
-                name = "al Red Se",
-                text = {
-                    "Retrigger this",
-                    "card {C:attention}#2#{} time",
-                    "for every {C:attention}#3#{} {C:inactive}[#4#]{}",
-                    "cards destroyed",
-                    "{C:inactive}(Currently {C:attention}#1#{}{C:inactive} time(s)){}"
-                },
-            },
-        }
+
     },
     misc = {
         dictionary = {
