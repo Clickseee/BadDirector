@@ -43,7 +43,7 @@ return {
         },
         Other = {
             bd_goldprint_seal = {
-                name = "al Gold Se",
+                name = "alGold Se",
                 text = {
                     "Earn {C:money}$#1#{} for each",
                     "remaining {C:blue}hand{}",
@@ -53,7 +53,7 @@ return {
                 },
             },
             bd_bluesprint_seal = {
-                name = "al Blue Se",
+                name = "alBlue Se",
                 text = {
                     "Creates a random {C:attention}consumable{}",
                     "at the end of round",
@@ -62,7 +62,7 @@ return {
                 },
             },
             bd_purpleprint_seal = {
-                name = "al Purple Se",
+                name = "alPurple Se",
                 text = {
                     "{C:attention}Enhances{} a random",
                     "card in hand",
@@ -70,7 +70,7 @@ return {
                 },
             },
             bd_redprint_seal = {
-                name = "al Red Se",
+                name = "alRed Se",
                 text = {
                     "Retrigger this",
                     "card {C:attention}#2#{} time",
@@ -481,7 +481,7 @@ return {
                 }
             },
             c_bd_printice = {
-                name = "tice Ju",
+                name = "ticeJu",
                 text = {
                     "En{E:bd_glitching,C:black}h{}a{E:bd_glitching,C:black}n{}{E:bd_glitching,C:black}ce{}s {C:attention}#1#{}",
                     "{E:bd_glitching,C:black}sel{}ecte{E:bd_glitching,C:black}d{} cards to",
@@ -716,7 +716,7 @@ return {
                 }
             },
             c_bd_nepprint = {
-                name = "unusNept",
+                name = "uneNept",
                 text = {
                     "For {C:attention}Straight Flush{} {C:legendary,E:1}poker hand{}:",
                     "{C:green}#1# in #2#{} chance to multiply",
@@ -1073,10 +1073,10 @@ return {
             bd_xray = "X-Ray",
             bd_misprinted = "?@!;$",
             bd_blueprint = "Blueprint?",
-            bd_goldprint_seal = "al Gold Se",
-            bd_bluesprint_seal = "al Blue Se",
-            bd_redprint_seal = "al Red Se",
-            bd_purpleprint_seal = "al Purple Se",
+            bd_goldprint_seal = "alGold Se",
+            bd_bluesprint_seal = "alBlue Se",
+            bd_redprint_seal = "alRed Se",
+            bd_purpleprint_seal = "alPurple Se",
         },
         challenge_names = {
             c_bd_heartless = "Heartless"

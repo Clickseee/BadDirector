@@ -82,7 +82,7 @@ function BadDirector.CREDITS.make_row(title, names, role)
 
 
     return {
-        n = G.UIT.C,
+        n = G.UIT.R,
         config = {
             align = "cm",
             colour = panel_colour,
