@@ -93,7 +93,7 @@ BadDirector.MisprTarots {
 			or localize('k_'..last_c.set))
 		or localize('k_what')
 
-        local colour = (not last_c) and G.C.RED or G.C.GREEN
+        local colour = (not last_c or (not last_c.set ~= "Spectral" or not last_c.set ~= "mispectral")) and G.C.RED or G.C.GREEN
 
         local main_end = {
             {
@@ -130,11 +130,20 @@ BadDirector.MisprTarots {
                 return true
             end
         }))
+        delay(0.6)
     end,
 
     can_use = function(self, card)
-        return (#G.consumeables.cards < G.consumeables.config.card_limit or card.area == G.consumeables)
-            and G.GAME.bd_last_used_cons
+		if G.GAME.bd_last_used_cons and (G.P_CENTERS[G.GAME.bd_last_used_cons].set == "Spectral" or
+			G.P_CENTERS[G.GAME.bd_last_used_cons].set == "mispectral") then
+			return false
+		end
+		
+		if #G.consumeables.cards >= G.consumeables.config.card_limit then return false end
+		
+		if (not G.GAME.bd_last_used_cons) then return false end
+		
+		return true
     end,
     misprint_original = "c_fool"
 }
