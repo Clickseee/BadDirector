@@ -86,8 +86,8 @@ function BadDirector.CREDITS.make_row(title, names, role)
         config = {
             align = "cm",
             colour = panel_colour,
-            padding = 0.06,
-            r = 0.12
+            padding = 0.1,
+            r = 0.12,
         },
         nodes = {
             text_row
@@ -102,7 +102,7 @@ function BadDirector.CREDITS.build(center)
 
     local block = {
         n = G.UIT.R,
-        config = { align = "tm" },
+        config = { align = "tm", padding = 0.06 },
         nodes = {}
     }
 
