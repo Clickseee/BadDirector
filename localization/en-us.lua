@@ -1017,7 +1017,7 @@ return {
                     "to give {C:mult}+#3#{} Mult",
                     "to all {C:attention}scored{} cards",
                     "{C:green}#2# in #6#{} chance",
-                    "to double your money by {X:money,C:white}X2{}",
+                    "for {X:money,C:white}$X2{}",
                 }
             },
             m_bd_misprintglass = {
