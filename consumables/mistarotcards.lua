@@ -83,14 +83,17 @@ BadDirector.MisprTarots {
     config = {  },
     pos = { x = 0, y = 0 },
     loc_vars = function(self, info_queue, card)
-        local last_key = G.GAME.last_tarot_planet
+        local last_key = G.GAME.bd_last_used_cons
         local last_c = last_key and G.P_CENTERS[last_key] or nil
-        local last_type = last_c and last_c.set or localize('k_what')
+        local last_type = last_c 
+		and ((last_c.set == "Tarot" 
+			or last_c.set == "Planet" 
+			or last_c.set == "Spectral")
+			and last_c.set 
+			or localize('k_'..last_c.set))
+		or localize('k_what')
 
-        local colour = (not last_c or last_c.name == 'The Fool') and G.C.RED or G.C.GREEN
-        if last_c and last_c.name ~= 'The Fool' then
-            info_queue[#info_queue + 1] = last_c
-        end
+        local colour = (not last_c or (not last_c.set ~= "Spectral" or not last_c.set ~= "mispectral")) and G.C.RED or G.C.GREEN
 
         local main_end = {
             {
@@ -112,7 +115,7 @@ BadDirector.MisprTarots {
     end,
 
     use = function(self, card, area, copier)
-        local last_key = G.GAME.last_tarot_planet
+        local last_key = G.GAME.bd_last_used_cons
         local last_c = last_key and G.P_CENTERS[last_key]
 
         G.E_MANAGER:add_event(Event({
@@ -121,11 +124,7 @@ BadDirector.MisprTarots {
             func = function()
                 if G.consumeables.config.card_limit > #G.consumeables.cards then
                     play_sound('bd_inapmit')
-                    if last_c.set == 'Tarot' then
-                        SMODS.add_card({ set = 'Tarot' })
-                    elseif last_c.set == 'Planet' then
-                        SMODS.add_card({ set = 'Planet' })
-                    end
+                    SMODS.add_card({ set = last_c.set })
                     card:juice_up(0.3, 0.5)
                 end
                 return true
@@ -135,8 +134,16 @@ BadDirector.MisprTarots {
     end,
 
     can_use = function(self, card)
-        return (#G.consumeables.cards < G.consumeables.config.card_limit or card.area == G.consumeables)
-            and G.GAME.last_tarot_planet
+		if G.GAME.bd_last_used_cons and (G.P_CENTERS[G.GAME.bd_last_used_cons].set == "Spectral" or
+			G.P_CENTERS[G.GAME.bd_last_used_cons].set == "mispectral") then
+			return false
+		end
+		
+		if #G.consumeables.cards >= G.consumeables.config.card_limit then return false end
+		
+		if (not G.GAME.bd_last_used_cons) then return false end
+		
+		return true
     end,
     misprint_original = "c_fool"
 }
