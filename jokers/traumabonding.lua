@@ -2,6 +2,7 @@ SMODS.Joker {
     key = "traumabonding",
     rarity = 3,
     atlas = "<3",
+    artist = {"IncognitoN71"},
     pos = { x = 4, y = 2 },
     config = {extra = {increment = 1}},
     loc_vars = function(self, info_queue, card)
