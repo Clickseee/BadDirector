@@ -69,7 +69,8 @@ SMODS.Voucher{
 
 SMODS.Voucher{
     key = 'counterfeitink',
-    pos = { x = 8, y = 2 },
+    pos = { x = 0, y = 0 },
+    atlas = "vouchers",
     cost = 10,
     config = { imm = {multiplier = 0.5}},
     loc_vars = function(self, info_queue, card)
@@ -85,7 +86,8 @@ SMODS.Voucher{
 
 SMODS.Voucher{
     key = 'brokenprinter',
-    pos = { x = 8, y = 2 },
+    pos = { x = 1, y = 0 },
+    atlas = "vouchers",
     cost = 10,
     config = { imm = {multiplier = 0.25}},
     requires = { 'v_bd_counterfeitink'},
