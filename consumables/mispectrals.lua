@@ -61,6 +61,7 @@ SMODS.UndiscoveredSprite {
 BadDirector.MisSpect {
     key = 'spectralprint',
     pos = { x = 9, y = 6 },
+    no_collection = true,
     can_use = function(self, card)
         return #G.jokers.cards > 0
     end,

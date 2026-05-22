@@ -120,7 +120,7 @@ return {
                 },
             },
             p_bd_miscelestial_normal = {
-                name = "cana PackAr",
+                name = "estial PackCel",
                 text = {
                     "Choose {C:attention}#1#{} of up to",
                     "{C:attention}#2# {C:bd_netpla}net CardsPla{} to",

@@ -20,7 +20,7 @@ function BadDirector.CREDITS.make_row(title, names, role)
     if type(names) ~= "table" or #names == 0 then return end
 
     local text_row = {
-        n = G.UIT.R,
+        n = G.UIT.C,
         config = { align = "cm" },
         nodes = {}
     }

@@ -2,6 +2,7 @@ SMODS.Joker {
     key = "futurefaking",
     rarity = 2,
     atlas = "<3",
+    artist = {"IncognitoN71"},
     pos = { x = 1, y = 0 },
     cost = 5,
     blueprint_compat = true,

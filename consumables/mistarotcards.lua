@@ -43,6 +43,7 @@ BadDirector.MisprTarots {
     atlas = "consumisprints",
     key = 'defaultprint',
     set = 'mistarot',
+    no_collection = true,
     draw = function(self, card, layer) card.children.center:draw_shader('hologram', nil, card.ARGS.send_to_shader) end,
     pos = { x = 9, y = 2 },
     config = { extra = { count = 2 }, },
