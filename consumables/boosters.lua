@@ -18,6 +18,8 @@ BadDirector.Booster {
     kind = 'bd_arcanapack', -- You can also use Arcana if you want it to belong to the vanilla kind
     cost = 4,
     pos = { x = 0, y = 0 },
+    artist = {"IncognitoN71"},
+    coder = {"LasagnaFelidae"},
     config = { extra = 3, choose = 1 },
     group_key = "k_bd_arcana_pack", -- Delete this if you're using `group_name` in `loc_txt`
     draw_hand = true,
@@ -83,6 +85,8 @@ BadDirector.Booster {
     kind = 'bd_arcanapack', -- You can also use Arcana if you want it to belong to the vanilla kind
     cost = 4,
     pos = { x = 1, y = 0 },
+    artist = {"IncognitoN71"},
+    coder = {"LasagnaFelidae"},
     config = { extra = 3, choose = 1 },
     group_key = "k_bd_arcana_pack", -- Delete this if you're using `group_name` in `loc_txt`
     draw_hand = true,
@@ -146,6 +150,8 @@ BadDirector.Booster {
     weight = 1,
     kind = 'bd_arcanapack', -- You can also use Arcana if you want it to belong to the vanilla kind
     cost = 4,
+    artist = {"IncognitoN71"},
+    coder = {"LasagnaFelidae"},
     pos = { x = 2, y = 0 },
     config = { extra = 3, choose = 1 },
     group_key = "k_bd_arcana_pack", -- Delete this if you're using `group_name` in `loc_txt`
@@ -211,6 +217,8 @@ BadDirector.Booster {
     weight = 1,
     kind = 'bd_arcanapack', -- You can also use Arcana if you want it to belong to the vanilla kind
     cost = 4,
+    artist = {"IncognitoN71"},
+    coder = {"LasagnaFelidae"},
     pos = { x = 3, y = 0 },
     config = { extra = 3, choose = 1 },
     group_key = "k_bd_arcana_pack", -- Delete this if you're using `group_name` in `loc_txt`
@@ -274,6 +282,8 @@ BadDirector.Booster {
 BadDirector.Booster {
     key = "bd_misarcana_jumbo_1",
     weight = 1,
+    artist = {"IncognitoN71"},
+    coder = {"LasagnaFelidae"},
     kind = 'bd_arcanapack', -- You can also use Arcana if you want it to belong to the vanilla kind
     cost = 6,
     pos = { x = 0, y = 2 },
@@ -339,6 +349,8 @@ BadDirector.Booster {
 BadDirector.Booster {
     key = "bd_misarcana_jumbo_2",
     weight = 1,
+    artist = {"IncognitoN71"},
+    coder = {"LasagnaFelidae"},
     kind = 'bd_arcanapack', -- You can also use Arcana if you want it to belong to the vanilla kind
     cost = 6,
     pos = { x = 1, y = 2 },
@@ -404,6 +416,8 @@ BadDirector.Booster {
 BadDirector.Booster {
     key = "bd_misarcana_mega_1",
     weight = 0.25,
+    artist = {"IncognitoN71"},
+    coder = {"LasagnaFelidae"},
     kind = 'bd_arcanapack', -- You can also use Arcana if you want it to belong to the vanilla kind
     cost = 8,
     pos = { x = 2, y = 2 },
@@ -469,6 +483,8 @@ BadDirector.Booster {
 BadDirector.Booster {
     key = "bd_misarcana_mega_2",
     weight = 0.25,
+    artist = {"IncognitoN71"},
+    coder = {"LasagnaFelidae"},
     kind = 'bd_arcanapack', -- You can also use Arcana if you want it to belong to the vanilla kind
     cost = 8,
     pos = { x = 3, y = 2 },
@@ -536,6 +552,8 @@ BadDirector.Booster {
 BadDirector.Booster {
     key = "bd_miscelestial_normal_1",
     weight = 1,
+    artist = {"IncognitoN71"},
+    coder = {"LasagnaFelidae"},
     kind = 'bd_celestialpack', -- You can also use Celestial if you want it to belong to the vanilla kind
     cost = 4,
     pos = { x = 0, y = 1 },
@@ -622,6 +640,8 @@ BadDirector.Booster {
 BadDirector.Booster {
     key = "bd_miscelestial_normal_2",
     weight = 1,
+    artist = {"IncognitoN71"},
+    coder = {"LasagnaFelidae"},
     kind = 'bd_celestialpack', -- You can also use Celestial if you want it to belong to the vanilla kind
     cost = 4,
     pos = { x = 1, y = 1 },
@@ -708,6 +728,8 @@ BadDirector.Booster {
 BadDirector.Booster {
     key = "bd_miscelestial_normal_3",
     weight = 1,
+    artist = {"IncognitoN71"},
+    coder = {"LasagnaFelidae"},
     kind = 'bd_celestialpack', -- You can also use Celestial if you want it to belong to the vanilla kind
     cost = 4,
     pos = { x = 2, y = 1 },
@@ -794,6 +816,8 @@ BadDirector.Booster {
 BadDirector.Booster {
     key = "bd_miscelestial_normal_4",
     weight = 1,
+    artist = {"IncognitoN71"},
+    coder = {"LasagnaFelidae"},
     kind = 'bd_celestialpack', -- You can also use Celestial if you want it to belong to the vanilla kind
     cost = 4,
     pos = { x = 3, y = 1 },
@@ -880,6 +904,8 @@ BadDirector.Booster {
 BadDirector.Booster {
     key = "bd_miscelestial_jumbo_1",
     weight = 1,
+    artist = {"IncognitoN71"},
+    coder = {"LasagnaFelidae"},
     kind = 'bd_celestialpack', -- You can also use Celestial if you want it to belong to the vanilla kind
     cost = 6,
     pos = { x = 0, y = 3 },
@@ -966,6 +992,8 @@ BadDirector.Booster {
 BadDirector.Booster {
     key = "bd_miscelestial_jumbo_2",
     weight = 1,
+    artist = {"IncognitoN71"},
+    coder = {"LasagnaFelidae"},
     kind = 'bd_celestialpack', -- You can also use Celestial if you want it to belong to the vanilla kind
     cost = 6,
     pos = { x = 1, y = 3 },
@@ -1052,6 +1080,8 @@ BadDirector.Booster {
 BadDirector.Booster {
     key = "bd_miscelestial_mega_1",
     weight = 0.25,
+    artist = {"IncognitoN71"},
+    coder = {"LasagnaFelidae"},
     kind = 'bd_celestialpack', -- You can also use Celestial if you want it to belong to the vanilla kind
     cost = 8,
     pos = { x = 2, y = 3 },
@@ -1138,6 +1168,8 @@ BadDirector.Booster {
 BadDirector.Booster {
     key = "bd_miscelestial_mega_2",
     weight = 0.25,
+    artist = {"IncognitoN71"},
+    coder = {"LasagnaFelidae"},
     kind = 'bd_celestialpack', -- You can also use Celestial if you want it to belong to the vanilla kind
     cost = 8,
     pos = { x = 3, y = 3 },
@@ -1226,6 +1258,8 @@ BadDirector.Booster {
 BadDirector.Booster {
     key = "bd_misspectral_normal_1",
     weight = 0.3,
+    artist = {"IncognitoN71"},
+    coder = {"LasagnaFelidae"},
     kind = 'bd_spectralpack', -- You can also use Spectral if you want it to belong to the vanilla kind
     cost = 4,
     pos = { x = 0, y = 4},
@@ -1278,6 +1312,8 @@ BadDirector.Booster {
 BadDirector.Booster {
     key = "bd_misspectral_normal_2",
     weight = 0.3,
+    artist = {"IncognitoN71"},
+    coder = {"LasagnaFelidae"},
     kind = 'bd_spectralpack', -- You can also use Spectral if you want it to belong to the vanilla kind
     cost = 4,
     pos = { x = 1, y = 4 },
@@ -1330,6 +1366,8 @@ BadDirector.Booster {
 BadDirector.Booster {
     key = "bd_misspectral_jumbo_1",
     weight = 0.3,
+    artist = {"IncognitoN71"},
+    coder = {"LasagnaFelidae"},
     kind = 'bd_spectralpack', -- You can also use Spectral if you want it to belong to the vanilla kind
     cost = 6,
     pos = { x = 2, y = 4 },
@@ -1382,6 +1420,8 @@ BadDirector.Booster {
 BadDirector.Booster {
     key = "bd_misspectral_mega_1",
     weight = 0.07,
+    artist = {"IncognitoN71"},
+    coder = {"LasagnaFelidae"},
     kind = 'bd_spectralpack', -- You can also use Spectral if you want it to belong to the vanilla kind
     cost = 8,
     pos = { x = 3, y = 4 },
