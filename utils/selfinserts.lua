@@ -48,7 +48,12 @@ SMODS.Joker {
     perishable_compat = true,
     in_pool = function(self, args)
         return false
-    end
+    end,
+    loc_vars = function(self, info_queue, card)
+        return {vars = {elements = {
+            SMODS.create_sprite(0, 0, 2, 350/175, "bd_corobo")
+        }}}
+    end,
 }
 
 SMODS.Joker {

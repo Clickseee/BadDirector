@@ -476,7 +476,36 @@ return {
             j_bd_incognitojoker = {
                 name = "Incognito",
                 text = {
-                    "super cool placeholder"
+                    {
+                        "{s:0.3} ",
+                        "{C:inactive,s:0.8}What I Drew",
+                        "Mod Icon, Mod Logo,",
+                        "all {C:hearts}Heart Jokers{},",
+                        "all {C:tarot}otTar{}, all {C:planet}netPla{},",
+                        "all {C:spectral}tralSpec{} and all ckPa",
+                        "{s:0.3} ",
+                        "{C:inactive,s:0.8}What I Code",
+                        "{C:tarot}rsTheSta{}, {C:tarot}unTheS{},",
+                        "{C:tarot}onTheMo{}, and {C:tarot}rldTheWo",
+                        "{s:0.3} ",
+                    },
+                    {
+                        "{s:0.3} ",
+                        "{s:0.8}Mods I Worked On",
+                        "{C:green,s:0.8}Alloy {C:inactive,s:0.8}- TheCoroboCorner",
+                        "{C:hearts,s:0.8}Hyperfixation {C:inactive,s:0.8}- tomatoseandcrying",
+                        "{C:hearts,s:0.8}Hypererfixation {C:inactive,s:0.8}- tomatoseandcrying",
+                        "{C:spades,s:0.8}Incognito {C:inactive,s:0.8}- MINE HAHAHA",
+                        "{C:dark_edition,s:0.8}Quintessence {C:inactive,s:0.8}- MetaNite64",
+                        "{C:purple,s:0.8}UltraViolet (Dead) {C:inactive,s:0.8}- Violet-Tendencies",
+                        "{s:0.3} ",
+                    },
+                    {
+                        "{s:0.3} ",
+                        "{C:green,s:0.8}Corobo Mentioned",
+                        " {element:1} ",
+                        "{s:0.3} ",
+                    },
                 }
             },
             j_bd_nhjoker = {
