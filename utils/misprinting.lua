@@ -37,7 +37,7 @@ function BadDirector.misprint(card)
         })
         delay(0.75)
     else    
-        --card:set_edition("e_bd_misprint")
+        card:set_edition("e_bd_misprinted")
     end
 end
 
