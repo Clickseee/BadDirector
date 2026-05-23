@@ -1,0 +1,13 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 9999999
+
+# CRT
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''      info_boxes = {{n=G.UIT.R, config = {align="cm", padding = 0.05, card_pos = card.T.x }, nodes = info_cols}}'''
+position = "before"
+payload = '''if card.bd_credits_card then badges = {} end'''
+match_indent = true

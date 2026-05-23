@@ -438,6 +438,69 @@ return {
                     }
                 }
             },
+
+            -- Credit Localization
+            j_bd_nxkoojoker = {
+                name = "Nxkoo",
+                text = {
+                    "super cool placeholder"
+                }
+            },
+            j_bd_rubyjoker = {
+                name = "RUBY",
+                text = {
+                    "super cool placeholder"
+                }
+            },
+            j_bd_nickjoker = {
+                name = "nick",
+                text = {
+                    "super cool placeholder"
+                }
+            },
+            j_bd_nhjoker = {
+                name = "nh",
+                text = {
+                    "super cool placeholder"
+                }
+            },
+            j_bd_thunderjoker = {
+                name = "thunder",
+                text = {
+                    "super cool placeholder"
+                }
+            },
+            j_bd_gabbyjoker = {
+                name = "gabby",
+                text = {
+                    "super cool placeholder"
+                }
+            },
+            j_bd_felijoker = {
+                name = "LasagnaFelidae",
+                text = {"pet me"}
+            },
+            j_bd_ghostjoker = {
+                name = "ghost",
+                text = {
+                    "super cool placeholder"
+                }
+            },
+            j_bd_foojoker = {
+                name = "Foo54",
+                text = {
+                    "hi i made the credits text",
+                    "{C:inactive,s:0.5}it was like 2 lines of code bruh I should not be in here :sob:",
+                    "uh if you want to check out SynthB its a cool vocaloid themed mod",
+                    " {element:1} "
+                }
+            },
+            j_bd_metajoker = {
+                name = "meta",
+                text = {
+                    "super cool placeholder"
+                }
+            }
         },
         mistarot = {
             c_bd_magicprint = {
