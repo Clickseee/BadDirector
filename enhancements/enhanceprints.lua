@@ -275,11 +275,7 @@ SMODS.Enhancement {
                     if SMODS.pseudorandom_probability(card, 'multistage aerobic capacity test', 1, card.ability.extra.odds) then
                         G.E_MANAGER:add_event(Event {
                             func = function()
-                                if SMODS.has_enhancement(to_destroy[i], 'm_glass') then -- should it have its own shatter now that i think of it lol
-                                    to_destroy[i]:shatter()
-                                else
-                                    to_destroy[i]:start_dissolve()
-                                end
+                                SMODS.destroy_cards(to_destroy[i])
                                 return true
                             end
                         })

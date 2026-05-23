@@ -39,14 +39,7 @@ SMODS.Joker {
 
                 local destroyed_card = face_cards[#face_cards]
 
-                destroyed_card.getting_sliced = true
-
-                G.E_MANAGER:add_event(Event({
-                    func = function()
-                        destroyed_card:start_dissolve()
-                        return true
-                    end
-                }))
+                SMODS.destroy_cards(destroyed_card)
 
                 return {
                     message = "Why..",

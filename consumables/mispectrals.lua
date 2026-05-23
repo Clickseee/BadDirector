@@ -628,7 +628,7 @@ BadDirector.MisSpect {
             func = function()
                 play_sound('tarot1')
 
-                selected:start_dissolve()
+                SMODS.destroy_cards(selected)
 
                 return true
             end
@@ -1964,9 +1964,7 @@ BadDirector.MisSpect {
             delay = 0.4,
             func = function()
 
-                for _, joker in ipairs(destroyed_jokers) do
-                    joker:start_dissolve()
-                end
+                SMODS.destroy_cards(destroyed_jokers)
 
                 return true
             end

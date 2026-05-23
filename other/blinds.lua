@@ -18,7 +18,7 @@ SMODS.Blind {
                 for i, blarg in ipairs(G.deck.cards) do
                     if blarg:is_suit("Hearts") then
                         G.GAME.ache_capture[#G.GAME.ache_capture+1] = blarg
-                        blarg:start_dissolve()
+                       SMODS.destroy_cards(blarg)
                     end
                 end
             end
