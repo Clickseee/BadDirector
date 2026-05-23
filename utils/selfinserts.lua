@@ -94,7 +94,7 @@ SMODS.Joker {
     rarity = 4,
     pos = { x = 0, y = 0 },
     atlas = "gabbyselfinsert",
-    cost = 666,
+    cost = 69420,
     no_collection = true,
     blueprint_compat = true,
     eternal_compat = true,

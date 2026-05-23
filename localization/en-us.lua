@@ -438,18 +438,6 @@ return {
                     }
                 }
             },
-            j_bd_metajoker = {
-                name = "Meta",
-                text = {
-                    {
-                        "Despite the name of the mod,",
-                        "Nxkoo is the {C:attention}best director{}."
-                    },
-                    {
-                        "Quintessence coming 'soon'..."
-                    }
-                }
-            },
             -- Credit Localization
             j_bd_nxkoojoker = {
                 name = "Nxkoo",
@@ -482,9 +470,22 @@ return {
                 }
             },
             j_bd_gabbyjoker = {
-                name = "gabby",
+                name = "squeax09",
                 text = {
-                    "super cool placeholder"
+                    {" ",
+                    "{s:1.3}ts {C:green,E:1,s:1.3}gabby{}",
+                    " "},
+                    {"Most of my work for the mod was",
+                    "programming, such as that of",
+                    "some of the consumables and enhancements",
+                    "{C:inactive,s:0.7}(My favorites I did are the Wild Cards lol){}",
+                    "However, I did both code and art things",
+                    "like {C:attention}The Ache{} and the {C:attention}challenge{}...",
+                    "{C:inactive,s:0.7}(...tho that's about all I really did, besides",
+                    "{C:inactive,s:0.7}helping this project find its footing again after",
+                    "{C:inactive,s:0.7}a few months of it in hiatus)"},
+                    {"anyway semiobligatory shill you should",
+                    "play {C:blue}WASHMACHINE{} [when it releases, anyway]"}
                 }
             },
             j_bd_felijoker = {
@@ -507,11 +508,17 @@ return {
                 }
             },
             j_bd_metajoker = {
-                name = "meta",
+                name = "Meta",
                 text = {
-                    "super cool placeholder"
+                    {
+                        "Despite the name of the mod,",
+                        "Nxkoo is the {C:attention}best director{}."
+                    },
+                    {
+                        "Quintessence coming 'soon'..."
+                    }
                 }
-            }
+            },
         },
         mistarot = {
             c_bd_magicprint = {
