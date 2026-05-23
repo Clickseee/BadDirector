@@ -511,7 +511,9 @@ return {
                 name = "Foo54",
                 text = {
                     "hi i made the credits text",
-                    "{C:inactive,s:0.5}it was like 2 lines of code bruh I should not be in here :sob:",
+                    "oh i also made the text you see above me change",
+                    "you should spawn my card in during a run it'll be funny trust",
+                    "{C:inactive,s:0.5}it was like 6 lines of code bruh I should not be in here :sob:",
                     "uh if you want to check out SynthB its a cool vocaloid themed mod",
                     " {element:1} "
                 }
