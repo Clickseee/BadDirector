@@ -47,6 +47,7 @@ BadDirector.quick_pool_pick = function(pool, roll)
 	end
 end
 
+
 BadDirector.misprint_enhancements = {
 	{key = "m_bd_misprintluckycard",    weight = 0.20},
     {key = "m_bd_misprintsteel",        weight = 0.20},

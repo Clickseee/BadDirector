@@ -1478,7 +1478,7 @@ SMODS.Booster:take_ownership_by_kind("Arcana",
         local TRUE_RATE = MISPRINT_RATE_TAROT 
         * (next(SMODS.find_card("v_bd_counterfeitink")) and 0.5 or 1)
         * (next(SMODS.find_card("v_bd_brokenprinter")) and 0.25 or 1)
-        print(TRUE_RATE)
+        --print(TRUE_RATE)
         local misprint = SMODS.pseudorandom_probability(card, 'misprint', 1, TRUE_RATE)
         local tarot = (misprint == true) and "mistarot" or "Tarot"
         local keyapp_ar = (misprint == true) and "bd_ar" or "ar"

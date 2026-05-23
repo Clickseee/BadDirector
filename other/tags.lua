@@ -256,3 +256,71 @@ SMODS.Tag {
         return G.P_CENTERS["e_bd_misprinted"].discovered
     end
 }
+
+SMODS.Tag {
+    key = "escort",
+    atlas = "misprinttags",
+    pos = { x = 0, y = 2 },
+    artist = {"LasagnaFelidae"},
+    coder = {"squeax09", "LasagnaFelidae"},
+    config = {
+        ante = "[ante]"
+    },
+    loc_vars = function (self, info_queue, tag)
+        local key = self.key
+        return {vars = {tag.ability.ante or tag.config.ante}}
+    end,
+    set_ability = function (self, tag)
+        tag.ability.ante = G.GAME.round_resets.ante + pseudorandom('bd_escort_tag', 1, 4)
+    end,
+    apply = function(self, tag, context)
+        if context.type == 'eval' then
+            if G.GAME.last_blind and G.GAME.last_blind.boss and G.GAME.round_resets.ante >= tag.ability.ante then
+                tag:yep('+', G.C.RED, function()
+                    return true
+                end)
+                tag.triggered = true
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'before',
+                    delay = 0.0,
+                    func = function()
+                        local loot = {
+                            {key = "im", weight = 1+(0.1*(G.GAME.tag_modifier and G.GAME.tag_modifier or 0))},
+                            {key = "boutta", weight = 1+(0.1*(G.GAME.tag_modifier and G.GAME.tag_modifier or 0))},
+                            {key = "blowwww", weight = 1+(0.1*(G.GAME.tag_modifier and G.GAME.tag_modifier or 0))},
+                            {key = "rarestring4", weight = 0.5+(0.5*(G.GAME.tag_modifier and G.GAME.tag_modifier or 0))},
+                        }
+                        pick = BadDirector.quick_pool_pick(loot)
+                        if pick == "im" then
+                            add_tag(Tag(pseudorandom_element(G.P_TAGS, pseudoseed("the PACKAGE" .. G.GAME.round_resets.ante))))
+                        elseif pick == "boutta" then
+                            local selection = pseudorandom_element(G.P_CENTER_POOLS.Consumeables, pseudoseed("you're telling me it CAME?" .. G.GAME.round_resets.ante))
+                            local consume = SMODS.add_card({
+                                area = G.consumeables,
+                                key = selection.key,
+                                -- allow_duplicates = true, [unsure if i should]
+                            })
+                            consume:set_edition("e_negative")
+                        elseif pick == "blowwww" then -- dawg WHAT am i doing here
+                            local selection = pseudorandom_element(G.P_CENTER_POOLS.Joker, pseudoseed("in the MALE?" .. G.GAME.round_resets.ante))
+                            local consume = SMODS.add_card({
+                                area = G.jokers,
+                                key = selection.key,
+                                -- allow_duplicates = true, [unsure if i should]
+                            })
+                        else
+                            local loot2 = {
+                                {key = "tag_bd_meteor", weight = 1},
+                                {key = "tag_bd_ethereal", weight = 0.8},
+                                {key = "tag_bd_charm", weight = 1},
+                            }
+                            add_tag(Tag(BadDirector.quick_pool_pick(loot2)))
+                            a--dd_tag(Tag("tag_voucher")) [replace this with the Awesome Voucher that becomes free tag :speaking_head:]
+                        end
+                        return true
+                    end
+                }))
+            end
+        end
+    end
+}

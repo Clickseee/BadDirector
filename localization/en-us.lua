@@ -253,7 +253,14 @@ return {
                     "becomes {C:dark_edition}Misprinted",
                 },
             },
-
+            tag_bd_escort = {
+                name = "Escort Tag",
+                text = {
+                    "Bring this Tag to",
+                    "Ante {C:attention}#1#{} to",
+                    "receive a {C:attention}special prize{}"
+                },
+            },
         },
         Voucher = {
             v_bd_carton = {
@@ -481,10 +488,12 @@ return {
                     "{C:inactive,s:0.7}(My favorites I did are the Wild Cards lol){}",
                     "However, I did both code and art things",
                     "like {C:attention}The Ache{} and the {C:attention}challenge{}...",
-                    "{C:inactive,s:0.7}(...tho that's about all I really did, besides",
+                    "{C:inactive,s:0.7}...tho that's about all I really did, besides",
                     "{C:inactive,s:0.7}helping this project find its footing again after",
-                    "{C:inactive,s:0.7}a few months of it in hiatus)"},
-                    {"anyway semiobligatory shill you should",
+                    "{C:inactive,s:0.7}a few months of it in hiatus ig",
+                    "{C:inactive,s:0.7}(kinda crazy how im helping one of the",
+                    "{C:inactive,s:0.7}modders who initially inspired me tbh)"},
+                    {"anyway semiobligatory shill GO you should",
                     "play {C:blue}WASHMACHINE{} [when it releases, anyway]"}
                 }
             },
