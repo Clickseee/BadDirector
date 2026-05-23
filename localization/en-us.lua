@@ -261,6 +261,21 @@ return {
                     "receive a {C:attention}special prize{}"
                 },
             },
+            tag_bd_escort_alt = {
+                name = "Escort Tag",
+                text = {
+                    "Bring this Tag to",
+                    "a further Ante to",
+                    "receive a {C:attention}special prize{}"
+                },
+            },
+            tag_bd_voucher = {
+                name = "Freebie Tag",
+                text = {
+                    "Adds a new {C:attention}free{}",
+                    "voucher to next shop"
+                },
+            },
         },
         Voucher = {
             v_bd_carton = {
