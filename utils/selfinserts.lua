@@ -144,6 +144,12 @@ SMODS.Joker {
     end
 }
 
+SMODS.Joker {
+    key = "metajoker",
+    selfinsert = true,
+    rarity = 4,
+    atlas = "metaselfinsert",
+    cost = 314159,
 SMODS.Sound{
     key = "teto",
     path = "teto_Track1.wav"
@@ -164,6 +170,8 @@ SMODS.Joker{
     perishable_compat = true,
     in_pool = function(self, args)
         return false
+    end
+}
     end,
     loc_vars = function(self, info_queue, card)
         return {vars = {elements = {

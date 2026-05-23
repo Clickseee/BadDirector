@@ -438,6 +438,16 @@ return {
                     }
                 }
             },
+            j_bd_metajoker = {
+                name = "Meta",
+                text = {
+                    {
+                        "Despite the name of the mod,",
+                        "Nxkoo is the {C:attention}best director{}."
+                    },
+                    {
+                        "Quintessence coming 'soon'..."
+                    }
 
             -- Credit Localization
             j_bd_nxkoojoker = {
