@@ -1393,10 +1393,8 @@ BadDirector.MisSpect {
             trigger = 'after',
             delay = 0.4,
             func = function()
-                local copied_joker = copy_card(chosen)
+                local copied_joker = BadDirector.copy_card(chosen,nil,G.jokers)
 
-                copied_joker:add_to_deck()
-                G.jokers:emplace(copied_joker)
 
                 copied_joker:start_materialize()
                 copied_joker:juice_up()
@@ -1798,10 +1796,7 @@ BadDirector.MisSpect {
                         trigger = 'after',
                         delay = 0.15,
                         func = function()
-                            local copied_card = copy_card(original)
-
-                            copied_card:add_to_deck()
-                            G.hand:emplace(copied_card)
+                            local copied_card = BadDirector.copy_card(original, nil, G.hand)
 
                             copied_card:start_materialize()
                             copied_card:juice_up()

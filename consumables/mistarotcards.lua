@@ -557,18 +557,11 @@ BadDirector.MisprTarots {
                         ) then
                         G.playing_card = (G.playing_card and G.playing_card + 1) or 1
 
-                        local card_copied = copy_card(
+                        local card_copied = BadDirector.copy_card(
                             originals[i],
                             nil,
-                            nil,
-                            G.playing_card
+                            G.hand
                         )
-
-                        card_copied:add_to_deck()
-                        G.deck.config.card_limit = G.deck.config.card_limit + 1
-                        table.insert(G.playing_cards, card_copied)
-                        G.hand:emplace(card_copied)
-                        card_copied.states.visible = nil
 
                         G.E_MANAGER:add_event(Event({
                             func = function()

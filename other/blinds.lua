@@ -26,10 +26,8 @@ SMODS.Blind {
         if context.end_of_round and context.main_eval then
             if G.GAME.ache_capture and #G.GAME.ache_capture > 0 then
                 for i=1, #G.GAME.ache_capture do
-                    local heart = copy_card(G.GAME.ache_capture[i], nil, nil, G.playing_card)
+                    local heart = BadDirector.copy_card(G.GAME.ache_capture[i], nil, G.hand)
                     heart:add_to_deck()
-                    G.hand:emplace(heart)
-                    G.deck.config.card_limit = G.deck.config.card_limit + 1
                     table.insert(G.playing_cards, heart)
                 end
             end
@@ -38,9 +36,7 @@ SMODS.Blind {
     disable = function(self)
         if G.GAME.ache_capture and #G.GAME.ache_capture > 0 then
             for i=1, #G.GAME.ache_capture do
-                local heart = copy_card(G.GAME.ache_capture[i], nil, nil, G.playing_card)
-                heart:add_to_deck()
-                G.hand:emplace(heart)
+                local heart = BadDirector.copy_card(G.GAME.ache_capture[i], nil, G.hand)
                 G.deck.config.card_limit = G.deck.config.card_limit + 1
                 table.insert(G.playing_cards, heart)
             end
