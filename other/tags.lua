@@ -315,7 +315,7 @@ SMODS.Tag {
                                 {key = "tag_bd_charm", weight = 1},
                             }
                             add_tag(Tag(BadDirector.quick_pool_pick(loot2)))
-                            a--dd_tag(Tag("tag_voucher")) [replace this with the Awesome Voucher that becomes free tag :speaking_head:]
+                            --add_tag(Tag("tag_voucher")) [replace this with the Awesome Voucher that becomes free tag :speaking_head:]
                         end
                         return true
                     end
