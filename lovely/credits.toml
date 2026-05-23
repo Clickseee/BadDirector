@@ -21,8 +21,35 @@ position = "at"
 payload = '''tab_buttons[#tab_buttons+1] = UIBox_button({id = 'tab_but_'..(v.label or ''), dynamic_label = v.dynamic_label, ref_table = v, button = 'change_tab', label = v.label and {v.label} or {}, minh = 0.8*args.scale, minw = 2.5*args.scale, col = true, choice = true, scale = args.text_scale, chosen = v.chosen, func = v.func, colour = args.colour, focus_args = {type = 'none'}})'''
 match_indent = true
 
+# Add dynamic label support to UIBox_button
+# yoinked from cartomancer
+# this should lowkey be pr'ed
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+match_indent = true
+position = "after"
+pattern = ''' for k, v in ipairs(args.label) do 
+    if k == #args.label and args.focus_args and args.focus_args.set_button_pip then 
+      button_pip ='set_button_pip'
+    end
+    table.insert(but_UI_label, {n=G.UIT.R, config={align = "cm", padding = 0, minw = args.minw, maxw = args.maxw}, nodes={
+      {n=G.UIT.T, config={text = v, scale = args.scale, colour = args.text_colour, shadow = args.shadow, focus_args = button_pip and args.focus_args or nil, func = button_pip, ref_table = args.ref_table}}
+    }})
+  end'''
+payload = '''
+if args.dynamic_label then
+  but_UI_label = {}
+  
+  table.insert(but_UI_label, {n=G.UIT.R, config={align = "cm", padding = 0, minw = args.minw, maxw = args.maxw}, nodes={
+    {n=G.UIT.T, config={ref_table = args.dynamic_label, ref_value = 'text', scale = args.scale, colour = args.text_colour, shadow = args.shadow, focus_args = button_pip and args.focus_args or nil, func = button_pip,}}
+  }})
+end
+'''
+
 
 # reorder the labeling so that old data is removed
+# for carto compat
 [[patches]]
 [patches.pattern]
 target = "functions/UI_definitions.lua"
