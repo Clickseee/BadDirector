@@ -44,15 +44,18 @@ end
 G.FUNCS.bd_prev_credit_page = function(e)
     BadDirector.credit_page =
     math.max(1, (BadDirector.credit_page or 1) - 1)
+    BadDirector.text = BadDirector.credit_page == 1 and "Director" or "Actors"
     
     G.FUNCS.reload_bad_director()
-    local element = G.OVERLAY_MENU:get_UIE_by_ID("tab_but_Credits")
+    local element = G.OVERLAY_MENU:get_UIE_by_ID("tab_but_")
     G.FUNCS.change_tab(element)
 end
 
 BadDirector.contributors = {
     -- <<<<<<< Updated upstream
+    {padding = true},
     { key = "j_bd_nxkoojoker", text = "Nxkoo" },
+    {padding = true},
     { key = "j_bd_nickjoker",  text = "IncognitoN71" },
     { key = "j_bd_rubyjoker",  text = "lord.ruby" },
     { key = "j_bd_nhjoker",  text = "Nh6574" },
@@ -71,8 +74,9 @@ G.FUNCS.bd_next_credit_page = function(e)
 )
 BadDirector.credit_page =
 math.min(max_page, (BadDirector.credit_page or 1) + 1)
+BadDirector.text = BadDirector.credit_page == 1 and "Director" or "Actors"
 G.FUNCS.reload_bad_director()
-local element = G.OVERLAY_MENU:get_UIE_by_ID("tab_but_Credits")
+local element = G.OVERLAY_MENU:get_UIE_by_ID("tab_but_")
 G.FUNCS.change_tab(element)
 end
 
@@ -220,10 +224,12 @@ function Card:click(...)
     end
 end
 
+BadDirector.text = "Director"
+
 BadDirector.extra_tabs = function()
     return {
         {
-            label = "Credits",
+            dynamic_label = BadDirector,
             tab_definition_function = function()
                 local PER_PAGE = BadDirector.PER_PAGE
                 local contributors = BadDirector.contributors
@@ -263,22 +269,23 @@ BadDirector.extra_tabs = function()
                     G.CARD_H,
                     { card_limit = 1, type = 'title', highlight_limit = 0, collection = true }
                 )
-                
-                local card = Card(
-                area.T.x, area.T.y,
-                G.CARD_W, G.CARD_H,
-                G.P_CARDS.empty,
-                G.P_CENTERS[v.key]
-            )
-            card.bd_credits_card = true
+                if not v.padding then
+                    local card = Card(
+                        area.T.x, area.T.y,
+                        G.CARD_W, G.CARD_H,
+                        G.P_CARDS.empty,
+                        G.P_CENTERS[v.key]
+                    )
+                    card.bd_credits_card = true
 
-            area:emplace(card)
+                    area:emplace(card)
+                end
             
             columns[#columns + 1] = {
                 n = G.UIT.C,
                 config = { align = "cm", padding = 0.1 },
                 nodes = {
-                    {
+                    not v.padding and {
                         n = G.UIT.R,
                         config = { align = "cm", padding = 0.05 },
                         nodes = {
@@ -292,7 +299,7 @@ BadDirector.extra_tabs = function()
                                 }
                             }
                         }
-                    },
+                    } or nil,
                     {
                         n = G.UIT.R,
                         config = { align = "cm" },

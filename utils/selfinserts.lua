@@ -147,9 +147,14 @@ SMODS.Joker {
 SMODS.Joker {
     key = "metajoker",
     selfinsert = true,
+    discovered = true,
     rarity = 4,
+    no_collection = true,
     atlas = "metaselfinsert",
     cost = 314159,
+    in_pool = function(self, args)
+        return false
+    end,
 }
 
 SMODS.Sound{
