@@ -34,14 +34,14 @@ SMODS.Joker {
 }
 
 SMODS.Joker {
-    key = "nickjoker",
+    key = "incognitojoker",
     selfinsert = true,
     discovered = true,
     rarity = 4,
     pos = { x = 0, y = 0 },
     soul_pos = { x = 0, y = 1 },
-    atlas = "nickselfinsert",
-    cost = 666,
+    atlas = "incognitoselfinsert",
+    cost = 71,
     no_collection = true,
     blueprint_compat = true,
     eternal_compat = true,
