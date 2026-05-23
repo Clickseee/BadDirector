@@ -188,6 +188,16 @@ SMODS.Joker {
             SMODS.create_sprite(0, 0, 2, 5596/1100, "bd_footeto")
         }}}
     end,
+    set_ability = function(self, card, initial, delay_sprites)
+        if SynthB then
+            local mem = SynthB.mod.config.allow_covers_on_any_card
+            SynthB.mod.config.allow_covers_on_any_card = true
+            card:set_edition("e_synthb_cover_teto")
+            SynthB.mod.config.allow_covers_on_any_card = mem
+        else
+            card:set_edition("e_polychrome")
+        end
+    end,
     calculate = function(self, card, context)
         play_sound("bd_teto")
     end,
@@ -201,8 +211,8 @@ SMODS.Joker {
                 {text = "teto"}
             },
             style_function = function(card, text, reminder_text, extra)
-                if not card.ability.immutable.has_teto then
-                    reminder_text.UIBox:add_child({n = G.UIT.O, config = {object = SMODS.create_sprite(0, 0, 2, 5596/1100, "bd_footeto")}}, reminder_text.text)
+                if not card.ability.immutable.has_teto and not card.area.config.collection then
+                    extra.UIBox:add_child({n = G.UIT.O, config = {object = SMODS.create_sprite(0, 0, 2, 5596/1100, "bd_footeto")}}, extra.extra)
                     card.ability.immutable.has_teto = true
                 end
             end
