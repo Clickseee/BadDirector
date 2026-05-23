@@ -81,7 +81,7 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
-    key = "nickselfinsert",
+    key = "incognitoselfinsert",
     path = "incognito.png",
     px = 71,
     py = 95,
