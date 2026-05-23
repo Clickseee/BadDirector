@@ -268,10 +268,13 @@ SMODS.Tag {
     },
     loc_vars = function (self, info_queue, tag)
         local key = self.key
-        return {vars = {tag.ability.ante or tag.config.ante}}
+        if not tag.bd_set then key = self.key.."_alt" end
+        return {vars = {tag.ability.ante or tag.config.ante}, key = key}
     end,
     set_ability = function (self, tag)
-        tag.ability.ante = G.GAME.round_resets.ante + pseudorandom('bd_escort_tag', 1, 4)
+        G.GAME.tag_modifier = pseudorandom('bd_escort_tag', 1, 4)
+        tag.bd_set = true
+        tag.ability.ante = G.GAME.round_resets.ante + G.GAME.tag_modifier
     end,
     apply = function(self, tag, context)
         if context.type == 'eval' then
@@ -289,10 +292,19 @@ SMODS.Tag {
                             {key = "boutta", weight = 1+(0.1*(G.GAME.tag_modifier and G.GAME.tag_modifier or 0))},
                             {key = "blowwww", weight = 1+(0.1*(G.GAME.tag_modifier and G.GAME.tag_modifier or 0))},
                             {key = "rarestring4", weight = 0.5+(0.5*(G.GAME.tag_modifier and G.GAME.tag_modifier or 0))},
+                            {key = "rarestring5", weight = 0.5+(0.8*(G.GAME.tag_modifier and G.GAME.tag_modifier or 0))},
                         }
                         pick = BadDirector.quick_pool_pick(loot)
                         if pick == "im" then
-                            add_tag(Tag(pseudorandom_element(G.P_TAGS, pseudoseed("the PACKAGE" .. G.GAME.round_resets.ante))))
+                            --- Credits to Eremel + N' from VR wiki
+                            local tag_pool = get_current_pool('Tag')
+                            local selected_tag = pseudorandom_element(tag_pool, 'modprefix_seed')
+                            local it = 1
+                            while selected_tag == 'UNAVAILABLE' do
+                                it = it + 1
+                                selected_tag = pseudorandom_element(tag_pool, 'modprefix_seed_resample'..it)
+                            end
+                            add_tag(Tag(selected_tag, false, 'Small')) -- Ignore the previous code and just use a key for a prefined tag
                         elseif pick == "boutta" then
                             local selection = pseudorandom_element(G.P_CENTER_POOLS.Consumeables, pseudoseed("you're telling me it CAME?" .. G.GAME.round_resets.ante))
                             local consume = SMODS.add_card({
@@ -308,19 +320,53 @@ SMODS.Tag {
                                 key = selection.key,
                                 -- allow_duplicates = true, [unsure if i should]
                             })
-                        else
+                        elseif pick == "rarestring4" then
                             local loot2 = {
                                 {key = "tag_bd_meteor", weight = 1},
                                 {key = "tag_bd_ethereal", weight = 0.8},
                                 {key = "tag_bd_charm", weight = 1},
                             }
-                            add_tag(Tag(BadDirector.quick_pool_pick(loot2)))
-                            --add_tag(Tag("tag_voucher")) [replace this with the Awesome Voucher that becomes free tag :speaking_head:]
+                            add_tag(Tag(BadDirector.quick_pool_pick(loot2), false, 'Small'))
+                        else
+                            add_tag(Tag("tag_bd_voucher", false, 'Small'))
                         end
                         return true
                     end
                 }))
             end
+        end
+    end
+}
+
+
+local cardSetCostHook = Card.set_cost
+function Card:set_cost()
+    local ret = cardSetCostHook(self)
+    if self.area and self.ability.couponed and (self.area == G.shop_jokers or self.area == G.shop_booster or self.area == G.shop_vouchers ) then self.cost = 0 end
+    return ret
+end
+
+
+SMODS.Tag {
+    key = "voucher",
+    atlas = "misprinttags",
+    pos = { x = 1, y = 2 },
+    min_ante = 2,
+    artist = {"LasagnaFelidae"},
+    coder = {"LasagnaFelidae"},
+    apply = function(self, tag, context)
+        if context.type == 'voucher_add' then
+            tag:yep('+', G.C.SECONDARY_SET.Voucher, function()
+                local voucher = SMODS.add_voucher_to_shop()
+                voucher.from_tag = true
+                voucher.ability.couponed = true
+                voucher.base_cost = 0
+                voucher.cost = 0
+                voucher.sell_cost = 0
+                voucher.sell_cost_label = 0
+                return true
+            end)
+            tag.triggered = true
         end
     end
 }
