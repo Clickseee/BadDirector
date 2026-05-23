@@ -477,10 +477,8 @@ return {
                 }
             },
             j_bd_felijoker = {
-                name = "feli",
-                text = {
-                    "super cool placeholder"
-                }
+                name = "LasagnaFelidae",
+                text = {"pet me"}
             },
             j_bd_ghostjoker = {
                 name = "ghost",
