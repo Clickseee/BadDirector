@@ -169,6 +169,11 @@ SMODS.Joker {
     rarity = 1,
     pos = {x = 0, y = 0},
     soul_pos = {x = 1, y = 0},
+    config = {
+        immutable = {
+            has_teto = false
+        }
+    },
     atlas = "fooselfinsert",
     cost = 401,
     no_collection = true,
@@ -185,5 +190,22 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         play_sound("bd_teto")
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                {text = "teto"}
+            },
+            reminder_text = {
+                {text = "teto"}
+            },
+            style_function = function(card, text, reminder_text, extra)
+                if not card.ability.immutable.has_teto then
+                    reminder_text.UIBox:add_child({n = G.UIT.O, config = {object = SMODS.create_sprite(0, 0, 2, 5596/1100, "bd_footeto")}}, reminder_text.text)
+                    card.ability.immutable.has_teto = true
+                end
+            end
+        }
     end
 }
