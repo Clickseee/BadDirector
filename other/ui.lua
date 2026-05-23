@@ -56,7 +56,7 @@ BadDirector.contributors = {
     {padding = true},
     { key = "j_bd_nxkoojoker", text = "Nxkoo" },
     {padding = true},
-    { key = "j_bd_nickjoker",  text = "IncognitoN71" },
+    { key = "j_bd_incognitojoker",  text = "IncognitoN71" },
     { key = "j_bd_rubyjoker",  text = "lord.ruby" },
     { key = "j_bd_nhjoker",  text = "Nh6574" },
     { key = "j_bd_thunderjoker",  text = "ThunderEdge" },

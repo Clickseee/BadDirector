@@ -2,7 +2,7 @@ SMODS.Joker {
     key = "propinquity",
     rarity = 3,
     atlas = "<3",
-    artist = {"LasagnaFelidae"},
+    artist = {"IncognitoN71"},
     pos = { x = 4, y = 1 },
     cost = 6,
     blueprint_compat = true,
