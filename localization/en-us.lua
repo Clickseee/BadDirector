@@ -448,7 +448,8 @@ return {
                     {
                         "Quintessence coming 'soon'..."
                     }
-
+                }
+            },
             -- Credit Localization
             j_bd_nxkoojoker = {
                 name = "Nxkoo",
