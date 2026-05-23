@@ -8,10 +8,17 @@ A Balatro Mod heavily inspired by the idea of Misprint Joker from the base game 
 
 This mod currently adds:
 - New consumables set: Misprint Consumables
-- 6 New Enhancements
+- 15 Jokers
+- 20 New Booster Packs
+- 2 New Vouchers
+- 4 Custom Spectral Cards
+- 8 New Tags
+- 8 New Enhancements
 - 4 New Seals
-- 2 New Editions
+- 4 New Editions
 - 1 New Deck
+- 1 New Blind
+- 1 New Challenge
 - And more to come
 
 # Installation
@@ -23,8 +30,8 @@ This mod currently adds:
 
 i **GOTTA** remind you again: **THIS MOD IS CURRENTLY IN DEVELOPMENT** meaning it has bugs and contents are not final
 
-# Planned Content
-- Jokers (Looking for Artists!)
+# Planned Content (IF I DIDN'T QUIT)
+- More Jokers (Looking for Artists!)
 - Custom Consumable Type (Looking for Artists)
 - Boss / Showdown Blinds
 - Challenges
