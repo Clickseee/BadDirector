@@ -1,6 +1,7 @@
 SMODS.Enhancement {
     key = "misprintstone",
     atlas = "misprintenhanced",
+    artist = {"GhostSalt"},
     coder = {"squeax09"},
     pos = { x = 5, y = 0 },
     config = { bonus = 40, extra = { original_bonus = 40, max = 20, min = -10 } }, -- can also be adjusted as need be ofc
@@ -27,6 +28,7 @@ SMODS.Enhancement {
 SMODS.Enhancement {
     key = "misprintgold",
     atlas = "misprintenhanced",
+    artist = {"GhostSalt"},
     pos = { x = 6, y = 0 },
     config = {h_dollars = 0, extra = { max = 3, min = 0.5 }},
     loc_vars = function(self, info_queue, card)
@@ -50,6 +52,8 @@ SMODS.Enhancement {
 SMODS.Enhancement {
     key = "misprintbonus",
     atlas = "misprintenhanced",
+    artist = {"GhostSalt"},
+    coder = {"Nxkoo"},
     pos = { x = 1, y = 1 },
     config = { extra = { max = 53, min = 0 } },
     loc_vars = function(self, info_queue, card)
@@ -95,6 +99,8 @@ SMODS.Enhancement {
 SMODS.Enhancement {
     key = "misprintmult",
     atlas = "misprintenhanced",
+    artist = {"GhostSalt"},
+    coder = {"Nxkoo"},
     pos = { x = 2, y = 1 },
     config = { extra = { max = 23, min = 0 } },
     loc_vars = function(self, info_queue, card)
@@ -139,6 +145,7 @@ SMODS.Enhancement {
 SMODS.Enhancement {
     key = "misprintwild",
     atlas = "misprintenhanced",
+    artist = {"GhostSalt"},
     pos = { x = 3, y = 1 },
     coder = {"squeax09"},
     config = {
@@ -180,6 +187,8 @@ end
 SMODS.Enhancement {
     key = "misprintluckycard",
     atlas = "misprintenhanced",
+    artist = {"GhostSalt"},
+    coder = {"Nxkoo"},
     pos = { x = 4, y = 1 },
     config = {
         extra = {
@@ -236,6 +245,7 @@ SMODS.Enhancement {
 SMODS.Enhancement {
     key = "misprintglass",
     atlas = "misprintenhanced",
+    artist = {"GhostSalt"},
     coder = {"squeax09"},
     pos = { x = 5, y = 1 },
     config = { Xmult = 2.5, extra = { odds = 4, location = 1 } },
@@ -283,6 +293,8 @@ SMODS.Enhancement {
 SMODS.Enhancement {
     key = "misprintsteel",
     atlas = "misprintenhanced",
+    artist = {"GhostSalt"},
+    coder = {"Nxkoo"},
     pos = { x = 6, y = 1 },
     config = {
         extra = {

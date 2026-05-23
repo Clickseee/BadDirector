@@ -60,6 +60,8 @@ SMODS.UndiscoveredSprite {
 
 BadDirector.MisSpect {
     key = 'spectralprint',
+    artist = {"IncognitoN71"},
+    coder = {"Nxkoo"},
     pos = { x = 9, y = 6 },
     no_collection = true,
     can_use = function(self, card)
@@ -94,6 +96,8 @@ BadDirector.MisSpect {
 BadDirector.MisSpect {
     key = 'familiarprint',
     pos = { x = 0, y = 5 },
+    artist = {"IncognitoN71"},
+    coder = {"Nxkoo"},
     can_use = function(self, card)
         return G.hand and #G.hand.cards > 0
     end,
@@ -189,6 +193,8 @@ BadDirector.MisSpect {
 BadDirector.MisSpect {
     key = 'grimprint',
     pos = { x = 1, y = 5 },
+    artist = {"IncognitoN71"},
+    coder = {"Nxkoo"},
     can_use = function(self, card)
         return G.hand and #G.hand.cards > 0
     end,
@@ -282,6 +288,8 @@ BadDirector.MisSpect {
 
 BadDirector.MisSpect {
     key = 'incantaprint',
+    artist = {"IncognitoN71"},
+    coder = {"Nxkoo"},
     pos = { x = 2, y = 5 },
     can_use = function(self, card)
         return G.hand and #G.hand.cards > 0
@@ -380,6 +388,7 @@ BadDirector.MisSpect {
 
     pos = { x = 3, y = 5 },
     misprint_original = "c_talisman",
+    artist = {"IncognitoN71"},
     config = { extra = { seal = 'Gold', seal_m = 'bd_goldprint' }, odds = 6 }, -- can be adjusted as need be ofc
     coder = {"squeax09"},
     loc_vars = function(self, info_queue, card)
@@ -442,6 +451,8 @@ BadDirector.MisSpect {
 
 BadDirector.MisSpect {
     key = 'auraprint',
+    artist = {"IncognitoN71"},
+    coder = {"Nxkoo"},
     pos = { x = 4, y = 5 },
     config = {
         odds = 4
@@ -558,6 +569,8 @@ BadDirector.MisSpect {
 
 BadDirector.MisSpect {
     key = 'wrathprint',
+    artist = {"IncognitoN71"},
+    coder = {"Nxkoo"},
     pos = { x = 5, y = 5 },
     config = {
         max_highlighted = 1
@@ -661,6 +674,8 @@ BadDirector.MisSpect {
 
 BadDirector.MisSpect {
     key = 'sigilprint',
+    artist = {"IncognitoN71"},
+    coder = {"Nxkoo"},
     pos = { x = 6, y = 5 },
     can_use = function(self, card)
         return G.hand and #G.hand.cards > 0
@@ -920,6 +935,8 @@ BadDirector.MisSpect {
 
 BadDirector.MisSpect {
     key = 'ouijaprint',
+    artist = {"IncognitoN71"},
+    coder = {"Nxkoo"},
     pos = { x = 7, y = 5 },
     can_use = function(self, card)
         return G.hand and #G.hand.cards > 0
@@ -1052,6 +1069,8 @@ BadDirector.MisSpect {
 
 BadDirector.MisSpect {
     key = 'ectoprint',
+    artist = {"IncognitoN71"},
+    coder = {"Nxkoo"},
     pos = { x = 8, y = 5 },
     config = {
         neg_odds = 3,
@@ -1222,6 +1241,8 @@ BadDirector.MisSpect {
 
 BadDirector.MisSpect {
     key = 'immoprint',
+    artist = {"IncognitoN71"},
+    coder = {"Nxkoo"},
     pos = { x = 9, y = 5 },
     can_use = function(self, card)
 
@@ -1333,6 +1354,8 @@ BadDirector.MisSpect {
 
 BadDirector.MisSpect {
     key = 'ankhprint',
+    artist = {"IncognitoN71"},
+    coder = {"Nxkoo"},
     pos = { x = 0, y = 6 },
     can_use = function(self, card)
         if not G.jokers then
@@ -1393,10 +1416,8 @@ BadDirector.MisSpect {
             trigger = 'after',
             delay = 0.4,
             func = function()
-                local copied_joker = copy_card(chosen)
+                local copied_joker = BadDirector.copy_card(chosen,nil,G.jokers)
 
-                copied_joker:add_to_deck()
-                G.jokers:emplace(copied_joker)
 
                 copied_joker:start_materialize()
                 copied_joker:juice_up()
@@ -1419,6 +1440,7 @@ BadDirector.MisSpect {
     pos = { x = 1, y = 6 },
     misprint_original = "c_deja_vu",
     config = { extra = { seal = 'Red', seal_m = 'bd_redprint' }, odds = 6 }, -- refer to the comments in talisprint as this is just the same codde copied from it LOL :sob:
+    artist = {"IncognitoN71"},
     coder = {"squeax09"},
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal]
@@ -1608,6 +1630,7 @@ BadDirector.MisSpect {
     pos = { x = 3, y = 6 },
     misprint_original = "c_trance",
     config = { extra = { seal = 'Blue', seal_m = 'bd_bluesprint' }, odds = 6 }, -- refer to the comments in talisprint as this is just the same codde copied from it LOL :sob:
+    artist = {"IncognitoN71"},
     coder = {"squeax09"},
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal]
@@ -1671,6 +1694,7 @@ BadDirector.MisSpect {
     pos = { x = 4, y = 6 },
     misprint_original = "c_medium",
     config = { extra = { seal = 'Purple', seal_m = 'bd_purpleprint' }, odds = 6 }, -- refer to the comments in talisprint as this is just the same codde copied from it LOL :sob:
+    artist = {"IncognitoN71"},
     coder = {"squeax09"},
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal]
@@ -1732,6 +1756,8 @@ BadDirector.MisSpect {
 
 BadDirector.MisSpect {
     key = 'cryptidprint',
+    artist = {"IncognitoN71"},
+    coder = {"Nxkoo"},
     pos = { x = 5, y = 6 },
     config = {
         max_highlighted = 1,
@@ -1798,10 +1824,7 @@ BadDirector.MisSpect {
                         trigger = 'after',
                         delay = 0.15,
                         func = function()
-                            local copied_card = copy_card(original)
-
-                            copied_card:add_to_deck()
-                            G.hand:emplace(copied_card)
+                            local copied_card = BadDirector.copy_card(original, nil, G.hand)
 
                             copied_card:start_materialize()
                             copied_card:juice_up()
@@ -1856,6 +1879,8 @@ BadDirector.MisSpect {
 
 BadDirector.MisSpect {
     key = 'soulprint',
+    artist = {"IncognitoN71"},
+    coder = {"Nxkoo"},
     pos = { x = 2, y = 2 },
     soul_pos = {
         x = 3, y = 2,

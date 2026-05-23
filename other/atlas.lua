@@ -123,6 +123,13 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+    key = "metaselfinsert",
+    path = "meta_credit.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas {
     key = "consumisprints",
     path = "consumisprints.png",
     px = 71,
@@ -134,4 +141,16 @@ SMODS.Atlas {
     path = "vouchers.png",
     px = 71,
     py = 95,
+}
+    key = "fooselfinsert",
+    path = "foo_credits.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas {
+    key = "footeto",
+    path = "foo_teto.png",
+    px = 2200,
+    py = 5596
 }
