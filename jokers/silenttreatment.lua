@@ -60,5 +60,32 @@ SMODS.Joker {
                 end
             end
         end
-    end
+    end,
+	joker_display_def = function(JokerDisplay)
+		---@type JDJokerDefinition
+		return {
+			text = {
+				{ text = "+" },
+				{ ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
+			},
+			text_config = { colour = G.C.MULT },
+			reminder_text = {
+				{ text = "(" },
+				{ text = "Debuffed Hearts", colour = G.C.RED },
+				{ text = ")" },
+			},
+			calc_function = function(card)
+				local mult = 0
+				local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+				if text ~= 'Unknown' then
+					for _, _card in pairs(G.play and #G.play.cards > 0 and G.play.cards or G.hand.highlighted ) do
+						if _card:is_suit("Hearts") then
+							mult = mult + card.ability.extra.mult
+						end
+					end
+				end
+				card.joker_display_values.mult = mult
+			end
+		}
+	end
 }
