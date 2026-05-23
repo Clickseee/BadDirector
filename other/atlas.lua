@@ -156,3 +156,13 @@ SMODS.Atlas {
     px = 2200,
     py = 5596
 }
+
+SMODS.Atlas {
+    key = "corobo",
+    path = "corobo.png",
+    atlas_table = 'ANIMATION_ATLAS',
+	frames = 13,
+    fps = 20,
+    px = 350,
+    py = 350
+}
