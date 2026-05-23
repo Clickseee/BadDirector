@@ -269,6 +269,16 @@ BadDirector.extra_tabs = function()
                     G.CARD_H,
                     { card_limit = 1, type = 'title', highlight_limit = 0, collection = true }
                 )
+                if JokerDisplay and v.key == "j_bd_foojoker" then
+                    local jd_get_display_areas_ref = JokerDisplay.get_display_areas
+                    function JokerDisplay.get_display_areas()
+                        local ret = jd_get_display_areas_ref()
+                        if area and not area.REMOVED then
+                            table.insert(ret, area)
+                        end
+                        return ret
+                    end
+                end
                 if not v.padding then
                     local card = Card(
                         area.T.x, area.T.y,
