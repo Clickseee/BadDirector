@@ -135,3 +135,17 @@ SMODS.Atlas {
     px = 71,
     py = 95,
 }
+
+SMODS.Atlas {
+    key = "fooselfinsert",
+    path = "foo_credits.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas {
+    key = "footeto",
+    path = "foo_teto.png",
+    px = 2200,
+    py = 5596
+}

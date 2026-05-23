@@ -61,6 +61,7 @@ BadDirector.contributors = {
     { key = "j_bd_felijoker",  text = "LasagnaFelidae" },
     { key = "j_bd_ghostjoker",  text = "GhostSalt" },
     { key = "j_bd_metajoker", text = "Meta" },
+    { key = "j_bd_foojoker",  text = "Foo54" },
 }
 BadDirector.PER_PAGE = 3
 
@@ -211,6 +212,9 @@ function Card:click(...)
         if self.cardcount == 17 then
             love.system.openURL("https://github.com/LasagnaFelidae/Balatro-FelisJokeria")
         end
+    elseif self.config.center.key == "j_bd_foojoker" and G.SETTINGS.paused then
+        play_sound("bd_teto")
+        love.system.openURL(pseudorandom_element{"https://github.com/Foo54/SynthB", "https://www.youtube.com/watch?v=F38EuG2dAyM", "https://flat.horse"})
     else
         return card_click_ref(self, ...)
     end
@@ -266,9 +270,8 @@ BadDirector.extra_tabs = function()
                 G.P_CARDS.empty,
                 G.P_CENTERS[v.key]
             )
-            
-            card.no_ui = true
-            
+            card.bd_credits_card = true
+
             area:emplace(card)
             
             columns[#columns + 1] = {

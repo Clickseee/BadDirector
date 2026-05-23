@@ -1,6 +1,7 @@
 SMODS.Joker {
     key = "nxkoojoker",
     selfinsert = true,
+    discovered = true,
     rarity = 4,
     atlas = "nxkooselfinsert",
     pos = { x = 0, y = 0 },
@@ -17,6 +18,7 @@ SMODS.Joker {
 SMODS.Joker {
     key = "rubyjoker",
     selfinsert = true,
+    discovered = true,
     rarity = 4,
     atlas = "rubyselfinsert",
     pos = { x = 0, y = 0 },
@@ -34,6 +36,7 @@ SMODS.Joker {
 SMODS.Joker {
     key = "nickjoker",
     selfinsert = true,
+    discovered = true,
     rarity = 4,
     pos = { x = 0, y = 0 },
     soul_pos = { x = 0, y = 1 },
@@ -51,6 +54,7 @@ SMODS.Joker {
 SMODS.Joker {
     key = "nhjoker",
     selfinsert = true,  
+    discovered = true,
     rarity = 4,
     pos = { x = 0, y = 0 },
     soul_pos = { x = 0, y = 1 },
@@ -68,6 +72,7 @@ SMODS.Joker {
 SMODS.Joker {
     key = "thunderjoker",
     selfinsert = true,
+    discovered = true,
     rarity = 4,
     pos = { x = 0, y = 0 },
     soul_pos = { x = 0, y = 1 },
@@ -85,6 +90,7 @@ SMODS.Joker {
 SMODS.Joker {
     key = "gabbyjoker",
     selfinsert = true,
+    discovered = true,
     rarity = 4,
     pos = { x = 0, y = 0 },
     atlas = "gabbyselfinsert",
@@ -101,6 +107,7 @@ SMODS.Joker {
 SMODS.Joker {
     key = "felijoker",
     selfinsert = true,
+    discovered = true,
     rarity = 4,
     pos = { x = 0, y = 0 },
     soul_pos = {
@@ -123,6 +130,7 @@ SMODS.Joker {
 SMODS.Joker {
     key = "ghostjoker",
     selfinsert = true,
+    discovered = true,
     rarity = 4,
     pos = { x = 0, y = 0 },
     atlas = "ghostselfinsert",
@@ -142,11 +150,35 @@ SMODS.Joker {
     rarity = 4,
     atlas = "metaselfinsert",
     cost = 314159,
+SMODS.Sound{
+    key = "teto",
+    path = "teto_Track1.wav"
+}
+
+SMODS.Joker{
+    key = "foojoker",
+    selfinsert = true,
+    discovered = true,
+    rarity = 1,
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 1, y = 0},
+    atlas = "fooselfinsert",
+    cost = 401,
     no_collection = true,
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
     in_pool = function(self, args)
         return false
+    end
+}
+    end,
+    loc_vars = function(self, info_queue, card)
+        return {vars = {elements = {
+            SMODS.create_sprite(0, 0, 2, 5596/1100, "bd_footeto")
+        }}}
+    end,
+    calculate = function(self, card, context)
+        play_sound("bd_teto")
     end
 }
