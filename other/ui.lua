@@ -60,6 +60,7 @@ BadDirector.contributors = {
     { key = "j_bd_gabbyjoker",  text = "squeax09" },
     { key = "j_bd_felijoker",  text = "LasagnaFelidae" },
     { key = "j_bd_ghostjoker",  text = "GhostSalt" },
+    { key = "j_bd_metajoker", text = "Meta" },
 }
 BadDirector.PER_PAGE = 3
 

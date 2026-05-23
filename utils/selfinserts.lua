@@ -135,3 +135,18 @@ SMODS.Joker {
         return false
     end
 }
+
+SMODS.Joker {
+    key = "metajoker",
+    selfinsert = true,
+    rarity = 4,
+    atlas = "metaselfinsert",
+    cost = 314159,
+    no_collection = true,
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = true,
+    in_pool = function(self, args)
+        return false
+    end
+}

@@ -438,6 +438,18 @@ return {
                     }
                 }
             },
+            j_bd_metajoker = {
+                name = "Meta",
+                text = {
+                    {
+                        "Despite the name of the mod,",
+                        "Nxkoo is the {C:attention}best director{}."
+                    },
+                    {
+                        "Quintessence coming 'soon'..."
+                    }
+                }
+            }
         },
         mistarot = {
             c_bd_magicprint = {
