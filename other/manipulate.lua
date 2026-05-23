@@ -91,6 +91,7 @@ BadDirector.misprintize_bignum_blacklist = {
 BadDirector.misprintize_value_cap = { --yeahh.. this is mostly just for retriggers, but i might as well make it fully functional
 	perma_repetitions = 40,
 	repetitions = 40,
+	retriggers = 40,
 }
 
 function BadDirector.log_random(seed, min, max)
@@ -384,7 +385,7 @@ function BadDirector.is_card_big(joker)
 	end
     -- im making bignums not work with Cryptid. since i dont see the point
     -- could be changed but i dont feel like making 2 blacklists or making this mod use the cryptid table either
-	if center.mod and not (Cryptid or {}).mod_whitelist[center.mod.name] then
+	if center.mod and not ((Cryptid or {}).mod_whitelist or {})[center.mod.name] then
 		return false
 	end
 

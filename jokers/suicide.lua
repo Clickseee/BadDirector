@@ -135,5 +135,28 @@ SMODS.Joker {
     end,
     calc_dollar_bonus = function(self, card)
         return card.ability.extra.money
-    end
+    end,
+    
+	joker_display_def = function(JokerDisplay)
+		---@type JDJokerDefinition
+		return {
+			text = {
+                { text = "+", colour = G.C.CHIPS },
+                { ref_table = "card.ability.extra", ref_value = "chips", retrigger_type = "mult", colour = G.C.CHIPS },
+				{text = " "},
+                { text = "+", colour = G.C.MULT },
+                { ref_table = "card.ability.extra", ref_value = "mult", retrigger_type = "mult", colour = G.C.MULT },
+				{text = " "},
+				{
+					border_nodes = {
+						{ text = "X" },
+						{ ref_table = "card.ability.extra", ref_value = "xmult", retrigger_type = "exp" },
+					},
+				},
+				{text = " "},
+                { text = "$", colour = G.C.MONEY },
+                { ref_table = "card.ability.extra", ref_value = "money", retrigger_type = "mult", colour = G.C.MONEY }
+			}
+		}
+	end
 }

@@ -544,9 +544,7 @@ BadDirector.MisprTarots {
             selected[#selected + 1] = table.remove(pool, idx)
         end
 
-        for _, c in ipairs(selected) do
-            c:start_dissolve()
-        end
+        SMODS.destroy_cards(selected)
     end,
     misprint_original = "c_hanged_man"
 }
@@ -990,7 +988,7 @@ BadDirector.MisprTarots {
             func = function()
                 play_sound('tarot1')
                 joker:juice_up(0.4, 0.5)
-                joker:start_dissolve()
+                SMODS.destroy_cards(joker)
                 card:juice_up(0.3, 0.5)
 
                 for i = 1, 2 do
