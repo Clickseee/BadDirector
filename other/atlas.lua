@@ -137,6 +137,11 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+    key = "vouchers",
+    path = "vouchers.png",
+    px = 71,
+    py = 95,
+}
     key = "fooselfinsert",
     path = "foo_credits.png",
     px = 71,
