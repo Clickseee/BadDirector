@@ -63,11 +63,9 @@ SMODS.Joker {
         ---@type JDJokerDefinition
         return {
 			text = {
-				{
-                    { text = "+", colour = G.C.ORANGE},
-                    { ref_table = "card.ability.extra", ref_value = "gained", colour = G.C.ORANGE },
-                    { text = " hand size" }
-				}
+                { text = "+", colour = G.C.ORANGE},
+                { ref_table = "card.ability.extra", ref_value = "gained", colour = G.C.ORANGE },
+                { text = " hand size" }
 			}
         }
     end
