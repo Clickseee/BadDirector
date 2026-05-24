@@ -170,6 +170,6 @@ SMODS.Atlas {
 SMODS.Atlas {
     key = "njoyousspring",
     path = "tryjoyousspring.png",
-    px = 219,
-    py = 73
+    px = 437,
+    py = 145
 }
