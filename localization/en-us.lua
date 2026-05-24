@@ -531,7 +531,7 @@ return {
                     "some of the consumables and enhancements",
                     "{C:inactive,s:0.7}(My favorites I did are the Wild Cards lol){}",
                     "However, I did both code and art things",
-                    "like {C:attention}The Ache{} and the {C:attention}challenge{}...",
+                    "like {C:attention}The Ache{} and the {C:attention}challenges{}...",
                     "{C:inactive,s:0.7}...tho that's about all I really did, besides",
                     "{C:inactive,s:0.7}helping this project find its footing again after",
                     "{C:inactive,s:0.7}a few months of it in hiatus ig",
@@ -1215,7 +1215,8 @@ return {
             bd_purpleprint_seal = "alPurple Se",
         },
         challenge_names = {
-            c_bd_heartless = "Heartless"
+            c_bd_heartless = "Heartless",
+            c_bd_oops = "Oops, All Misprints"
         },
     }
 }

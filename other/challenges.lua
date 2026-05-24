@@ -29,6 +29,53 @@ function BadDirector.banned_cards_heartless()
     return ret
 end
 
+function BadDirector.banned_cards_oops()
+    local ret = {}
+    local pool = SMODS.get_attribute_pool("tarot")
+    for i=1, #pool do
+        table.insert(ret, { id = pool[i] })
+    end
+    local pool = SMODS.get_attribute_pool("planet")
+    for i=1, #pool do
+        table.insert(ret, { id = pool[i] })
+    end
+    local pool = SMODS.get_attribute_pool("spectral")
+    for i=1, #pool do
+        table.insert(ret, { id = pool[i] })
+    end
+    table.insert(ret, { id = 'j_bd_fakepromises' })
+    table.insert(ret, { id = 'j_bd_propinquity' })
+    local ret2 = {}
+    for k, v in ipairs(G.P_CENTER_POOLS.Consumeables) do
+        table.insert(ret2, v)
+    end
+    for i=1, #ret2 do
+        if ret2[i].set == "Tarot" then
+            table.insert(ret, { id = ret2[i].key })
+        end
+    end
+    for i=1, #ret2 do
+        if ret2[i].set == "Planet" then
+            table.insert(ret, { id = ret2[i].key })
+        end
+    end
+    table.insert(ret, { id = 'p_arcana_normal_1', ids = {
+        'p_arcana_normal_1', 'p_arcana_normal_2', 'p_arcana_normal_3', 'p_arcana_normal_4', 'p_arcana_jumbo_1', 'p_arcana_jumbo_2', 'p_arcana_mega_1', 'p_arcana_mega_2',
+    }})
+    table.insert(ret, { id = 'p_celestial_normal_1', ids = {
+        'p_celestial_normal_1', 'p_celestial_normal_2', 'p_celestial_normal_3', 'p_celestial_normal_4', 'p_celestial_jumbo_1', 'p_celestial_jumbo_2', 'p_celestial_mega_1', 'p_celestial_mega_2',
+    }})
+    table.insert(ret, { id = 'p_spectral_normal_1', ids = {
+        'p_spectral_normal_1', 'p_spectral_normal_2', 'p_spectral_jumbo_1', 'p_spectral_mega_1',
+    }})
+    table.insert(ret, { id = 'v_planet_merchant' })
+    table.insert(ret, { id = 'v_planet_tycoon' })
+    table.insert(ret, { id = 'v_tarot_merchant' })
+    table.insert(ret, { id = 'v_tarot_tycoon' })
+    -- did the EXACT same thing with modded consumables???????? 
+    return ret
+end
+
 SMODS.Challenge {
     key = "heartless",
     restrictions = {
@@ -44,4 +91,25 @@ SMODS.Challenge {
         type = 'Challenge Deck',
         no_suits = { H = true }
     }
+}
+
+SMODS.Challenge {
+    key = "oops",
+    restrictions = {
+        banned_cards = BadDirector.banned_cards_oops(),
+        banned_tags = {
+            { id = 'tag_meteor' },
+            { id = 'tag_charm' },
+            { id = 'tag_ethereal' },
+        },
+    },
+    deck = {
+        type = 'Challenge Deck',
+        edition = "bd_misprinted"
+    },
+    calculate = function(self, context)
+        G.GAME.planet_rate = 0
+        G.GAME.tarot_rate = 0
+    end
+
 }

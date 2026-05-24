@@ -368,5 +368,8 @@ SMODS.Tag {
             end)
             tag.triggered = true
         end
+    end,
+    in_pool = function(self, args)
+        return false
     end
 }
