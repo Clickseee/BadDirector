@@ -166,3 +166,10 @@ SMODS.Atlas {
     px = 350,
     py = 350
 }
+
+SMODS.Atlas {
+    key = "njoyousspring",
+    path = "tryjoyousspring.png",
+    px = 219,
+    py = 73
+}

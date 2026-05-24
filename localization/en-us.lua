@@ -464,17 +464,17 @@ return {
             j_bd_nxkoojoker = {
                 name = "Nxkoo",
                 text = {
-                    "super cool placeholder"
+                    "Apathy."
                 }
             },
             j_bd_rubyjoker = {
-                name = "RUBY",
+                name = "lord.ruby",
                 text = {
                     "super cool placeholder"
                 }
             },
-            j_bd_incognitojoker = {
-                name = "Incognito",
+            j_bd_nickjoker = {
+                name = "IncognitoN71",
                 text = {
                     {
                         "{s:0.3} ",
@@ -509,15 +509,22 @@ return {
                 }
             },
             j_bd_nhjoker = {
-                name = "nh",
+                name = "Nh6574",
                 text = {
-                    "super cool placeholder"
+                    " {element:1} "
                 }
             },
             j_bd_thunderjoker = {
-                name = "thunder",
+                name = "ThunderEdge",
                 text = {
-                    "super cool placeholder"
+                    {
+                        "Great {C:attention}programmer{} plagued by {C:red}boredom",
+                        "I helped with most of the UI,",
+                        "especially this Credits page!"
+                    },
+                    {
+                        "Also try out {C:blue}Multiverse{}!"
+                    }
                 }
             },
             j_bd_gabbyjoker = {
@@ -546,9 +553,16 @@ return {
                 text = {"pet me"}
             },
             j_bd_ghostjoker = {
-                name = "ghost",
+                name = "GhostSalt",
                 text = {
-                    "super cool placeholder"
+                    {
+                        "I did some {C:dark_edition}edition{} sounds",
+                        "and some {C:spectral}Spectral{} art!",
+                        "{C:purple,E:1,s:1.3}sqrk :3"
+                    },
+                    {
+                        "Also try out {C:tarot}Phanta{}, {C:money}Magnum Opus{}, and {C:green}Catan{}!"
+                    }
                 }
             },
             j_bd_foojoker = {
