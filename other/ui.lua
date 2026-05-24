@@ -191,6 +191,14 @@ SMODS.Sound {
     volume = 1
 }
 
+for i=1, 6 do
+    SMODS.Sound {
+        key = "gabby" .. i,
+        path = "gabby" .. i .. ".ogg",
+        volume = 1
+    }
+end
+
 local card_click_ref = Card.click
 function Card:click(...)
     if self.config.center.key == "j_bd_rubyjoker" and G.SETTINGS.paused then
@@ -219,6 +227,12 @@ function Card:click(...)
     elseif self.config.center.key == "j_bd_foojoker" and G.SETTINGS.paused then
         play_sound("bd_teto")
         love.system.openURL(pseudorandom_element{"https://github.com/Foo54/SynthB", "https://www.youtube.com/watch?v=F38EuG2dAyM", "https://flat.horse"})
+    elseif self.config.center.key == "j_bd_gabbyjoker" and G.SETTINGS.paused then
+        local gabby_list = {}
+        for i=1, 6 do
+            table.insert(gabby_list, "bd_gabby" .. i)
+        end
+        play_sound(pseudorandom_element(gabby_list, pseudoseed("bd_gabby_sfx")), 1, 1)
     else
         return card_click_ref(self, ...)
     end
