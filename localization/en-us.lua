@@ -473,7 +473,7 @@ return {
                     "super cool placeholder"
                 }
             },
-            j_bd_nickjoker = {
+            j_bd_incognitojoker = {
                 name = "IncognitoN71",
                 text = {
                     {
