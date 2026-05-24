@@ -464,16 +464,16 @@ return {
             j_bd_nxkoojoker = {
                 name = "Nxkoo",
                 text = {
-                    "Apathy."
+                    ":D"
                 }
             },
             j_bd_rubyjoker = {
                 name = "lord.ruby",
                 text = {
-                    "super cool placeholder"
+                    "Misprinted Planet code"
                 }
             },
-            j_bd_nickjoker = {
+            j_bd_incognitojoker = {
                 name = "IncognitoN71",
                 text = {
                     {
