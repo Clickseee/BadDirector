@@ -52,7 +52,7 @@ SMODS.Joker {
         ["Object"] = true,
         ["Vermin"] = true,
     },
-    attributes = {"retrigger", "joker"},
+    attributes = {"xchips"},
     loc_vars = function(self, info_queue, card)
         local cb = BadDirector.count_browsers()
         return {
