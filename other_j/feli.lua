@@ -20,9 +20,14 @@ SMODS.Joker {
         info_queue[#info_queue+1] = G.P_CENTERS.e_bd_misprinted
         if G.playing_cards then
             for _, playing_card in ipairs(G.playing_cards) do
+                local flag = false
                 for _, enh in ipairs(BadDirector.misprint_enhancements) do
-                    if SMODS.has_enhancement(playing_card, enh.key) then misprint_tally = misprint_tally + 1 
-                    elseif playing_card.edition.key == "e_bd_misprinted" then misprint_tally = misprint_tally + 1 end
+                    if SMODS.has_enhancement(playing_card, enh.key) then 
+                        misprint_tally = misprint_tally + 1 
+                    end
+                end
+                if not flag and playing_card.edition and playing_card.edition.key == "e_bd_misprinted" then 
+                    misprint_tally = misprint_tally + 1 
                 end
             end
         end
@@ -32,21 +37,31 @@ SMODS.Joker {
         if context.joker_main then
             local misprint_tally = 0
             for _, playing_card in ipairs(G.playing_cards) do
+                local flag = false
                 for _, enh in ipairs(BadDirector.misprint_enhancements) do
-                    if SMODS.has_enhancement(playing_card, enh.key) then misprint_tally = misprint_tally + 1 
-                    elseif playing_card.edition.key == "e_bd_misprinted" then misprint_tally = misprint_tally + 1 end
+                    if SMODS.has_enhancement(playing_card, enh.key) then 
+                        misprint_tally = misprint_tally + 1 
+                    end
+                end
+                if not flag and playing_card.edition and playing_card.edition.key == "e_bd_misprinted" then 
+                    misprint_tally = misprint_tally + 1 
                 end
             end
-            return { vars = { card.ability.extra.chips, card.ability.extra.chips * misprint_tally } }
+            return { chips = card.ability.extra.chips * misprint_tally }
         end
         
     end,
     in_pool = function(self, args) --equivalent to `enhancement_gate = 'm_stone'` (but less broken and more flexible lol)
-        for _, playing_card in ipairs(G.playing_cards or {}) do
+        for _, playing_card in ipairs(G.playing_cards) do
+            local flag = false
             for _, enh in ipairs(BadDirector.misprint_enhancements) do
-                    if SMODS.has_enhancement(playing_card, enh.key) then return true 
-                    elseif playing_card.edition.key == "e_bd_misprinted" then return true end
+                if SMODS.has_enhancement(playing_card, enh.key) then 
+                    return true
                 end
+            end
+            if not flag and playing_card.edition and playing_card.edition.key == "e_bd_misprinted" then 
+                return true
+            end
         end
         return false
     end
