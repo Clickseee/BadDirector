@@ -23,6 +23,7 @@ _load_folder("consumables/")
 _load_folder("vouchers/")
 _load_folder("enhancements/")
 _load_folder("jokers/")
+_load_folder("other_j/")
 
 BadDirector.optional_features = {
     cardareas = {},

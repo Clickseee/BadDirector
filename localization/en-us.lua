@@ -460,6 +460,15 @@ return {
                     }
                 }
             },
+            ---
+            j_bd_mpreg = {
+                name = "Pregnant Chad",
+                text = {
+                    "Retrigger the {C:attention}first{}",
+                    "Joker triggered",
+                    "{C:attention}#1#{} additional times"
+                }
+            },
             -- Credit Localization
             j_bd_nxkoojoker = {
                 name = "Nxkoo",
