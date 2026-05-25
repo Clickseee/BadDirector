@@ -35,6 +35,14 @@ SMODS.Atlas {
 	py = 34,
 }
 
+SMODS.Atlas {
+    key = "pregnantchad",
+    path = "preggerschad.png",
+    px = 71,
+    py = 95,
+}
+
+
 SMODS.Atlas { -- ALL ARTS BELONG TO RATTLINGSNOW353 WITH PERMISSION
     key = "rattlingsnow",
     path = "rattling.png",
