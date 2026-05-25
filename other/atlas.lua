@@ -42,6 +42,12 @@ SMODS.Atlas {
     py = 95,
 }
 
+SMODS.Atlas { 
+    key = "forgery",
+    path = "forgery.png",
+    px = 73,
+    py = 95,
+}
 
 SMODS.Atlas { -- ALL ARTS BELONG TO RATTLINGSNOW353 WITH PERMISSION
     key = "rattlingsnow",

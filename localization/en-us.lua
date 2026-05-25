@@ -460,13 +460,20 @@ return {
                     }
                 }
             },
-            ---
             j_bd_mpreg = {
                 name = "Pregnant Chad",
                 text = {
                     "Retrigger the {C:attention}first{}",
                     "Joker triggered",
                     "{C:attention}#1#{} additional times"
+                }
+            },
+            j_bd_forgery = {
+                name = "Forgery",
+                text = {
+                    "Creates a perfect copy*",
+                    "of a random card in {C:attention}hand{}",
+                    "at the end of round"
                 }
             },
             -- Credit Localization
