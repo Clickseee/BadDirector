@@ -468,6 +468,20 @@ return {
                     "{C:attention}#1#{} additional times"
                 }
             },
+            j_bd_p03 = {
+                name = "{C:planet}P03",
+                text = {
+                    {
+                    "Gives {X:chips,C:white}X#1#{} Chips per",
+                    "open {C:planet}browser task{}",
+                    "{C:inactive}(Currently {X:chips,C:white}X#2#{C:inactive} Chips)",
+                    },
+                    {
+                        "{C:inactive}Why am i here? To perform",
+                        "{C:inactive}the {C:planet,E:2}Great Transcendence",
+                        "{C:inactive}of course!",
+                    }
+            },
             j_bd_forgery = {
                 name = "Forgery",
                 text = {
