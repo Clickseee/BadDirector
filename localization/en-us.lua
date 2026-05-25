@@ -460,7 +460,6 @@ return {
                     }
                 }
             },
-            ---
             j_bd_mpreg = {
                 name = "Pregnant Chad",
                 text = {
@@ -482,6 +481,13 @@ return {
                         "{C:inactive}the {C:planet,E:2}Great Transcendence",
                         "{C:inactive}of course!",
                     }
+            },
+            j_bd_forgery = {
+                name = "Forgery",
+                text = {
+                    "Creates a perfect copy*",
+                    "of a random card in {C:attention}hand{}",
+                    "at the end of round"
                 }
             },
             -- Credit Localization
