@@ -1,6 +1,6 @@
 SMODS.Joker {
     key = "redflag",
-    rarity = 1,
+    rarity = 2,
     atlas = "<3",
     artist = {"IncognitoN71"},
     pos = { x = 1, y = 2 },
@@ -16,7 +16,7 @@ SMODS.Joker {
     config = {
         extra = {
             mult = 0,
-            gain = 2
+            gain = 1
         }
     },
 
