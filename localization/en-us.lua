@@ -491,6 +491,7 @@ return {
                         "{C:inactive}the {C:planet,E:2}Great Transcendence",
                         "{C:inactive}of course!",
                     }
+                },
             },
             j_bd_forgery = {
                 name = "Forgery",
