@@ -447,3 +447,16 @@ SMODS.current_mod.ui_config = {
     colour = darken(G.C.BLACK, .2),
     outline_colour = lighten(G.C.BLACK, .2),
 }
+
+-- Misprint Deck Toggle UI
+BadDirector.do_misprint_deck = false
+
+function G.UIDEF.bd_misprint_toggle ()
+    return {n = G.UIT.C, config = {minw = 2, minh = 0.5, maxw = 2, maxh = 0.5}, nodes = {
+        create_toggle{
+            label = "Misprint Deck",
+            ref_table = BadDirector,
+            ref_value = "do_misprint_deck"
+        }
+    }}
+end
