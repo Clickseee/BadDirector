@@ -22,7 +22,8 @@ SMODS.Enhancement {
                 message_card = card,
             }
         end
-    end
+    end,
+    m_misprint_original = "m_stone",
 }
 
 SMODS.Enhancement {
@@ -46,7 +47,8 @@ SMODS.Enhancement {
             local multiply = pseudorandom('baddirectormorelikegooddirector', card.ability.extra.min*100, card.ability.extra.max*100)/100
             card.ability.h_dollars = money * multiply
         end
-    end
+    end,
+    m_misprint_original = "m_gold",
 }
 
 SMODS.Enhancement {
@@ -92,7 +94,8 @@ SMODS.Enhancement {
                 chips = pseudorandom('tmtrainuh', card.ability.extra.min, card.ability.extra.max)
             }
         end
-    end
+    end,
+    m_misprint_original = "m_bonus",
 }
 
 
@@ -139,7 +142,8 @@ SMODS.Enhancement {
                 mult = pseudorandom('tmtrainuh', card.ability.extra.min, card.ability.extra.max)
             }
         end
-    end
+    end,
+    m_misprint_original = "m_mult",
 }
 
 SMODS.Enhancement {
@@ -171,7 +175,8 @@ SMODS.Enhancement {
         if context.repetition and context.cardarea == G.play then
             return { repetitions = card.ability.extra.wildrep }
         end
-    end
+    end,
+    m_misprint_original = "m_wild",
 }
 
 local function reset_suitwash()
@@ -239,7 +244,8 @@ SMODS.Enhancement {
                 return ret
             end
         end
-    end
+    end,
+    m_misprint_original = "m_lucky",
 }
 
 SMODS.Enhancement {
@@ -283,7 +289,8 @@ SMODS.Enhancement {
                 end
             end
         end
-    end
+    end,
+    m_misprint_original = "m_lucky",
 }
 
 SMODS.Enhancement {
@@ -316,7 +323,8 @@ SMODS.Enhancement {
                 SMODS.calculate_effect({ xchips = 1.5 }, pcard)
             end
         end
-    end
+    end,
+    m_misprint_original = "m_steel",
 }
 
 function SMODS.current_mod.reset_game_globals(run_start)
