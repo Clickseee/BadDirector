@@ -449,14 +449,40 @@ SMODS.current_mod.ui_config = {
 }
 
 -- Misprint Deck Toggle UI
+BadDirector.show_misprint_deck = true
 BadDirector.do_misprint_deck = false
+BadDirector.misprint_toggle_w = 2
 
 function G.UIDEF.bd_misprint_toggle ()
-    return {n = G.UIT.C, config = {minw = 2, minh = 0.5, maxw = 2, maxh = 0.5}, nodes = {
+    return {n = G.UIT.C, config = {align = "cm", minw = BadDirector.misprint_toggle_w, minh = 0.5, maxw = BadDirector.misprint_toggle_w, maxh = 0.5}, nodes = {
+        {n = G.UIT.C, config = {align = "cr", minw = BadDirector.misprint_toggle_w - 0.5, minh = 0.5, maxw = BadDirector.misprint_toggle_w - 0.5, maxh = 0.5}, nodes = {
+            {n = G.UIT.T, config = {text = "Misprint Cards?", colour = G.C.UI.TEXT_LIGHT, scale = 0.5}}
+        }},
         create_toggle{
             label = "Misprint Deck",
             ref_table = BadDirector,
-            ref_value = "do_misprint_deck"
+            ref_value = "do_misprint_deck",
+            w = 0.5,
+            h = 0.5,
+            scale = 0.5,
+            label_scale = 1,
+            hide_label = true,
+            col = true
         }
     }}
+end
+
+-- Galdur Compat
+if create_deck_page_cycle then
+    local create_deck_page_cycle_ref = create_deck_page_cycle
+    function create_deck_page_cycle ()
+        local ret = create_deck_page_cycle_ref()
+        if BadDirector.show_misprint_deck then
+            table.insert(ret.nodes[1].nodes, 1, G.UIDEF.bd_misprint_toggle())
+            table.insert(ret.nodes[1].nodes, 2, {n = G.UIT.C, nodes = {{n = G.UIT.B, config = {w = 0.2, h = 0.5}}}})
+            table.insert(ret.nodes[1].nodes, {n = G.UIT.C, nodes = {{n = G.UIT.B, config = {w = 0.2, h = 0.5}}}})
+            table.insert(ret.nodes[1].nodes, {n = G.UIT.C, nodes = {{n = G.UIT.B, config = {w = BadDirector.misprint_toggle_w, h = 0.5}}}})
+        end
+        return ret
+    end
 end
