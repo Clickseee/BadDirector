@@ -1,5 +1,5 @@
 <p align="center">
-<img class ="center" width="640" height="480" alt="modlogo" src="https://github.com/user-attachments/assets/afd2278f-72ac-4d3f-a0ef-831901eb0fee" />
+<img class ="center" width="640" height="480" alt="modlogo" src="https://cdn.discordapp.com/attachments/1402741995587371134/1509349114721337404/modlogo.png?ex=6a18da67&is=6a1788e7&hm=4cff26247fd45edc47dafcf0eabe4c14dbf90bc5ba164b3da8d100ea73259025&" />
 </p>
 
 # Bad Director
