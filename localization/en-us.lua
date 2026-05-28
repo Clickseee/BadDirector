@@ -542,7 +542,9 @@ return {
             j_bd_rubyjoker = {
                 name = "lord.ruby",
                 text = {
-                    "Misprinted Planet code"
+                    "Hello, i did all of",
+                    "the Misprint {C:planet}Planet{} code",
+                    "and the {C:dark_edition}Editions{} code."
                 }
             },
             j_bd_incognitojoker = {
