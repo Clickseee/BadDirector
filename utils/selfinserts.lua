@@ -1,5 +1,6 @@
 SMODS.Joker {
     key = "nxkoojoker",
+    partner = "Nxkoo",
     selfinsert = true,
     discovered = true,
     rarity = 4,
