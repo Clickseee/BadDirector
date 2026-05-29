@@ -471,7 +471,7 @@ SMODS.DrawStep{
 }
 
 function BadDirector.is_in_deck_or_state_select(card)
-    return card.area and (card.area.config.deck_select or card.area.config.selected_deck or card.area.config.stake_select or card.area.config.stake_chips)
+    return (not Galdur and G.SETTINGS.current_setup == "New Run" and G.OVERLAY_MENU) or (card.area and (card.area.config.deck_select or card.area.config.selected_deck or card.area.config.stake_select or card.area.config.stake_chips))
 end
 
 local back_drawstep_ref = SMODS.DrawSteps.back.func
@@ -502,6 +502,17 @@ function G.UIDEF.bd_misprint_toggle ()
             col = true
         }
     }}
+end
+
+-- Vanilla
+local run_setup_option_ref = G.UIDEF.run_setup_option
+function G.UIDEF.run_setup_option(type)
+    local ret = run_setup_option_ref(type)
+    if type == "New Run" then
+        table.insert(ret.nodes, #ret.nodes, {n = G.UIT.R, config = {align = "cm"}, nodes = {G.UIDEF.bd_misprint_toggle()}})
+        table.insert(ret.nodes, #ret.nodes, {n = G.UIT.R, config = {align = "cm"}, nodes = {{n = G.UIT.B, config = {w = 0.1, h = 0.3}}}})
+    end
+    return ret
 end
 
 -- Galdur Compat
