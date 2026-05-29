@@ -35,6 +35,16 @@ both apply and config are the same as making a normal deck
 
 ]]
 
+--[[
+
+TODO:
+- implement loc_vars and loc_key
+- create effects for each misprinted deck
+- implement unlock requirement (win a run on Missing Deck)
+
+]]
+
+-- example
 BadDirector.MisprintedDecks.b_red = {
 	apply = function(self)
 		G.E_MANAGER:add_event(Event{
@@ -49,3 +59,6 @@ BadDirector.MisprintedDecks.b_red = {
 		hands = 10
 	}
 }
+
+BadDirector.MisprintedDecks.b_blue = {}
+BadDirector.MisprintedDecks.b_black = {}

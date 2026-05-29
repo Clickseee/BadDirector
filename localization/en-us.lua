@@ -642,12 +642,25 @@ return {
             j_bd_foojoker = {
                 name = "Foo54",
                 text = {
-                    "hi i made the credits text",
-                    "oh i also made the text you see above me change",
-                    "uh i also made the JokerDisplay compatability",
-                    "you should spawn my card in during a run it'll be funny trust",
-                    "uh if you want to check out SynthB its a cool vocaloid themed mod",
-                    " {element:1} "
+                    {
+                        "{s:3,E:2}Hello!",
+                        "I joined this project rather late so I don't have much in here.",
+                        "Most of my stuff doesn't have credits attached it though lol",
+                        "I made JokerDisplay compatibility, the code for everyone's credits text,",
+                        "and made the API for Misprinted Decks",
+                    },
+                    {
+                        "Fun Fact: if you spawn in my card during a run,",
+                        "you instantly win provided your volume is maxed",
+                        "{s:0.8}JokerDisplay must be enabled for this effect",
+                    },
+                    {
+                        "uh if you want to check out SynthB its a cool vocaloid themed mod",
+                        "its got crossmod with Bad Director too",
+                    },
+                    {
+                        " {element:1} "
+                    }
                 }
             },
             j_bd_metajoker = {
