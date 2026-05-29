@@ -62,3 +62,4 @@ BadDirector.MisprintedDecks.b_red = {
 
 BadDirector.MisprintedDecks.b_blue = {}
 BadDirector.MisprintedDecks.b_black = {}
+BadDirector.MisprintedDecks.b_abandoned = {}

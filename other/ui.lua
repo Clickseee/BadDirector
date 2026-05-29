@@ -457,7 +457,7 @@ function BadDirector.get_back_key (card)
 end
 
 function BadDirector.should_misprint_deck(card)
-    return (BadDirector.do_misprint_deck and G.SETTINGS.current_setup == "New Run" and BadDirector.MisprintedDecks[BadDirector.get_back_key(card)]) or (G.GAME and G.GAME.bd_misprinted_deck and not BadDirector.is_in_deck_or_state_select(card)) or (G.SAVED_GAME and G.SAVED_GAME.GAME.bd_misprinted_deck and G.SETTINGS.current_setup == "Continue")
+    return (BadDirector.do_misprint_deck and G.SETTINGS.current_setup == "New Run" and (BadDirector.MisprintedDecks[BadDirector.get_back_key(card)] or (card.params and card.params.galdur_selector))) or (G.GAME and G.GAME.bd_misprinted_deck and not BadDirector.is_in_deck_or_state_select(card)) or (G.SAVED_GAME and G.SAVED_GAME.GAME.bd_misprinted_deck and G.SETTINGS.current_setup == "Continue")
 end
 
 SMODS.Shader{
