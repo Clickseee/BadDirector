@@ -21,7 +21,7 @@ BadDirector.Spectral {
             trigger = 'after',
             delay = 0.4,
             func = function()
-                local eligible_card = pseudorandom_element(editionless_jokers, 'im glad to have worked on this with you - mon toutou')
+                local eligible_card = pseudorandom_element(editionless_jokers, 'im glad to have worked on this with you - mon toutou') -- <3
                 eligible_card:set_edition("e_bd_thermal")
 
                 G.GAME.bd_heat_minus = G.GAME.bd_heat_minus or 1

@@ -187,3 +187,17 @@ SMODS.Atlas {
     px = 437,
     py = 145
 }
+
+SMODS.Atlas {
+    key = "vegaselfinserts",
+    path = "vegaselfinsert.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas {
+    key = "vegatarot",
+    path = "vegatarots.png",
+    px = 71,
+    py = 95,
+}

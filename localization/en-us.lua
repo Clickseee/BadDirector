@@ -669,6 +669,12 @@ return {
                     }
                 }
             },
+            j_bd_vegajoker = {
+                name = "VegaTheAvali",
+                text = {
+                    "Wow, much card"
+                }
+            },
         },
         mistarot = {
             c_bd_magicprint = {

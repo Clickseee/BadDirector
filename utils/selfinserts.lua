@@ -230,3 +230,21 @@ SMODS.Joker {
         }
     end
 }
+
+SMODS.Joker {
+    key = "vegajoker",
+    selfinsert = true,
+    discovered = true,
+    rarity = 4,
+    pos = { x = 0, y = 0 },
+    soul_pos = { x = 1, y = 0 },
+    atlas = "vegaselfinserts",
+    cost = 666,
+    no_collection = true,
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = true,
+    in_pool = function(self, args)
+        return false
+    end
+}

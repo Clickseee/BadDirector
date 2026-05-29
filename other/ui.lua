@@ -65,6 +65,7 @@ BadDirector.contributors = {
     { key = "j_bd_ghostjoker",  text = "GhostSalt" },
     { key = "j_bd_metajoker", text = "Meta" },
     { key = "j_bd_foojoker",  text = "Foo54" },
+    { key = "j_bd_vegajoker",  text = "VegaTheAvali" },
 }
 BadDirector.PER_PAGE = 3
 
