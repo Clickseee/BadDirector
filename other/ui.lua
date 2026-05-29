@@ -450,8 +450,8 @@ SMODS.current_mod.ui_config = {
 
 -- Misprint Deck Shader
 
-function BadDirector.should_misprint_deck()
-    return (BadDirector.do_misprint_deck and G.SETTINGS.current_setup == "New Run") or (G.GAME and G.GAME.bd_misprinted_deck) or (G.SAVED_GAME and G.SAVED_GAME.GAME.bd_misprinted_deck and G.SETTINGS.current_setup == "Continue")
+function BadDirector.should_misprint_deck(card)
+    return (BadDirector.do_misprint_deck and G.SETTINGS.current_setup == "New Run") or (G.GAME and G.GAME.bd_misprinted_deck and not BadDirector.is_in_deck_or_state_select(card)) or (G.SAVED_GAME and G.SAVED_GAME.GAME.bd_misprinted_deck and G.SETTINGS.current_setup == "Continue")
 end
 
 SMODS.Shader{
@@ -464,16 +464,20 @@ SMODS.DrawStep{
 	order = 20,
     conditions = {facing = "back"},
 	func = function (card, layer)
-		if BadDirector.should_misprint_deck() then
+		if BadDirector.should_misprint_deck(card) then
 			card.children.back:draw_shader("bd_misprint_deck", nil, card.ARGS.send_to_shader)
 		end
 	end
 }
 
+function BadDirector.is_in_deck_or_state_select(card)
+    return card.area and (card.area.config.deck_select or card.area.config.selected_deck or card.area.config.stake_select or card.area.config.stake_chips)
+end
+
 local back_drawstep_ref = SMODS.DrawSteps.back.func
-function SMODS.DrawSteps.back.func (layer)
-    if BadDirector.should_misprint_deck() then return end
-    return back_drawstep_ref(layer)
+function SMODS.DrawSteps.back.func (self)
+    if BadDirector.should_misprint_deck(self) then return end
+    return back_drawstep_ref(self)
 end
 
 -- Misprint Deck Toggle UI
