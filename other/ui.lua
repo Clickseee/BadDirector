@@ -448,6 +448,34 @@ SMODS.current_mod.ui_config = {
     outline_colour = lighten(G.C.BLACK, .2),
 }
 
+-- Misprint Deck Shader
+
+function BadDirector.should_misprint_deck()
+    return (BadDirector.do_misprint_deck and G.SETTINGS.current_setup == "New Run") or (G.GAME and G.GAME.bd_misprinted_deck) or (G.SAVED_GAME and G.SAVED_GAME.GAME.bd_misprinted_deck and G.SETTINGS.current_setup == "Continue")
+end
+
+SMODS.Shader{
+    key = "misprint_deck",
+    path = "misprint_deck.fs"
+}
+
+SMODS.DrawStep{
+	key = "misprint_deck",
+	order = 20,
+    conditions = {facing = "back"},
+	func = function (card, layer)
+		if BadDirector.should_misprint_deck() then
+			card.children.back:draw_shader("bd_misprint_deck", nil, card.ARGS.send_to_shader)
+		end
+	end
+}
+
+local back_drawstep_ref = SMODS.DrawSteps.back.func
+function SMODS.DrawSteps.back.func (layer)
+    if BadDirector.should_misprint_deck() then return end
+    return back_drawstep_ref(layer)
+end
+
 -- Misprint Deck Toggle UI
 BadDirector.show_misprint_deck = true
 BadDirector.do_misprint_deck = false
