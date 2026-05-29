@@ -1,15 +1,19 @@
 --is this necessaryoid or just utilslop
 function BadDirector.build_misprint_table()
     BadDirector.Misprints = {}
+    BadDirector.MisprintsEnh= {}
     for i, v in pairs(G.P_CENTERS) do
         if v.misprint_original then
             BadDirector.Misprints[v.misprint_original] = v.key
+        end
+        if v.misprint_enh_original then
+            BadDirector.MisprintsEnh[v.misprint_enh_original] = v.key
         end
     end
 end
 
 function BadDirector.misprint(card)
-    if card.ability.consumeable and BadDirector.Misprints[card.config.center.key] then
+    if card.ability.consumeable and (BadDirector.Misprints[card.config.center.key] or card.config.center.misprint_original) then
         G.E_MANAGER:add_event(Event{
             trigger = "after",
             delay = 0.25,
@@ -23,7 +27,7 @@ function BadDirector.misprint(card)
             delay = 1.25,
             trigger = "after",
             func = function()
-                card:set_ability(BadDirector.Misprints[card.config.center.key])
+                card:set_ability(BadDirector.Misprints[card.config.center.key] or card.config.center.misprint_original)
                 return true
             end
         })
@@ -36,8 +40,11 @@ function BadDirector.misprint(card)
             end
         })
         delay(0.75)
-    else    
-        card:set_edition("e_bd_misprinted")
+    else
+        if (BadDirector.MisprintsEnh[card.config.center.key] or card.config.center.misprint_enh_original) then
+            card:set_ability(BadDirector.MisprintsEnh[card.config.center.key] or card.config.center.misprint_enh_original)
+        end
+        card:set_edition((card.edition and card.edition.key == "e_bd_misprinted") and "e_base" or "e_bd_misprinted")
     end
 end
 
