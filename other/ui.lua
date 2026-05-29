@@ -508,9 +508,11 @@ end
 local run_setup_option_ref = G.UIDEF.run_setup_option
 function G.UIDEF.run_setup_option(type)
     local ret = run_setup_option_ref(type)
-    if type == "New Run" then
-        table.insert(ret.nodes, #ret.nodes, {n = G.UIT.R, config = {align = "cm"}, nodes = {G.UIDEF.bd_misprint_toggle()}})
-        table.insert(ret.nodes, #ret.nodes, {n = G.UIT.R, config = {align = "cm"}, nodes = {{n = G.UIT.B, config = {w = 0.1, h = 0.3}}}})
+    if BadDirector.show_misprint_deck then
+        if type == "New Run" then
+            table.insert(ret.nodes, #ret.nodes, {n = G.UIT.R, config = {align = "cm"}, nodes = {G.UIDEF.bd_misprint_toggle()}})
+            table.insert(ret.nodes, #ret.nodes, {n = G.UIT.R, config = {align = "cm"}, nodes = {{n = G.UIT.B, config = {w = 0.1, h = 0.3}}}})
+        end
     end
     return ret
 end
