@@ -450,8 +450,14 @@ SMODS.current_mod.ui_config = {
 
 -- Misprint Deck Shader
 
+function BadDirector.get_back_key (card)
+    if not Galdur then return G.GAME.selected_back.effect.center.key end
+    local suc, ret = pcall(function() return card.params.galdur_back.effect.center.key end)
+    if suc then return ret else return "this should not be a valid key" end
+end
+
 function BadDirector.should_misprint_deck(card)
-    return (BadDirector.do_misprint_deck and G.SETTINGS.current_setup == "New Run") or (G.GAME and G.GAME.bd_misprinted_deck and not BadDirector.is_in_deck_or_state_select(card)) or (G.SAVED_GAME and G.SAVED_GAME.GAME.bd_misprinted_deck and G.SETTINGS.current_setup == "Continue")
+    return (BadDirector.do_misprint_deck and G.SETTINGS.current_setup == "New Run" and BadDirector.MisprintedDecks[BadDirector.get_back_key(card)]) or (G.GAME and G.GAME.bd_misprinted_deck and not BadDirector.is_in_deck_or_state_select(card)) or (G.SAVED_GAME and G.SAVED_GAME.GAME.bd_misprinted_deck and G.SETTINGS.current_setup == "Continue")
 end
 
 SMODS.Shader{

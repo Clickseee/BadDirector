@@ -34,3 +34,18 @@ function BadDirector.MisprintedDecks.deck_key = {
 both apply and config are the same as making a normal deck
 
 ]]
+
+BadDirector.MisprintedDecks.b_red = {
+	apply = function(self)
+		G.E_MANAGER:add_event(Event{
+			func = function ()
+				local tag = Tag("bd_charm")
+				tag:set_ability()
+				add_tag(tag)
+			end
+		})
+	end,
+	config = {
+		hands = 10
+	}
+}
