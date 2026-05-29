@@ -447,3 +447,87 @@ SMODS.current_mod.ui_config = {
     colour = darken(G.C.BLACK, .2),
     outline_colour = lighten(G.C.BLACK, .2),
 }
+
+-- Misprint Deck Shader
+
+function BadDirector.should_misprint_deck(card)
+    return (BadDirector.do_misprint_deck and G.SETTINGS.current_setup == "New Run") or (G.GAME and G.GAME.bd_misprinted_deck and not BadDirector.is_in_deck_or_state_select(card)) or (G.SAVED_GAME and G.SAVED_GAME.GAME.bd_misprinted_deck and G.SETTINGS.current_setup == "Continue")
+end
+
+SMODS.Shader{
+    key = "misprint_deck",
+    path = "misprint_deck.fs"
+}
+
+SMODS.DrawStep{
+	key = "misprint_deck",
+	order = 20,
+    conditions = {facing = "back"},
+	func = function (card, layer)
+		if BadDirector.should_misprint_deck(card) then
+			card.children.back:draw_shader("bd_misprint_deck", nil, card.ARGS.send_to_shader)
+		end
+	end
+}
+
+function BadDirector.is_in_deck_or_state_select(card)
+    return (not Galdur and G.SETTINGS.current_setup == "New Run" and G.OVERLAY_MENU) or (card.area and (card.area.config.deck_select or card.area.config.selected_deck or card.area.config.stake_select or card.area.config.stake_chips))
+end
+
+local back_drawstep_ref = SMODS.DrawSteps.back.func
+function SMODS.DrawSteps.back.func (self)
+    if BadDirector.should_misprint_deck(self) then return end
+    return back_drawstep_ref(self)
+end
+
+-- Misprint Deck Toggle UI
+BadDirector.show_misprint_deck = true
+BadDirector.do_misprint_deck = false
+BadDirector.misprint_toggle_w = 2
+
+function G.UIDEF.bd_misprint_toggle ()
+    return {n = G.UIT.C, config = {align = "cm", minw = BadDirector.misprint_toggle_w, minh = 0.5, maxw = BadDirector.misprint_toggle_w, maxh = 0.5}, nodes = {
+        {n = G.UIT.C, config = {align = "cr", minw = BadDirector.misprint_toggle_w - 0.5, minh = 0.5, maxw = BadDirector.misprint_toggle_w - 0.5, maxh = 0.5}, nodes = {
+            {n = G.UIT.T, config = {text = "Misprint Cards?", colour = G.C.UI.TEXT_LIGHT, scale = 0.5}}
+        }},
+        create_toggle{
+            label = "Misprint Deck",
+            ref_table = BadDirector,
+            ref_value = "do_misprint_deck",
+            w = 0.5,
+            h = 0.5,
+            scale = 0.5,
+            label_scale = 1,
+            hide_label = true,
+            col = true
+        }
+    }}
+end
+
+-- Vanilla
+local run_setup_option_ref = G.UIDEF.run_setup_option
+function G.UIDEF.run_setup_option(type)
+    local ret = run_setup_option_ref(type)
+    if BadDirector.show_misprint_deck then
+        if type == "New Run" then
+            table.insert(ret.nodes, #ret.nodes, {n = G.UIT.R, config = {align = "cm"}, nodes = {G.UIDEF.bd_misprint_toggle()}})
+            table.insert(ret.nodes, #ret.nodes, {n = G.UIT.R, config = {align = "cm"}, nodes = {{n = G.UIT.B, config = {w = 0.1, h = 0.3}}}})
+        end
+    end
+    return ret
+end
+
+-- Galdur Compat
+if create_deck_page_cycle then
+    local create_deck_page_cycle_ref = create_deck_page_cycle
+    function create_deck_page_cycle ()
+        local ret = create_deck_page_cycle_ref()
+        if BadDirector.show_misprint_deck then
+            table.insert(ret.nodes[1].nodes, 1, G.UIDEF.bd_misprint_toggle())
+            table.insert(ret.nodes[1].nodes, 2, {n = G.UIT.C, nodes = {{n = G.UIT.B, config = {w = 0.2, h = 0.5}}}})
+            table.insert(ret.nodes[1].nodes, {n = G.UIT.C, nodes = {{n = G.UIT.B, config = {w = 0.2, h = 0.5}}}})
+            table.insert(ret.nodes[1].nodes, {n = G.UIT.C, nodes = {{n = G.UIT.B, config = {w = BadDirector.misprint_toggle_w, h = 0.5}}}})
+        end
+        return ret
+    end
+end

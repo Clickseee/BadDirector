@@ -329,4 +329,9 @@ SMODS.Enhancement {
 
 function SMODS.current_mod.reset_game_globals(run_start)
     reset_suitwash()
+    if run_start then
+        if BadDirector.do_misprint_deck then
+            G.GAME.bd_misprinted_deck = true
+        end
+    end
 end
