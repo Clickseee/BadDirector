@@ -488,11 +488,11 @@ function SMODS.DrawSteps.back.func (self)
 end
 
 -- Misprint Deck Toggle UI
-BadDirector.show_misprint_deck = true
+BadDirector.show_misprint_deck = false 
 BadDirector.do_misprint_deck = false
 BadDirector.misprint_toggle_w = 2
 
-function G.UIDEF.bd_misprint_toggle ()
+function G.UIDEF.bd_misprint_toggle()
     return {n = G.UIT.C, config = {align = "cm", minw = BadDirector.misprint_toggle_w, minh = 0.5, maxw = BadDirector.misprint_toggle_w, maxh = 0.5}, nodes = {
         {n = G.UIT.C, config = {align = "cr", minw = BadDirector.misprint_toggle_w - 0.5, minh = 0.5, maxw = BadDirector.misprint_toggle_w - 0.5, maxh = 0.5}, nodes = {
             {n = G.UIT.T, config = {text = "Misprint Cards?", colour = G.C.UI.TEXT_LIGHT, scale = 0.5}}
@@ -515,6 +515,7 @@ end
 local run_setup_option_ref = G.UIDEF.run_setup_option
 function G.UIDEF.run_setup_option(type)
     local ret = run_setup_option_ref(type)
+    if (get_deck_win_stake('b_bd_missingdeck') > 0) then BadDirector.show_misprint_deck = true end
     if BadDirector.show_misprint_deck then
         if type == "New Run" then
             table.insert(ret.nodes, #ret.nodes, {n = G.UIT.R, config = {align = "cm"}, nodes = {G.UIDEF.bd_misprint_toggle()}})
@@ -529,6 +530,7 @@ if create_deck_page_cycle then
     local create_deck_page_cycle_ref = create_deck_page_cycle
     function create_deck_page_cycle ()
         local ret = create_deck_page_cycle_ref()
+        if (get_deck_win_stake('b_bd_missingdeck') > 0) then BadDirector.show_misprint_deck = true end
         if BadDirector.show_misprint_deck then
             table.insert(ret.nodes[1].nodes, 1, G.UIDEF.bd_misprint_toggle())
             table.insert(ret.nodes[1].nodes, 2, {n = G.UIT.C, nodes = {{n = G.UIT.B, config = {w = 0.2, h = 0.5}}}})
