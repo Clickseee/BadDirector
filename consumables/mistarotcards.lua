@@ -794,7 +794,7 @@ BadDirector.MisprTarots {
     artist = {"IncognitoN71"},
     coder = {"Nxkoo"},
     pos = { x = 8, y = 1 },
-    config = { max_highlighted = 3, suit_allowed1 = 'Clubs', suit_allowed2 = 'Spades' },
+    config = { max_highlighted = 2},
 
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.max_highlighted, card.ability.suit_allowed1, card.ability.suit_allowed2 } }

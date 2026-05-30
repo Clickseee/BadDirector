@@ -676,6 +676,25 @@ return {
                 }
             },
         },
+        Tarot = {
+            c_bd_tarot_liar = {
+                name = "The Liar",
+                text = {
+                    "Enhance up to {C:attention}#1#",
+                    "selected cards",
+                    "into random",
+                    "{C:enhanced}ementsEnhanc"
+                }
+            },
+            c_bd_tarot_flaw = {
+                name = "The Flaw",
+                text = {
+                    "Restore up to {C:attention}#1#",
+                    "{C:bd_rotta}Misprinted{} cards",
+                }
+            },
+
+        },
         mistarot = {
             c_bd_magicprint = {
                 name = "ician The Mag",
