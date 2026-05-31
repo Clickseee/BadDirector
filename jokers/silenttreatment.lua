@@ -1,3 +1,17 @@
+local debuff = BadDirector.set_debuff or function(card)
+    return nil
+end
+BadDirector.set_debuff = function(card)
+    if next(SMODS.find_card("j_bd_silenttreatment")) then
+        for i,v in ipairs(SMODS.find_card("j_bd_silenttreatment")) do
+            if card:is_suit("Hearts") then
+                return true
+            end
+        end
+    end
+    return debuff(card)
+end
+
 SMODS.Joker {
     key = "silenttreatment",
     rarity = 3,
@@ -28,37 +42,20 @@ SMODS.Joker {
 
     calculate = function(self, card, context)
 
-        if context.individual
-        and context.cardarea == G.play then
-
-            if context.other_card:is_suit("Hearts") then
-
-                context.other_card.debuff = true
-            end
-        end
-        if context.joker_main then
-            local tmult = 0
-            for _, playing_card in ipairs(G.play.cards) do
-
-                if playing_card.debuff == true and playing_card:is_suit("Hearts") then
-                    tmult = tmult + card.ability.extra.mult
-                end
-            end
+        if context.other_joker and context.other_joker.debuff then
             return {
-                mult = tmult
+                mult = card.ability.extra.mult
             }
         end
-    end,
-
-    update = function(self, card, dt)
-
-        if G.play then
-            for _, playing_card in ipairs(G.play.cards) do
-
-                if playing_card:is_suit("Hearts") then
-                    playing_card.debuff = true
+        if context.initial_scoring_step then
+            local triggered = false
+            for i,v in ipairs(G.play.cards) do
+                if v.debuff then
+                    triggered = true
+                    SMODS.calculate_effect({mult = card.ability.extra.mult, juice_card = v, message_card = v}, card)
                 end
             end
+            if triggered then return nil, true end
         end
     end,
 	joker_display_def = function(JokerDisplay)
