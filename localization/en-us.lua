@@ -833,11 +833,10 @@ return {
             c_bd_moonprint = {
                 name = "onThe Mo",
                 text = {
-                    "Gi{E:bd_glitching,C:dark_edition}v{}e{E:bd_glitching,C:dark_edition}t{}s up to",
-                    "{C:attention}#1#{} selected {C:clubs}#2#{}",
-                    "or {C:spades}#3#{}",
-                    "{X:chips,C:white}XChips{} equal to",
-                    "all held {C:attention}Consumables{}",
+                    "Gi{E:bd_glitching,C:dark_edition}v{}e{E:bd_glitching,C:dark_edition}t{}s up to {C:attention}#1#{} ",
+                    "selected {C:clubs}#2#{} or {C:spades}#3#{}",
+                    "{X:chips,C:white}XChips{} equal to all held",
+                    "{C:attention}Consumables{}' {C:gold}sell value",
                 }
             },
             c_bd_worldprint = {
