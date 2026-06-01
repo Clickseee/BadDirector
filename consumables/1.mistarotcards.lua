@@ -529,7 +529,6 @@ BadDirector.MisprTarots {
                 selected[#selected + 1] = c
             end
         end
-        if #selected ~= self.config.max_highlighted then return end
 
         local pool = {}
         for _, c in ipairs(G.hand.cards) do
@@ -537,7 +536,6 @@ BadDirector.MisprTarots {
                 pool[#pool + 1] = c
             end
         end
-        if #pool < self.config.extra_destroy then return end
 
         for i = 1, self.config.extra_destroy do
             local idx = pseudorandom("double_cull", 1, #pool)
@@ -546,7 +544,10 @@ BadDirector.MisprTarots {
 
         SMODS.destroy_cards(selected)
     end,
-    misprint_original = "c_hanged_man"
+    misprint_original = "c_hanged_man",
+    can_use = function(self, card)
+        return (#G.hand.highlighted > 0 and #G.hand.highlighted <= 2) and true or false
+    end,
 }
 
 BadDirector.MisprTarots {

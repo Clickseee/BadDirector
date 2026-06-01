@@ -1817,7 +1817,7 @@ BadDirector.MisSpect {
                         card,
                         'this is your life',
                         1,
-                        card.ability.extra.odds,
+                        math.floor(card.ability.extra.odds),
                         '...'
                     ) then
                     G.E_MANAGER:add_event(Event({
