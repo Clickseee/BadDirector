@@ -16,7 +16,7 @@ SMODS.Blind {
 				self.triggered = true
                 if G.GAME.ache_capture == nil then G.GAME.ache_capture = {} end
                 for i, blarg in ipairs(G.deck.cards) do
-                    if blarg:is_suit("Hearts") then
+                    if i % 3 == 0 then
                         G.GAME.ache_capture[#G.GAME.ache_capture+1] = blarg
                        SMODS.destroy_cards(blarg)
                     end
@@ -27,7 +27,7 @@ SMODS.Blind {
             if G.GAME.ache_capture and #G.GAME.ache_capture > 0 then
                 for i=1, #G.GAME.ache_capture do
                     G.playing_card = (G.playing_card and G.playing_card + 1) or 1
-                    local hearty = copy_card(G.GAME.ache_capture[i], nil, nil, G.playing_card)
+                    local hearty = copy_card(G.GAME.ache_capture[i], nil, nil, G.playing_card) -- too lazy to rename the loc vars given it was initially 4 hearts lmao,,,
                     hearty:add_to_deck()
                     G.deck.config.card_limit = G.deck.config.card_limit + 1
                     table.insert(G.playing_cards, hearty)

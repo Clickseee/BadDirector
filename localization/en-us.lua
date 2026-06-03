@@ -1297,8 +1297,8 @@ return {
             bl_bd_ache = {
                 name = "The Ache",
                 text = {
-                    "Captures all owned Hearts",
-                    "for the Blind"
+                    "Captures 1/3 of all owned",
+                    "cards for the Blind"
                 }
             }
         },
