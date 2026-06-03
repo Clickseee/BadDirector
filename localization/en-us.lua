@@ -1335,7 +1335,8 @@ return {
         },
         challenge_names = {
             c_bd_heartless = "Heartless",
-            c_bd_oops = "Oops, All Misprints"
+            c_bd_oops = "Oops, All Misprints",
+            c_bd_genocide = "...but nobody came."
         },
     }
 }

@@ -113,3 +113,36 @@ SMODS.Challenge {
     end
 
 }
+
+-- i may have yoinked this from maximus, thanks astra
+local skipHook = create_UIBox_blind_tag
+create_UIBox_blind_tag = function(blind_choice, run_info)
+    if not G.GAME.challenge and G.GAME.challenge == "c_bd_genocide" then
+        return skipHook(blind_choice, run_info)
+    end
+end
+
+SMODS.Challenge {
+    key = "genocide",
+    restrictions = {
+        banned_other = {
+            { id = 'bl_wall', type = 'blind'}
+        }
+    },
+    apply = function(self, back)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                change_shop_size(-2)
+                SMODS.change_booster_limit(-2)
+                return true
+            end
+        }))
+    end,
+    calculate = function(self, context)
+        G.GAME.blind.chips = 300
+        --if G.shop_vouchers.cards then
+            --G.shop_vouchers.cards:remove()
+        --end
+    end
+
+}
