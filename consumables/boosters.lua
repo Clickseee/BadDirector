@@ -1475,9 +1475,9 @@ SMODS.Booster:take_ownership_by_kind("Arcana",
 {
     create_card = function(self, card, i)
         local _card
-        local TRUE_RATE = MISPRINT_RATE_TAROT 
+        local TRUE_RATE = 4+(MISPRINT_RATE_TAROT 
         * (next(SMODS.find_card("v_bd_counterfeitink")) and 0.5 or 1)
-        * (next(SMODS.find_card("v_bd_brokenprinter")) and 0.25 or 1)
+        * (next(SMODS.find_card("v_bd_brokenprinter")) and 0.25 or 1))
         --print(TRUE_RATE)
         local misprint = SMODS.pseudorandom_probability(card, 'misprint', 1, TRUE_RATE)
         local tarot = (misprint == true) and "mistarot" or "Tarot"
@@ -1511,9 +1511,9 @@ SMODS.Booster:take_ownership_by_kind("Celestial",
 {
     create_card = function(self, card, i)
         local _card
-        local TRUE_RATE = MISPRINT_RATE_PLANET
+        local TRUE_RATE = 4+(MISPRINT_RATE_PLANET
         * (next(SMODS.find_card("v_bd_counterfeitink")) and 0.5 or 1)
-        * (next(SMODS.find_card("v_bd_brokenprinter")) and 0.25 or 1)
+        * (next(SMODS.find_card("v_bd_brokenprinter")) and 0.25 or 1))
         local misprint = SMODS.pseudorandom_probability(card, 'misprint', 1, TRUE_RATE)
         local planet = (misprint == true) and "misplanet" or "Planet"
         local keyapp_ar = (misprint == true) and "bd_pl" or "pl"
@@ -1559,9 +1559,9 @@ SMODS.Booster:take_ownership_by_kind("Celestial",
 SMODS.Booster:take_ownership_by_kind("Spectral",
 {
     create_card = function(self, card, i)
-        local TRUE_RATE = MISPRINT_RATE_SPECTRAL
+        local TRUE_RATE = 4+(MISPRINT_RATE_SPECTRAL
         * (next(SMODS.find_card("v_bd_counterfeitink")) and 0.5 or 1)
-        * (next(SMODS.find_card("v_bd_brokenprinter")) and 0.25 or 1)
+        * (next(SMODS.find_card("v_bd_brokenprinter")) and 0.25 or 1))
         local misprint = SMODS.pseudorandom_probability(card, 'misprint', 1, TRUE_RATE)
         local spectral = (misprint == true) and "mispectral" or "Spectral"
         local keyapp_ar = (misprint == true) and "bd_spe" or "spe"
@@ -1582,9 +1582,9 @@ SMODS.Booster:take_ownership_by_kind("Spectral",
 SMODS.Booster:take_ownership_by_kind("Standard",
 {
     create_card = function(self, card, i)
-        local TRUE_RATE = MISPRINT_RATE_STANDARD
+        local TRUE_RATE = 4+(MISPRINT_RATE_STANDARD
         * (next(SMODS.find_card("v_bd_counterfeitink")) and 0.5 or 1)
-        * (next(SMODS.find_card("v_bd_brokenprinter")) and 0.25 or 1)
+        * (next(SMODS.find_card("v_bd_brokenprinter")) and 0.25 or 1))
         
         local misprint = SMODS.pseudorandom_probability(card, 'misprint', 1, TRUE_RATE)
         local keyapp_ar = (misprint == true) and "bd_sta" or "sta"
@@ -1637,9 +1637,9 @@ SMODS.Booster:take_ownership_by_kind("Standard",
 SMODS.Booster:take_ownership_by_kind("Buffoon",
 {
     create_card = function(self, card, i)
-        local TRUE_RATE = MISPRINT_RATE_BUFFOON
+        local TRUE_RATE = 4+(MISPRINT_RATE_BUFFOON
         * (next(SMODS.find_card("v_bd_counterfeitink")) and 0.5 or 1)
-        * (next(SMODS.find_card("v_bd_brokenprinter")) and 0.5 or 1)
+        * (next(SMODS.find_card("v_bd_brokenprinter")) and 0.5 or 1))
         local misprint = SMODS.pseudorandom_probability(card, 'misprint', 1, TRUE_RATE)
         local _edition = (misprint == true) and "e_bd_misprinted" or nil
         local keyapp_ar = (misprint == true) and "bd_spe" or "spe"

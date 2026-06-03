@@ -11,7 +11,7 @@ SMODS.ConsumableType({
     secondary_colour = SMODS.Gradients.bd_rotta,--SMODS.Gradient(rotta),
     default = "c_bd_foolprint",
     cards = {},
-    shop_rate = 4,
+    shop_rate = 1,
     loc_txt = {
 		undiscovered = {
 			name = "Not Discovered",
