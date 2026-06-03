@@ -114,7 +114,7 @@ SMODS.Challenge {
 
 }
 
--- i may have yoinked this from maximus, thanks astra
+-- referred to maximus code for this one, thank you astra <3
 local skipHook = create_UIBox_blind_tag
 create_UIBox_blind_tag = function(blind_choice, run_info)
     if not G.GAME.challenge and G.GAME.challenge == "c_bd_genocide" then
@@ -122,27 +122,38 @@ create_UIBox_blind_tag = function(blind_choice, run_info)
     end
 end
 
+-- haha i yoinked this from my own mod, play washmachine when it comes out
+local bossHook = get_new_boss
+function get_new_boss()
+    if G.GAME and G.GAME.challenge and G.GAME.challenge == "c_bd_genocide" then
+        if G.GAME.round_resets.ante == 8 then
+            return "bl_bd_ache"
+        else
+            return "bl_wall"
+        end
+    end
+    return bossHook()
+end
+
+
 SMODS.Challenge {
     key = "genocide",
     restrictions = {
-        banned_other = {
-            { id = 'bl_wall', type = 'blind'}
-        }
     },
     apply = function(self, back)
         G.E_MANAGER:add_event(Event({
             func = function()
                 change_shop_size(-2)
                 SMODS.change_booster_limit(-2)
+                G.GAME.starting_params.ante_scaling = 0
                 return true
             end
         }))
     end,
     calculate = function(self, context)
-        G.GAME.blind.chips = 300
-        --if G.shop_vouchers.cards then
-            --G.shop_vouchers.cards:remove()
-        --end
+        if G.shop_vouchers and G.shop_vouchers.cards and #G.shop_vouchers.cards > 0 then
+            G.shop_vouchers.cards[1]:start_dissolve()
+        end
     end
 
 }
