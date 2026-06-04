@@ -161,7 +161,22 @@ return {
                     "{C:attention}...{}",
                 },
             },
-
+            bd_offbrand_sticker = {
+                name = "Offbrand Sticker",
+                text = {
+                    "Used this Joker",
+                    "to win on {C:attention}Offbrand",
+                    "{C:attention}Stake{} difficulty",
+                },
+            },
+            bd_platinum_sticker = {
+                name = "Platinum Sticker",
+                text = {
+                    "Used this Joker",
+                    "to win on {C:attention}Platinum",
+                    "{C:attention}Stake{} difficulty",
+                },
+            },
         },
         Spectral = {
             c_bd_heat = {
@@ -1308,7 +1323,20 @@ return {
                 }
             }
         },
-
+        Stake = {
+            stake_bd_offbrand = {
+                name = "Offbrand Stake",
+                text = {
+                    "Start in {C:attention}Ante 0{}"
+                },
+            },
+            stake_bd_platinum = {
+                name = "Platinum Stake",
+                text = {
+                    "test"
+                },
+            }
+        }
     },
     misc = {
         dictionary = {
