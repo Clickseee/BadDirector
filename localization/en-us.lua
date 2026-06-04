@@ -169,6 +169,14 @@ return {
                     "{C:attention}Stake{} difficulty",
                 },
             },
+            bd_tin_sticker = {
+                name = "Tin Sticker",
+                text = {
+                    "Used this Joker",
+                    "to win on {C:attention}Tin",
+                    "{C:attention}Stake{} difficulty",
+                },
+            },
             bd_platinum_sticker = {
                 name = "Platinum Sticker",
                 text = {
@@ -1330,10 +1338,18 @@ return {
                     "Start in {C:attention}Ante 0{}"
                 },
             },
+            stake_bd_tin = {
+                name = "Tin Stake",
+                text = {
+                    "test",
+                    "{s:0.8}Applies all previous Stakes",
+                },
+            },
             stake_bd_platinum = {
                 name = "Platinum Stake",
                 text = {
-                    "test"
+                    "test",
+                    "{s:0.8}Applies all previous Stakes",
                 },
             }
         }
