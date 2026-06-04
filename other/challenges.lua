@@ -117,7 +117,7 @@ SMODS.Challenge {
 -- referred to maximus code for this one, thank you astra <3
 local skipHook = create_UIBox_blind_tag
 create_UIBox_blind_tag = function(blind_choice, run_info)
-    if not G.GAME.challenge and G.GAME.challenge == "c_bd_genocide" then
+    if not (G.GAME.challenge and G.GAME.challenge == "c_bd_genocide") then
         return skipHook(blind_choice, run_info)
     end
 end
@@ -127,7 +127,7 @@ local bossHook = get_new_boss
 function get_new_boss()
     if G.GAME and G.GAME.challenge and G.GAME.challenge == "c_bd_genocide" then
         if G.GAME.round_resets.ante == 8 then
-            return "bl_bd_ache"
+            return "bl_bd_ivory_isolate"
         else
             return "bl_wall"
         end
@@ -149,6 +149,7 @@ SMODS.Challenge {
                 return true
             end
         }))
+        
     end,
     calculate = function(self, context)
         if G.shop_vouchers and G.shop_vouchers.cards and #G.shop_vouchers.cards > 0 then

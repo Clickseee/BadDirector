@@ -1300,6 +1300,12 @@ return {
                     "Captures 1/3 of all owned",
                     "cards for the Blind"
                 }
+            },
+            bl_bd_ivory_isolate = {
+                name = "Ivory Isolate",
+                text = {
+                    "...?"
+                }
             }
         },
 
@@ -1336,7 +1342,7 @@ return {
         challenge_names = {
             c_bd_heartless = "Heartless",
             c_bd_oops = "Oops, All Misprints",
-            c_bd_genocide = "...but nobody came."
+            c_bd_genocide = "What Remains?"
         },
     }
 }

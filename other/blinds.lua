@@ -64,3 +64,95 @@ SMODS.Blind {
         end
     end
 }
+
+SMODS.Blind {
+    key = 'ivory_isolate',
+    atlas = 'bdblinds',
+    pos = { x = 0, y = 1 },
+    dollars = 5,
+    mult = 2,
+    no_collection = true,
+    boss = { min = 2, showdown = true },
+    boss_colour = HEX('949494'),
+    artist = {"squeax09"},
+    coder = {"squeax09"},
+    calculate = function(self, blind, context)
+        if context.setting_blind then
+            if G.GAME and G.GAME.challenge and G.GAME.challenge == "c_bd_genocide" then
+                G.GAME.blind.chips = 350
+            end
+            if not blind.disabled then
+                ease_hands_played(95)
+            end
+        end
+        if pseudorandom('the void consumes all') < 1 / 100 and not blind.disabled and not context.press_play and not context.joker_main and G.hand and #G.hand.cards > 0 then
+            local target = pseudorandom_element(G.hand.cards, pseudoseed("blue"))
+            target:start_dissolve()
+            self.triggered = true
+            G.E_MANAGER:add_event(Event({
+                trigger = 'immediate',
+                func = (function()
+                    SMODS.juice_up_blind()
+                    G.E_MANAGER:add_event(Event({
+                        trigger = 'after',
+                        delay = 0.06 * G.SETTINGS.GAMESPEED,
+                        blockable = false,
+                        blocking = false,
+                        func = function()
+                            play_sound('tarot1', 1, 0.4)
+                            return true
+                        end
+                    }))
+                    return true
+                end)
+            }))
+        end
+        if context.press_play and not blind.disabled then
+            ease_hands_played(1)
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.2,
+                func = function()
+                    for i = 1, #G.play.cards do
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                if pseudorandom('the void consumes all') < 2 / 3 then
+                                    if G.play.cards[i] then
+                                        G.play.cards[i].debuff = true
+                                        G.play.cards[i]:juice_up()
+                                    end
+                                end
+                                return true
+                            end,
+                        }))
+                        delay(0.23)
+                    end
+                    return true
+                end
+            }))
+            blind.triggered = true
+            G.E_MANAGER:add_event(Event({
+                trigger = 'immediate',
+                func = (function()
+                    SMODS.juice_up_blind()
+                    G.E_MANAGER:add_event(Event({
+                        trigger = 'after',
+                        delay = 0.06 * G.SETTINGS.GAMESPEED,
+                        blockable = false,
+                        blocking = false,
+                        func = function()
+                            play_sound('tarot2', 0.76, 0.4)
+                            return true
+                        end
+                    }))
+                    play_sound('tarot2', 1, 0.4)
+                    return true
+                end)
+            }))
+            delay(0.4)
+        end
+    end,
+    disable = function(self)
+        
+    end
+}

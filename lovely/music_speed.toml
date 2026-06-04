@@ -1,0 +1,12 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 9999999
+
+[[patches]]
+[patches.pattern]
+target = "functions/misc_functions.lua"
+pattern = '''G.PITCH_MOD = (G.PITCH_MOD or 1)*(1 - dt) + dt*((not G.normal_music_speed and G.STATE == G.STATES.GAME_OVER) and 0.5 or 1)'''
+position = "at"
+payload = '''G.PITCH_MOD = (G.PITCH_MOD or 1)*(1 - dt) + dt*((not G.normal_music_speed and G.STATE == G.STATES.GAME_OVER) and 0.5 or (G.GAME and G.GAME.challenge and G.GAME.challenge == 'c_bd_genocide' and not (G.GAME.blind.boss and G.GAME.round_resets.ante == 8 and G.STATE ~= 8)) and 0.5 or 1)'''
+match_indent = true
