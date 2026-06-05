@@ -161,7 +161,30 @@ return {
                     "{C:attention}...{}",
                 },
             },
-
+            bd_offbrand_sticker = {
+                name = "Offbrand Sticker",
+                text = {
+                    "Used this Joker",
+                    "to win on {C:attention}Offbrand",
+                    "{C:attention}Stake{} difficulty",
+                },
+            },
+            bd_tin_sticker = {
+                name = "Tin Sticker",
+                text = {
+                    "Used this Joker",
+                    "to win on {C:attention}Tin",
+                    "{C:attention}Stake{} difficulty",
+                },
+            },
+            bd_platinum_sticker = {
+                name = "Platinum Sticker",
+                text = {
+                    "Used this Joker",
+                    "to win on {C:attention}Platinum",
+                    "{C:attention}Stake{} difficulty",
+                },
+            },
         },
         Spectral = {
             c_bd_heat = {
@@ -1307,12 +1330,42 @@ return {
             bl_bd_ache = {
                 name = "The Ache",
                 text = {
-                    "Captures all owned Hearts",
-                    "for the Blind"
+                    "Captures 1/3 of all owned",
+                    "cards for the Blind"
+                }
+            },
+            bl_bd_ivory_isolate = {
+                name = "Ivory Isolate",
+                text = {
+                    "...?"
                 }
             }
         },
-
+        Stake = {
+            stake_bd_offbrand = {
+                name = "Offbrand Stake",
+                text = {
+                    "Start in {C:attention}Ante 0{}"
+                },
+            },
+            stake_bd_tin = {
+                name = "Tin Stake",
+                text = {
+                    "Fixed {C:green}1 in 6{} chance",
+                    "for each card",
+                    "in hand to be destroyed",
+                    "at the end of each round",
+                    "{s:0.8}Applies all previous Stakes",
+                },
+            },
+            stake_bd_platinum = {
+                name = "Platinum Stake",
+                text = {
+                    "test",
+                    "{s:0.8}Applies all previous Stakes",
+                },
+            }
+        }
     },
     misc = {
         dictionary = {
@@ -1345,7 +1398,8 @@ return {
         },
         challenge_names = {
             c_bd_heartless = "Heartless",
-            c_bd_oops = "Oops, All Misprints"
+            c_bd_oops = "Oops, All Misprints",
+            c_bd_genocide = "What Remains?"
         },
     }
 }
