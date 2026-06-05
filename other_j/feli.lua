@@ -250,7 +250,7 @@ SMODS.Joker {
 	pos = { x = 0, y = 0 },
 	pools = {["BadDirector_Jokers"] = true, ["FNAF"] = true, },
 	key = "bd_plushtrap",
-    coder = {"LasagnaFelidae"},
+    coder = {"LasagnaFelidae", "Nxkoo"},
     partner = {"Chair"},
 	rarity = 2,
 	cost = 6,
@@ -269,23 +269,25 @@ SMODS.Joker {
             enabled = false, -- do not change as this starts the timer on card add
             movementChance_num = 1, -- this is the numerator for the movement chance fraction
             movementChance_den = 5, -- this is the denominator for the movement chance fraction
+            attention = 0,
+            max_attention = 0
         },
         
 	},	
 	loc_vars = function(self, info_queue, card)
-		return { 
+        return {
             vars = {
-
-            } 
+                card.ability.plush.max_attention
+            }
         }
-	end,
+    end,
     add_to_deck = function(self, card, from_debuff)
         card.ability.plush.enabled = true
         card.ability.plush.saved_time = G.TIMERS.REAL
     end,
 
     in_pool = function(self,args)
-        return false -- remember to set to true or inpool func you want, this is so ppl who update bd dont just loot this
+        return true -- remember to set to true or inpool func you want, this is so ppl who update bd dont just loot this
     end,
 
     update = function(self, card, dt)
@@ -333,42 +335,195 @@ SMODS.Joker {
           \/
 
         ]]
-        if card and card.ability and card.ability.plush and card.ability.plush.enabled then
-            local state = card.ability.plush.state
-            if state ~= 2 then
-                card.ability.plush.state = 0
+        if not (card and card.ability and card.ability.plush and card.ability.plush.enabled) then
+            return
+        end
+
+        local plush = card.ability.plush
+        local state = plush.state
+
+        if state ~= 2 then
+
+            if state == 0 then
                 card.children.center:set_sprite_pos({x = 0, y = 0})
-                if G.jokers and G.jokers.highlighted then
-                    for _, joker in ipairs(G.jokers.highlighted) do
-                        if joker == card and state ~= 2 then
-                            card.ability.plush.saved_time, card.ability.plush.movementOpportunity = G.TIMERS.REAL, pseudorandom("movementOpportunity",card.ability.plush.opportunityMin,card.ability.plush.opportunityMax)
-                            print ("PlushTrap: Highlighted, setting movementOpportunity to " .. card.ability.plush.movementOpportunity)
-                            
-                            card.ability.plush.state = 1
-                            card.children.center:set_sprite_pos({x = 1, y = 0})
-                        end   
+            end
+
+            local highlighted = false
+
+            if G.jokers and G.jokers.highlighted then
+                for _, joker in ipairs(G.jokers.highlighted) do
+                    if joker == card then
+                        highlighted = true
+                        break
                     end
                 end
-                if G.TIMERS.REAL - card.ability.plush.saved_time > card.ability.plush.movementOpportunity then
-                if pseudorandom("movementOpportunity",card.ability.plush.movementChance_num, card.ability.plush.movementChance_den) <= card.ability.plush.movementChance_num then
-                    card.ability.plush.state = 2
-                    card.children.center:set_sprite_pos({x = 2, y = 0})
+            end
+
+            if highlighted then
+
+                plush.attention = plush.attention + dt
+
+                if plush.attention > 6 then
+                    plush.state = 4
+                    card.children.center:set_sprite_pos({x = 4, y = 0})
+
+                elseif plush.attention > 3 then
+                    plush.state = 3
+                    card.children.center:set_sprite_pos({x = 3, y = 0})
+
                 else
-                    card.ability.plush.saved_time, card.ability.plush.movementOpportunity = G.TIMERS.REAL, pseudorandom("movementOpportunity",card.ability.plush.opportunityMin,card.ability.plush.opportunityMax)
+                    plush.state = 1
+                    card.children.center:set_sprite_pos({x = 1, y = 0})
+                end
+
+                plush.saved_time = G.TIMERS.REAL
+                plush.movementOpportunity = pseudorandom(
+                    "movementOpportunity",
+                    plush.opportunityMin,
+                    plush.opportunityMax
+                )
+
+                if plush.attention >= plush.max_attention then
+
+                    plush.state = 2
+                    card.children.center:set_sprite_pos({x = 2, y = 0})
+
+                    ease_hands_played(-1)
+
+                    card_eval_status_text(card, 'extra', nil, nil, nil, {
+                        message = "Escaped",
+                        colour = G.C.RED
+                    })
+
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            card:start_dissolve()
+                            return true
+                        end
+                    }))
+
+                    return
+                end
+
+            else
+
+                plush.attention = math.max(
+                    0,
+                    plush.attention - dt * 0.75
+                )
+
+                if plush.attention <= 3 then
+                    plush.state = 0
+                    card.children.center:set_sprite_pos({x = 0, y = 0})
+                elseif plush.attention <= 6 then
+                    plush.state = 3
+                    card.children.center:set_sprite_pos({x = 3, y = 0})
+                else
+                    plush.state = 4
+                    card.children.center:set_sprite_pos({x = 4, y = 0})
                 end
             end
-                
+
+            if G.TIMERS.REAL - plush.saved_time > plush.movementOpportunity then
+
+                if pseudorandom(
+                    "movementOpportunity",
+                    plush.movementChance_num,
+                    plush.movementChance_den
+                ) <= plush.movementChance_num then
+
+                    plush.state = 2
+                    card.children.center:set_sprite_pos({x = 2, y = 0})
+
+                    G.hand:change_size(-1)
+
+                    card_eval_status_text(card, 'extra', nil, nil, nil, {
+                        message = "Got You!",
+                        colour = G.C.RED
+                    })
+
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            card:start_dissolve()
+                            return true
+                        end
+                    }))
+
+                else
+
+                    plush.saved_time = G.TIMERS.REAL
+                    plush.movementOpportunity = pseudorandom(
+                        "movementOpportunity",
+                        plush.opportunityMin,
+                        plush.opportunityMax
+                    )
+
+                end
             end
         end
-        
     end,
 
 	calculate = function(self, card, context)
-        local state = card.ability.plush.state
 
-        if context.joker_main then
+        local plush = card.ability.plush
 
+        if context.end_of_round
+        and not context.individual
+        and G.GAME.blind.boss
+        and plush.state ~= 2 then
+
+            local tag_key
+
+            if plush.attention <= 3 then
+
+                tag_key = "tag_double"
+
+            elseif plush.attention <= 6 then
+
+                local rare_tags = {
+                    "tag_negative",
+                    "tag_polychrome",
+                    "tag_holo",
+                    "tag_foil"
+                }
+
+                tag_key = pseudorandom_element(
+                    rare_tags,
+                    pseudoseed("plushtrap_rare")
+                )
+
+            else
+
+                local normal_tags = {
+                    "tag_coupon",
+                    "tag_investment",
+                    "tag_voucher",
+                    "tag_juggle",
+                    "tag_garbage",
+                    "tag_ethereal"
+                }
+
+                tag_key = pseudorandom_element(
+                    normal_tags,
+                    pseudoseed("plushtrap_normal")
+                )
+
+            end
+
+            add_tag(Tag(tag_key))
+
+            plush.state = 0
+            plush.attention = 0
+            plush.saved_time = G.TIMERS.REAL
+            plush.movementOpportunity = 4
+
+            card.children.center:set_sprite_pos({x = 0, y = 0})
+
+            return {
+                message = "6 AM!",
+                colour = G.C.ATTENTION
+            }
         end
-	end,
+    end,
 	blueprint_compat = true,
 }

@@ -578,8 +578,10 @@ return {
                     "Jimbotrap"
                 },
                 text = {
-                    "Keep an eye on this fellow",
-                    "He doesn't do shit for now except leave."
+                    "Highlight this Joker",
+                    "to keep {C:attention}Plushtrap{} in place",
+                    "Survive until a",
+                    "{C:attention}Boss Blind{} to gain a Tag",
                 },
             },
             j_bd_diesexy = {
