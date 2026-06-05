@@ -67,12 +67,34 @@ SMODS.Stake {
 	sticker_atlas = "bdstickers",
     sticker_pos = { x = 1, y = 0 },
     colour = HEX("cbc2ba"),
-	--modifiers = function()
-
-    --end,
+	modifiers = function()
+        G.GAME.modifiers.bd_tin = 6
+    end,
 	shiny = true,
-	above_stake = "orange"
+	above_stake = "orange",
+    calculate = function(self, context)
+        if context.end_of_round and context.game_over == false then
+            local marked = {}
+            for i=1, #G.hand.cards do
+                if pseudorandom("tin_stake") < 1 / G.GAME.modifiers.bd_tin then
+                    marked[#marked+1] = G.hand.cards[i]
+                end
+            end
+            for i=1, #marked do
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'before',
+                    delay = 0.75,
+                    func = function()
+                        marked[i]:start_dissolve()
+                        return true
+                    end
+                }))
+            end
+        end
+    end
 }
+
+
 
 SMODS.Stake {
     name = "Platinum Stake",
