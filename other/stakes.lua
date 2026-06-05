@@ -5,6 +5,7 @@ SMODS.Stake {
     unlocked = true,
 	atlas = "bdstakes",
 	applied_stakes = {},
+    coder = {"squeax09"},
     order = 1,
     pos = { x = 0, y = 0 },
 	hide_from_run_info = true,
@@ -25,7 +26,7 @@ SMODS.Stake {
 }
 
 SMODS.Stake:take_ownership('stake_white', {
-    above_stake = "bd_offbrand",
+    --above_stake = "bd_offbrand",
 	applied_stakes = { "bd_offbrand" },
     prefix_config = { applied_stakes = { mod = false, } },
 	modifiers = function()
@@ -62,6 +63,7 @@ SMODS.Stake {
     key = "tin",
 	atlas = "bdstakes",
     pos = { x = 1, y = 0 },
+    coder = {"squeax09"},
 	applied_stakes = { "orange" },
 	prefix_config = { applied_stakes = { mod = false, } },
 	sticker_atlas = "bdstickers",
@@ -100,6 +102,7 @@ SMODS.Stake {
 SMODS.Stake {
     name = "Platinum Stake",
     key = "platinum",
+    coder = {"squeax09"},
     applied_stakes = { "gold" },
 	atlas = "bdstakes",
     pos = { x = 2, y = 0 },
@@ -107,9 +110,37 @@ SMODS.Stake {
 	sticker_atlas = "bdstickers",
     sticker_pos = { x = 2, y = 0 },
     colour = HEX("dddcc7"),
-	--modifiers = function()
-
-    --end,
-	shiny = true,
-	above_stake = "gold"
+    shiny = true,
+	above_stake = "gold",
+    config = {
+        purchase = false
+    },
+    calculate = function(self, context)
+        if G.GAME.blind.boss and context.end_of_round and context.main_eval then
+            self.config.purchase = false
+		end
+        if context.buying_card and context.card.config.center.set == "Joker" then
+            if not self.config.purchase then
+                context.card:add_sticker('bd_weakened', true)
+                context.card:juice_up()
+                self.config.purchase = true
+            end
+        end
+        if context.round_eval and G.GAME.last_blind and G.GAME.last_blind.boss then
+            for i=1, #G.jokers.cards do
+                if G.jokers.cards[i].ability["bd_weakened"] then
+                    return {
+                        message = "Refreshed!",
+                        colour = G.C.FILTER,
+                        delay = 0.25,
+                        message_card = G.jokers.cards[i],
+                        func = function()
+                            G.jokers.cards[i]:remove_sticker("bd_weakened")
+                            G.jokers.cards[i]:set_debuff(false)
+                        end
+                    }
+                end
+            end
+		end
+    end
 }

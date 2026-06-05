@@ -202,6 +202,13 @@ return {
                     "{C:attention}Stake{} difficulty",
                 },
             },
+            bd_weakened = {
+                name = "Weakened",
+                text = {
+                    "{C:red}Debuffed{} until the",
+                    "end of the Ante"
+                },
+            },
         },
         Spectral = {
             c_bd_heat = {
@@ -1424,7 +1431,9 @@ return {
             stake_bd_platinum = {
                 name = "Platinum Stake",
                 text = {
-                    "test",
+                    "The first Joker purchased each",
+                    "Ante becomes {C:attention}Weakened{}",
+                    "{C:inactive,s:0.8}(Debuffed until end of Ante)",
                     "{s:0.8}Applies all previous Stakes",
                 },
             }
@@ -1459,6 +1468,7 @@ return {
             bd_bluesprint_seal = "alBlue Se",
             bd_redprint_seal = "alRed Se",
             bd_purpleprint_seal = "alPurple Se",
+            bd_weakened = "Weakened"
         },
         challenge_names = {
             c_bd_heartless = "Heartless",
