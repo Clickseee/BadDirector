@@ -156,7 +156,7 @@ return {
                 text = {
                     "Misprinted {C:enhanced}Enhanced{}",
                     "cards like:",
-                    "{C:attention}eel CardSt{}", 
+                    "{C:attention}eel CardSt{}",
                     "{C:attention}ult CardM{},",
                     "{C:attention}...{}",
                 },
@@ -505,9 +505,9 @@ return {
                 name = "{C:planet}P03",
                 text = {
                     {
-                    "Gives {X:chips,C:white}X#1#{} Chips per",
-                    "open {C:planet}browser task{}",
-                    "{C:inactive}(Currently {X:chips,C:white}X#2#{C:inactive} Chips)",
+                        "Gives {X:chips,C:white}X#1#{} Chips per",
+                        "open {C:planet}browser task{}",
+                        "{C:inactive}(Currently {X:chips,C:white}X#2#{C:inactive} Chips)",
                     },
                     {
                         "{C:inactive}Why am i here? To perform",
@@ -528,8 +528,8 @@ return {
                 name = "Alberto",
                 text = {
                     {
-                    "Held {C:attention}#2#s{} give",
-                    "{X:mult,C:white}X#1#{} Mult",
+                        "Held {C:attention}#2#s{} give",
+                        "{X:mult,C:white}X#1#{} Mult",
                     },
                     {
                         "{C:attention}Rank{} changes every round",
@@ -537,7 +537,7 @@ return {
                 }
             },
             j_bd_bienvenues_batard_montrachet = {
-                name = {"1945","Grand Paladin"},
+                name = { "1945", "Grand Paladin" },
                 text = {
                     "{X:blind,C:white}X#1#{} Blind",
                     "when entering a blind",
@@ -557,9 +557,9 @@ return {
             },
             j_bd_plushtrap = {
                 name = {
-                        "Fun with",
-                        "Jimbotrap"
-                    },
+                    "Fun with",
+                    "Jimbotrap"
+                },
                 text = {
                     "Keep an eye on this fellow",
                     "He doesn't do shit for now except leave."
@@ -570,6 +570,16 @@ return {
                 text = {
                     "{E:bd_dyslexia}We folded like",
                     "{E:bd_dyslexia}a cheap suit!"
+                },
+            },
+            j_bd_burntpassport = {
+                name = "Burnt Passport",
+                text = {
+                    "When {C:attention}Ante{} increases,",
+                    "has a {C:green}#1# in #2#{} chance",
+                    "to level up your",
+                    "{C:attention}most played hand",
+                    "when entering a {C:attention}Blind"
                 },
             },
             -- Credit Localization
@@ -644,27 +654,27 @@ return {
             j_bd_gabbyjoker = {
                 name = "squeax09",
                 text = {
-                    {" ",
-                    "{s:1.3}ts {C:green,E:1,s:1.3}gabby{}",
-                    " "},
-                    {"Most of my work for the mod was",
-                    "programming, such as that of",
-                    "some of the consumables and enhancements",
-                    "{C:inactive,s:0.7}(My favorites I did are the Wild Cards lol){}",
-                    "However, I did both code and art things",
-                    "like {C:attention}The Ache{} and the {C:attention}challenges{}...",
-                    "{C:inactive,s:0.7}...tho that's about all I really did, besides",
-                    "{C:inactive,s:0.7}helping this project find its footing again after",
-                    "{C:inactive,s:0.7}a few months of it in hiatus ig",
-                    "{C:inactive,s:0.7}(kinda crazy how im helping one of the",
-                    "{C:inactive,s:0.7}modders who initially inspired me tbh)"},
-                    {"anyway semiobligatory shill GO you should",
-                    "play {C:blue}WASHMACHINE{} [when it releases, anyway]"}
+                    { " ",
+                        "{s:1.3}ts {C:green,E:1,s:1.3}gabby{}",
+                        " " },
+                    { "Most of my work for the mod was",
+                        "programming, such as that of",
+                        "some of the consumables and enhancements",
+                        "{C:inactive,s:0.7}(My favorites I did are the Wild Cards lol){}",
+                        "However, I did both code and art things",
+                        "like {C:attention}The Ache{} and the {C:attention}challenges{}...",
+                        "{C:inactive,s:0.7}...tho that's about all I really did, besides",
+                        "{C:inactive,s:0.7}helping this project find its footing again after",
+                        "{C:inactive,s:0.7}a few months of it in hiatus ig",
+                        "{C:inactive,s:0.7}(kinda crazy how im helping one of the",
+                        "{C:inactive,s:0.7}modders who initially inspired me tbh)" },
+                    { "anyway semiobligatory shill GO you should",
+                        "play {C:blue}WASHMACHINE{} [when it releases, anyway]" }
                 }
             },
             j_bd_felijoker = {
                 name = "LasagnaFelidae",
-                text = {"pet me"}
+                text = { "pet me" }
             },
             j_bd_ghostjoker = {
                 name = "GhostSalt",
@@ -1384,7 +1394,7 @@ return {
             k_bd_celestial_pack = "estial PackCel",
             k_bd_spectral_pack = "tral PackSpec",
             k_bd_blueprint_seal = "Consumable?", -- can be adjusted as need be lmao
-            k_bd_purpleprint_seal = "Enhanced?" -- ditto
+            k_bd_purpleprint_seal = "Enhanced?"  -- ditto
         },
         labels = {
             bd_thermal = "Thermal",
