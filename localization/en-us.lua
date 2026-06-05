@@ -623,6 +623,13 @@ return {
                     "with every other Joker"
                 },
             },
+            j_bd_divine_rivaly = {
+                name = "Divine Rivaly",
+                text = {
+                    "Triggering the {C:attention}Boss Blind's{} ability",
+                    "will force a {C:attention}rematch{} next round"
+                }
+            },
             -- Credit Localization
             j_bd_nxkoojoker = {
                 name = "Nxkoo",
@@ -1435,7 +1442,8 @@ return {
             k_bd_celestial_pack = "estial PackCel",
             k_bd_spectral_pack = "tral PackSpec",
             k_bd_blueprint_seal = "Consumable?", -- can be adjusted as need be lmao
-            k_bd_purpleprint_seal = "Enhanced?"  -- ditto
+            k_bd_purpleprint_seal = "Enhanced?",  -- ditto
+            ph_bd_divine_rivaly = "We will meet again, machine." -- change this to what you see fit
         },
         labels = {
             bd_thermal = "Thermal",
