@@ -5,9 +5,10 @@ SMODS.Stake {
     unlocked = true,
 	atlas = "bdstakes",
 	applied_stakes = {},
+    order = 1,
     pos = { x = 0, y = 0 },
 	hide_from_run_info = true,
-	prefix_config = { applied_stakes = { mod = false } },
+	--prefix_config = { applied_stakes = { mod = false } },
 	sticker_atlas = "bdstickers",
     sticker_pos = { x = 0, y = 0 },
     colour = HEX("fcf2c6"),
@@ -24,9 +25,9 @@ SMODS.Stake {
 }
 
 SMODS.Stake:take_ownership('stake_white', {
-	above_stake = "offbrand",
+    above_stake = "bd_offbrand",
 	applied_stakes = { "bd_offbrand" },
-	prefix_config = { applied_stakes = { mod = false, } },
+    prefix_config = { applied_stakes = { mod = false, } },
 	modifiers = function()
         G.E_MANAGER:add_event(Event({
             func = function()
@@ -52,7 +53,6 @@ true
 
 SMODS.Stake:take_ownership('stake_orange', {
 	unlocked_stake = "bd_tin",
-	above_stake = "bd_tin"
 },
 true
 )
@@ -68,12 +68,12 @@ SMODS.Stake {
     sticker_pos = { x = 1, y = 0 },
     colour = HEX("cbc2ba"),
 	modifiers = function()
-        G.GAME.modifiers.bd_tin = 6
+        G.GAME.modifiers.bd_tin = 4
     end,
 	shiny = true,
 	above_stake = "orange",
     calculate = function(self, context)
-        if context.end_of_round and context.game_over == false then
+        if context.first_hand_drawn then
             local marked = {}
             for i=1, #G.hand.cards do
                 if pseudorandom("tin_stake") < 1 / G.GAME.modifiers.bd_tin then
@@ -82,10 +82,11 @@ SMODS.Stake {
             end
             for i=1, #marked do
                 G.E_MANAGER:add_event(Event({
-                    trigger = 'before',
-                    delay = 0.75,
+                    trigger = 'after',
+                    delay = 0.05,
                     func = function()
-                        marked[i]:start_dissolve()
+                        marked[i].debuff = true
+                        marked[i]:juice_up()
                         return true
                     end
                 }))

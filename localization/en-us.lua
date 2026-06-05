@@ -1414,10 +1414,10 @@ return {
             stake_bd_tin = {
                 name = "Tin Stake",
                 text = {
-                    "Fixed {C:green}1 in 6{} chance",
+                    "Fixed {C:green}1 in 4{} chance",
                     "for each card",
-                    "in hand to be destroyed",
-                    "at the end of each round",
+                    "in hand to be debuffed",
+                    "at the start of the round",
                     "{s:0.8}Applies all previous Stakes",
                 },
             },
