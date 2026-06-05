@@ -1642,7 +1642,7 @@ SMODS.Booster:take_ownership_by_kind("Buffoon",
         * (next(SMODS.find_card("v_bd_brokenprinter")) and 0.5 or 1))
         local misprint = SMODS.pseudorandom_probability(card, 'misprint', 1, TRUE_RATE)
         local _edition = (misprint == true) and "e_bd_misprinted" or nil
-        local keyapp_ar = (misprint == true) and "bd_spe" or "spe"
+        local keyapp_ar = (misprint == true) and "bd_buf" or "buf"
         return {
             set = "Joker",
             edition = _edition,

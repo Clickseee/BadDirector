@@ -286,7 +286,7 @@ SMODS.Joker {
         card.ability.plush.saved_time = G.TIMERS.REAL
     end,
 
-    in_pool = function(self,args)
+    in_pool = function(self, args)
         return true -- remember to set to true or inpool func you want, this is so ppl who update bd dont just loot this
     end,
 
