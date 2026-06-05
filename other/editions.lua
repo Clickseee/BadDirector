@@ -46,7 +46,7 @@ SMODS.Sound {
 SMODS.Edition {
     key = "thermal", --i hate you niko (jk)
     order = 1,
-    weight = 21,
+    weight = 8,
     shader = "thermal",
     in_shop = true,
     extra_cost = 3,
@@ -101,7 +101,7 @@ SMODS.Edition {
 SMODS.Edition {
     key = "xray",
     order = 3,
-    weight = 21,
+    weight = 15,
     shader = "xray",
     in_shop = true,
     extra_cost = 3,
@@ -138,7 +138,7 @@ SMODS.Edition {
         name = '"Blueprint"?',
         label = '"Blueprint"?',
     },
-    weight = 21,
+    weight = 15,
     shader = "blueprint",
     in_shop = true,
     extra_cost = 3,
@@ -171,7 +171,7 @@ SMODS.Edition {
             "Test"
         }
     },
-    weight = 21,
+    weight = 16,
     artist = "stupid",
     shader = "misprint",
     in_shop = true,
