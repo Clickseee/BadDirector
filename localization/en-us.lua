@@ -582,6 +582,18 @@ return {
                     "when entering a {C:attention}Blind"
                 },
             },
+            j_bd_youreit = {
+                name = "You're {E:2}It!",
+                text = {
+                    "Gains {X:mult,C:white}X#1#{} Mult",
+                    "for each consecutive round",
+                    "without taking any",
+                    "{C:attention}Skip Tags{}",
+                    "Resets when a {C:attention}Blind",
+                    "is skipped",
+                    "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
+                },
+            },
             -- Credit Localization
             j_bd_nxkoojoker = {
                 name = "Nxkoo",
