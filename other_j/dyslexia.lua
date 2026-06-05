@@ -1,3 +1,14 @@
+local is_suit_ref = Card.is_suit
+
+function Card:is_suit(suit, bypass_debuff, flush_calc)
+
+    if self.ability.identity_crisis_suit then
+        return suit == self.ability.identity_crisis_suit
+    end
+
+    return is_suit_ref(self, suit, bypass_debuff, flush_calc)
+end
+
 SMODS.Joker {
     key = "diesexy",
     rarity = 1,
@@ -10,64 +21,61 @@ SMODS.Joker {
         ["BadDirector_Jokers"] = true,
     },
     attributes = {"hand_type","generation","hearts","tarot"},
+    config = {
+        extra = {
+            odds = 2
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        local num, den = SMODS.get_probability_vars(
+            card,
+            1,
+            card.ability.extra.odds,
+            "identity_crisis"
+        )
+
+        return {
+            vars = {
+                num,
+                den
+            }
+        }
+    end,
+
     calculate = function(self, card, context)
 
-        if context.before
-        and context.cardarea == G.jokers
-        and not context.blueprint then
+        if context.before and #context.full_hand >= 2 then
 
-            local has_heart = false
+            local first = context.full_hand[1]
+            local second = context.full_hand[2]
 
-            for _, played_card in ipairs(context.full_hand) do
-                if played_card:is_suit("Hearts") then
-                    has_heart = true
-                    break
-                end
+            local chosen_suit
+
+            if SMODS.pseudorandom_probability(
+                card,
+                "identity_crisis",
+                1,
+                card.ability.extra.odds,
+                "identity_crisis"
+            ) then
+                chosen_suit = first.base.suit
+            else
+                chosen_suit = second.base.suit
             end
 
-            if not has_heart then
-                return
+            for _, playing_card in ipairs(context.full_hand) do
+                playing_card.ability.identity_crisis_suit = chosen_suit
             end
 
-            local current_hand = context.scoring_name
-            local most_played = nil
-            local highest = -1
+            return {
+                message = localize(chosen_suit, 'suits_plural')
+            }
+        end
 
-            for hand_name, hand_data in pairs(G.GAME.hands) do
-
-                if hand_data.played > highest then
-                    highest = hand_data.played
-                    most_played = hand_name
-                end
-            end
-
-            if current_hand == most_played then
-
-                if #G.consumeables.cards + G.GAME.consumeable_buffer
-                < G.consumeables.config.card_limit then
-
-                    G.GAME.consumeable_buffer =
-                        G.GAME.consumeable_buffer + 1
-
-                    G.E_MANAGER:add_event(Event({
-                        func = function()
-
-                            SMODS.add_card({
-                                key = "c_lovers"
-                            })
-
-                            G.GAME.consumeable_buffer =
-                                G.GAME.consumeable_buffer - 1
-
-                            return true
-                        end
-                    }))
-
-                    card_eval_status_text(card, 'extra', nil, nil, nil, {
-                        message = "Hey.",
-                        colour = G.C.PURPLE
-                    })
-                end
+        if context.after then
+            for _, playing_card in ipairs(context.full_hand) do
+                playing_card.ability.identity_crisis_suit = nil
             end
         end
     end

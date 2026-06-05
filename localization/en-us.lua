@@ -585,8 +585,11 @@ return {
             j_bd_diesexy = {
                 name = "Dyslexia",
                 text = {
-                    "{E:bd_dyslexia}We folded like",
-                    "{E:bd_dyslexia}a cheap suit!"
+                    "{E:bd_dyslexia}Played cards are",
+                    "{E:bd_dyslexia}considered the suit of",
+                    "the {E:bd_dyslexia,C:attention}first{} played card",
+                    "or the {C:attention}second{} {E:bd_dyslexia}played card",
+                    "{C:inactive}({C:green}#1# in #2#{} {C:inactive}chance)"
                 },
             },
             j_bd_burntpassport = {
