@@ -532,6 +532,16 @@ return {
                     "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)",
                 },
             },
+            j_bd_plushtrap = {
+                name = {
+                        "Fun with",
+                        "Jimbotrap"
+                    },
+                text = {
+                    "Keep an eye on this fellow",
+                    "He doesn't do shit for now except leave."
+                },
+            },
             j_bd_diesexy = {
                 name = "Dyslexia",
                 text = {

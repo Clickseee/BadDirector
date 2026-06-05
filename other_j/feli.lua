@@ -244,3 +244,131 @@ SMODS.Joker {
         end
     end,
 }
+
+SMODS.Joker {
+	atlas = 'feliPlushtrap',
+	pos = { x = 0, y = 0 },
+	pools = {["BadDirector_Jokers"] = true, ["FNAF"] = true, },
+	key = "bd_plushtrap",
+    coder = {"LasagnaFelidae"},
+    partner = {"Chair"},
+	rarity = 2,
+	cost = 6,
+	config = {
+		extra = {
+
+        },
+        plush = { 
+            state = 0,  --  0 = seated, 
+                        --  1 = highlighted, 
+                        --  2 = gone
+            movementOpportunity = 4, -- 4 is the first value on purchase, but this is set to a random value between opportunityMin and opportunityMax when the card is highlighted and after each movement opportunity passes
+            opportunityMin = 2.8, -- this is min seconds before a movement opportunity
+            opportunityMax = 4, -- this is max seconds before a movement opportunity
+            saved_time = 0, -- do not change as this is set by G.TIMERS.REAL
+            enabled = false, -- do not change as this starts the timer on card add
+            movementChance_num = 1, -- this is the numerator for the movement chance fraction
+            movementChance_den = 5, -- this is the denominator for the movement chance fraction
+        },
+        
+	},	
+	loc_vars = function(self, info_queue, card)
+		return { 
+            vars = {
+
+            } 
+        }
+	end,
+    add_to_deck = function(self, card, from_debuff)
+        card.ability.plush.enabled = true
+        card.ability.plush.saved_time = G.TIMERS.REAL
+    end,
+
+    in_pool = function(self,args)
+        return false -- remember to set to true or inpool func you want, this is so ppl who update bd dont just loot this
+    end,
+
+    update = function(self, card, dt)
+        --[[
+        A l'intention de Pup <3
+
+        Movement opportunities work this way:
+        - When the card is added to the deck, the plushtrap ability is enabled and the timer starts counting.
+            - The first ever movement opportunity occurs once the timer reaches the initial movementOpportunity value (4 seconds).
+            - If the card is highlighted and Plushtrap is not already "gone", it will reroll the max time between 2.8 and 4
+            - This works because G.TIMERS.REAL despite the name is not a Real number but a fucking float.
+        - Once the timer strikes, it will roll a random number between chance num and den. 
+            - If it succeds, Plushtrap is "gone" 
+            - Otherwise, the timer resets (and rerolls a max time) and Plushtrap waits for the next movement opportunity.
+        
+        Reminder for the Plushtrap states
+        --  0 = seated, (initial)
+        --  1 = highlighted,
+        --  2 = gone
+            
+        All of this is in a separate table from extra so that the misprint doesnt fuck with the values.
+            
+        -- If you read this, 
+        I could make it more FNAF-accurate and give different states 
+        before he's completely gone, but that would require you to 
+        draw 3 more cards.
+
+        There is nothing in calculate yet 
+        except a local var to directly check plush state
+        remember that if you want to change the state for whatever reason:
+        - DO NOT set "state = 2"
+        - SET "card.ability.plush.state = 2" instead
+
+        There is a joker_main context check but I can't be assed to figure out what your joker should do and when.
+
+
+        Je t'aime comme un fou,
+        Forever Yours,
+
+        Feli
+          __  __
+        /***V***\
+        \      /
+         \   /
+          \/
+
+        ]]
+        if card and card.ability and card.ability.plush and card.ability.plush.enabled then
+            local state = card.ability.plush.state
+            if state ~= 2 then
+                card.ability.plush.state = 0
+                card.children.center:set_sprite_pos({x = 0, y = 0})
+                if G.jokers and G.jokers.highlighted then
+                    for _, joker in ipairs(G.jokers.highlighted) do
+                        if joker == card and state ~= 2 then
+                            card.ability.plush.saved_time, card.ability.plush.movementOpportunity = G.TIMERS.REAL, pseudorandom("movementOpportunity",card.ability.plush.opportunityMin,card.ability.plush.opportunityMax)
+                            print ("PlushTrap: Highlighted, setting movementOpportunity to " .. card.ability.plush.movementOpportunity)
+                            
+                            card.ability.plush.state = 1
+                            card.children.center:set_sprite_pos({x = 1, y = 0})
+                        end   
+                    end
+                end
+                if G.TIMERS.REAL - card.ability.plush.saved_time > card.ability.plush.movementOpportunity then
+                if pseudorandom("movementOpportunity",card.ability.plush.movementChance_num, card.ability.plush.movementChance_den) <= card.ability.plush.movementChance_num then
+                    card.ability.plush.state = 2
+                    card.children.center:set_sprite_pos({x = 2, y = 0})
+                else
+                    card.ability.plush.saved_time, card.ability.plush.movementOpportunity = G.TIMERS.REAL, pseudorandom("movementOpportunity",card.ability.plush.opportunityMin,card.ability.plush.opportunityMax)
+                end
+            end
+                
+            end
+        end
+        
+    end,
+
+	calculate = function(self, card, context)
+        local state = card.ability.plush.state
+
+        if context.joker_main then
+
+        end
+	end,
+	blueprint_compat = true,
+}
