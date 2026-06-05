@@ -675,7 +675,7 @@ return {
                         "{C:purple,E:1,s:1.3}sqrk :3"
                     },
                     {
-                        "Also try out {C:tarot}Phanta{}, {C:money}Magnum Opus{}, and {C:green}Catan{}!"
+                        "Also try out {C:tarot}Phanta{}, {C:money}BFDI{}, and {C:green}Catan{}!"
                     }
                 }
             },
