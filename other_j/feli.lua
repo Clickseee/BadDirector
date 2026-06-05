@@ -270,7 +270,7 @@ SMODS.Joker {
             movementChance_num = 1, -- this is the numerator for the movement chance fraction
             movementChance_den = 5, -- this is the denominator for the movement chance fraction
             attention = 0,
-            max_attention = 0
+            max_attention = 12
         },
         
 	},	
