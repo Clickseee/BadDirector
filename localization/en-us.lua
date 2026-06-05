@@ -161,6 +161,23 @@ return {
                     "{C:attention}...{}",
                 },
             },
+            bd_attrib_info = {
+                name = "Joker Attributes",
+                text = {
+                    "Jokers belong to hidden",
+                    "{C:attention}Attribute{} groups.",
+                    "Examples include:",
+                    "{C:chips}chips{}, {C:mult}mult{},",
+                    "{C:money}economy{}, {C:attention}suit{},",
+                    "{C:hearts}hearts{}, {C:attention}retrigger{},",
+                    "{C:attention}scaling{}, {C:green}chance{},",
+                    "{C:attention}Lusty Joker{} and",
+                    "{C:attention}Bloodstone{} share",
+                    "{C:hearts}hearts{} and {C:attention}suit{}.",
+                    "Hyper-Specific checks",
+                    "for shared Attributes."
+                }
+            },
             bd_offbrand_sticker = {
                 name = "Offbrand Sticker",
                 text = {
@@ -592,6 +609,18 @@ return {
                     "Resets when a {C:attention}Blind",
                     "is skipped",
                     "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)"
+                },
+            },
+            j_bd_hyperspecific = {
+                name = {
+                    "A Very",
+                    "Hyper-specific Joker"
+                },
+                text = {
+                    "Earn {C:money}$#1#{} at end of round",
+                    "if every Joker shares",
+                    "at least {C:attention}#2#{} attributes",
+                    "with every other Joker"
                 },
             },
             -- Credit Localization
