@@ -12,9 +12,10 @@ end
 SMODS.Joker {
     key = "diesexy",
     rarity = 1,
-    atlas = "misprintenhanced",
+    atlas = "dyslexia",
     coder = { "Nxkoo" },
-    pos = { x = 1, y = 0 },
+    artist = {"LasagnaFelidae"},
+    pos = { x = 0, y = 0 },
     cost = 3,
     blueprint_compat = true,
     eternal_compat = true,
@@ -47,10 +48,10 @@ SMODS.Joker {
 
     calculate = function(self, card, context)
 
-        if context.before and #context.full_hand >= 2 then
+        if context.press_play and #G.hand.highlighted >= 2 then
 
-            local first = context.full_hand[1]
-            local second = context.full_hand[2]
+            local first = G.hand.highlighted[1]
+            local second = G.hand.highlighted[2]
 
             local chosen_suit
 
@@ -66,7 +67,7 @@ SMODS.Joker {
                 chosen_suit = second.base.suit
             end
 
-            for _, playing_card in ipairs(context.full_hand) do
+            for _, playing_card in ipairs(G.hand.highlighted) do
                 playing_card.ability.identity_crisis_suit = chosen_suit
             end
 

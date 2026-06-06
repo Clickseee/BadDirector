@@ -1,6 +1,12 @@
 BadDirector = BadDirector or {}
 BadDirector.power_fuse_active = false
 
+SMODS.Sound {
+    key = "bd_powerout",
+    path = "fnaf_poweroutage.ogg",
+    volume = 1
+} 
+
 SMODS.ScreenShader {
     key = "flashlight",
 
@@ -12,7 +18,8 @@ SMODS.ScreenShader {
 
     send_vars = function(self)
         return {
-            iTime = G.TIMERS.REAL
+            center_pos = {love.mouse.getX(), love.mouse.getY()},
+            dist = 225
         }
     end
 }
@@ -27,6 +34,7 @@ SMODS.Joker {
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
+    
     pools = {
         ["BadDirector_Jokers"] = true,
     },
@@ -40,8 +48,31 @@ SMODS.Joker {
         extra = {
             xmult = 4,
             awareness = 0
-        }
+        },
+        power = {
+            is_active = false,
+        },
     },
+
+    update = function(self,card,dt)
+        if BadDirector.power_fuse_active == true then
+            Blind:change_colour(HEX('000000')) -- Blind box
+	        ease_background_colour{new_colour = HEX('000000')}
+            G.jokers.config.highlighted_limit = 99999
+        end
+    end,
+    load = function(self, card, card_table, other_card)
+        G.E_MANAGER:add_event(Event({
+			func = function() 
+                if card.ability.power.is_active == true then
+                    BadDirector.power_fuse_active = true
+                    play_sound('bd_powerout', 1, 1)
+                end
+			    return true 
+			end
+		}))
+        
+    end,
 
     loc_vars = function(self, info_queue, card)
         return {
@@ -53,7 +84,9 @@ SMODS.Joker {
     end,
 
     add_to_deck = function(self, card, from_debuff)
+        card.ability.power.is_active = true
         BadDirector.power_fuse_active = true
+        play_sound('bd_powerout', 1, 1)
     end,
 
     remove_from_deck = function(self, card, from_debuff)

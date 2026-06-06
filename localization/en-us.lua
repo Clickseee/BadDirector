@@ -593,10 +593,23 @@ return {
                     "Jimbotrap"
                 },
                 text = {
-                    "Highlight this Joker",
-                    "to keep {C:attention}Plushtrap{} in place",
-                    "Survive until a",
-                    "{C:attention}Boss Blind{} to gain a Tag",
+                    {
+                        "Highlight this Joker",
+                        "to keep {C:attention}Jimbotrap{} in place",
+                        "If left highlighted for {C:attention}too long{},",
+                        "{C:attention}Jimbotrap{} will {C:red}catch you",
+                    },
+                    {
+                        "Beat a {C:attention}Boss Blind{}",
+                        "while {C:attention}Jimbotrap{} is here",
+                        "to gain a random {C:attention}Tag",
+                    },
+                    {
+                        "If you let {C:attention}Jimbotrap",
+                        "{C:red}catch you{}, permanently",
+                        "lose {C:blue}-1{} hand",
+                        "per round"
+                    }
                 },
             },
             j_bd_diesexy = {
@@ -666,7 +679,8 @@ return {
                 text = {
                     {
                         "If {C:attention}Power Fuse{} is owned,",
-                        "destroy it and absorb",
+                        "{C:attention}use{} this Joker",
+                        "to absorb the {C:attention}Fuse{} and",
                         "its {C:purple,E:bd_glitching}AWR{}"
                     },
                     {
@@ -1496,6 +1510,7 @@ return {
             k_mispectral = 'ralSpect',
             b_mispectral_cards = "tral CardsSpec",
             k_what = '...?',
+            k_breaker_use = 'INSERT',
             k_upgrade_q = "Upgrade?",
             k_bd_arcana_pack = "cana PackAr",
             k_bd_celestial_pack = "estial PackCel",

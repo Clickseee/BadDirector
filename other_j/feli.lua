@@ -251,7 +251,7 @@ SMODS.Joker {
 	pools = {["BadDirector_Jokers"] = true, ["FNAF"] = true, },
 	key = "bd_plushtrap",
     coder = {"LasagnaFelidae", "Nxkoo"},
-    partner = {"Chair"},
+    artist = {"Le Ginger"},
 	rarity = 2,
 	cost = 6,
 	config = {
@@ -263,14 +263,14 @@ SMODS.Joker {
                         --  1 = highlighted, 
                         --  2 = gone
             movementOpportunity = 4, -- 4 is the first value on purchase, but this is set to a random value between opportunityMin and opportunityMax when the card is highlighted and after each movement opportunity passes
-            opportunityMin = 2.8, -- this is min seconds before a movement opportunity
-            opportunityMax = 4, -- this is max seconds before a movement opportunity
+            opportunityMin = 3, -- this is min seconds before a movement opportunity
+            opportunityMax = 5, -- this is max seconds before a movement opportunity
             saved_time = 0, -- do not change as this is set by G.TIMERS.REAL
             enabled = false, -- do not change as this starts the timer on card add
             movementChance_num = 1, -- this is the numerator for the movement chance fraction
             movementChance_den = 5, -- this is the denominator for the movement chance fraction
             attention = 0,
-            max_attention = 12
+            max_attention = 20
         },
         
 	},	
@@ -363,13 +363,13 @@ SMODS.Joker {
 
                 plush.attention = plush.attention + dt
 
-                if plush.attention > 6 then
+                if plush.attention > ((plush.max_attention/3)*2) then
                     plush.state = 4
-                    card.children.center:set_sprite_pos({x = 4, y = 0})
+                    card.children.center:set_sprite_pos({x = 6, y = 0})
 
-                elseif plush.attention > 3 then
+                elseif plush.attention > (plush.max_attention/3) then
                     plush.state = 3
-                    card.children.center:set_sprite_pos({x = 3, y = 0})
+                    card.children.center:set_sprite_pos({x = 4, y = 0})
 
                 else
                     plush.state = 1
@@ -412,15 +412,15 @@ SMODS.Joker {
                     plush.attention - dt * 0.75
                 )
 
-                if plush.attention <= 3 then
+                if plush.attention <= (plush.max_attention/3) then
                     plush.state = 0
                     card.children.center:set_sprite_pos({x = 0, y = 0})
-                elseif plush.attention <= 6 then
+                elseif plush.attention <= ((plush.max_attention/3)*2) then
                     plush.state = 3
                     card.children.center:set_sprite_pos({x = 3, y = 0})
                 else
                     plush.state = 4
-                    card.children.center:set_sprite_pos({x = 4, y = 0})
+                    card.children.center:set_sprite_pos({x = 5, y = 0})
                 end
             end
 
@@ -435,16 +435,17 @@ SMODS.Joker {
                     plush.state = 2
                     card.children.center:set_sprite_pos({x = 2, y = 0})
 
-                    G.hand:change_size(-1)
-
+                    
                     card_eval_status_text(card, 'extra', nil, nil, nil, {
                         message = "Got You!",
                         colour = G.C.RED
                     })
+                    
 
                     G.E_MANAGER:add_event(Event({
                         func = function()
                             card:start_dissolve()
+                            ease_hands_played(-1)
                             return true
                         end
                     }))
@@ -460,6 +461,23 @@ SMODS.Joker {
 
                 end
             end
+        elseif state == 2 then
+            local highlighted = false
+
+            if G.jokers and G.jokers.highlighted then
+                for _, joker in ipairs(G.jokers.highlighted) do
+                    if joker == card then
+                        highlighted = true
+                        break
+                    end
+                end
+            end
+
+            if highlighted then
+                card.children.center:set_sprite_pos({x = 6, y = 0})
+            else
+                card.children.center:set_sprite_pos({x = 2, y = 0})
+            end
         end
     end,
 
@@ -468,17 +486,16 @@ SMODS.Joker {
         local plush = card.ability.plush
 
         if context.end_of_round
-        and not context.individual
-        and G.GAME.blind.boss
+        and context.main_eval and context.beat_boss
         and plush.state ~= 2 then
 
             local tag_key
 
-            if plush.attention <= 3 then
+            if plush.attention <= ((plush.max_attention/3)) then
 
                 tag_key = "tag_double"
 
-            elseif plush.attention <= 6 then
+            elseif plush.attention <= ((plush.max_attention/3)*2) then
 
                 local rare_tags = {
                     "tag_negative",

@@ -15,109 +15,113 @@ SMODS.Joker {
         "spectral",
         "generation"
     },
-
+    
     config = {
         extra = {
             awareness = 0
         }
     },
-
+    
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS["j_bd_powerfuse"]
         return {
             vars = {
                 card.ability.extra.awareness
             }
         }
     end,
-
+    
     in_pool = function(self, args)
-
+        
         if not G.jokers then
             return false
         end
-
+        
         for _, joker in ipairs(G.jokers.cards) do
-            if joker.config.center.key == "bd_powerfuse" then
+            if joker.config.center.key == "j_bd_powerfuse" then
                 return true
             end
         end
-
+        
         return false
     end,
-
-    add_to_deck = function(self, card, from_debuff)
-
-        if not G.jokers then
-            return
-        end
-
-        for _, joker in ipairs(G.jokers.cards) do
-
-            if joker.config.center.key == "bd_powerfuse" then
-
-                card.ability.extra.awareness =
-                    card.ability.extra.awareness +
-                    (joker.ability.extra.awareness or 0)
-
-                BadDirector.power_fuse_active = false
-
-                G.E_MANAGER:add_event(Event({
-                    func = function()
-
-                        joker:start_dissolve()
-
-                        return true
-                    end
-                }))
-
-                card_eval_status_text(
-                    card,
-                    'extra',
-                    nil,
-                    nil,
-                    nil,
-                    {
-                        message = "ON",
-                        colour = G.C.GREEN
-                    }
-                )
-
-                break
-            end
-        end
+    
+    can_use = function(self, card)
+        return BadDirector.power_fuse_active and next(SMODS.find_card("j_bd_powerfuse")) and #G.jokers.highlighted == 2 and (G.jokers.highlighted[1].config.center.key == "j_bd_powerfuse" or G.jokers.highlighted[2].config.center.key == "j_bd_powerfuse")
     end,
-
-    calculate = function(self, card, context)
-
-        if context.setting_blind
-        and card.ability.extra.awareness > 0 then
-
+    
+    use = function(self, card)
+    
+    for _, joker in ipairs(G.jokers.highlighted) do
+        
+        if joker.config.center.key == "j_bd_powerfuse" then
             card.ability.extra.awareness =
-                card.ability.extra.awareness - 1
-
+            card.ability.extra.awareness +
+            (joker.ability.extra.awareness or 0)
+            
+            BadDirector.power_fuse_active = false
+            joker.ability.power.is_active = false
+            
             G.E_MANAGER:add_event(Event({
                 func = function()
-
-                    local spectral =
-                        create_card(
-                            'Spectral',
-                            G.consumeables,
-                            nil,
-                            nil,
-                            nil,
-                            nil,
-                            nil,
-                            'power_breaker'
-                        )
-
-                    spectral:add_to_deck()
-
-                    G.consumeables:emplace(spectral)
-
+                    
+                    joker:start_dissolve()
+                    
                     return true
                 end
             }))
+            
+            card_eval_status_text(
+            card,
+            'extra',
+            nil,
+            nil,
+            nil,
+            {
+                message = "ON",
+                colour = G.C.GREEN
+            }
+        )
+        break
+            
+        end
+    end
+        
+    
+    
+    end,
 
+    calculate = function(self, card, context)
+    
+        if context.setting_blind
+        and card.ability.extra.awareness > 0 then
+                
+                card.ability.extra.awareness =
+                card.ability.extra.awareness - 1
+                
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        
+                        local spectral =
+                        create_card(
+                        'Spectral',
+                        G.consumeables,
+                        nil,
+                        nil,
+                        nil,
+                        nil,
+                        nil,
+                        'power_breaker'
+                    )
+                    
+                    spectral:add_to_deck()
+                    
+                    G.consumeables:emplace(spectral)
+                    
+                    return true
+                end
+            }))
+            
             return {
                 message = "+1 Spectral",
                 colour = G.C.SECONDARY_SET.Spectral
