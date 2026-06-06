@@ -248,3 +248,25 @@ SMODS.Joker {
         return false
     end
 }
+
+SMODS.Joker {
+    key = "gingerjoker",
+    selfinsert = true,
+    discovered = true,
+    rarity = 4,
+    pos = { x = 0, y = 0 },
+    atlas = "gingerselfinsert",
+    cost = 666,
+    no_collection = true,
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = true,
+    in_pool = function(self, args)
+        return false
+    end,
+    loc_vars = function(self, info_queue, card)
+        return {vars = {elements = {
+            SMODS.create_sprite(0, 0, 5596/1100, 5596/1100, "bd_theonepiece")
+        }}}
+    end
+}
