@@ -24,44 +24,92 @@ SMODS.ScreenShader {
     end
 }
 
-local function remakeSign()
+local function remakeSign(power_off)
     if G.SHOP_SIGN then
         G.SHOP_SIGN:remove()
     end
 
-    local shop_sign = AnimatedSprite(0,0, 4.4, 2.2, G.ASSET_ATLAS['bd_shopsign']) -- The image's atlas 
+    local atlas = power_off
+        and G.ASSET_ATLAS['bd_shopsign']
+        or G.ANIMATION_ATLAS['shop_sign']
+
+    local shop_sign = AnimatedSprite(0, 0, 4.4, 2.2, atlas)
+
     shop_sign:define_draw_steps({
-      {shader = 'dissolve', shadow_height = 0.05},
-      {shader = 'dissolve'}
+        {shader = 'dissolve', shadow_height = 0.05},
+        {shader = 'dissolve'}
     })
+
     G.SHOP_SIGN = UIBox{
-      definition = 
-        {n=G.UIT.ROOT, config = {colour = G.C.DYN_UI.MAIN, emboss = 0.05, align = 'cm', r = 0.1, padding = 0.1}, nodes={
-          {n=G.UIT.R, config={align = "cm", padding = 0.1, minw = 4.72, minh = 3.1, colour = G.C.DYN_UI.DARK, r = 0.1}, nodes={
-            {n=G.UIT.R, config={align = "cm"}, nodes={
-              {n=G.UIT.O, config={object = shop_sign}} -- Where the image is set
-            }},
-            {n=G.UIT.R, config={align = "cm"}, nodes={
-              {n=G.UIT.O, config={object = DynaText({string = {localize('ph_improve_run')}, colours = {lighten(G.C.GOLD, 0.3)},shadow = true, rotate = true, float = true, bump = true, scale = 0.5, spacing = 1, pop_in = 1.5, maxw = 4.3})}}
-                                            -- Text that says "Improve your run!"                       -- Color is gold but light
-            }},
-          }},
-        }},
-      config = {
-        align="cm",
-        offset = {x=0,y=-15},
-        -- Make it above the screen
-        major = G.HUD:get_UIE_by_ID('row_blind'),
-        bond = 'Weak'
-      }
+        definition = {
+            n = G.UIT.ROOT,
+            config = {
+                colour = G.C.DYN_UI.MAIN,
+                emboss = 0.05,
+                align = 'cm',
+                r = 0.1,
+                padding = 0.1
+            },
+            nodes = {
+                {
+                    n = G.UIT.R,
+                    config = {
+                        align = "cm",
+                        padding = 0.1,
+                        minw = 4.72,
+                        minh = 3.1,
+                        colour = G.C.DYN_UI.DARK,
+                        r = 0.1
+                    },
+                    nodes = {
+                        {
+                            n = G.UIT.R,
+                            config = {align = "cm"},
+                            nodes = {
+                                {n = G.UIT.O, config = {object = shop_sign}}
+                            }
+                        },
+                        {
+                            n = G.UIT.R,
+                            config = {align = "cm"},
+                            nodes = {
+                                {
+                                    n = G.UIT.O,
+                                    config = {
+                                        object = DynaText({
+                                            string = {localize('ph_improve_run')},
+                                            colours = {lighten(G.C.GOLD, 0.3)},
+                                            shadow = true,
+                                            rotate = true,
+                                            float = true,
+                                            bump = true,
+                                            scale = 0.5,
+                                            spacing = 1,
+                                            pop_in = 1.5,
+                                            maxw = 4.3
+                                        })
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        config = {
+            align = "cm",
+            offset = {x = 0, y = -15},
+            major = G.HUD:get_UIE_by_ID('row_blind'),
+            bond = 'Weak'
+        }
     }
+
     G.E_MANAGER:add_event(Event({
-      trigger = 'immediate',
-      func = (function()
-          G.SHOP_SIGN.alignment.offset.y = 0
-          -- Animation to bring it down
-          return true
-      end)
+        trigger = 'immediate',
+        func = function()
+            G.SHOP_SIGN.alignment.offset.y = 0
+            return true
+        end
     }))
 end
 
@@ -111,7 +159,7 @@ SMODS.Joker {
 					if (G.SHOP_SIGN) then
 						G.E_MANAGER:add_event(Event({
 							func = function() 
-								remakeSign()
+								remakeSign(true)
 								return true 
 							end
 						}))
@@ -135,12 +183,38 @@ SMODS.Joker {
     add_to_deck = function(self, card, from_debuff)
         card.ability.power.is_active = true
         BadDirector.power_fuse_active = true
-        
+        if (G.SHOP_SIGN) then
+			G.E_MANAGER:add_event(Event({
+				func = function() 
+					remakeSign(true)
+					return true 
+				end
+			}))
+		end
         play_sound('bd_powerout', 1, 1)
     end,
 
     remove_from_deck = function(self, card, from_debuff)
         BadDirector.power_fuse_active = false
+        play_sound("bd_poweron",1,1)
+        if (G.SHOP_SIGN) then
+			G.E_MANAGER:add_event(Event({
+				func = function() 
+					remakeSign(false)
+					return true 
+				end
+			}))
+		end
+        local function getState()
+            for name, id in pairs(G.STATES) do
+                if id == G.STATE then
+                    return G.STATES[name]
+                end
+            end
+        end
+
+
+	    ease_background_colour_blind{getState()}
     end,
 
     calculate = function(self, card, context)
@@ -150,7 +224,7 @@ SMODS.Joker {
         and (BadDirector.power_fuse_active == true or card.ability.power.is_active == true) then
 			G.E_MANAGER:add_event(Event({
 				func = function() 
-					remakeSign()
+					remakeSign(true)
 					return true 
 				end
 			}))

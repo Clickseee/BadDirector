@@ -224,6 +224,15 @@ SMODS.Joker {
             }
         }
     end,
+    load = function(self, card, card_table, other_card)
+        G.E_MANAGER:add_event(Event({
+			func = function() 
+                card.ability.imm.rank = pseudorandom_element(SMODS.Ranks, pseudoseed('j_bd_alberto'))
+			    return true 
+			end
+		}))
+        
+    end,    
     set_ability = function(self, card, initial, info_queue)
         card.ability.imm.rank = pseudorandom_element(SMODS.Ranks, pseudoseed('j_bd_alberto'))
     end,
