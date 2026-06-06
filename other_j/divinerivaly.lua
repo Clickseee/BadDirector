@@ -7,7 +7,8 @@ SMODS.Atlas{
 
 SMODS.Joker{
 	key = "divine_rivaly",
-	atlas = "MACHINE I WILL STRIKE YOU DOWN",
+	atlas = "misprintenhanced",
+    pos = { x = 1, y = 0 },
 	rarity = 2,
 	cost = 7,
 	pools = {

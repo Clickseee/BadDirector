@@ -12,7 +12,9 @@ end
 SMODS.Joker {
     key = "diesexy",
     rarity = 1,
-    pos = { x = 0, y = 0 },
+    atlas = "misprintenhanced",
+    coder = { "Nxkoo" },
+    pos = { x = 1, y = 0 },
     cost = 3,
     blueprint_compat = true,
     eternal_compat = true,

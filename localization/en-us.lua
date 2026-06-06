@@ -161,6 +161,14 @@ return {
                     "{C:attention}...{}",
                 },
             },
+            bd_screenshader_info = {
+                name = "Screen Shader",
+                text = {
+                    "Special visual effects",
+                    "that modify the",
+                    "{C:attention}entire screen{}",
+                },
+            },
             bd_attrib_info = {
                 name = "Joker Attributes",
                 text = {
@@ -640,6 +648,43 @@ return {
                 text = {
                     "Triggering the {C:attention}Boss Blind's{} ability",
                     "will force a {C:attention}rematch{} next round"
+                }
+            },
+            j_bd_powerfuse = {
+                name = "Power Fuse",
+                text = {
+                    "{X:mult,C:white}X#1#{} Mult",
+                    "Gain {C:purple}1 {C:purple,E:bd_glitching}AWR{}",
+                    "at end of round",
+                    "{C:inactive}(Currently #2# {C:inactive,E:bd_glitching}AWR{C:inactive})",
+                    "{C:inactive,s:0.8}I wouldn't take it",
+                    "{C:inactive,s:0.8}if i were you.."
+                }
+            },
+            j_bd_powerbreaker = {
+                name = "Power Breaker",
+                text = {
+                    {
+                        "If {C:attention}Power Fuse{} is owned,",
+                        "destroy it and absorb",
+                        "its {C:purple,E:bd_glitching}AWR{}"
+                    },
+                    {
+                        "At start of Blind,",
+                        "spend {C:purple}1 {C:purple,E:bd_glitching}AWR{}",
+                        "to create a random",
+                        "{C:spectral}Spectral{} card",
+                        "{C:inactive}(Currently #1# {C:inactive,E:bd_glitching}AWR{C:inactive})"
+                    }
+                }
+            },
+            j_bd_breathalyzer = {
+                name = "Breathalyzer",
+                text = {
+                    "{X:mult,C:white}X#1#{} Mult",
+                    "If {C:attention}Screen Shader{}",
+                    "has ever been",
+                    "active this run"
                 }
             },
             -- Credit Localization
@@ -1455,8 +1500,8 @@ return {
             k_bd_arcana_pack = "cana PackAr",
             k_bd_celestial_pack = "estial PackCel",
             k_bd_spectral_pack = "tral PackSpec",
-            k_bd_blueprint_seal = "Consumable?", -- can be adjusted as need be lmao
-            k_bd_purpleprint_seal = "Enhanced?",  -- ditto
+            k_bd_blueprint_seal = "Consumable?",                 -- can be adjusted as need be lmao
+            k_bd_purpleprint_seal = "Enhanced?",                 -- ditto
             ph_bd_divine_rivaly = "We will meet again, machine." -- change this to what you see fit
         },
         labels = {
