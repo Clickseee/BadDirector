@@ -232,3 +232,17 @@ SMODS.Atlas {
     px = 71,
     py = 95,
 }
+
+SMODS.Atlas {
+    key = "gingerselfinsert",
+    path = "ginger.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas {
+    key = "theonepiece",
+    path = "itsreal.jpg",
+    px = 343,
+    py = 193,
+}

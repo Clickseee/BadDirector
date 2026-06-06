@@ -20,6 +20,17 @@ SMODS.Font {
     DESCSCALE = 1
 }
 
+SMODS.Font {
+    key = "coolfont",
+    path = "comicbd.ttf",
+    render_scale = 95,
+    TEXT_HEIGHT_SCALE = 1,
+    TEXT_OFFSET = { x = 0, y = 0 },
+    FONTSCALE = 0.17,
+    squish = 1,
+    DESCSCALE = 1
+}
+
 local dyslexia_cache = {}
 
 local function mutate_word(word)

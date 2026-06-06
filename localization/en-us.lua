@@ -837,6 +837,18 @@ return {
                     "Wow, much card"
                 }
             },
+            j_bd_gingerjoker = {
+                name = "Le Ginger",
+                text = {
+                    {
+                        "Nerding out since {C:attention}2006"
+                    },
+                    {
+                        "BALATRO {f:bd_coolfont,C:red}REPAINTED{} IS REAL",
+                        " {element:1} "
+                    }
+                }
+            },
         },
         Tarot = {
             c_bd_tarot_liar = {
