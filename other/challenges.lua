@@ -158,3 +158,24 @@ SMODS.Challenge {
     end
 
 }
+
+SMODS.Challenge {
+    key = "fnaf",
+    rules = {
+        custom = {
+            { id = 'ante_v' },
+            { id = 'plushtrap' },
+        },
+    },
+    restrictions = {
+        banned_other = {
+            { id = 'bl_amber_acorn', type = 'blind'}
+        }
+    },
+    jokers = {
+        { id = 'j_bd_plushtrap', eternal = true },
+    },
+    apply = function(self, back)
+        G.GAME.win_ante = 5
+    end,
+}

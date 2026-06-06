@@ -258,7 +258,7 @@ SMODS.Joker {
 	atlas = 'feliPlushtrap',
 	pos = { x = 0, y = 0 },
 	pools = {["BadDirector_Jokers"] = true, ["FNAF"] = true, },
-	key = "bd_plushtrap",
+	key = "plushtrap",
     coder = {"LasagnaFelidae", "Nxkoo"},
     artist = {"Le Ginger"},
 	rarity = 2,
@@ -455,6 +455,17 @@ SMODS.Joker {
                         func = function()
                             card:start_dissolve()
                             ease_hands_played(-1)
+                            if G.GAME and G.GAME.challenge and G.GAME.challenge == "c_bd_fnaf" then
+                                G.E_MANAGER:add_event(Event({
+                                    trigger = 'after',
+                                    delay = 0.2,
+                                    func = function()
+                                        G.STATE = G.STATES.GAME_OVER
+                                        G.STATE_COMPLETE = false
+                                        return true
+                                    end
+                                }))
+                            end
                             return true
                         end
                     }))

@@ -1545,7 +1545,12 @@ return {
         challenge_names = {
             c_bd_heartless = "Heartless",
             c_bd_oops = "Oops, All Misprints",
-            c_bd_genocide = "What Remains?"
+            c_bd_genocide = "What Remains?",
+            c_bd_fnaf = "Five Antes at Jimbo's"
         },
+        v_text = {
+            ch_c_plushtrap = { "Winning Ante is {C:attention}5{}" },
+            ch_c_ante_v = { "If you are {C:red}caught{}, you automatically {C:attention}lose{}" },
+        }
     }
 }
