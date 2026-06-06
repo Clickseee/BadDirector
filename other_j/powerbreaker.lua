@@ -1,43 +1,4 @@
-local function remakeSign()
-    if G.SHOP_SIGN then
-        G.SHOP_SIGN:remove()
-    end
-    
-    local shop_sign = AnimatedSprite(0,0, 4.4, 2.2, G.ANIMATION_ATLAS['shop_sign']) -- The image's atlas 
-    shop_sign:define_draw_steps({
-        {shader = 'dissolve', shadow_height = 0.05},
-        {shader = 'dissolve'}
-    })
-    G.SHOP_SIGN = UIBox{
-        definition = 
-        {n=G.UIT.ROOT, config = {colour = G.C.DYN_UI.MAIN, emboss = 0.05, align = 'cm', r = 0.1, padding = 0.1}, nodes={
-            {n=G.UIT.R, config={align = "cm", padding = 0.1, minw = 4.72, minh = 3.1, colour = G.C.DYN_UI.DARK, r = 0.1}, nodes={
-                {n=G.UIT.R, config={align = "cm"}, nodes={
-                    {n=G.UIT.O, config={object = shop_sign}} -- Where the image is set
-                }},
-                {n=G.UIT.R, config={align = "cm"}, nodes={
-                    {n=G.UIT.O, config={object = DynaText({string = {localize('ph_improve_run')}, colours = {lighten(G.C.GOLD, 0.3)},shadow = true, rotate = true, float = true, bump = true, scale = 0.5, spacing = 1, pop_in = 1.5, maxw = 4.3})}}
-                    -- Text that says "Improve your run!"                       -- Color is gold but light
-                }},
-            }},
-        }},
-        config = {
-            align="cm",
-            offset = {x=0,y=-15},
-            -- Make it above the screen
-            major = G.HUD:get_UIE_by_ID('row_blind'),
-            bond = 'Weak'
-        }
-    }
-    G.E_MANAGER:add_event(Event({
-        trigger = 'immediate',
-        func = (function()
-            G.SHOP_SIGN.alignment.offset.y = 0
-            -- Animation to bring it down
-            return true
-        end)
-    }))
-end
+
 
 
 
