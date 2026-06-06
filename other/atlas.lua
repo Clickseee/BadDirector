@@ -66,6 +66,12 @@ SMODS.Atlas {
     px = 73,
     py = 95,
 }
+SMODS.Atlas { 
+    key = "bd_shopsign",
+    path = "shopsign.png",
+    px = 113,
+    py = 57,
+}
 
 SMODS.Atlas { -- ALL ARTS BELONG TO RATTLINGSNOW353 WITH PERMISSION
     key = "rattlingsnow",
