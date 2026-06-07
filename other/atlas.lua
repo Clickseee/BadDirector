@@ -60,6 +60,18 @@ SMODS.Atlas {
     px = 71,
     py = 95,
 }
+SMODS.Atlas {
+    key = "breaker",
+    path = "breaker.png",
+    px = 71,
+    py = 95,
+}
+SMODS.Atlas {
+    key = "fuses",
+    path = "fuses.png",
+    px = 71,
+    py = 95,
+}
 SMODS.Atlas { 
     key = "forgery",
     path = "forgery.png",

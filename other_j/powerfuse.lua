@@ -116,9 +116,10 @@ end
 SMODS.Joker {
     key = "powerfuse",
     rarity = 1,
-    atlas = "misprintenhanced",
+    atlas = "fuses",
     coder = { "Nxkoo" },
-    pos = { x = 1, y = 0 },
+    artist = {"Le Ginger"},
+    pos = { x = 0, y = 0 },
     cost = 3,
     blueprint_compat = true,
     eternal_compat = true,
