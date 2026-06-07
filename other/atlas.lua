@@ -258,3 +258,10 @@ SMODS.Atlas {
     px = 343,
     py = 193,
 }
+
+SMODS.Atlas {
+    key = "kelselfinsert",
+    path = "creditkel.png",
+    px = 71,
+    py = 95,
+}

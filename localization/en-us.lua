@@ -852,6 +852,15 @@ return {
                     }
                 }
             },
+            j_bd_keljoker = {
+                name = "comykel",
+                text = {
+                    "I spent an unreasonable",
+                    "amount of time drawing",
+                    "a single card.",
+                    "{C:inactive}(Nxkoo's Credit)"
+                }
+            },
         },
         Tarot = {
             c_bd_tarot_liar = {
