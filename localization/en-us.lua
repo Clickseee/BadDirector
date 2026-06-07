@@ -705,7 +705,10 @@ return {
             j_bd_nxkoojoker = {
                 name = "Nxkoo",
                 text = {
-                    ":D"
+                    "Not my circus,",
+                    "Not my monkeys,",
+                    "But I definitely know",
+                    "the clowns."
                 }
             },
             j_bd_rubyjoker = {
