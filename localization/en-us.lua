@@ -1520,6 +1520,14 @@ return {
                     "{s:0.8}Applies all previous Stakes",
                 },
             }
+        },
+        bd_Sponsor = {
+            spon_bd_test = {
+                name = 'RAID SHADOW LEGENDS',
+                text = {
+                    "hi"
+                }
+            }
         }
     },
     misc = {
@@ -1539,9 +1547,11 @@ return {
             k_bd_arcana_pack = "cana PackAr",
             k_bd_celestial_pack = "estial PackCel",
             k_bd_spectral_pack = "tral PackSpec",
-            k_bd_blueprint_seal = "Consumable?",                 -- can be adjusted as need be lmao
-            k_bd_purpleprint_seal = "Enhanced?",                 -- ditto
-            ph_bd_divine_rivaly = "We will meet again, machine." -- change this to what you see fit
+            k_bd_blueprint_seal = "Consumable?",                     -- can be adjusted as need be lmao
+            k_bd_purpleprint_seal = "Enhanced?",                     -- ditto
+            ph_bd_divine_rivaly = "We will meet again, machine.",    -- change this to what you see fit
+            k_bd_sponsor = "Sponsor",
+            b_bd_sponsors = "Sponsors"
         },
         labels = {
             bd_thermal = "Thermal",

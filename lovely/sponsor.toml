@@ -1,0 +1,104 @@
+[manifest]
+version = "0.1.0"
+dump_lua = true
+priority = 0
+
+# massive thanks to ElleJokers
+
+# Add debug give for characters
+[[patches]]
+[patches.pattern]
+target = "engine/controller.lua"
+pattern = 'if key == "3" then'
+position = "after"
+payload = '''
+if _card.ability.set == 'bd_Sponsor' and G.bd_sponsor_area then
+    SMODS.add_card({area = G.bd_sponsor_area, key = _card.config.center.key})
+    _card.config.center.redeem(_card, _card)
+    _card:set_sprites(_card.config.center)
+end
+'''
+match_indent = true
+
+# Add character calculation
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+pattern = "-- TARGET: add your own CardAreas for joker evaluation"
+position = "after"
+payload = '''
+table.insert(t,1,G.bd_sponsor_area)
+'''
+match_indent = true
+
+# Add sponsors appearing in shop
+[[patches]]
+[patches.pattern]
+target = 'functions/UI_definitions.lua'
+pattern = "for _,v in ipairs(SMODS.ConsumableType.obj_buffer) do"
+position = "before"
+payload = 'total_rate = total_rate + G.GAME.bd_sponsor_rate'
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = 'functions/UI_definitions.lua'
+pattern = "for _, v in ipairs(rates) do"
+position = "before"
+payload = "table.insert(rates, {type = 'bd_Sponsor', val = G.GAME.bd_sponsor_rate})"
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils/weights.lua"]'
+pattern = "for _,v in ipairs(SMODS.ConsumableType.obj_buffer) do"
+position = "before"
+payload = "args.types[#args.types + 1] = 'bd_Sponsor'"
+match_indent = true
+
+# get rid of buy button
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = "if card.area == G.shop_jokers and G.shop_jokers then --Add a buy button"
+position = 'at'
+payload = '''
+if card.area == G.shop_jokers and G.shop_jokers and card.config.center.set ~= "bd_Sponsor" then --Add a buy button
+print(card.config.center.set)
+'''
+match_indent = false
+
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = "if card.area == G.shop_booster and G.shop_booster then --Add a redeem button"
+position = 'before'
+payload = '''
+  if card.area == G.shop_jokers and card.config.center.set == "bd_Sponsor" then --Add a redeem button
+    base_attach.children.redeem = G.UIDEF.card_focus_button{
+      card = card, parent = base_attach, type = 'buy',
+      func = 'can_redeem', button = 'redeem_from_shop', card_width = card_width
+    }
+  end'''
+match_indent = false
+
+
+
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = "local t2 = card.ability.set == 'Voucher' and {"
+position = 'at'
+payload = '''local t2 = (card.ability.set == 'Voucher' or card.ability.set == "bd_Sponsor") and {'''
+match_indent = false
+
+
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = "elseif card.ability.set == 'Voucher' then "
+position = 'at'
+payload = '''elseif card.ability.set == 'Voucher' or card.ability.set == "bd_Sponsor" then '''
+match_indent = false
+
+

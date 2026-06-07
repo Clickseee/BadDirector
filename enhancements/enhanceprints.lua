@@ -333,5 +333,6 @@ function SMODS.current_mod.reset_game_globals(run_start)
         if BadDirector.do_misprint_deck then
             G.GAME.bd_misprinted_deck = true
         end
+		G.GAME.bd_sponsor_rate = 2
     end
 end
