@@ -1,9 +1,10 @@
 SMODS.Joker {
     key = "breathalyzer",
     rarity = 1,
-    atlas = "misprintenhanced",
+    atlas = "breathalyzer",
+    artist = {"La Ginger"},
     coder = { "Nxkoo" },
-    pos = { x = 1, y = 0 },
+    pos = { x = 0, y = 0 },
     cost = 3,
     blueprint_compat = true,
     eternal_compat = true,
