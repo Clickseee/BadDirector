@@ -814,12 +814,30 @@ return {
             j_bd_foojoker = {
                 name = "Foo54",
                 text = {
-                    "hi i made the credits text",
-                    "oh i also made the text you see above me change",
-                    "uh i also made the JokerDisplay compatability",
-                    "you should spawn my card in during a run it'll be funny trust",
-                    "uh if you want to check out SynthB its a cool vocaloid themed mod",
-                    " {element:1} "
+                    {
+                        "hi i'm foo"
+                    },
+                    {
+                        "Made a few small things and a few big things for the mod",
+                        "the 'Actors' text you see above me, I made that change to 'Director' when your viewing Nxkoo",
+                        "made Divine Rivaly's functionality",
+                        "a few balancing changes",
+                        "JokerDisplay compatibility",
+                        "{s:0.7}(speaking of which I need to add the new cards to it yell at me if this makes it in to a release please)",
+                        "API and UI for the sponsors (as these are custom center obejcts),",
+                        "excluding the watermarks [INSERT NAME HERE] did those"
+                    },
+                    {
+                        "you should spawn my card in during a run it'll be funny trust",
+                        "uh if you want to check out SynthB its a cool vocaloid themed mod",
+                        " {element:1} "
+                    },
+                    {
+                        "{C:inactive}Song I was listening to while typing these credits:",
+                        "{C:inactive}Dance Delightful by Jamie Paige",
+                        "{C:inactive}Telepathy by Deco*27",
+                        "{C:inactive}MIKE! the ELEVATOR, please! by Tomato Sauce, aleon, and Rareblin"
+                    }
                 }
             },
             j_bd_metajoker = {
