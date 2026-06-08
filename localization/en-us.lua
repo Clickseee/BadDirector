@@ -2,7 +2,7 @@ return {
     descriptions = {
         Mod = {
             baddirector = {
-                name = "Bad Director",
+                name = "The Backrooms",
                 text = {
                     "{s:1.2}A {C:dark_edition}?allinaV{}-adjacent Balatro Mod",
                     "inspired by the idea of {C:attention}Misprint Joker{} and",
@@ -703,12 +703,17 @@ return {
             },
             -- Credit Localization
             j_bd_nxkoojoker = {
-                name = "Nxkoo",
+                name = "Kane Parsons",
                 text = {
-                    "Not my circus,",
-                    "Not my monkeys,",
-                    "But I definitely know",
-                    "the clowns."
+                    {
+                        "{C:attention}Kane Parsons{} is officially",
+                    "the youngest {C:attention}Director{} ever",
+                    "to have a {C:attention}#1#{} film at",
+                    "the domestic box office its opening weekend."
+                    },
+                    {
+                        "He is only {C:attention}20{} years old."
+                    }
                 }
             },
             j_bd_rubyjoker = {
