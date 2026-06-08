@@ -703,17 +703,9 @@ return {
             },
             -- Credit Localization
             j_bd_nxkoojoker = {
-                name = "Kane Parsons",
+                name = "Nxkoo",
                 text = {
-                    {
-                        "{C:attention}Kane Parsons{} is officially",
-                    "the youngest {C:attention}Director{} ever",
-                    "to have a {C:attention}#1#{} film at",
-                    "the domestic box office its opening weekend."
-                    },
-                    {
-                        "He is only {C:attention}20{} years old."
-                    }
+                    ""
                 }
             },
             j_bd_rubyjoker = {
@@ -884,6 +876,21 @@ return {
                     "{C:inactive}(Nxkoo's Credit)"
                 }
             },
+            j_bd_kaneparsons = {
+                name = "Kane Parsons",
+                text = {
+                    {
+                        "is officially",
+                        "the youngest {C:attention}Director{} ever",
+                        "to have a {C:attention}#1#{} film at",
+                        "the domestic box office",
+                        "its opening weekend."
+                    },
+                    {
+                        "He is only {C:attention}20{} years old."
+                    }
+                }
+            }
         },
         Tarot = {
             c_bd_tarot_liar = {
@@ -1570,9 +1577,9 @@ return {
             k_bd_arcana_pack = "cana PackAr",
             k_bd_celestial_pack = "estial PackCel",
             k_bd_spectral_pack = "tral PackSpec",
-            k_bd_blueprint_seal = "+1?",                     -- can be adjusted as need be lmao
-            k_bd_purpleprint_seal = "Enhanced?",                     -- ditto
-            ph_bd_divine_rivaly = ".DNIWER",    -- change this to what you see fit
+            k_bd_blueprint_seal = "+1?",         -- can be adjusted as need be lmao
+            k_bd_purpleprint_seal = "Enhanced?", -- ditto
+            ph_bd_divine_rivaly = ".DNIWER",     -- change this to what you see fit
             k_bd_sponsor = "Sponsor",
             b_bd_sponsors = "Sponsors"
         },

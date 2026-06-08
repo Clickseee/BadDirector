@@ -1,6 +1,6 @@
 SMODS.Joker {
     key = "nxkoojoker",
-    partner = "Death",
+    partner = {"Death"},
     selfinsert = true,
     discovered = true,
     rarity = 4,
@@ -14,7 +14,10 @@ SMODS.Joker {
     perishable_compat = true,
     in_pool = function(self, args)
         return false
-    end
+    end,
+    loc_vars = function(self, info_queue, card)
+        return {vars = {"#1"}}
+    end,
 }
 
 SMODS.Joker {
@@ -288,4 +291,25 @@ SMODS.Joker {
     in_pool = function(self, args)
         return false
     end
+}
+
+SMODS.Joker {
+    key = "kaneparsons",
+    selfinsert = true,
+    discovered = true,
+    rarity = 4,
+    atlas = "youngestdirector",
+    pos = { x = 0, y = 0 },
+    soul_pos = { x = 1, y = 0 },
+    cost = 666,
+    no_collection = true,
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = true,
+    in_pool = function(self, args)
+        return false
+    end,
+    loc_vars = function(self, info_queue, card)
+        return {vars = {"#1"}}
+    end,
 }
