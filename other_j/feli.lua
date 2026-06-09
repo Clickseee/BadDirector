@@ -605,7 +605,6 @@ SMODS.Joker {
         G.consumeables.config.card_limit = G.consumeables.config.card_limit - card.ability.extra.mod_slot
     end,
     add_to_deck = function(self,card,from_debuff)
-        SMODS.create_card({key="j_bd_belovedprince", area = G.consumeables})
         G.consumeables.config.card_limit = G.consumeables.config.card_limit + card.ability.extra.mod_slot
     end,
 }
