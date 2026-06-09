@@ -1,9 +1,10 @@
 SMODS.Joker {
     key = "hyperspecific",
     rarity = 1,
-    atlas = "misprintenhanced",
+    atlas = "veryspecific",
     coder = { "Nxkoo" },
-    pos = { x = 1, y = 0 },
+    artist = {"Le Ginger"},
+    pos = { x = 0, y = 0 },
     pools = {
         ["BadDirector_Jokers"] = true,
     },
