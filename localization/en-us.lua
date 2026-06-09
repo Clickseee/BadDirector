@@ -707,6 +707,22 @@ return {
                     "active this run"
                 }
             },
+            j_bd_polaroid = {
+                name = "Polaroid",
+                text = {
+                    "First played and unscored",
+                    "{C:attention}face{} card gives {X:chips,C:white} X#1# {} Chips",
+                    "when scored",
+                }
+            },
+            j_bd_longface = {
+                name = "Long Face",
+                text = {
+                    "{C:red}+#1#{} Mult p{E:bd_glitching}e{}r {C:bd_rotta}rotTa{}",
+                    "card used th{E:bd_glitching}i{}s run",
+                    "{C:inactive}(Currently {C:red}+#2#{C:inactive})",
+                }
+            },
             -- Credit Localization
             j_bd_nxkoojoker = {
                 name = "Nxkoo",

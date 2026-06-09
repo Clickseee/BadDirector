@@ -293,3 +293,24 @@ SMODS.Atlas {
     px = 71,
     py = 95,
 }
+
+SMODS.Atlas {
+    key = "veryspecific",
+    path = "Hyper_specific.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas {
+    key = "whythe",
+    path = "longface.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas {
+    key = "negphoto",
+    path = "polaroid.png",
+    px = 71,
+    py = 95,
+}
