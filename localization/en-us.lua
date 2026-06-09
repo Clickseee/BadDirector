@@ -2,7 +2,7 @@ return {
     descriptions = {
         Mod = {
             baddirector = {
-                name = "The Backrooms",
+                name = "Bad Director",
                 text = {
                     "{s:1.2}A {C:dark_edition}?allinaV{}-adjacent Balatro Mod",
                     "inspired by the idea of {C:attention}Misprint Joker{} and",
@@ -620,6 +620,12 @@ return {
                     "the {E:bd_dyslexia,C:attention}first{} played card",
                     "or the {C:attention}second{} {E:bd_dyslexia}played card",
                     "{C:inactive}({C:green}#1# in #2#{} {C:inactive}chance)"
+                },
+            },
+            j_bd_belovedprince = {
+                name = "Beloved Prince",
+                text = {
+                    "{C:spectral}+#1#{} Consumable Slot"
                 },
             },
             j_bd_burntpassport = {

@@ -564,3 +564,48 @@ SMODS.Joker {
     end,
 	blueprint_compat = true,
 }
+
+SMODS.Attribute {
+    key = "consumable_slot"
+}
+
+SMODS.Joker {
+    key = "belovedprince",
+    atlas = "misprintenhanced",
+    coder = { "LasagnaFelidae" },
+    pos = { x = 1, y = 0 },
+    pools = {
+        ["BadDirector_Jokers"] = true,
+    },
+    attributes = {
+        "consumable_slot"
+    },
+    cost = 4,
+    rarity = 2,
+    blueprint_compat = false,
+    eternal_compat = false,
+    perishable_compat = false,
+    config = {
+        extra = {
+            mod_slot = 1
+        }
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.mod_slot,
+            }
+        }
+    end,
+
+    load = function(self,card)
+    end,
+    remove_from_deck = function(self,card,from_debuff)
+        G.consumeables.config.card_limit = G.consumeables.config.card_limit - card.ability.extra.mod_slot
+    end,
+    add_to_deck = function(self,card,from_debuff)
+        SMODS.create_card({key="j_bd_belovedprince", area = G.consumeables})
+        G.consumeables.config.card_limit = G.consumeables.config.card_limit + card.ability.extra.mod_slot
+    end,
+}
