@@ -1,9 +1,10 @@
 SMODS.Joker {
     key = "youreit",
     rarity = 2,
-    atlas = "misprintenhanced",
+    atlas = "yourturn",
     coder = { "Nxkoo" },
-    pos = { x = 1, y = 0 },
+    artist = {"Inky"},
+    pos = { x = 0, y = 0 },
     pools = {
         ["BadDirector_Jokers"] = true,
     },
