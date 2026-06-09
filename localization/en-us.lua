@@ -623,7 +623,7 @@ return {
                 },
             },
             j_bd_belovedprince = {
-                name = "Beloved Prince",
+                name = "Can't park there, mate",
                 text = {
                     "{C:spectral}+#1#{} Consumable Slot"
                 },

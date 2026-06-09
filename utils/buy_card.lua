@@ -24,7 +24,7 @@ end
 local cardarea_emplace_ref = CardArea.emplace
 function CardArea:emplace(card, location, stay_flipped)
     if self == G.jokers and (card.config.center.key == "j_bd_belovedprince") then
-		card.area:remove_card(card)
+		 if card.area then card.area:remove_card(card) end
         G.consumeables:emplace(card, location, stay_flipped)
         return
     end

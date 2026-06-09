@@ -580,8 +580,8 @@ SMODS.Joker {
     attributes = {
         "consumable_slot"
     },
-    cost = 4,
-    rarity = 2,
+    cost = 2,
+    rarity = 1,
     blueprint_compat = false,
     eternal_compat = false,
     perishable_compat = false,
