@@ -1574,7 +1574,7 @@ return {
             }
         },
         bd_Sponsor = {
-            spon_bd_test = {
+            spon_bd_template = {
                 name = 'RAID SHADOW LEGENDS',
                 text = {
                     "hi"
