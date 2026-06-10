@@ -1579,7 +1579,13 @@ return {
                 text = {
                     "hi"
                 }
-            }
+            },
+            spon_bd_john = {
+                name = 'John\'s Laundromat',
+                text = {
+                    "sample \"blue\" text"
+                }
+            },
         }
     },
     misc = {
