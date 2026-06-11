@@ -755,6 +755,14 @@ return {
                     "{C:inactive}(Currently {C:chips}+#1#{} {C:inactive}Chips)"
                 }
             },
+            j_bd_viralsensation = {
+                name = "Viral Sensation",
+                text = {
+                    "Each played {C:attention}6s{} or {C:attention}7s{}",
+                    "gives each",
+                    "{C:mult}+#1#{} Mult or {C:chips}+#2#{} Chips"
+                }
+            },
             -- Credit Localization
             j_bd_nxkoojoker = {
                 name = "Nxkoo",
