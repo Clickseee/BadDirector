@@ -743,6 +743,18 @@ return {
                     "to become {C:dark_edition}Negative{}"
                 }
             },
+            j_bd_fomo = {
+                name = {
+                    "F.O.M.O",
+                    "{s:0.7}(Fear Of Missing Out)"
+                },
+                text = {
+                    "Gains {C:chips}+#2#{} Chips",
+                    "whenever an",
+                    "adjacent Joker triggers",
+                    "{C:inactive}(Currently {C:chips}+#1#{} {C:inactive}Chips)"
+                }
+            },
             -- Credit Localization
             j_bd_nxkoojoker = {
                 name = "Nxkoo",
