@@ -723,6 +723,26 @@ return {
                     "{C:inactive}(Currently {C:red}+#2#{C:inactive})",
                 }
             },
+            j_bd_divineintervention = {
+                name = "Divine Intervention",
+                text = {
+                    "If your {C:attention}first played hand",
+                    "of the round does not",
+                    "defeat the {C:attention}Blind{},",
+                    "create and use {C:tarot}The Fool{}"
+                }
+            },
+            j_bd_darkforesttheory = {
+                name = "Dark Forest Theory",
+                text = {
+                    "When opening a",
+                    "{C:attention}Buffoon Pack{}, destroy",
+                    "all other Jokers",
+                    "Each Joker in that pack",
+                    "has a high chance",
+                    "to become {C:dark_edition}Negative{}"
+                }
+            },
             -- Credit Localization
             j_bd_nxkoojoker = {
                 name = "Nxkoo",
