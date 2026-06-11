@@ -763,6 +763,16 @@ return {
                     "{C:mult}+#1#{} Mult or {C:chips}+#2#{} Chips"
                 }
             },
+            j_bd_scorchedearth = {
+                name = "Scorched Earth",
+                text = {
+                    "If played hand is",
+                    "a {C:attention}Full House{} and",
+                    "{C:attention}catches on fire{},",
+                    "upgrade {C:attention}Full House{} and",
+                    "destroy all played cards"
+                }
+            },
             -- Credit Localization
             j_bd_nxkoojoker = {
                 name = "Nxkoo",
