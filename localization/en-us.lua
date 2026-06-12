@@ -772,6 +772,24 @@ return {
                     "{C:inactive}(Currently {C:chips}+#1#{} {C:inactive}Chips)"
                 }
             },
+            j_bd_viralsensation = {
+                name = "Viral Sensation",
+                text = {
+                    "Each played {C:attention}6s{} or {C:attention}7s{}",
+                    "gives each",
+                    "{C:mult}+#1#{} Mult or {C:chips}+#2#{} Chips"
+                }
+            },
+            j_bd_scorchedearth = {
+                name = "Scorched Earth",
+                text = {
+                    "If played hand is",
+                    "a {C:attention}Full House{} and",
+                    "{C:attention}catches on fire{},",
+                    "upgrade {C:attention}Full House{} and",
+                    "destroy all played cards"
+                }
+            },
             -- Credit Localization
             j_bd_nxkoojoker = {
                 name = "Nxkoo",
