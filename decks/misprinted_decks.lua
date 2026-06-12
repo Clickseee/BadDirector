@@ -63,14 +63,14 @@ ___  __      __   __
 
 [ ] Black: Negative Edition is 5X more common, -1 Hand for each owned Non-Negative Joker 
 
-[ ] Magic: Start with the Counterfeit Ink and 2 copies of Misprinted Fool 
+[X] Magic: Start with the Counterfeit Ink and 2 copies of Misprinted Fool 
 
 [ ] Nebula: At the start of every Boss Blind, create up to 5 Negative Misprinted Planet Cards 
 
 [ ] Ghost: Spectral cards may appear in the shop and has a high chance to be Misprinted, 
 start with a random Common Joker and Misprinted Wraith (Feli, i think Misprinted Wraith is not working as intended) 
 
-[ ] Abandoned: Start run with no Numbered/Face/Aces Cards in your deck (maybe changes each Ante?) 
+[X] Abandoned: Start run with no Numbered/Face/Aces Cards in your deck (maybe changes each Ante?) 
 
 [X] Checkered: Bad Director's Jokers are now 4X more common, start with 52 Hearts in Deck 
 
@@ -101,7 +101,68 @@ BadDirector.MisprintedDecks.b_red = {
 
 BadDirector.MisprintedDecks.b_blue = {}
 BadDirector.MisprintedDecks.b_black = {}
-BadDirector.MisprintedDecks.b_abandoned = {}
+BadDirector.MisprintedDecks.b_yellow = {
+	apply = function(self, back)
+		local hermit = (pseudorandom("b_yellow_hermit",1,5) == 1) and "c_bd_herprint" or "c_hermit"
+		local temperance = (pseudorandom("b_yellow_temperance",1,5) == 1) and "c_bd_temprint" or "c_temperance"
+        local consumables = {hermit, temperance}
+        delay(0.4)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                for _, consumable_key in ipairs(consumables) do
+                    SMODS.add_card({ key = consumable_key })
+                end
+                return true
+            end
+        }))
+    end,
+	calculate = function(self,back,context)
+		if context.ante_change and context.ante_end then
+			local hermit = (pseudorandom("b_yellow_hermit",1,5) == 1) and "c_bd_herprint" or "c_hermit"
+			local temperance = (pseudorandom("b_yellow_temperance",1,5) == 1) and "c_bd_temprint" or "c_temperance"
+			local consumables = {hermit, temperance}
+			delay(0.4)
+			G.E_MANAGER:add_event(Event({
+				func = function()
+					for _, consumable_key in ipairs(consumables) do
+						SMODS.add_card({ key = consumable_key })
+					end
+					return true
+				end
+			}))
+		end
+	end
+
+
+
+}
+
+BadDirector.MisprintedDecks.b_magic = {
+	apply = function(self, back)
+        G.GAME.used_vouchers[v_bd_counterfeitink] = true
+        G.GAME.starting_voucher_count = (G.GAME.starting_voucher_count or 0) + 1
+        G.E_MANAGER:add_event(Event({ -- Adding back objects of any type from a deck MUST be done within an event
+            func = function()
+                Card.apply_to_run(nil, G.P_CENTERS[self.config.voucher])
+                return true
+            end
+        }))
+
+        -- Apply the consumables
+        delay(0.4)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                for _, consumable_key in ipairs(self.config.consumables) do
+                    SMODS.add_card({ key = consumable_key })
+                end
+                return true
+            end
+        }))
+    end,
+	config = {
+		consumables = {"c_bd_foolprint","c_bd_foolprint"}
+	}
+}
 
 BadDirector.MisprintedDecks.b_checkered = {
 	apply = function(self)
@@ -111,6 +172,35 @@ BadDirector.MisprintedDecks.b_checkered = {
                     if playing_card.base.suit == 'Diamonds' or playing_card.base.suit == 'Clubs' or playing_card.base.suit == 'Spades' then
                         playing_card:change_suit('Hearts')
                     end
+                end
+                return true
+            end
+        }))
+	end,
+	config = {
+	}
+}
+
+BadDirector.MisprintedDecks.b_abandoned = {
+	apply = function(self)
+		G.E_MANAGER:add_event(Event({
+            func = function()
+				local roll = pseudorandom("b_abandoned_misprint",1,3)
+				local even = pseudorandom("b_abandoned_misprint55",0,1)
+                for _, playing_card in ipairs(G.playing_cards) do
+					if roll == 1 then
+						if playing_card:is_face() then
+							SMODS.destroy_cards({playing_card})
+						end
+					elseif roll == 2 then
+						if playing_card.base.value == "Ace" then
+							SMODS.destroy_cards({playing_card})
+						end
+					else
+						if not playing_card:is_face() and playing_card.base.nominal % 2 == even then
+							SMODS.destroy_cards({playing_card})
+						end
+					end
                 end
                 return true
             end
