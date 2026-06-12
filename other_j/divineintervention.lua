@@ -17,77 +17,69 @@ SMODS.Joker {
         "hands"
     },
 
-    config = {
-        extra = {
-            played_first_hand = false
-        }
-    },
-
-    calculate = function(self, card, context)
-
-        if context.end_of_round
-        and not context.individual
-        and not context.repetition then
-            card.ability.extra.played_first_hand = false
+    loc_vars = function(self,info_queue,card)
+        info_queue[#info_queue+1] = G.P_CENTERS.c_fool
+        local _key = self.key
+        if not (G.GAME.last_tarot_planet and G.GAME.last_tarot_planet ~= 'c_fool') then
+            _key = self.key .. "_alt"
         end
-
-        if context.after
-        and not card.ability.extra.played_first_hand then
-
-            card.ability.extra.played_first_hand = true
-
-            if not SMODS.last_hand_oneshot then
-
-                G.E_MANAGER:add_event(Event({
-                    trigger = 'after',
-                    delay = 0.4,
-                    func = function()
-
-                        local fool = create_card(
-                            "Tarot",
-                            G.consumeables,
-                            nil,
-                            nil,
-                            nil,
-                            nil,
-                            "c_fool",
-                            "behold"
-                        )
-
-                        fool:add_to_deck()
-                        G.consumeables:emplace(fool)
-
-                        return true
-                    end
-                }))
-
-                G.E_MANAGER:add_event(Event({
-                    trigger = 'after',
-                    delay = 0.8,
-                    func = function()
-
-                        local fool
-
-                        for _, v in ipairs(G.consumeables.cards) do
-                            if v.config.center.key == "c_fool" then
-                                fool = v
-                                break
-                            end
-                        end
-
-                        if fool then
+        return {key = _key}
+    end,
+    
+    
+    calculate = function(self, card, context)
+        if context.first_hand_drawn and not context.blueprint then
+            local eval = function() return G.GAME.current_round.hands_played == 0 and not G.RESET_JIGGLES end
+            juice_card_until(card, eval, true)
+        end
+        
+        
+        if context.after and G.GAME.current_round.hands_played == 0 and not SMODS.last_hand_oneshot then
+            local fool
+            
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.4,
+                func = function()
+                    
+                    fool = SMODS.add_card({
+                        set= "Tarot",
+                        area = G.consumeables,
+                        legendary = nil,
+                        rarity = nil,
+                        skip_materialize = nil,
+                        soulable = nil,
+                        key = "c_fool",
+                        key_append = "behold"
+                        }
+                    )
+                
+                return true
+            end
+            }))
+            
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.8,
+                func = function()
+                    if fool then
+                        if (G.GAME.last_tarot_planet and G.GAME.last_tarot_planet ~= 'c_fool') then
                             fool:use_consumeable()
                         end
-
-                        return true
+                        SMODS.destroy_cards(fool,true,nil)
                     end
-                }))
+                    
+                    return true
+                end
+            }))
 
-                return {
-                    message = localize('k_again_ex'),
-                    colour = G.C.SECONDARY_SET.Tarot
-                }
-            end
+            local _message = (G.GAME.last_tarot_planet and G.GAME.last_tarot_planet ~= 'c_fool') and "k_again_ex" or "k_nope_ex"
+            
+            return {
+                message = localize(_message),
+                colour = G.C.SECONDARY_SET.Tarot,
+                sound = "tarot2"
+            }
         end
     end
 }

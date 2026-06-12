@@ -1640,8 +1640,9 @@ SMODS.Booster:take_ownership_by_kind("Buffoon",
         local TRUE_RATE = 4+(MISPRINT_RATE_BUFFOON
         * (next(SMODS.find_card("v_bd_counterfeitink")) and 0.5 or 1)
         * (next(SMODS.find_card("v_bd_brokenprinter")) and 0.5 or 1))
+        local negative = next(SMODS.find_card("j_bd_darkforesttheory")) and SMODS.pseudorandom_probability(dft, "purge", 1, 3) or nil
         local misprint = SMODS.pseudorandom_probability(card, 'misprint', 1, TRUE_RATE)
-        local _edition = (misprint == true) and "e_bd_misprinted" or nil
+        local _edition = (misprint == true) and "e_bd_misprinted" or ((negative == true) and "e_negative" or nil)
         local keyapp_ar = (misprint == true) and "bd_buf" or "buf"
         return {
             set = "Joker",
