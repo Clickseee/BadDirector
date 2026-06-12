@@ -759,13 +759,13 @@ return {
                 name = "Dark Forest Theory",
                 text = {
                     {
-                    "When opening a {C:attention}Buffoon Pack{},",
-                    "destroy all other Jokers",
+                        "When opening a {C:attention}Buffoon Pack{},",
+                        "destroy all other Jokers",
                     },
                     {
-                    "Each Joker in that pack has an",
-                    "immutable {C:green}1 in 3{} chance",
-                    "to become {C:dark_edition}Negative{}"
+                        "Each Joker in that pack has an",
+                        "immutable {C:green}1 in 3{} chance",
+                        "to become {C:dark_edition}Negative{}"
                     }
                 }
             },
@@ -805,6 +805,15 @@ return {
                     "Gain {X:mult,C:white}X#2#{} Mult",
                     "whenever you deter them",
                     "{C:inactive}(Currently {X:mult,C:white}X#1#{} {C:inactive}Mult)"
+                }
+            },
+            j_bd_liberator = {
+                name = "Liberator",
+                text = {
+                    "Use with another {C:attention}Joker{}",
+                    "Destroy it and create",
+                    "a random {C:rare}Rare Joker{}",
+                    "Then destroy this Joker"
                 }
             },
             -- Credit Localization
