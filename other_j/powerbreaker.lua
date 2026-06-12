@@ -1,7 +1,3 @@
-
-
-
-
 SMODS.Joker {
     key = "powerbreaker",
     rarity = 2,
