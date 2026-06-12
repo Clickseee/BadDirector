@@ -10,12 +10,10 @@ G.lolbit_event = G.lolbit_event or {
     path = SMODS.current_mod.path
 }
 
---[[
 SMODS.Sound {
     key = "lolbit_spawn",
-    path = "lolbitspawn.ogg"
+    path = "LOL.ogg"
 }
-]]
 
 do
     local full_path = G.lolbit_event.path .. "assets/customimages/lolbit.png"
