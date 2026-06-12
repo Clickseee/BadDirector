@@ -45,7 +45,15 @@ TODO:
 ]]
 
 -- example
+
+
 --[[
+
+___  __      __   __  
+ |  /  \ __ |  \ /  \ 
+ |  \__/    |__/ \__/
+---------------------
+
 [ ] Red: Discarding a hand has a medium chance to not use any Discards 
 
 [ ] Blue: Playing a hand has a very low chance to increase Hand Size permanently 
@@ -76,10 +84,6 @@ start with a random Common Joker and Misprinted Wraith (Feli, i think Misprinted
 [ ] Plasma: Each chips and mutt are randomized between X1 X3 /Either unbalance or balance between 50-200% 
 
 [ ] Erratic: Ranks and Suits are randomized after playing a hand 
-
-
-
-
 ]]--
 BadDirector.MisprintedDecks.b_red = {
 	apply = function(self)
