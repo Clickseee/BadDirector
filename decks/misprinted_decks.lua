@@ -45,6 +45,42 @@ TODO:
 ]]
 
 -- example
+--[[
+[ ] Red: Discarding a hand has a medium chance to not use any Discards 
+
+[ ] Blue: Playing a hand has a very low chance to increase Hand Size permanently 
+
+[ ] Yellow: Create The Hermit and Temperance at the start of every Ante, medium chance to be Misprinted 
+
+[ ] Green: Interests are randomized each Ante, only gains Hands/Discards rewards after every Boss Blind 
+
+[ ] Black: Negative Edition is 5X more common, -1 Hand for each owned Non-Negative Joker 
+
+[ ] Magic: Start with the Counterfeit Ink and 2 copies of Misprinted Fool 
+
+[ ] Nebula: At the start of every Boss Blind, create up to 5 Negative Misprinted Planet Cards 
+
+[ ] Ghost: Spectral cards may appear in the shop and has a high chance to be Misprinted, 
+start with a random Common Joker and Misprinted Wraith (Feli, i think Misprinted Wraith is not working as intended) 
+
+[ ] Abandoned: Start run with no Numbered/Face/Aces Cards in your deck (maybe changes each Ante?) 
+
+[X] Checkered: Bad Director's Jokers are now 4X more common, start with 52 Hearts in Deck 
+
+[ ] Zodiac: Voucher ideas from Feli (+1 Voucher/Booster slot, etc) 
+
+[ ] Painted: Selling/Destroying a Joker has a low chance to Increase Hand Size permanently 
+
+[ ] Anaglyph: All Skip Tags are Escort Tag, Tag requirements are decreased 
+
+[ ] Plasma: Each chips and mutt are randomized between X1 X3 /Either unbalance or balance between 50-200% 
+
+[ ] Erratic: Ranks and Suits are randomized after playing a hand 
+
+
+
+
+]]--
 BadDirector.MisprintedDecks.b_red = {
 	apply = function(self)
 		G.E_MANAGER:add_event(Event{
@@ -63,3 +99,20 @@ BadDirector.MisprintedDecks.b_red = {
 BadDirector.MisprintedDecks.b_blue = {}
 BadDirector.MisprintedDecks.b_black = {}
 BadDirector.MisprintedDecks.b_abandoned = {}
+
+BadDirector.MisprintedDecks.b_checkered = {
+	apply = function(self)
+		G.E_MANAGER:add_event(Event({
+            func = function()
+                for _, playing_card in ipairs(G.playing_cards) do
+                    if playing_card.base.suit == 'Diamonds' or playing_card.base.suit == 'Clubs' or playing_card.base.suit == 'Spades' then
+                        playing_card:change_suit('Hearts')
+                    end
+                end
+                return true
+            end
+        }))
+	end,
+	config = {
+	}
+}
