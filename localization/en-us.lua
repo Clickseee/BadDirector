@@ -186,6 +186,15 @@ return {
                     "for shared Attributes."
                 }
             },
+            bd_jestbit_info = {
+                name = "ATTENTION!",
+                text = {
+                    "Whenever {C:attention}they{} appear",
+                    "on your screen,",
+                    "press {C:attention}J{} and {C:attention}K{} in sequence",
+                    "to get rid of them"
+                }
+            },
             bd_offbrand_sticker = {
                 name = "Offbrand Sticker",
                 text = {
@@ -788,6 +797,14 @@ return {
                     "{C:attention}catches on fire{},",
                     "upgrade {C:attention}Full House{} and",
                     "destroy all played cards"
+                }
+            },
+            j_bd_jestbit = {
+                name = "Jestbit",
+                text = {
+                    "Gain {X:mult,C:white}X#2#{} Mult",
+                    "whenever you deter them",
+                    "{C:inactive}(Currently {X:mult,C:white}X#1#{} {C:inactive}Mult)"
                 }
             },
             -- Credit Localization
