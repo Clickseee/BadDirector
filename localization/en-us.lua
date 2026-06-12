@@ -623,7 +623,7 @@ return {
                 },
             },
             j_bd_belovedprince = {
-                name = "Can't park there, mate",
+                name = "Pick-up Truck",
                 text = {
                     "{C:spectral}+#1#{} Consumable Slot"
                 },
@@ -726,21 +726,38 @@ return {
             j_bd_divineintervention = {
                 name = "Divine Intervention",
                 text = {
-                    "If your {C:attention}first played hand",
-                    "of the round does not",
-                    "defeat the {C:attention}Blind{},",
+                    "If {C:attention}first hand of round",
+                    "doesn't defeat the {C:attention}Blind{},",
                     "create and use {C:tarot}The Fool{}"
                 }
+            },
+            j_bd_divineintervention_alt = {
+                name = "Divine Intervention",
+                text = {
+                    {
+                        "If {C:attention}first hand of round",
+                        "doesn't defeat the {C:attention}Blind{},",
+                        "create and use {C:tarot}The Fool{}"
+                    },
+                    {
+                        "If {C:tarot}The Fool{} isn't usable,",
+                        "{C:red}destroy{} it instead"
+                    }
+                },
+
             },
             j_bd_darkforesttheory = {
                 name = "Dark Forest Theory",
                 text = {
-                    "When opening a",
-                    "{C:attention}Buffoon Pack{}, destroy",
-                    "all other Jokers",
-                    "Each Joker in that pack",
-                    "has a high chance",
+                    {
+                    "When opening a {C:attention}Buffoon Pack{},",
+                    "destroy all other Jokers",
+                    },
+                    {
+                    "Each Joker in that pack has an",
+                    "immutable {C:green}1 in 3{} chance",
                     "to become {C:dark_edition}Negative{}"
+                    }
                 }
             },
             j_bd_fomo = {
