@@ -45,11 +45,7 @@ SMODS.Joker {
 
             G.E_MANAGER:add_event(Event({
                 func = function()
-                    for _, v in ipairs(destroyed_cards) do
-                        if not v.destroyed then
-                            v:start_dissolve()
-                        end
-                    end
+                    SMODS.destroy_cards(destroyed_cards)
                     return true
                 end
             }))
