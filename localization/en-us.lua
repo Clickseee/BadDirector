@@ -1670,6 +1670,13 @@ return {
                     "sample \"blue\" text"
                 }
             },
+            spon_bd_felisjokeria = {
+                name = 'Feli\'s Jokeria',
+                text = {
+                    "{C:blue}+#1#{} hand",
+                    "{X:blind,C:white}X#2#{} Blind Size"
+                }
+            },
         }
     },
     misc = {

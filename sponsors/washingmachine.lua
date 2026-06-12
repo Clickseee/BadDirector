@@ -8,7 +8,7 @@ BadDirector.Sponsor{
 }
 
 do
-    local full_path = SMODS.current_mod.path .. "assets/customimages/john_awesomemockup.png" -- currently using the stake logo as an exmaple/test lmao
+    local full_path = SMODS.current_mod.path .. "assets/customimages/spon_johnmockup.png"
     local file_data = assert(NFS.newFileData(full_path))
     local image_data = assert(love.image.newImageData(file_data))
     G.sponsor_images.spon_bd_john.image = love.graphics.newImage(image_data)

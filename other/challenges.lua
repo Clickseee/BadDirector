@@ -1,5 +1,5 @@
 -- im challenging it
-
+-- all of these were made by gabby/squeax, hi anyone lurking in the code :3333
 
 -- this implementation is a tad scuffed but it still works ;w;
 function BadDirector.banned_cards_heartless()

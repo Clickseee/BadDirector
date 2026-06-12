@@ -1,3 +1,8 @@
+-- commented out cuz yeah but just reuse this code for spons ors
+
+-- code by foo54, nxkoo, and squeax09
+
+--[[
 BadDirector.Sponsor{
 	key = "template",
 	redeem = function (self, voucher)
@@ -30,3 +35,4 @@ function love.draw()
         love.graphics.draw(img, 0, 0, 0, _xscale, _yscale)
     end
 end
+]]
