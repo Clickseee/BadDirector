@@ -36,6 +36,8 @@ end
 local function schedule_next_lolbit()
     G.lolbit_event.next_spawn =
         G.TIMERS.REAL + pseudorandom("lolbit_spawn", 15, 45)
+        print(G.TIMERS.REAL)
+        print (G.lolbit_event.next_spawn)
 end
 
 local updatehook = Game.update
@@ -55,11 +57,12 @@ function Game:update(dt)
 
         if not G.lolbit_event.active
         and G.TIMERS.REAL >= G.lolbit_event.next_spawn then
+            print("he's here")
 
             G.lolbit_event.active = true
             G.lolbit_event.progress = ""
 
-            play_sound("lolbit_spawn", 1, 1)
+            --play_sound("lolbit_spawn", 1, 1)
 
             if G.lolbit_event.sound then
                 G.lolbit_event.sound:stop()
@@ -198,6 +201,11 @@ SMODS.Joker {
                 card.ability.extra.gain
             }
         }
+    end,
+    add_to_deck = function(self,card,from_debuff)
+        G.lolbit_event.owner = card
+        G.lolbit_event.enabled = true
+        schedule_next_lolbit()
     end,
 
     remove_from_deck = function(self, card, from_debuff)
