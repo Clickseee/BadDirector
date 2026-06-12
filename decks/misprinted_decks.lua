@@ -57,7 +57,7 @@ ___  __      __   __
 
 [ ] Blue: Playing a hand has a very low chance to increase Hand Size permanently 
 
-[ ] Yellow: Create The Hermit and Temperance at the start of every Ante, medium chance to be Misprinted 
+[-] Yellow: Create The Hermit and Temperance at the start of every Ante, medium chance to be Misprinted 
 
 [ ] Green: Interests are randomized each Ante, only gains Hands/Discards rewards after every Boss Blind 
 
@@ -78,12 +78,14 @@ start with a random Common Joker and Misprinted Wraith (Feli, i think Misprinted
 
 [ ] Painted: Selling/Destroying a Joker has a low chance to Increase Hand Size permanently 
 
-[ ] Anaglyph: All Skip Tags are Escort Tag, Tag requirements are decreased 
+[-] Anaglyph: All Skip Tags are Escort Tag, Tag requirements are decreased 
 
 [ ] Plasma: Each chips and mutt are randomized between X1 X3 /Either unbalance or balance between 50-200% 
 
 [ ] Erratic: Ranks and Suits are randomized after playing a hand 
 ]]--
+
+--[[
 BadDirector.MisprintedDecks.b_red = {
 	apply = function(self)
 		G.E_MANAGER:add_event(Event{
@@ -117,7 +119,7 @@ BadDirector.MisprintedDecks.b_yellow = {
         }))
     end,
 	calculate = function(self,back,context)
-		if context.ante_change and context.ante_end then
+		if  context.round_eval and G.GAME.last_blind and G.GAME.last_blind.boss then
 			local hermit = (pseudorandom("b_yellow_hermit",1,5) == 1) and "c_bd_herprint" or "c_hermit"
 			local temperance = (pseudorandom("b_yellow_temperance",1,5) == 1) and "c_bd_temprint" or "c_temperance"
 			local consumables = {hermit, temperance}
@@ -132,11 +134,23 @@ BadDirector.MisprintedDecks.b_yellow = {
 			}))
 		end
 	end
-
-
-
 }
 
+BadDirector.MisprintedDecks.b_anaglyph = {
+	calculate = function(self, back, context)
+        if context.round_eval and G.GAME.last_blind and G.GAME.last_blind.boss then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    add_tag({ key = 'tag_bd_escort' })
+                    play_sound('generic1', 0.9 + math.random() * 0.1, 0.8)
+                    play_sound('holo1', 1.2 + math.random() * 0.1, 0.4)
+                    return true
+                end
+            }))
+        end
+    end
+}
+]]--
 BadDirector.MisprintedDecks.b_magic = {
 	apply = function(self, back)
         G.GAME.used_vouchers[v_bd_counterfeitink] = true
@@ -209,3 +223,12 @@ BadDirector.MisprintedDecks.b_abandoned = {
 	config = {
 	}
 }
+--[[
+BadDirector.MisprintedDecks.b_bd_missingdeck = {
+	apply = function(self)
+		
+	end,
+	config = {
+	}
+}
+]]
