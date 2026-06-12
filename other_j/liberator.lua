@@ -3,7 +3,7 @@ SMODS.Joker {
     rarity = 2,
     atlas = "misprintenhanced",
     coder = { "Nxkoo" },
-    pos = { x = 0, y = 0 },
+    pos = { x = 1, y = 0 },
     cost = 5,
     blueprint_compat = true,
     eternal_compat = true,
@@ -89,7 +89,7 @@ SMODS.Joker {
                     true,
                     true,
                     nil,
-                    "hitman"
+                    "bang"
                 )
 
                 new_joker:set_rarity(3)
@@ -104,7 +104,7 @@ SMODS.Joker {
                     nil,
                     nil,
                     {
-                        message = "Rare!",
+                        message = "Looted",
                         colour = G.C.RARITY.Rare
                     }
                 )

@@ -812,8 +812,15 @@ return {
                 text = {
                     "Use with another {C:attention}Joker{}",
                     "Destroy it and create",
-                    "a random {C:rare}Rare Joker{}",
-                    "Then destroy this Joker"
+                    "a random {C:rare}Rare{} Joker",
+                    "then destroy this Joker"
+                }
+            },
+            j_bd_stakeholder = {
+                name = "Stakeholder",
+                text = {
+                    "Gives {C:mult}+#3#{} Mult",
+                    "{C:inactive}(#2# Stakes × #1# Mult)"
                 }
             },
             -- Credit Localization
