@@ -38,6 +38,10 @@ SMODS.Joker {
             )
     end,
 
+    update = function(self,card,dt)
+        G.jokers.config.highlighted_limit = 99999
+    end,
+
     use = function(self, card)
 
         local target

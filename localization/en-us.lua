@@ -1732,7 +1732,7 @@ return {
             k_mispectral = 'ralSpect',
             b_mispectral_cards = "tral CardsSpec",
             k_what = '...?',
-            k_breaker_use = 'INSERT',
+            k_breaker_use = 'USE',
             k_upgrade_q = "Upgrade?",
             k_bd_arcana_pack = "cana PackAr",
             k_bd_celestial_pack = "estial PackCel",
