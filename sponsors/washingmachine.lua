@@ -1,9 +1,25 @@
 BadDirector.Sponsor{
 	key = "john",
+    config = { extra = { kromer = 3 }},
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                self.config.extra.kromer
+            }
+        }
+    end,
 	redeem = function (self, voucher)
 		if not G.GAME.used_sponsors then G.GAME.used_sponsors = {} end
 		G.GAME.used_sponsors.spon_bd_john = true
 		G.GAME.used_sponsors.last_used = "spon_bd_john"
+        local cards = 0
+        for i=1, #G.playing_cards do
+            if not SMODS.has_enhancement(G.playing_cards[i], 'c_base') then
+                G.playing_cards[i]:set_ability('c_base', nil, true)
+                cards = cards + 1
+            end
+        end
+        ease_dollars(voucher.ability.extra.kromer * cards)
 	end
 }
 

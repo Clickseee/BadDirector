@@ -1683,14 +1683,17 @@ return {
             spon_bd_john = {
                 name = 'John\'s Laundromat',
                 text = {
-                    "sample \"blue\" text"
+                    "Cleans off all {C:attention}Enhancements{}",
+                    "from all cards in the deck",
+                    "Earn {C:money}$#1#{} for each Enhancement",
+                    "removed this way"
                 }
             },
             spon_bd_felisjokeria = {
                 name = 'Feli\'s Jokeria',
                 text = {
-                    "{C:blue}+#1#{} hand",
-                    "{X:blind,C:white}X#2#{} Blind Size"
+                    "{C:blue}+#1#{} hand per round",
+                    "{X:blind,C:white}X#2#{} Blind size"
                 }
             },
         }
