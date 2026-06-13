@@ -80,7 +80,7 @@ start with a random Common Joker and Misprinted Wraith (Feli, i think Misprinted
 
 [-] Anaglyph: All Skip Tags are Escort Tag, Tag requirements are decreased 
 
-[ ] Plasma: Each chips and mutt are randomized between X1 X3 /Either unbalance or balance between 50-200% 
+[ ] Plasma: Each chips and mutt are randomized between X1 X3 / Either unbalance or balance between 50-200% 
 
 [ ] Erratic: Ranks and Suits are randomized after playing a hand 
 ]]--
@@ -187,6 +187,38 @@ BadDirector.MisprintedDecks.b_checkered = {
                         playing_card:change_suit('Hearts')
                     end
                 end
+                return true
+            end
+        }))
+	end,
+	config = {
+	}
+}
+
+BadDirector.MisprintedDecks.b_zodiac = {
+	apply = function(self, back)
+        for _, voucher_key in pairs(self.config.vouchers) do
+            G.GAME.used_vouchers[voucher_key] = true
+            G.GAME.starting_voucher_count = (G.GAME.starting_voucher_count or 0) + 1
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    Card.apply_to_run(nil, G.P_CENTERS[voucher_key])
+                    return true
+                end
+            }))
+        end
+    end,
+	config = { vouchers = { 'v_bd_gacha_addiction', 'v_bd_coupon_collector', 'v_overstock_norm' } },
+}
+
+BadDirector.MisprintedDecks.b_ghost = {
+	apply = function(self)
+		G.E_MANAGER:add_event(Event({
+            func = function()
+				G.GAME.spectral_rate = 0.3
+                G.GAME.mispectral_rate = 0.2
+				SMODS.add_card({ set = "Joker", rarity = "Common" })
+				SMODS.add_card({ key = "c_bd_wrathprint" })
                 return true
             end
         }))
