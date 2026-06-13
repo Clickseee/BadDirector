@@ -1697,6 +1697,13 @@ return {
                     "{X:blind,C:white}X#2#{} Blind size"
                 }
             },
+            spon_bd_elchip = {
+                name = 'El Mult',
+                text = {
+                    "Gain {C:money}+$1{} Interest Cap",
+                    "permanently"
+                }
+            },
         }
     },
     misc = {
