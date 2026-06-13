@@ -819,8 +819,9 @@ return {
             j_bd_stakeholder = {
                 name = "Stakeholder",
                 text = {
-                    "Gives {C:mult}+#3#{} Mult",
-                    "{C:inactive}(#2# Stakes × #1# Mult)"
+                    "{C:mult}+#1#{} Mult for each",
+                    "applied {C:attention}Stake",
+                    "{C:inactive}(Currently {C:mult}+#3#{}{C:inactive} Mult){}",
                 }
             },
             -- Credit Localization

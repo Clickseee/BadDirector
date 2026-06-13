@@ -6,7 +6,7 @@ local function get_stake_count()
             break
         end
 
-        if stake == G.GAME.stake then
+        if stake == G.GAME.applied_stakes then
             return i
         end
     end
@@ -38,22 +38,37 @@ SMODS.Joker {
     },
 
     loc_vars = function(self, info_queue, card)
-        local stakes = get_stake_count()
+        local stake_count = 0
+
+        if G.GAME and G.GAME.applied_stakes then
+            for _ in pairs(G.GAME.applied_stakes) do
+                stake_count = stake_count + 1
+            end
+        end
 
         return {
             vars = {
                 card.ability.extra.mult_per_stake,
-                stakes,
-                stakes * card.ability.extra.mult_per_stake
+                stake_count,
+                stake_count * card.ability.extra.mult_per_stake
             }
         }
     end,
 
     calculate = function(self, card, context)
+
         if context.joker_main then
+
+            local stake_count = 0
+
+            if G.GAME and G.GAME.applied_stakes then
+                for _ in pairs(G.GAME.applied_stakes) do
+                    stake_count = stake_count + 1
+                end
+            end
+
             return {
-                mult = get_stake_count() *
-                    card.ability.extra.mult_per_stake
+                mult = stake_count * card.ability.extra.mult_per_stake
             }
         end
     end,
