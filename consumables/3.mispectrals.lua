@@ -607,12 +607,19 @@ BadDirector.MisSpect {
         if not selected then
             return
         end
-
+        
         local rarity = selected.config.center.rarity
 
         if rarity >= 4 then
             return
         end
+
+        local rarity_name = {
+            [1] = "Common",
+            [2] = "Uncommon",
+            [3] = "Rare",
+            [4] = "Legendary",
+        }
 
         local target_rarity = rarity + 1
 
@@ -641,8 +648,8 @@ BadDirector.MisSpect {
                 created_joker = SMODS.create_card({
                     set = 'Joker',
                     area = G.jokers,
-                    legendary = true,
-                    rarity = target_rarity,
+                    legendary = target_rarity == 4 and true or false,
+                    rarity = rarity_name[target_rarity],
                     skip_materialize = nil,
                     soulable = nil,
                     key=  nil,
@@ -669,7 +676,7 @@ BadDirector.MisSpect {
 
         G.jokers:unhighlight_all()
     end,
-    misprint_original = "c_wrath"
+    misprint_original = "c_wraith"
 }
 
 BadDirector.MisSpect {
