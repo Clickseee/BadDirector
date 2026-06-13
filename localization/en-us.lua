@@ -1741,7 +1741,8 @@ return {
             k_bd_purpleprint_seal = "Enhanced?", -- ditto
             ph_bd_divine_rivaly = ".DNIWER",     -- change this to what you see fit
             k_bd_sponsor = "Sponsor",
-            b_bd_sponsors = "Sponsors"
+            b_bd_sponsors = "Sponsors",
+            k_bd_signed_ex = "SIGNED!",
         },
         labels = {
             bd_thermal = "Thermal",
