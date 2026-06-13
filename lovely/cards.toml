@@ -20,3 +20,26 @@ if curr_deck and (curr_deck == "b_checkered" and G.GAME.bd_misprinted_deck == tr
 end
 '''
 match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "back.lua"
+pattern = "local obj = self.effect.center"
+position = "after"
+payload = '''
+if G.GAME.bd_misprinted_deck then -- i forget the exact variable name here
+		if not BadDirector.MisprintedDecks[key].keep_calculate then
+			if BadDirector.MisprintedDecks[key].calculate then
+				local old_obj = obj
+				obj = {
+					calculate = function(self, ...)
+						return BadDirector.MisprintedDecks[key].calculate(old_object, ...)
+					end
+				}
+			else obj = {} end
+		end
+	end
+'''
+match_indent = true
+
+
