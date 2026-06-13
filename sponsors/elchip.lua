@@ -35,7 +35,7 @@ BadDirector.Sponsor{
         G.GAME.used_sponsors.spon_bd_elchip_redemptions =
             (G.GAME.used_sponsors.spon_bd_elchip_redemptions or 0) + 1
 
-        G.GAME.used_sponsors.spon_bd_elchip_active = false
+        G.GAME.used_sponsors.spon_bd_elchip_active = true
 
         -- honest to god idk
         G.GAME.interest_cap = (G.GAME.interest_cap or 5)
@@ -93,13 +93,11 @@ local updatehook = Game.update
 function Game:update(dt)
     updatehook(self, dt)
 
-    if not G.GAME
-    or not G.GAME.used_sponsors
-    or not G.GAME.used_sponsors.spon_bd_elchip then
+    if G.GAME and G.GAME.used_sponsors and (not G.GAME.used_sponsors.spon_bd_elchip) then
         return
     end
 
-    if not G.GAME.used_sponsors.spon_bd_elchip_active
+    if G.GAME.used_sponsored and G.GAME.used_sponsors.spon_bd_elchip_active
     and G.TIMERS.REAL >= G.sponsor_images.spon_bd_elchip.next_ad then
 
         G.GAME.used_sponsors.spon_bd_elchip_active = true
@@ -175,7 +173,6 @@ function love.draw()
 
     -- PRESS ENTER TO SKIP
     local pulse = 0.75 + math.sin(G.TIMERS.REAL * 6) * 0.25
-
     love.graphics.setColor(1, 1, 1, pulse)
 
     love.graphics.printf(
