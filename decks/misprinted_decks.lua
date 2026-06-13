@@ -21,6 +21,17 @@ function Back:apply_to_run()
 	end
 	return back_apply_to_run_ref(self_in_use)
 end
+
+local back_trigger_effect_ref = Back.trigger_effect
+function Back:trigger_effect(args, ...)
+	local ret = back_trigger_effect_ref(self, args, ...)
+	if BadDirector.mem_deck_name then
+		self.name = BadDirector.mem_deck_name
+		BadDirector.mem_deck_name = nil
+	end
+	return ret
+end
+
 --[[
 function Back:trigger_effect(args)
 	if not args then do return end
@@ -136,7 +147,7 @@ function BadDirector.MisprintedDecks.deck_key = {
 				end
 			}))
 		end,
-		calculate = function(self,context)
+		calculate = function(self, back, context)
 			if context.round_eval and G.GAME.last_blind and G.GAME.last_blind.boss then
 				local hermit = (pseudorandom("b_yellow_hermit",1,5) == 1) and "c_bd_herprint" or "c_hermit"
 				local temperance = (pseudorandom("b_yellow_temperance",1,5) == 1) and "c_bd_temprint" or "c_temperance"
@@ -155,7 +166,7 @@ function BadDirector.MisprintedDecks.deck_key = {
 	}
 	
 	BadDirector.MisprintedDecks.b_anaglyph = {
-		calculate = function(self, context)
+		calculate = function(self, back, context)
 			if context.round_eval and G.GAME.last_blind and G.GAME.last_blind.boss then
 				G.E_MANAGER:add_event(Event({
 					func = function()
