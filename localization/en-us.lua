@@ -387,6 +387,20 @@ return {
                     "in {C:tarot}Arcana{}, {C:planet}Celestial",
                     "and {C:spectral}Spectral{} packs"
                 }
+            },
+            v_bd_gacha_addiction = {
+                name = "Gacha Addiction",
+                text = {
+                    "{C:attention}+#1#{} booster slot",
+                    "available in shop",
+                }
+            },
+            v_bd_coupon_collector = {
+                name = "Coupon Collector",
+                text = {
+                    "{C:attention}+#1#{} voucher slot",
+                    "available in shop",
+                }
             }
         },
         Joker = {

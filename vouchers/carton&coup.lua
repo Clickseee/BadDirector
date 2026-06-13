@@ -109,3 +109,68 @@ SMODS.Voucher{
 
     end
 }
+
+SMODS.Voucher{
+    key = 'gacha_addiction',
+    pos = { x = 0, y = 1 },
+    atlas = "vouchers",
+    cost = 10,
+    config = { extra = {slot = 1}},
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.slot } }
+    end,
+    redeem = function(self, card)
+        if G.shop_booster then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    SMODS.add_booster_to_shop()
+                    return true
+                end
+            }))
+        end
+    end,
+    calculate = function(self, card, context)
+        if context.starting_shop then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    SMODS.add_booster_to_shop()
+                    return true
+                end
+            }))
+        end
+    end
+}
+
+SMODS.Voucher{
+    key = 'coupon_collector',
+    pos = { x = 1, y = 1 },
+    atlas = "vouchers",
+    cost = 10,
+    config = { extra = {slot = 1}},
+    requires = { 'v_bd_gacha_addiction'},
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.slot } }
+    end,
+
+    redeem = function(self, card)
+        if G.shop_vouchers then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    SMODS.add_voucher_to_shop()
+                    return true
+                end
+            }))
+        end
+    end,
+    calculate = function(self, card, context)
+        if context.starting_shop then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    SMODS.add_voucher_to_shop()
+                    return true
+                end
+            }))
+        end
+    end
+}
+
