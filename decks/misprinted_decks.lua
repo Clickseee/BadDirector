@@ -450,6 +450,10 @@ BadDirector.MisprintedDecks.b_erratic = {
 }
 
 BadDirector.MisprintedDecks.b_plasma = {
+	config = {ante_scaling = 2},
+	apply = function(self, back)
+        G.GAME.starting_params.ante_scaling = BadDirector.MisprintedDecks.b_plasma.config.ante_scaling
+    end,
 	calculate = function(self, back, context)
 		if context.initial_scoring_step then
 			BadDirector.MisprintedDecks.b_plasma.config = pseudorandom("coinflip",1,2)
