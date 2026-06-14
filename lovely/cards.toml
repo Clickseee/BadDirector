@@ -27,19 +27,24 @@ target = "back.lua"
 pattern = "local obj = self.effect.center"
 position = "after"
 payload = '''
-if G.GAME.bd_misprinted_deck then -- i forget the exact variable name here
-		if not BadDirector.MisprintedDecks[key].keep_calculate then
-			if BadDirector.MisprintedDecks[key].calculate then
-				local old_obj = obj
-				obj = {
-					calculate = function(self, ...)
-						return BadDirector.MisprintedDecks[key].calculate(old_object, ...)
-					end
-				}
-			else obj = {} end
-		end
+BadDirector.mem_deck_name = nil
+if G.GAME.bd_misprinted_deck then
+	local key = obj.key
+	if not BadDirector.MisprintedDecks[key].keep_calculate then
+		BadDirector.mem_deck_name = self.name
+		self.name = "BadDirector Misprinted Deck IGNORE EFFECT"
+		if BadDirector.MisprintedDecks[key].calculate then
+			local old_obj = obj
+			obj = {
+				calculate = function(self, ...)
+					return BadDirector.MisprintedDecks[key].calculate(old_object, ...)
+				end
+			}
+		else obj = {} end
 	end
+end
 '''
 match_indent = true
+count = 1
 
 
