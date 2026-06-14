@@ -39,7 +39,9 @@ SMODS.Joker {
     end,
 
     update = function(self,card,dt)
-        G.jokers.config.highlighted_limit = 99999
+        if G.jokers then 
+            G.jokers.config.highlighted_limit = 99999
+        end
     end,
 
     use = function(self, card)
