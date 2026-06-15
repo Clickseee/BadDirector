@@ -857,6 +857,19 @@ return {
                     "{C:inactive}(Excluding Jestark){}"
                 }
             },
+            j_bd_capnclark = {
+                name = {
+                    "Cap'n Jestark",
+                    "{s:0.8}The Ottoman Empire",
+                },
+                text = {
+                    "When {C:attention}Blind{} is selected,",
+                    "destroy a random {C:attention}Joker{}",
+                    "and create a {C:dark_edition}Negative{} copy",
+                    "of the last sold {C:attention}Joker{}",
+                    "with {C:attention}#1#%{} of its stats"
+                }
+            },
             -- Credit Localization
             j_bd_nxkoojoker = {
                 name = "Nxkoo",
