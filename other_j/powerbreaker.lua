@@ -32,7 +32,7 @@ SMODS.Joker {
         }
     end,
     
-    in_pool = function(self, args)
+    in_pool = function(self, args) -- Untested, but I'm pretty sure
         
         if not G.jokers then
             return false

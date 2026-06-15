@@ -1,4 +1,40 @@
+SMODS.ScreenShader {
+    key = "upside_down",
+    path = "australia.fs",
 
+    should_apply = function(self)
+        return G.GAME
+            and G.GAME.blind
+            and G.GAME.blind.config
+            and G.GAME.blind.config.blind
+            and G.GAME.blind.config.blind.key == "bl_bd_australia"
+    end
+}
+
+SMODS.Blind{
+    key = "australia",
+    atlas = "bdblinds",
+    pos = { x = 0, y = 0 },
+
+    boss = { min = 1 },
+
+    dollars = 5,
+    mult = 2,
+
+    boss_colour = HEX("012169"),
+
+    set_blind = function(self)
+        self.disabled = false
+    end,
+
+    disable = function(self)
+        self.disabled = true
+    end,
+
+    defeat = function(self)
+        self.disabled = true
+    end,
+}
 
 SMODS.Blind {
     key = 'ache',

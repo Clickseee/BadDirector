@@ -1654,6 +1654,12 @@ return {
                     "cards for the Blind"
                 }
             },
+            bl_bd_australia = {
+                name = "The Australia",
+                text = {
+                    "Beat the Blind upside down"
+                }
+            },
             bl_bd_ivory_isolate = {
                 name = "Ivory Isolate",
                 text = {
