@@ -52,7 +52,6 @@ G.FUNCS.bd_prev_credit_page = function(e)
 end
 
 BadDirector.contributors = {
-    -- <<<<<<< Updated upstream
     {padding = true},
     { key = "j_bd_nxkoojoker", text = "Nxkoo" },
     {padding = true},

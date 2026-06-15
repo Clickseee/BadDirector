@@ -53,7 +53,7 @@ function BadDirector.CREDITS.make_row(title, names, role)
 
         if i < #names then
 
-            local sep = (i == #names - 1) and " and " or ", "
+            local sep = (i == #names - 1) and " & " or ", "
 
             table.insert(text_row.nodes, {
                 n = G.UIT.T,

@@ -34,8 +34,6 @@ end
 local function schedule_next_lolbit()
     G.lolbit_event.next_spawn =
         G.TIMERS.REAL + pseudorandom("lolbit_spawn", 15, 45)
-        print(G.TIMERS.REAL)
-        print (G.lolbit_event.next_spawn)
 end
 
 local updatehook = Game.update
@@ -55,12 +53,11 @@ function Game:update(dt)
 
         if not G.lolbit_event.active
         and G.TIMERS.REAL >= G.lolbit_event.next_spawn then
-            print("he's here")
 
             G.lolbit_event.active = true
             G.lolbit_event.progress = ""
 
-            --play_sound("lolbit_spawn", 1, 1)
+            play_sound("bd_lolbit_spawn", 1, 1)
 
             if G.lolbit_event.sound then
                 G.lolbit_event.sound:stop()
@@ -128,9 +125,7 @@ SMODS.Keybind {
         G.lolbit_event.active = false
         G.lolbit_event.progress = ""
 
-        if G.lolbit_event.sound then
-            G.lolbit_event.sound:stop()
-        end
+        play_sound("tarot1", 1, 1)
 
         schedule_next_lolbit()
     end
@@ -178,9 +173,10 @@ SMODS.Joker {
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    atlas = "misprintenhanced",
+    atlas = "lolbitjoker",
     coder = { "Nxkoo" },
-    pos = { x = 1, y = 0 },
+    artist = { "comykel", "LasagnaFelidae" },
+    pos = { x = 0, y = 0 },
     pools = {["BadDirector_Jokers"] = true, ["FNAF"] = true, },
     attributes = {
         'xmult',
