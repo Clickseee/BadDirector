@@ -838,6 +838,14 @@ return {
                     "{C:inactive}(Currently {C:mult}+#3#{}{C:inactive} Mult){}",
                 }
             },
+            j_bd_vantacard = {
+                name = "Vanta Card",
+                text = {
+                    "Gain {C:money}+$#1#{} Temporary Interest Cap",
+                    "for each Joker Slot below {C:attention}5{}",
+                    "{C:inactive}(Currently +$#2#){}"
+                }
+            },
             -- Credit Localization
             j_bd_nxkoojoker = {
                 name = "Nxkoo",
