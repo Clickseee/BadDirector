@@ -28,6 +28,14 @@ function CardArea:emplace(card, location, stay_flipped)
         G.consumeables:emplace(card, location, stay_flipped)
         return
     end
+    if card.ability.consumeable and self == G.consumeables then
+        G.GAME.bd_last_consumeable_added = card.config.center.key
+        G.GAME.bd_last_card_added = card.config.center.key
+    elseif card.ability.set == 'Joker' and self == G.jokers then
+        G.GAME.bd_last_joker_added = card.config.center.key
+        G.GAME.bd_last_card_added = card.config.center.key
+    end
+    
 
 	cardarea_emplace_ref(self, card, location, stay_flipped)
 end

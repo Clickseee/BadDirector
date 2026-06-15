@@ -59,3 +59,21 @@ if card.ability.consumeable then
 end
 '''
 match_indent = true
+
+
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = '''
+if e.config.id == 'buy_and_use' then 
+  G.FUNCS.use_card(e, true)
+'''
+position = "after"
+payload = '''
+if c1.ability.consumeable then
+  G.GAME.bd_last_consumeable_added = c1.config.center.key
+  G.GAME.bd_last_card_added = c1.config.center.key
+end
+'''
+match_indent = true
+
