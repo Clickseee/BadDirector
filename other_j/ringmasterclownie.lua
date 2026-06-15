@@ -49,6 +49,10 @@ SMODS.Joker {
         }
     end,
 
+    in_pool = function(self, args)
+        return false
+    end,
+
     calculate = function(self, card, context)
 
         if context.setting_blind then

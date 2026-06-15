@@ -671,6 +671,24 @@ return {
                     }
                 },
             },
+            j_bd_ringmasterclownie = {
+                name = {
+                    "ringmasterclownie"
+                },
+                text = {
+                    {"#1# fazcoins"
+                    },
+                    {
+                        "If the timer reaches {C:attention}0{} and the",
+                        "{C:purple}Sealed{} card hasn't been played,",
+                        "{C:red, E:2}self-destruct"
+                    },
+                    {
+                        "Otherwise, generate up to {C:attention}#3#{}",
+                        "{C:dark_edition}Negative {C:spectral}Spectral{} Cards"
+                    }
+                },
+            },
             j_bd_diesexy = {
                 name = "Dyslexia",
                 text = {
