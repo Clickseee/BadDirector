@@ -26,7 +26,7 @@ SMODS.Joker {
     },
 
     loc_vars = function(self, info_queue, card)
-        local bonus = math.max(0, (G.jokers and G.jokers.config.card_limit or 5)) * card.ability.extra.interest_per_missing_slot
+        local bonus = math.max(0, 5-(G.jokers and G.jokers.config.card_limit or 5)) * card.ability.extra.interest_per_missing_slot
 
         return {
             vars = {
