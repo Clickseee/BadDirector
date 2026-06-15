@@ -23,7 +23,10 @@ SMODS.Sound({
 
 BadDirector.Sponsor{
     key = "elchip",
-
+    atlas = "sponsors",
+    coder = { "Foo54", "Nxkoo" },
+    artist = {"squeax09"},
+    pos = { x = 3, y = 0 },
     redeem = function(self, voucher)
         if not G.GAME.used_sponsors then
             G.GAME.used_sponsors = {}

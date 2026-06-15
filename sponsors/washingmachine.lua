@@ -1,5 +1,9 @@
 BadDirector.Sponsor{
 	key = "john",
+    atlas = "sponsors",
+    coder = { "Foo54", "squeax09" },
+    artist = {"squeax09"},
+    pos = { x = 2, y = 0 },
     config = { extra = { kromer = 3 }},
     loc_vars = function(self, info_queue, card)
         return {
