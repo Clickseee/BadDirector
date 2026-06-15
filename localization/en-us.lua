@@ -841,8 +841,9 @@ return {
             j_bd_vantacard = {
                 name = "Vanta Card",
                 text = {
-                    "Gain {C:money}+$#1#{} Temporary Interest Cap",
-                    "for each Joker Slot below {C:attention}5{}",
+                    "Gain {C:money}+$#1#{} Temporary",
+                    "Interest Cap for each",
+                    "Joker Slot below {C:attention}5{}",
                     "{C:inactive}(Currently +$#2#){}"
                 }
             },
@@ -1687,9 +1688,10 @@ return {
                 }
             },
             bl_bd_australia = {
-                name = "The Australia",
+                name = "The Straya",
                 text = {
-                    "Beat the Blind upside down"
+                    "Beat the Blind",
+                    "upside down"
                 }
             },
             bl_bd_ivory_isolate = {
