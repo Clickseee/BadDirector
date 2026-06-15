@@ -846,6 +846,17 @@ return {
                     "{C:inactive}(Currently +$#2#){}"
                 }
             },
+            j_bd_clark = {
+                name = {
+                    "Jestark",
+                    "{s:0.8}A failed Architect",
+                },
+                text = {
+                    "Retriggers {C:attention}Jokers{} and {C:attention}cards{}",
+                    "with the {C:dark_edition}Blueprint?{} edition",
+                    "{C:inactive}(Excluding Jestark){}"
+                }
+            },
             -- Credit Localization
             j_bd_nxkoojoker = {
                 name = "Nxkoo",
