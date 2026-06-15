@@ -1,9 +1,10 @@
 SMODS.Joker {
     key = "liberator",
     rarity = 2,
-    atlas = "misprintenhanced",
+    atlas = "shitgun",
+    artist = { "comykel" },
     coder = { "Nxkoo" },
-    pos = { x = 1, y = 0 },
+    pos = { x = 0, y = 0 },
     cost = 5,
     blueprint_compat = true,
     eternal_compat = true,

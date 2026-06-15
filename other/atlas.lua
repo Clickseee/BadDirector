@@ -353,3 +353,24 @@ SMODS.Atlas {
     px = 71,
     py = 95,
 }
+
+SMODS.Atlas {
+    key = "shitgun",
+    path = "liberator.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas {
+    key = "lolbitjoker",
+    path = "jestbit.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas {
+    key = "jcoins",
+    path = "jestcoin.png",
+    px = 58,
+    py = 58,
+}
