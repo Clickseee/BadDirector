@@ -226,6 +226,14 @@ return {
                     "end of the Ante"
                 },
             },
+            bd_anomalous = {
+                name = "Anomalous",
+                text = {
+                    "{X:mult,C:white}X#1#{} Mult",
+                    "every {C:attention}#2#{} triggers",
+                    "{C:inactive}({C:attention}#3#{C:inactive}/#2#)"
+                },
+            },
         },
         Spectral = {
             c_bd_heat = {
@@ -1778,7 +1786,8 @@ return {
             bd_bluesprint_seal = "alBlue Se",
             bd_redprint_seal = "alRed Se",
             bd_purpleprint_seal = "alPurple Se",
-            bd_weakened = "Weakened"
+            bd_weakened = "Weakened",
+            bd_anomalous = "Anomalous"
         },
         challenge_names = {
             c_bd_heartless = "Heartless",
