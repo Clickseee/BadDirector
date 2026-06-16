@@ -49,6 +49,10 @@ SMODS.Joker {
         }
     end,
 
+    in_pool = function(self, args)
+        return false
+    end,
+
     calculate = function(self, card, context)
 
         if context.setting_blind then
@@ -199,7 +203,7 @@ function Card:draw(...)
     for _, coin in ipairs(faz.coins) do
 
         love.graphics.draw(
-            G.ASSET_ATLAS["jcoins"].image,
+            G.ASSET_ATLAS["bd_jcoins"].image,
             coin.x,
             coin.y,
             0,

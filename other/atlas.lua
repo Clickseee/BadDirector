@@ -47,7 +47,18 @@ SMODS.Atlas {
     px = 71,
     py = 95,
 }
-
+SMODS.Atlas {
+    key = "placeholder",
+    path = "placeholder.png",
+    px = 71,
+    py = 95,
+}
+SMODS.Atlas {
+    key = "bdSeals",
+    path = "seals.png",
+    px = 71,
+    py = 95,
+}
 SMODS.Atlas {
     key = "pregnantchad",
     path = "preggerschad.png",
@@ -192,6 +203,14 @@ SMODS.Atlas {
     px = 71,
     py = 95,
 }
+
+SMODS.Atlas {
+    key = "sponsors",
+    path = "sponsors.png",
+    px = 71,
+    py = 95,
+}
+
 
 SMODS.Atlas {
     key = "fooselfinsert",

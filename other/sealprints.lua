@@ -116,3 +116,20 @@ SMODS.Seal {
         card.ability.seal.extra.destroyed or self.config.extra.destroyed } }
     end
 }
+
+SMODS.Seal {
+    key = 'guitar',
+    atlas = "bdSeals",
+    pos = { x = 0, y = 0 },
+    coder = {"LasagnaFelidae"},
+    badge_colour = G.C.RED,
+    config = { extra = { retriggers = 0, retrigger_increase = 1, goal = 3, destroyed = 0 } },
+    calculate = function(self, card, context)
+        if context.after then
+            card:set_seal(nil)
+        end
+    end,
+    loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end
+}

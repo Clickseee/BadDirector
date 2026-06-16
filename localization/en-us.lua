@@ -79,6 +79,12 @@ return {
                     "{C:inactive}(Currently {C:attention}#1#{}{C:inactive} time(s)){}"
                 },
             },
+            bd_guitar_seal = {
+                name = "Guitar Seal",
+                text = {
+                    "Removes itself after scoring",
+                },
+            },
             p_bd_misarcana_jumbo = {
                 name = "bo Arcana Pack Jum",
                 text = {
@@ -648,6 +654,46 @@ return {
                         "{C:red}catch you{}, permanently",
                         "lose {C:blue}-1{} hand",
                         "per round"
+                    }
+                },
+            },
+            j_bd_rockstarbonnie = {
+                name = {
+                    "Rockstar Bonnie"
+                },
+                text = {
+                    {
+                        "After drawing the first hand,",
+                        "apply {C:purple}#1#{} to a random card",
+                        "in the {C:attention}entire deck",
+                        "and start a {C:attention}#2# seconds{} timer"
+                    },
+                    {
+                        "If the timer reaches {C:attention}0{} and the",
+                        "{C:purple}Sealed{} card hasn't been played,",
+                        "{C:red, E:2}self-destruct"
+                    },
+                    {
+                        "Otherwise, generate up to {C:attention}#3#{}",
+                        "{C:dark_edition}Negative {C:spectral}Spectral{} Cards"
+                    }
+                },
+            },
+            j_bd_ringmasterclownie = {
+                name = {
+                    "ringmasterclownie"
+                },
+                text = {
+                    {"#1# fazcoins"
+                    },
+                    {
+                        "If the timer reaches {C:attention}0{} and the",
+                        "{C:purple}Sealed{} card hasn't been played,",
+                        "{C:red, E:2}self-destruct"
+                    },
+                    {
+                        "Otherwise, generate up to {C:attention}#3#{}",
+                        "{C:dark_edition}Negative {C:spectral}Spectral{} Cards"
                     }
                 },
             },
@@ -1828,6 +1874,7 @@ return {
             bd_bluesprint_seal = "alBlue Se",
             bd_redprint_seal = "alRed Se",
             bd_purpleprint_seal = "alPurple Se",
+            bd_guitar_seal = "Guitar Seal",
             bd_weakened = "Weakened",
             bd_anomalous = "Anomalous"
         },
