@@ -243,9 +243,9 @@ return {
             bd_anomalous = {
                 name = "Anomalous",
                 text = {
-                    "{X:mult,C:white}X#1#{} Mult",
-                    "every {C:attention}#2#{} triggers",
-                    "{C:inactive}({C:attention}#3#{C:inactive}/#2#)"
+                    "Debuffed every",
+                    "{C:attention}#1#{} rounds",
+                    "{C:inactive}({C:attention}#2#{C:inactive}/#1#)"
                 },
             },
         },
