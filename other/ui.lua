@@ -564,7 +564,7 @@ SMODS.Shader({
 local badgeHook = SMODS.create_mod_badges
 function SMODS.create_mod_badges(obj, badges)
     badgeHook(obj, badges)
-    if obj then
+    if obj and obj.mod == BadDirector then
         for i = 1, #badges do
             if badges[i].nodes[1].nodes[2].config.object.content and badges[i].nodes[1].nodes[2].config.object.content.string == BadDirector.display_name then
                 if not obj.no_shader_on_modbadge then

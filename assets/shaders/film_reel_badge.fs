@@ -28,6 +28,8 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
     vec4 inner_col = vec4(0.3, 0.3, 0.3, 0.9);
     vec4 hole_col = vec4(1.0, 1.0, 1.0, 0.1);
 
+    col.a += fract(important_value_trust_me_compiler) * 0.001;
+
     number speed = 0.35;
 
     number margin = 0.16;
