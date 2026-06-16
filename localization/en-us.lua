@@ -79,6 +79,12 @@ return {
                     "{C:inactive}(Currently {C:attention}#1#{}{C:inactive} time(s)){}"
                 },
             },
+            bd_guitar_seal = {
+                name = "Guitar Seal",
+                text = {
+                    "Removes itself after scoring",
+                },
+            },
             p_bd_misarcana_jumbo = {
                 name = "bo Arcana Pack Jum",
                 text = {
@@ -193,6 +199,14 @@ return {
                     "on your screen,",
                     "press {C:attention}J{} and {C:attention}K{} in sequence",
                     "to get rid of them"
+                }
+            },
+            bd_directornote_1 = {
+                name = "Director's Note",
+                text = {
+                    "We ran out of Actors",
+                    "so we legally acquire",
+                    "this office worker."
                 }
             },
             bd_offbrand_sticker = {
@@ -643,6 +657,46 @@ return {
                     }
                 },
             },
+            j_bd_rockstarbonnie = {
+                name = {
+                    "Rockstar Bonnie"
+                },
+                text = {
+                    {
+                        "After drawing the first hand,",
+                        "apply {C:purple}#1#{} to a random card",
+                        "in the {C:attention}entire deck",
+                        "and start a {C:attention}#2# seconds{} timer"
+                    },
+                    {
+                        "If the timer reaches {C:attention}0{} and the",
+                        "{C:purple}Sealed{} card hasn't been played,",
+                        "{C:red, E:2}self-destruct"
+                    },
+                    {
+                        "Otherwise, generate up to {C:attention}#3#{}",
+                        "{C:dark_edition}Negative {C:spectral}Spectral{} Cards"
+                    }
+                },
+            },
+            j_bd_ringmasterclownie = {
+                name = {
+                    "ringmasterclownie"
+                },
+                text = {
+                    {"#1# fazcoins"
+                    },
+                    {
+                        "If the timer reaches {C:attention}0{} and the",
+                        "{C:purple}Sealed{} card hasn't been played,",
+                        "{C:red, E:2}self-destruct"
+                    },
+                    {
+                        "Otherwise, generate up to {C:attention}#3#{}",
+                        "{C:dark_edition}Negative {C:spectral}Spectral{} Cards"
+                    }
+                },
+            },
             j_bd_diesexy = {
                 name = "Dyslexia",
                 text = {
@@ -1052,6 +1106,25 @@ return {
                     "amount of time drawing",
                     "a single card.",
                     "{C:inactive}(Nxkoo's Credit)"
+                }
+            },
+            j_bd_inkyjoker = {
+                name = "Inky",
+                text = {
+                    { " ",
+                        "{s:1.3}Hi, I'm {C:attention,E:1,s:1.3}Inky{}.",
+                        " " },
+                    { "You probably know me as the",
+                        "{C:attention}Square Joker Guy{}, or as the",
+                        "{C:attention}partners guy{}.",
+                        "I'm in quite a handful of mods!",
+                        "Including this one, as I contributed",
+                        "some art for this amazing mod!!!",
+                        "No mod is greater than this one!!!" },
+                    { "{C:inactive,s:0.7}alright, now that I've said that,{}",
+                        "{C:inactive,s:0.7}can I shill my Ko-fi??{}",
+                        "{C:inactive,s:0.7}...what do you mean that it{}",
+                        "{C:inactive,s:0.7}\"wasn't on my contract\"????{}" }
                 }
             },
             j_bd_kaneparsons = {
@@ -1801,6 +1874,7 @@ return {
             bd_bluesprint_seal = "alBlue Se",
             bd_redprint_seal = "alRed Se",
             bd_purpleprint_seal = "alPurple Se",
+            bd_guitar_seal = "Guitar Seal",
             bd_weakened = "Weakened",
             bd_anomalous = "Anomalous"
         },

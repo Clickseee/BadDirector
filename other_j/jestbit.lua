@@ -42,6 +42,9 @@ local lolbit_check_timer = 0
 function Game:update(dt)
     updatehook(self, dt)
 
+    if not next(SMODS.find_card('j_bd_jestbit')) then
+        G.lolbit_event.enabled = false
+    end
     if not G.lolbit_event.enabled then
         return
     end

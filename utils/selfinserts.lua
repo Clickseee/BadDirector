@@ -313,3 +313,27 @@ SMODS.Joker {
         return {vars = {"#1"}}
     end,
 }
+
+SMODS.Joker {
+    key = "inkyjoker",
+    selfinsert = true,
+    discovered = true,
+    rarity = 4,
+    atlas = "inkyselfinsert",
+    pos = { x = 0, y = 0 },
+    soul_pos = { x = 0, y = 1 },
+    cost = 666,
+    no_collection = true,
+    blueprint_compat = true,
+    eternal_compat = true,
+    perishable_compat = true,
+    in_pool = function(self, args)
+        return false
+    end,
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = {
+            key = 'bd_directornote_1',
+            set = 'Other'
+        }
+    end,
+}

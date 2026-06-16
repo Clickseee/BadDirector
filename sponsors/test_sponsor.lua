@@ -5,6 +5,9 @@
 --[[
 BadDirector.Sponsor{
 	key = "template",
+    atlas = "sponsors",
+    artist = {"squeax09"},
+    pos = { x = 0, y = 0 },
 	redeem = function (self, voucher)
 		if not G.GAME.used_sponsors then G.GAME.used_sponsors = {} end
 		G.GAME.used_sponsors.spon_bd_template = true
