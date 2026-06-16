@@ -101,6 +101,7 @@ SMODS.Joker {
 
                         if new_card then
                             new_card:set_edition({negative = true}, true)
+                            new_card:add_sticker("bd_anomalous",true)
 
                             BadDirector.manipulate(new_card, {
                                 value = card.ability.extra.weaken_factor + card.ability.extra.clarkeaten,
