@@ -245,7 +245,7 @@ return {
                 text = {
                     "Debuffed every",
                     "{C:attention}#1#{} rounds",
-                    "{C:inactive}({C:attention}#2#{C:inactive}/#1#)"
+                    "{C:inactive}({C:attention}#3#{C:inactive}/#1#)"
                 },
             },
         },

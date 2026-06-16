@@ -14,7 +14,7 @@ function end_round()
             for _, card in ipairs(area.cards) do
 
                 if card.ability
-                and card.ability.anomalous then
+                and card.ability.bd_anomalous then
 
                     card.ability.anomalous_counter =
                         (card.ability.anomalous_counter or 0) + 1
@@ -92,7 +92,7 @@ SMODS.Sticker {
     end,
 
     loc_vars = function(self, info_queue, card)
-        local counter = card and card.ability and card.ability.anomalous_counter or 0
+        local counter = (card and card.ability) and card.ability.anomalous_counter or 0
 
         return {
             key = self.key,
