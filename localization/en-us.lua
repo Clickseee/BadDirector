@@ -195,6 +195,14 @@ return {
                     "to get rid of them"
                 }
             },
+            bd_directornote_1 = {
+                name = "Director's Note",
+                text = {
+                    "We ran out of Actors",
+                    "so we legally acquire",
+                    "this office worker."
+                }
+            },
             bd_offbrand_sticker = {
                 name = "Offbrand Sticker",
                 text = {
@@ -1052,6 +1060,25 @@ return {
                     "amount of time drawing",
                     "a single card.",
                     "{C:inactive}(Nxkoo's Credit)"
+                }
+            },
+            j_bd_inkyjoker = {
+                name = "Inky",
+                text = {
+                    { " ",
+                        "{s:1.3}Hi, I'm {C:attention,E:1,s:1.3}Inky{}.",
+                        " " },
+                    { "You probably know me as the",
+                        "{C:attention}Square Joker Guy{}, or as the",
+                        "{C:attention}partners guy{}.",
+                        "I'm in quite a handful of mods!",
+                        "Including this one, as I contributed",
+                        "some art for this amazing mod!!!",
+                        "No mod is greater than this one!!!" },
+                    { "{C:inactive,s:0.7}alright, now that I've said that,{}",
+                        "{C:inactive,s:0.7}can I shill my Ko-fi??{}",
+                        "{C:inactive,s:0.7}...what do you mean that it{}",
+                        "{C:inactive,s:0.7}\"wasn't on my contract\"????{}" }
                 }
             },
             j_bd_kaneparsons = {

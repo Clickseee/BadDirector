@@ -363,3 +363,10 @@ SMODS.Atlas {
     px = 58,
     py = 58,
 }
+
+SMODS.Atlas {
+    key = "inkyselfinsert",
+    path = "inkycredit.png",
+    px = 71,
+    py = 95,
+}
