@@ -550,8 +550,8 @@ SMODS.Shader({
     send_vars = function (element, ...)
         local tile_scale = G.TILESCALE*G.TILESIZE*G.CANV_SCALE
         local vt = {x=element.VT.x, y=element.VT.y, w=element.VT.w, h=element.VT.h}
-        vt.x = vt.x + element.container and element.container.T.x or 0
-        vt.y = vt.y + element.container and element.container.T.y + 0.018 or 0
+        vt.x = vt.x + (element.container and element.container.T.x or 0)
+        vt.y = vt.y + (element.container and element.container.T.y + 0.018 or 0)
         local pos = {vt.x * tile_scale, vt.y * tile_scale}
         local size = {vt.w * tile_scale, vt.h * tile_scale}
         return {
