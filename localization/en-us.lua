@@ -930,7 +930,8 @@ return {
                     "destroy a random {C:attention}Joker{}",
                     "and create a {C:dark_edition}Negative{} copy",
                     "of the last sold {C:attention}Joker{}",
-                    "with {C:attention}#1#%{} of its stats"
+                    "with {C:attention}#1#%{} of its stats",
+                    "and apply {C:attention}Anomalous{} Sticker"
                 }
             },
             -- Credit Localization
