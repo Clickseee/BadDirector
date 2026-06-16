@@ -542,3 +542,36 @@ if create_deck_page_cycle then
         return ret
     end
 end
+
+-- Mod Badge Shader
+SMODS.Shader({
+    key = "film_reel_badge",
+    path = "film_reel_badge.fs",
+    send_vars = function (element, ...)
+        local tile_scale = G.TILESCALE*G.TILESIZE*G.CANV_SCALE
+        local vt = {x=element.VT.x, y=element.VT.y, w=element.VT.w, h=element.VT.h}
+        vt.x = vt.x + element.container and element.container.T.x or 0
+        vt.y = vt.y + element.container and element.container.T.y + 0.018 or 0
+        local pos = {vt.x * tile_scale, vt.y * tile_scale}
+        local size = {vt.w * tile_scale, vt.h * tile_scale}
+        return {
+            badge_pos = pos,
+            badge_size = size,
+        }
+    end
+})
+
+local badgeHook = SMODS.create_mod_badges
+function SMODS.create_mod_badges(obj, badges)
+    badgeHook(obj, badges)
+    if obj then
+        for i = 1, #badges do
+            if badges[i].nodes[1].nodes[2].config.object.content and badges[i].nodes[1].nodes[2].config.object.content.string == BadDirector.display_name then
+                if not obj.no_shader_on_modbadge then
+                    -- badges[i].nodes[1].config.minw = 2
+                    badges[i].nodes[1].config.shader = "bd_film_reel_badge"
+                end
+            end
+        end
+    end
+end
