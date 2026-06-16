@@ -38,6 +38,7 @@ SMODS.Joker {
     },
 
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = { key = "bd_anomalous", set = "Other", vars = {4,0,0}}
         return {
             vars = {
                 math.floor((card.ability.extra.weaken_factor + card.ability.extra.clarkeaten) * 100)
