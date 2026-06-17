@@ -568,11 +568,12 @@ blueprint_compat = true,
 
 
 SMODS.Joker {
-    atlas = "placeholder",
-    pos = { x = 0, y = 0 },
+    atlas = "feliAtlas",
+    pos = { x = 4, y = 0 },
     pools = {["BadDirector_Jokers"] = true, ["FNAF"] = true, },
     key = "rockstarbonnie",
     coder = {"LasagnaFelidae"},
+    artist = {"LasagnaFelidae"},
     rarity = 2,
     cost = 6,
     config = {
@@ -588,7 +589,7 @@ SMODS.Joker {
         
     },	
     loc_vars = function(self, info_queue, card)
-        return {vars = {localize{type = 'name_text', set = "Other", key = card.ability.extra.seal},  card.ability.timer.maxTime,  card.ability.extra.max_generation} }
+        return {vars = {localize{type = 'name_text', set = "Other", key = card.ability.extra.seal.."_seal"},  card.ability.timer.maxTime,  card.ability.extra.max_generation} }
     end,
     
     in_pool = function(self, args)
@@ -673,8 +674,9 @@ SMODS.Attribute {
 
 SMODS.Joker {
     key = "belovedprince",
-    atlas = "misprintenhanced",
+    atlas = "feliAtlas",
     coder = { "LasagnaFelidae" },
+    artist = {"LasagnaFelidae"},
     pos = { x = 1, y = 0 },
     pools = {
         ["BadDirector_Jokers"] = true,
