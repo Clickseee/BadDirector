@@ -255,7 +255,7 @@ return {
                 text = {
                     "Add {C:dark_edition}Thermal{} to",
                     "a random {C:attention}Joker,",
-                    "{C:red}-#1#{} discard size",
+                    "{C:red}-#1#{} discard per round",
                 },
             },
             c_bd_transluscent = {
@@ -263,7 +263,7 @@ return {
                 text = {
                     "Add {C:dark_edition}X-Ray{} to",
                     "a random {C:attention}Joker,",
-                    "{C:red}-#1#{} Consumable size",
+                    "{C:red}-#1#{} Consumable slot",
                 },
             },
             c_bd_project = {
@@ -280,7 +280,7 @@ return {
                 text = {
                     "Add {C:dark_edition}Misprinted{} to",
                     "a random {C:attention}Joker,",
-                    "{C:red}-#1#{} Joker size",
+                    "{C:red}-#1#{} Joker slot",
                 },
             },
 

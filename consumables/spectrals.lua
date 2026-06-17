@@ -82,12 +82,19 @@ BadDirector.Spectral {
         return { vars = { card.ability.extra.mod_slots } }
     end,
     use = function(self, card, area, copier)
-        SMODS.destroy_cards(G.jokers.cards[#G.jokers.cards],nil,true,nil)
-        local editionless_jokers = SMODS.Edition:get_edition_cards(G.jokers, true)
         G.E_MANAGER:add_event(Event({
             trigger = 'after',
-            delay = 0.4,
+            delay = 0.01,
             func = function()
+                SMODS.destroy_cards(G.jokers.cards[#G.jokers.cards],nil,true,nil)
+                return true
+            end
+        }))
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.5,
+            func = function()
+                local editionless_jokers = SMODS.Edition:get_edition_cards(G.jokers, true)
                 local eligible_card = pseudorandom_element(editionless_jokers, 'you keep making my day')
                 eligible_card:set_edition("e_bd_blueprint")
 
