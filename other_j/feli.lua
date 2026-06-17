@@ -578,7 +578,7 @@ SMODS.Joker {
     config = {
         extra = {
             max_generation = 3,
-            seal = "bd_guitar_seal"
+            seal = "bd_guitar"
         },
         timer = { 
             maxTime = 15,
@@ -638,7 +638,7 @@ SMODS.Joker {
         local timer = card.ability.timer
         
         if context.hand_drawn and context.first_hand_drawn then
-            local selected_card = pseudorandom_element(G.hand.cards, pseudoseed("rockstar" .. G.GAME.round_resets.ante))
+            local selected_card = pseudorandom_element(G.playing_cards, pseudoseed("rockstar" .. G.GAME.round_resets.ante))
             if selected_card then
                 selected_card:set_seal(card.ability.extra.seal)
                 G.E_MANAGER:add_event(Event({
