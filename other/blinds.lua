@@ -8,13 +8,14 @@ SMODS.ScreenShader {
             and G.GAME.blind.config
             and G.GAME.blind.config.blind
             and G.GAME.blind.config.blind.key == "bl_bd_australia"
+            and not G.GAME.blind.config.blind.disabled
     end
 }
 
 SMODS.Blind{
     key = "australia",
     atlas = "bdblinds",
-    pos = { x = 0, y = 0 },
+    pos = { x = 0, y = 2 },
 
     boss = { min = 1 },
 
