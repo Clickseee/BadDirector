@@ -1,11 +1,11 @@
 SMODS.Joker {
     key = "stakeholder",
-    rarity = 1,
+    rarity = 2,
     atlas = "holders",
     coder = { "Nxkoo" },
     artist = { "Inky" },
     pos = { x = 0, y = 0 },
-    cost = 3,
+    cost = 5,
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
