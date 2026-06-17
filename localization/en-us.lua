@@ -938,7 +938,11 @@ return {
             j_bd_nxkoojoker = {
                 name = "Nxkoo",
                 text = {
-                    ""
+                    "It's sad and ironic",
+                    "that some of the",
+                    "kindest people in",
+                    "life are always the",
+                    "most mistreated.",
                 }
             },
             j_bd_rubyjoker = {
