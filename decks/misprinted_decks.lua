@@ -446,7 +446,7 @@ BadDirector.MisprintedDecks.b_erratic = {
 		end
 	end
 }
-SMODS.Back:take_ownership("b_plasma") {
+SMODS.Back:take_ownership("b_plasma",{
     pos = { x = 4, y = 2 },
     config = { ante_scaling = 2 },
     unlocked = false,
@@ -478,7 +478,7 @@ SMODS.Back:take_ownership("b_plasma") {
     check_for_unlock = function(self, args)
         return args.type == 'win_stake' and get_deck_win_stake() >= 5
     end
-}
+})
 
 
 BadDirector.MisprintedDecks.b_plasma = {
