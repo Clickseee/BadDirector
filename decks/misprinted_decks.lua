@@ -446,6 +446,7 @@ BadDirector.MisprintedDecks.b_erratic = {
 		end
 	end
 }
+
 SMODS.Back:take_ownership("b_plasma",{
     pos = { x = 4, y = 2 },
     config = { ante_scaling = 2 },
@@ -460,13 +461,6 @@ SMODS.Back:take_ownership("b_plasma",{
             }
         end
     end,
-    -- The config field already handles the functionality so it doesn't need to be implemented
-    -- The following is how the implementation would be
-    --[[
-    apply = function(self, back)
-        G.GAME.starting_params.ante_scaling = self.config.ante_scaling
-    end,
-    ]]
     locked_loc_vars = function(self, info_queue, back)
         return {
             vars = {
@@ -487,7 +481,7 @@ BadDirector.MisprintedDecks.b_plasma = {
 		G.GAME.starting_params.ante_scaling = BadDirector.MisprintedDecks.b_plasma.config.ante_scaling
 	end,
 	calculate = function(self, back, context)
-		if context.initial_scoring_step then
+		if context.initial_scoring_step and G.GAME.bd_misprinted_deck then
 			BadDirector.MisprintedDecks.b_plasma.config = pseudorandom("coinflip", 1, 2)
 			if BadDirector.MisprintedDecks.b_plasma.config == 1 then -- unbalance taken from toga
 				local chipsmulttogether = (mult + hand_chips) * ((pseudorandom("unbalance", 15, 30) / 10) or 1)
@@ -533,8 +527,6 @@ BadDirector.MisprintedDecks.b_plasma = {
 				}))
 				delay(0.6)
 			end
-		end
-		if context.final_scoring_step then
 			if BadDirector.MisprintedDecks.b_plasma.config == 2 then
 				return { balance = true }
 			end
