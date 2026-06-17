@@ -446,6 +446,40 @@ BadDirector.MisprintedDecks.b_erratic = {
 		end
 	end
 }
+SMODS.Back:take_ownership("b_plasma") {
+    pos = { x = 4, y = 2 },
+    config = { ante_scaling = 2 },
+    unlocked = false,
+    loc_vars = function(self, info_queue, back)
+        return { vars = { self.config.ante_scaling } }
+    end,
+    calculate = function(self, back, context)
+        if context.final_scoring_step then
+            return {
+                balance = true
+            }
+        end
+    end,
+    -- The config field already handles the functionality so it doesn't need to be implemented
+    -- The following is how the implementation would be
+    --[[
+    apply = function(self, back)
+        G.GAME.starting_params.ante_scaling = self.config.ante_scaling
+    end,
+    ]]
+    locked_loc_vars = function(self, info_queue, back)
+        return {
+            vars = {
+                localize { type = 'name_text', set = 'Stake', key = 'stake_blue' },
+                colours = { get_stake_col(5) }
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        return args.type == 'win_stake' and get_deck_win_stake() >= 5
+    end
+}
+
 
 BadDirector.MisprintedDecks.b_plasma = {
 	config = { ante_scaling = 2 },
