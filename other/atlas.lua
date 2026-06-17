@@ -42,6 +42,12 @@ SMODS.Atlas {
     py = 29,
 }
 SMODS.Atlas { 
+    key = "feliAtlas",
+    path = "feliAtlas.png",
+    px = 71,
+    py = 95,
+}
+SMODS.Atlas { 
     key = "bdstickers",
     path = "stickers.png",
     px = 71,
@@ -386,6 +392,20 @@ SMODS.Atlas {
 SMODS.Atlas {
     key = "inkyselfinsert",
     path = "inkycredit.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas {
+    key = "architect",
+    path = "clarkjoker.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas {
+    key = "him",
+    path = "god.png",
     px = 71,
     py = 95,
 }

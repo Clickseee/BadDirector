@@ -659,7 +659,7 @@ return {
             },
             j_bd_rockstarbonnie = {
                 name = {
-                    "Rockstar Bonnie"
+                    "Rockstar Bozo"
                 },
                 text = {
                     {
@@ -671,7 +671,7 @@ return {
                     {
                         "If the timer reaches {C:attention}0{} and the",
                         "{C:purple}Sealed{} card hasn't been played,",
-                        "{C:red, E:2}self-destruct"
+                        "{C:red,E:2}self destructs"
                     },
                     {
                         "Otherwise, generate up to {C:attention}#3#{}",
@@ -938,7 +938,11 @@ return {
             j_bd_nxkoojoker = {
                 name = "Nxkoo",
                 text = {
-                    ""
+                    "It's sad and ironic",
+                    "that some of the",
+                    "kindest people in",
+                    "life are always the",
+                    "most mistreated.",
                 }
             },
             j_bd_rubyjoker = {
@@ -1025,8 +1029,29 @@ return {
                 }
             },
             j_bd_felijoker = {
-                name = "LasagnaFelidae",
-                text = { "pet me" }
+                name = {"{f:bd_coolfont}LasagnaFelidae","{s:0.7,f:bd_coolfont}a.k.a. {C:gold,s:0.7,f:bd_coolfont}Feli"},
+                text = {
+                    { "{s:0.5} ",
+                    "{C:attention,E:2,f:bd_coolfont}Love me, feed me, never leave me!",
+                    "{s:0.5}",
+                    "{f:bd_coolfont}Helped {C:hearts,f:bd_coolfont}Nxkoo{f:bd_coolfont} bugfix,{f:bd_coolfont}program some jokers",
+                    "{f:bd_coolfont}and I drew some cards.",
+                    "{s:0.5} ",
+                    "{f:bd_coolfont}Whatever brilliant idea my {C:hearts,f:bd_coolfont}sweet pup{f:bd_coolfont} cooked,",
+                    "{f:bd_coolfont}I helped {C:inactive,f:bd_coolfont}with the best of my ability{f:bd_coolfont} to make it real",
+                    "{f:bd_coolfont}for example, {C:attention,f:bd_coolfont}Misprint Decks{f:bd_coolfont}' effects,",
+                    "{f:bd_coolfont}coding the jokers {C:tarot,f:bd_coolfont}RattlingSnow{f:bd_coolfont} drew, {C:inactive,f:bd_coolfont}etc ...",
+                    "{s:0.5} ",
+                    "{f:bd_coolfont}I also did some stuff on my own, like drawing",
+                    "{f:bd_coolfont}{C:blue,f:bd_coolfont}Pick-Up Truck,{f:bd_coolfont} redesigning the {C:enhanced,f:bd_coolfont}Mispr. Enhs.{f:bd_coolfont}",
+                    "{f:bd_coolfont}and the Missing Deck, {f:bd_coolfont}adding the Missing Sleeve, {C:inactive,f:bd_coolfont}etc...",
+                    "{s:0.5} ",
+                    "{f:bd_coolfont}Also play {C:attention,E:2,f:bd_coolfont}Feli's Jokeria{f:bd_coolfont} and give me {C:gold,f:bd_coolfont}money.",
+                    "{C:hearts,f:bd_coolfont}kthxbai!",
+                    "{s:0.5} ",
+                },
+
+                }
             },
             j_bd_ghostjoker = {
                 name = "GhostSalt",
@@ -1843,6 +1868,12 @@ return {
         }
     },
     misc = {
+        achievement_names = {
+            ach_bd_parkedlikeadickhead = "Can't park there, mate"
+        },
+        achievement_descriptions = {
+            ach_bd_parkedlikeadickhead = "Discover Pick-up Truck for the first time"
+        },
         dictionary = {
             k_specialthanks = "{C:edition,E:1,s:2}Special Thanks to:",
             b_bad_director_wiki = "Wiki",

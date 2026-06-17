@@ -5,9 +5,10 @@ SMODS.Joker {
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    atlas = "misprintenhanced",
+    atlas = "feliAtlas",
+    artist = {"La Ginger"},
     coder = { "Nxkoo" },
-    pos = { x = 1, y = 0 },
+    pos = { x = 0, y = 0 },
     pools = {
         ["BadDirector_Jokers"] = true,
     },

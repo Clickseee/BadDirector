@@ -568,17 +568,18 @@ blueprint_compat = true,
 
 
 SMODS.Joker {
-    atlas = "placeholder",
-    pos = { x = 0, y = 0 },
+    atlas = "feliAtlas",
+    pos = { x = 4, y = 0 },
     pools = {["BadDirector_Jokers"] = true, ["FNAF"] = true, },
     key = "rockstarbonnie",
     coder = {"LasagnaFelidae"},
+    artist = {"LasagnaFelidae"},
     rarity = 2,
     cost = 6,
     config = {
         extra = {
             max_generation = 3,
-            seal = "bd_guitar_seal"
+            seal = "bd_guitar"
         },
         timer = { 
             maxTime = 15,
@@ -588,7 +589,7 @@ SMODS.Joker {
         
     },	
     loc_vars = function(self, info_queue, card)
-        return {vars = {localize{type = 'name_text', set = "Other", key = card.ability.extra.seal},  card.ability.timer.maxTime,  card.ability.extra.max_generation} }
+        return {vars = {localize{type = 'name_text', set = "Other", key = card.ability.extra.seal.."_seal"},  card.ability.timer.maxTime,  card.ability.extra.max_generation} }
     end,
     
     in_pool = function(self, args)
@@ -638,7 +639,7 @@ SMODS.Joker {
         local timer = card.ability.timer
         
         if context.hand_drawn and context.first_hand_drawn then
-            local selected_card = pseudorandom_element(G.hand.cards, pseudoseed("rockstar" .. G.GAME.round_resets.ante))
+            local selected_card = pseudorandom_element(G.playing_cards, pseudoseed("rockstar" .. G.GAME.round_resets.ante))
             if selected_card then
                 selected_card:set_seal(card.ability.extra.seal)
                 G.E_MANAGER:add_event(Event({
@@ -673,8 +674,9 @@ SMODS.Attribute {
 
 SMODS.Joker {
     key = "belovedprince",
-    atlas = "misprintenhanced",
+    atlas = "feliAtlas",
     coder = { "LasagnaFelidae" },
+    artist = {"LasagnaFelidae"},
     pos = { x = 1, y = 0 },
     pools = {
         ["BadDirector_Jokers"] = true,
@@ -707,6 +709,7 @@ SMODS.Joker {
         G.consumeables.config.card_limit = G.consumeables.config.card_limit - card.ability.extra.mod_slot
     end,
     add_to_deck = function(self,card,from_debuff)
+        play_sound("bd_pickupcrash")
         G.consumeables.config.card_limit = G.consumeables.config.card_limit + card.ability.extra.mod_slot
     end,
 }

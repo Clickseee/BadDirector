@@ -127,11 +127,12 @@ SMODS.Joker {
     pos = { x = 0, y = 0 },
     soul_pos = {
 		x = 1, y = 0, draw = function (card, scale_mod, rotate_mod)
-			card.children.floating_sprite:draw_shader('dissolve',0, nil, nil, card.children.center,scale_mod, rotate_mod,0,0 - 0.1,nil, 0.2)
-			card.children.floating_sprite:draw_shader('dissolve', nil, nil, nil, card.children.center, scale_mod, rotate_mod,0,0-0.2)
+			card.children.floating_sprite:draw_shader('dissolve',0, nil, nil, card.children.center,scale_mod, rotate_mod,0,0 - 0.1,nil, 0.1)
+			card.children.floating_sprite:draw_shader('dissolve', nil, nil, nil, card.children.center, scale_mod, rotate_mod,0,0-0.1)
 		end
 	},
     atlas = "feliselfinsert",
+    artist = {"Inky"},
     cost = 190678,
     no_collection = true,
     blueprint_compat = true,

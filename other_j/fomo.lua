@@ -5,9 +5,10 @@ SMODS.Joker {
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    atlas = "misprintenhanced",
+    atlas = "feliAtlas",
     coder = { "Nxkoo" },
-    pos = { x = 1, y = 0 },
+    artist = {"LasagnaFelidae"},
+    pos = { x = 3, y = 0 },
     pools = {
         ["BadDirector_Jokers"] = true,
     },
@@ -34,8 +35,8 @@ SMODS.Joker {
     end,
 
     calculate = function(self, card, context)
-        if context.other_joker
-            and context.other_joker ~= card
+        if context.post_trigger and context.other_card
+            and context.other_card ~= card
             and not context.blueprint
             and not context.retrigger_joker then
             local my_pos
@@ -51,8 +52,8 @@ SMODS.Joker {
                 local left = G.jokers.cards[my_pos - 1]
                 local right = G.jokers.cards[my_pos + 1]
 
-                if context.other_joker == left
-                    or context.other_joker == right then
+                if context.other_card == left
+                    or context.other_card == right then
                     card.ability.extra.chips =
                         card.ability.extra.chips +
                         card.ability.extra.chip_gain

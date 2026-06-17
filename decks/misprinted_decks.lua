@@ -447,13 +447,41 @@ BadDirector.MisprintedDecks.b_erratic = {
 	end
 }
 
+SMODS.Back:take_ownership("b_plasma",{
+    pos = { x = 4, y = 2 },
+    config = { ante_scaling = 2 },
+    unlocked = false,
+    loc_vars = function(self, info_queue, back)
+        return { vars = { self.config.ante_scaling } }
+    end,
+    calculate = function(self, back, context)
+        if context.final_scoring_step then
+            return {
+                balance = true
+            }
+        end
+    end,
+    locked_loc_vars = function(self, info_queue, back)
+        return {
+            vars = {
+                localize { type = 'name_text', set = 'Stake', key = 'stake_blue' },
+                colours = { get_stake_col(5) }
+            }
+        }
+    end,
+    check_for_unlock = function(self, args)
+        return args.type == 'win_stake' and get_deck_win_stake() >= 5
+    end
+})
+
+
 BadDirector.MisprintedDecks.b_plasma = {
 	config = { ante_scaling = 2 },
 	apply = function(self, back)
 		G.GAME.starting_params.ante_scaling = BadDirector.MisprintedDecks.b_plasma.config.ante_scaling
 	end,
 	calculate = function(self, back, context)
-		if context.initial_scoring_step then
+		if context.initial_scoring_step and G.GAME.bd_misprinted_deck then
 			BadDirector.MisprintedDecks.b_plasma.config = pseudorandom("coinflip", 1, 2)
 			if BadDirector.MisprintedDecks.b_plasma.config == 1 then -- unbalance taken from toga
 				local chipsmulttogether = (mult + hand_chips) * ((pseudorandom("unbalance", 15, 30) / 10) or 1)
@@ -499,8 +527,6 @@ BadDirector.MisprintedDecks.b_plasma = {
 				}))
 				delay(0.6)
 			end
-		end
-		if context.final_scoring_step then
 			if BadDirector.MisprintedDecks.b_plasma.config == 2 then
 				return { balance = true }
 			end

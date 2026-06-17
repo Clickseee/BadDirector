@@ -44,8 +44,7 @@ end
 G.FUNCS.bd_prev_credit_page = function(e)
     BadDirector.credit_page =
     math.max(1, (BadDirector.credit_page or 1) - 1)
-    BadDirector.text = BadDirector.credit_page == 1 and "Director" or "Actors"
-    
+    BadDirector.text = BadDirector.credit_page_text[BadDirector.credit_page]
     G.FUNCS.reload_bad_director()
     local element = G.OVERLAY_MENU:get_UIE_by_ID("tab_but_")
     G.FUNCS.change_tab(element)
@@ -67,9 +66,19 @@ BadDirector.contributors = {
     { key = "j_bd_vegajoker",  text = "VegaTheAvali" },
     { key = "j_bd_gingerjoker",  text = "Le Ginger" },
     { key = "j_bd_keljoker",  text = "comykel" },
+    {padding = true},
     { key = "j_bd_inkyjoker",  text = "Inky" },
+    {padding = true},
 }
 BadDirector.PER_PAGE = 3
+BadDirector.credit_page_text = {
+    "Director",
+    "Actors",
+    "Actors",
+    "Actors",
+    "Actors",
+    "Office Worker",
+}
 
 G.FUNCS.bd_next_credit_page = function(e)
     local max_page = math.max(1,
@@ -77,7 +86,7 @@ G.FUNCS.bd_next_credit_page = function(e)
 )
 BadDirector.credit_page =
 math.min(max_page, (BadDirector.credit_page or 1) + 1)
-BadDirector.text = BadDirector.credit_page == 1 and "Director" or "Actors"
+BadDirector.text = BadDirector.credit_page_text[BadDirector.credit_page]
 G.FUNCS.reload_bad_director()
 local element = G.OVERLAY_MENU:get_UIE_by_ID("tab_but_")
 G.FUNCS.change_tab(element)
@@ -564,7 +573,7 @@ SMODS.Shader({
 local badgeHook = SMODS.create_mod_badges
 function SMODS.create_mod_badges(obj, badges)
     badgeHook(obj, badges)
-    if obj then
+    if obj and obj.mod == BadDirector then
         for i = 1, #badges do
             if badges[i].nodes[1].nodes[2].config.object.content and badges[i].nodes[1].nodes[2].config.object.content.string == BadDirector.display_name then
                 if not obj.no_shader_on_modbadge then
