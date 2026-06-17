@@ -8,17 +8,17 @@ A Balatro Mod heavily inspired by the idea of Misprint Joker from the base game 
 
 This mod currently adds:
 - New consumables set: Misprint Consumables
-- 15 Jokers
+- 40+ Jokers
 - 20 New Booster Packs
-- 2 New Vouchers
+- 4 New Vouchers
 - 4 Custom Spectral Cards
 - 8 New Tags
 - 8 New Enhancements
-- 4 New Seals
+- 6 New Seals
 - 4 New Editions
-- 1 New Deck
-- 1 New Blind
-- 1 New Challenge
+- 1 New Deck (And more if you beat a certain Deck 👀)
+- 2 New Blinds
+- 4 New Challenges
 - And more to come
 
 # Installation
@@ -47,6 +47,8 @@ Author: Nxkoo (Creator of [Tangents](https://github.com/Clickseee/Tangents), [1 
 The Official Balatro [Discord Server](https://discord.gg/qxdtKRBf7s) #modding-chat
 
 The entirety of [VanillaRemade](https://github.com/nh6574/VanillaRemade)
+
+And more!
 
 The Binding of Isaac
 
