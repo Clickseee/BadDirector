@@ -389,3 +389,17 @@ SMODS.Atlas {
     px = 71,
     py = 95,
 }
+
+SMODS.Atlas {
+    key = "architect",
+    path = "clarkjoker.png",
+    px = 71,
+    py = 95,
+}
+
+SMODS.Atlas {
+    key = "him",
+    path = "god.png",
+    px = 71,
+    py = 95,
+}

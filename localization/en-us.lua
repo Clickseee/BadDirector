@@ -1843,6 +1843,12 @@ return {
         }
     },
     misc = {
+        achievement_names = {
+            ach_bd_parkedlikeadickhead = "Can't park there, mate"
+        },
+        achievement_descriptions = {
+            ach_bd_parkedlikeadickhead = "Discover Pick-up Truck for the first time"
+        },
         dictionary = {
             k_specialthanks = "{C:edition,E:1,s:2}Special Thanks to:",
             b_bad_director_wiki = "Wiki",
