@@ -1,24 +1,9 @@
-local function get_stake_count()
-    for i = 1, 100 do
-        local stake = SMODS.stake_from_index(i)
-
-        if stake == "error" then
-            break
-        end
-
-        if stake == G.GAME.applied_stakes then
-            return i
-        end
-    end
-
-    return 1
-end
-
 SMODS.Joker {
     key = "stakeholder",
     rarity = 1,
-    atlas = "misprintenhanced",
+    atlas = "holders",
     coder = { "Nxkoo" },
+    artist = { "Inky" },
     pos = { x = 0, y = 0 },
     cost = 3,
     blueprint_compat = true,
@@ -28,48 +13,41 @@ SMODS.Joker {
         ["BadDirector_Jokers"] = true,
     },
     attributes = {
-        "mult"
+        "economy",
+        "passive"
     },
 
     config = {
         extra = {
-            mult_per_stake = 15
+            sell_threshold = 3,
+            dollars_per_joker = 2
         }
     },
 
     loc_vars = function(self, info_queue, card)
-        local stake_count = 0
-
-        if G.GAME and G.GAME.applied_stakes then
-            for _ in pairs(G.GAME.applied_stakes) do
-                stake_count = stake_count + 1
-            end
-        end
-
         return {
             vars = {
-                card.ability.extra.mult_per_stake,
-                stake_count,
-                stake_count * card.ability.extra.mult_per_stake
+                card.ability.extra.dollars_per_joker,
+                card.ability.extra.sell_threshold
             }
         }
     end,
 
-    calculate = function(self, card, context)
-
-        if context.joker_main then
-
-            local stake_count = 0
-
-            if G.GAME and G.GAME.applied_stakes then
-                for _ in pairs(G.GAME.applied_stakes) do
-                    stake_count = stake_count + 1
-                end
-            end
-
-            return {
-                mult = stake_count * card.ability.extra.mult_per_stake
-            }
+    calc_dollar_bonus = function(self, card)
+        if not G.jokers then
+            return 0
         end
-    end,
+
+        local dollars = 0
+
+        for _, joker in ipairs(G.jokers.cards) do
+            if joker ~= card
+                and joker.sell_cost
+                and joker.sell_cost >= card.ability.extra.sell_threshold then
+                dollars = dollars + card.ability.extra.dollars_per_joker
+            end
+        end
+
+        return dollars
+    end
 }

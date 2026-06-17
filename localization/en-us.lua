@@ -684,7 +684,7 @@ return {
                     "ringmasterclownie"
                 },
                 text = {
-                    {"#1# fazcoins"
+                    { "#1# fazcoins"
                     },
                     {
                         "If the timer reaches {C:attention}0{} and the",
@@ -895,9 +895,10 @@ return {
             j_bd_stakeholder = {
                 name = "Stakeholder",
                 text = {
-                    "{C:mult}+#1#{} Mult for each",
-                    "applied {C:attention}Stake",
-                    "{C:inactive}(Currently {C:mult}+#3#{}{C:inactive} Mult){}",
+                    "Earn {C:money}$#1#{} at end of round",
+                    "for each other Joker with",
+                    "sell value of at least",
+                    "{C:money}$#2#{}"
                 }
             },
             j_bd_vantacard = {
@@ -1030,27 +1031,27 @@ return {
                 }
             },
             j_bd_felijoker = {
-                name = {"{f:bd_coolfont}LasagnaFelidae","{s:0.7,f:bd_coolfont}a.k.a. {C:gold,s:0.7,f:bd_coolfont}Feli"},
+                name = { "{f:bd_coolfont}LasagnaFelidae", "{s:0.7,f:bd_coolfont}a.k.a. {C:gold,s:0.7,f:bd_coolfont}Feli" },
                 text = {
                     { "{s:0.5} ",
-                    "{C:attention,E:2,f:bd_coolfont}Love me, feed me, never leave me!",
-                    "{s:0.5}",
-                    "{f:bd_coolfont}Helped {C:hearts,f:bd_coolfont}Nxkoo{f:bd_coolfont} bugfix,{f:bd_coolfont}program some jokers",
-                    "{f:bd_coolfont}and I drew some cards.",
-                    "{s:0.5} ",
-                    "{f:bd_coolfont}Whatever brilliant idea my {C:hearts,f:bd_coolfont}sweet pup{f:bd_coolfont} cooked,",
-                    "{f:bd_coolfont}I helped {C:inactive,f:bd_coolfont}with the best of my ability{f:bd_coolfont} to make it real",
-                    "{f:bd_coolfont}for example, {C:attention,f:bd_coolfont}Misprint Decks{f:bd_coolfont}' effects,",
-                    "{f:bd_coolfont}coding the jokers {C:tarot,f:bd_coolfont}RattlingSnow{f:bd_coolfont} drew, {C:inactive,f:bd_coolfont}etc ...",
-                    "{s:0.5} ",
-                    "{f:bd_coolfont}I also did some stuff on my own, like drawing",
-                    "{f:bd_coolfont}{C:blue,f:bd_coolfont}Pick-Up Truck,{f:bd_coolfont} redesigning the {C:enhanced,f:bd_coolfont}Mispr. Enhs.{f:bd_coolfont}",
-                    "{f:bd_coolfont}and the Missing Deck, {f:bd_coolfont}adding the Missing Sleeve, {C:inactive,f:bd_coolfont}etc...",
-                    "{s:0.5} ",
-                    "{f:bd_coolfont}Also play {C:attention,E:2,f:bd_coolfont}Feli's Jokeria{f:bd_coolfont} and give me {C:gold,f:bd_coolfont}money.",
-                    "{C:hearts,f:bd_coolfont}kthxbai!",
-                    "{s:0.5} ",
-                },
+                        "{C:attention,E:2,f:bd_coolfont}Love me, feed me, never leave me!",
+                        "{s:0.5}",
+                        "{f:bd_coolfont}Helped {C:hearts,f:bd_coolfont}Nxkoo{f:bd_coolfont} bugfix,{f:bd_coolfont}program some jokers",
+                        "{f:bd_coolfont}and I drew some cards.",
+                        "{s:0.5} ",
+                        "{f:bd_coolfont}Whatever brilliant idea my {C:hearts,f:bd_coolfont}sweet pup{f:bd_coolfont} cooked,",
+                        "{f:bd_coolfont}I helped {C:inactive,f:bd_coolfont}with the best of my ability{f:bd_coolfont} to make it real",
+                        "{f:bd_coolfont}for example, {C:attention,f:bd_coolfont}Misprint Decks{f:bd_coolfont}' effects,",
+                        "{f:bd_coolfont}coding the jokers {C:tarot,f:bd_coolfont}RattlingSnow{f:bd_coolfont} drew, {C:inactive,f:bd_coolfont}etc ...",
+                        "{s:0.5} ",
+                        "{f:bd_coolfont}I also did some stuff on my own, like drawing",
+                        "{f:bd_coolfont}{C:blue,f:bd_coolfont}Pick-Up Truck,{f:bd_coolfont} redesigning the {C:enhanced,f:bd_coolfont}Mispr. Enhs.{f:bd_coolfont}",
+                        "{f:bd_coolfont}and the Missing Deck, {f:bd_coolfont}adding the Missing Sleeve, {C:inactive,f:bd_coolfont}etc...",
+                        "{s:0.5} ",
+                        "{f:bd_coolfont}Also play {C:attention,E:2,f:bd_coolfont}Feli's Jokeria{f:bd_coolfont} and give me {C:gold,f:bd_coolfont}money.",
+                        "{C:hearts,f:bd_coolfont}kthxbai!",
+                        "{s:0.5} ",
+                    },
 
                 }
             },
