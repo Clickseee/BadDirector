@@ -21,14 +21,11 @@ do
     local image_data = assert(love.image.newImageData(file_data))
 
     G.lolbit_event.image = love.graphics.newImage(image_data)
-    --[[
-    G.lolbit_event.sound = love.audio.newSource(
-        G.lolbit_event.path .. "assets/sounds/lolbitloop.ogg",
-        "stream"
-    )
-
-    G.lolbit_event.sound:setLooping(true)
-    ]]
+    local sound_data = NFS.newFileData(G.lolbit_event.path .. "assets/sounds/LOL.ogg")
+    if sound_data then
+        G.lolbit_event.sound = love.audio.newSource(sound_data, "stream")
+        G.lolbit_event.sound:setLooping(true)
+    end
 end
 
 local function schedule_next_lolbit()
