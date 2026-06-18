@@ -109,7 +109,7 @@ SMODS.Blind {
     dollars = 5,
     mult = 2,
     no_collection = true,
-    boss = { min = 2, showdown = true },
+    boss = { min = 99999999999, showdown = true },
     boss_colour = HEX('949494'),
     artist = {"squeax09"},
     coder = {"squeax09"},
@@ -191,5 +191,8 @@ SMODS.Blind {
     end,
     disable = function(self)
         
+    end,
+    in_pool = function(self, args)
+        return false
     end
 }
