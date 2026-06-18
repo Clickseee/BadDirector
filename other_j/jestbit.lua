@@ -55,8 +55,7 @@ function Game:update(dt)
         lolbit_check_timer = 0
 
         if not G.lolbit_event.active
-        and G.TIMERS.REAL >= G.lolbit_event.next_spawn then
-
+            and G.TIMERS.REAL >= G.lolbit_event.next_spawn then
             G.lolbit_event.active = true
             G.lolbit_event.progress = ""
 
@@ -70,69 +69,93 @@ function Game:update(dt)
     end
 end
 
+local function lolbit_j()
+    if not G.lolbit_event.active then
+        return
+    end
+
+    if G.lolbit_event.progress == "" then
+        G.lolbit_event.progress = "j"
+    else
+        G.lolbit_event.progress = ""
+    end
+end
+
+local function lolbit_k()
+    if not G.lolbit_event.active then
+        return
+    end
+
+    if G.lolbit_event.progress ~= "j" then
+        G.lolbit_event.progress = ""
+        return
+    end
+
+    local owner = G.lolbit_event.owner
+
+    if owner
+        and owner.ability
+        and owner.ability.extra then
+        owner.ability.extra.xmult =
+            owner.ability.extra.xmult +
+            owner.ability.extra.gain
+
+        card_eval_status_text(
+            owner,
+            "extra",
+            nil,
+            nil,
+            nil,
+            {
+                message = "X+" ..
+                    tostring(owner.ability.extra.gain),
+                colour = G.C.MULT
+            }
+        )
+    end
+
+    G.lolbit_event.active = false
+    G.lolbit_event.progress = ""
+
+    play_sound("tarot1", 1, 1)
+
+    schedule_next_lolbit()
+end
+
 SMODS.Keybind {
     key = "lolbit_j",
     key_pressed = "j",
-
-    action = function(self)
-        if not G.lolbit_event.active then
-            return
-        end
-
-        if G.lolbit_event.progress == "" then
-            G.lolbit_event.progress = "j"
-        else
-            G.lolbit_event.progress = ""
-        end
-    end
+    action = lolbit_j
 }
 
 SMODS.Keybind {
     key = "lolbit_k",
     key_pressed = "k",
-
-    action = function(self)
-        if not G.lolbit_event.active then
-            return
-        end
-
-        if G.lolbit_event.progress ~= "j" then
-            G.lolbit_event.progress = ""
-            return
-        end
-
-        local owner = G.lolbit_event.owner
-
-        if owner
-        and owner.ability
-        and owner.ability.extra then
-
-            owner.ability.extra.xmult =
-                owner.ability.extra.xmult +
-                owner.ability.extra.gain
-
-            card_eval_status_text(
-                owner,
-                "extra",
-                nil,
-                nil,
-                nil,
-                {
-                    message = "X+" ..
-                        tostring(owner.ability.extra.gain),
-                    colour = G.C.MULT
-                }
-            )
-        end
-
-        G.lolbit_event.active = false
-        G.lolbit_event.progress = ""
-
-        play_sound("tarot1", 1, 1)
-
-        schedule_next_lolbit()
-    end
+    action = lolbit_k
 }
+
+local controller_button_press_update_ref =
+    Controller.button_press_update
+
+function Controller:button_press_update(button, dt)
+    if G.lolbit_event.active then
+        if button == "leftshoulder" then
+            lolbit_j()
+            return
+        end
+
+        if button == "rightshoulder" then
+            lolbit_k()
+            return
+        end
+    end
+
+    return controller_button_press_update_ref(
+        self,
+        button,
+        dt
+    )
+end
 
 local drawhook = love.draw
 
@@ -180,7 +203,7 @@ SMODS.Joker {
     coder = { "Nxkoo" },
     artist = { "comykel", "LasagnaFelidae" },
     pos = { x = 0, y = 0 },
-    pools = {["BadDirector_Jokers"] = true, ["FNAF"] = true, },
+    pools = { ["BadDirector_Jokers"] = true, ["FNAF"] = true, },
     attributes = {
         'xmult',
         'joker',
@@ -199,7 +222,7 @@ SMODS.Joker {
             }
         }
     end,
-    add_to_deck = function(self,card,from_debuff)
+    add_to_deck = function(self, card, from_debuff)
         G.lolbit_event.owner = card
         G.lolbit_event.enabled = true
         schedule_next_lolbit()
@@ -207,7 +230,6 @@ SMODS.Joker {
 
     remove_from_deck = function(self, card, from_debuff)
         if G.lolbit_event.owner == card then
-
             G.lolbit_event.enabled = false
             G.lolbit_event.active = false
             G.lolbit_event.owner = nil
