@@ -1,5 +1,6 @@
 G.nxkoo_cheats = G.nxkoo_cheats or {
     buffer = "",
+    controller_buffer = "",
     max_length = 64,
 
     image = nil,
@@ -46,6 +47,66 @@ local function register_cheat(code, func)
     G.nxkoo_cheats.codes[string.upper(code)] = func
 
 end
+
+local function process_controller_cheat(token)
+
+    G.nxkoo_cheats.controller_buffer =
+        G.nxkoo_cheats.controller_buffer .. token
+
+    for cheat, sequence in pairs(controller_cheats) do
+
+        if string.find(
+            G.nxkoo_cheats.controller_buffer,
+            sequence,
+            1,
+            true
+        ) then
+
+            G.nxkoo_cheats.codes[cheat]()
+
+            G.nxkoo_cheats.controller_buffer = ""
+
+            break
+        end
+    end
+end
+
+local controller_cheats = {
+    RICHGETRICHER = "uuddlrlrba",
+    LETSGOGAMBLING = "abab",
+    GREATESTOFALLTIME = "lb_rblb_rb",
+}
+
+local controller_button_press_update_ref =
+    Controller.button_press_update
+
+function Controller:button_press_update(button, dt)
+
+    local map = {
+        dpup = "u",
+        dpdown = "d",
+        dpleft = "l",
+        dpright = "r",
+
+        a = "a",
+        b = "b",
+
+        leftshoulder = "lb",
+        rightshoulder = "rb",
+    }
+
+    if map[button] then
+        process_controller_cheat(map[button])
+    end
+
+    return controller_button_press_update_ref(
+        self,
+        button,
+        dt
+    )
+end
+
+
 
 -- LIST OF THE CHEATS, FUCK YOU FOR READING THIS
 
