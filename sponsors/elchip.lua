@@ -8,6 +8,25 @@ G.sponsor_images.spon_bd_elchip = {
     path = SMODS.current_mod.path
 }
 
+local button_press_update_ref = Controller.button_press_update
+
+function Controller:button_press_update(button, dt)
+
+    if G.GAME
+    and G.GAME.used_sponsors
+    and G.GAME.used_sponsors.spon_bd_elchip_active
+    and (button == "a" or button == "b" or button == "start") then
+
+        G.GAME.used_sponsors.spon_bd_elchip_active = false
+
+        play_sound("tarot1", 1, 1)
+
+        return
+    end
+
+    return button_press_update_ref(self, button, dt)
+end
+
 SMODS.Sound({
     key = "elchip_ad_music",
     path = "elchip_ad_music.ogg",
