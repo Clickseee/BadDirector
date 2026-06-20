@@ -24,7 +24,7 @@ SMODS.Joker {
     perishable_compat = true,
     config = {
         extra = {
-            mult = 15
+            mult = 20
         }
     },
     pools = {
