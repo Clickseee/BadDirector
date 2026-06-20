@@ -75,7 +75,7 @@ SMODS.Joker {
     coder = {"LasagnaFelidae"},
     pos = { x = 3, y = 0 },
     cost = 5,
-    config = { extra = {xblindsize=0.4, mod=0.1}},
+    config = { extra = {xblindsize=0.3, mod=0.1}},
     blueprint_compat = true,
     eternal_compat = false,
     perishable_compat = false,
