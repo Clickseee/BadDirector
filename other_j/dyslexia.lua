@@ -11,13 +11,13 @@ end
 
 SMODS.Joker {
     key = "diesexy",
-    rarity = 1,
+    rarity = 2,
     atlas = "dyslexia",
     coder = { "Nxkoo" },
     artist = {"LasagnaFelidae"},
     pos = { x = 0, y = 0 },
-    cost = 3,
-    blueprint_compat = true,
+    cost = 6,
+    blueprint_compat = false,
     eternal_compat = true,
     perishable_compat = true,
     pools = {
