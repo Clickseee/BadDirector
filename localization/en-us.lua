@@ -1396,7 +1396,7 @@ return {
                     "{C:green}#1# in #2#{} chance to multiply",
                     "{C:chips}Chips{} and {C:mult}Mult{} by {X:attention,C:white}X0.7{} ~ {X:attention,C:white}X2{}",
                     "otherwise {C:green}#3# in #4#{} chance to add",
-                    "{C:attention}+1{} ~ {C:attention}+50{} to {C:chips}Chips{} and {C:mult}Mult",
+                    "{C:attention}+1{} ~ {C:attention}+30{} to {C:chips}Chips{} and {C:mult}Mult",
                     "otherwise level up hand by {C:tarot}+0.5"
                 }
             },
@@ -1407,7 +1407,7 @@ return {
                     "{C:green}#1# in #2#{} chance to multiply",
                     "{C:chips}Chips{} and {C:mult}Mult{} by {X:attention,C:white}X0.7{} ~ {X:attention,C:white}X2{}",
                     "otherwise {C:green}#3# in #4#{} chance to add",
-                    "{C:attention}+1{} ~ {C:attention}+50{} to {C:chips}Chips{} and {C:mult}Mult",
+                    "{C:attention}+1{} ~ {C:attention}+30{} to {C:chips}Chips{} and {C:mult}Mult",
                     "otherwise level up hand by {C:tarot}+0.5"
                 }
             },
@@ -1418,7 +1418,7 @@ return {
                     "{C:green}#1# in #2#{} chance to multiply",
                     "{C:chips}Chips{} and {C:mult}Mult{} by {X:attention,C:white}X0.7{} ~ {X:attention,C:white}X2{}",
                     "otherwise {C:green}#3# in #4#{} chance to add",
-                    "{C:attention}+1{} ~ {C:attention}+50{} to {C:chips}Chips{} and {C:mult}Mult",
+                    "{C:attention}+1{} ~ {C:attention}+30{} to {C:chips}Chips{} and {C:mult}Mult",
                     "otherwise level up hand by {C:tarot}+0.5"
                 }
             },
@@ -1429,7 +1429,7 @@ return {
                     "{C:green}#1# in #2#{} chance to multiply",
                     "{C:chips}Chips{} and {C:mult}Mult{} by {X:attention,C:white}X0.7{} ~ {X:attention,C:white}X2{}",
                     "otherwise {C:green}#3# in #4#{} chance to add",
-                    "{C:attention}+1{} ~ {C:attention}+50{} to {C:chips}Chips{} and {C:mult}Mult",
+                    "{C:attention}+1{} ~ {C:attention}+30{} to {C:chips}Chips{} and {C:mult}Mult",
                     "otherwise level up hand by {C:tarot}+0.5"
                 }
             },
@@ -1440,7 +1440,7 @@ return {
                     "{C:green}#1# in #2#{} chance to multiply",
                     "{C:chips}Chips{} and {C:mult}Mult{} by {X:attention,C:white}X0.7{} ~ {X:attention,C:white}X2{}",
                     "otherwise {C:green}#3# in #4#{} chance to add",
-                    "{C:attention}+1{} ~ {C:attention}+50{} to {C:chips}Chips{} and {C:mult}Mult",
+                    "{C:attention}+1{} ~ {C:attention}+30{} to {C:chips}Chips{} and {C:mult}Mult",
                     "otherwise level up hand by {C:tarot}+0.5"
                 }
             },
@@ -1451,7 +1451,7 @@ return {
                     "{C:green}#1# in #2#{} chance to multiply",
                     "{C:chips}Chips{} and {C:mult}Mult{} by {X:attention,C:white}X0.7{} ~ {X:attention,C:white}X2{}",
                     "otherwise {C:green}#3# in #4#{} chance to add",
-                    "{C:attention}+1{} ~ {C:attention}+50{} to {C:chips}Chips{} and {C:mult}Mult",
+                    "{C:attention}+1{} ~ {C:attention}+30{} to {C:chips}Chips{} and {C:mult}Mult",
                     "otherwise level up hand by {C:tarot}+0.5"
                 }
             },
@@ -1462,7 +1462,7 @@ return {
                     "{C:green}#1# in #2#{} chance to multiply",
                     "{C:chips}Chips{} and {C:mult}Mult{} by {X:attention,C:white}X0.7{} ~ {X:attention,C:white}X2{}",
                     "otherwise {C:green}#3# in #4#{} chance to add",
-                    "{C:attention}+1{} ~ {C:attention}+50{} to {C:chips}Chips{} and {C:mult}Mult",
+                    "{C:attention}+1{} ~ {C:attention}+30{} to {C:chips}Chips{} and {C:mult}Mult",
                     "otherwise level up hand by {C:tarot}+0.5"
                 }
             },
@@ -1473,7 +1473,7 @@ return {
                     "{C:green}#1# in #2#{} chance to multiply",
                     "{C:chips}Chips{} and {C:mult}Mult{} by {X:attention,C:white}X0.7{} ~ {X:attention,C:white}X2{}",
                     "otherwise {C:green}#3# in #4#{} chance to add",
-                    "{C:attention}+1{} ~ {C:attention}+50{} to {C:chips}Chips{} and {C:mult}Mult",
+                    "{C:attention}+1{} ~ {C:attention}+30{} to {C:chips}Chips{} and {C:mult}Mult",
                     "otherwise level up hand by {C:tarot}+0.5"
                 }
             },
@@ -1484,7 +1484,7 @@ return {
                     "{C:green}#1# in #2#{} chance to multiply",
                     "{C:chips}Chips{} and {C:mult}Mult{} by {X:attention,C:white}X0.7{} ~ {X:attention,C:white}X2{}",
                     "otherwise {C:green}#3# in #4#{} chance to add",
-                    "{C:attention}+1{} ~ {C:attention}+50{} to {C:chips}Chips{} and {C:mult}Mult",
+                    "{C:attention}+1{} ~ {C:attention}+30{} to {C:chips}Chips{} and {C:mult}Mult",
                     "otherwise level up hand by {C:tarot}+0.5"
                 }
             },
@@ -1495,7 +1495,7 @@ return {
                     "{C:green}#1# in #2#{} chance to multiply",
                     "{C:chips}Chips{} and {C:mult}Mult{} by {X:attention,C:white}X0.7{} ~ {X:attention,C:white}X2{}",
                     "otherwise {C:green}#3# in #4#{} chance to add",
-                    "{C:attention}+1{} ~ {C:attention}+50{} to {C:chips}Chips{} and {C:mult}Mult",
+                    "{C:attention}+1{} ~ {C:attention}+30{} to {C:chips}Chips{} and {C:mult}Mult",
                     "otherwise level up hand by {C:tarot}+0.5"
                 }
             },
@@ -1506,7 +1506,7 @@ return {
                     "{C:green}#1# in #2#{} chance to multiply",
                     "{C:chips}Chips{} and {C:mult}Mult{} by {X:attention,C:white}X0.7{} ~ {X:attention,C:white}X2{}",
                     "otherwise {C:green}#3# in #4#{} chance to add",
-                    "{C:attention}+1{} ~ {C:attention}+50{} to {C:chips}Chips{} and {C:mult}Mult",
+                    "{C:attention}+1{} ~ {C:attention}+30{} to {C:chips}Chips{} and {C:mult}Mult",
                     "otherwise level up hand by {C:tarot}+0.5"
                 }
             },
@@ -1517,7 +1517,7 @@ return {
                     "{C:green}#1# in #2#{} chance to multiply",
                     "{C:chips}Chips{} and {C:mult}Mult{} by {X:attention,C:white}X0.7{} ~ {X:attention,C:white}X2{}",
                     "otherwise {C:green}#3# in #4#{} chance to add",
-                    "{C:attention}+1{} ~ {C:attention}+50{} to {C:chips}Chips{} and {C:mult}Mult",
+                    "{C:attention}+1{} ~ {C:attention}+30{} to {C:chips}Chips{} and {C:mult}Mult",
                     "otherwise level up hand by {C:tarot}+0.5"
                 }
             }
@@ -1690,7 +1690,7 @@ return {
                     "{C:green}#1# in #2#{} chance to multiply",
                     "{C:chips}Chips{} and {C:mult}Mult{} by {X:attention,C:white}X0.7{} ~ {X:attention,C:white}X2{}",
                     "otherwise {C:green}#3# in #4#{} chance to add",
-                    "{C:attention}+1{} ~ {C:attention}+50{} to {C:chips}Chips{} and {C:mult}Mult",
+                    "{C:attention}+1{} ~ {C:attention}+40{} to {C:chips}Chips{} and {C:mult}Mult",
                     "otherwise level up hand by {C:tarot}+0.5"
                 }
             }
