@@ -100,6 +100,7 @@ SMODS.Sound {
     volume = 1.5
 }
 
+
 function BadDirector.misprint_hand(hand, card, seed)
     seed = seed or hand..card.config.center.key
     update_hand_text({delay = 0}, {handname = localize(hand, "poker_hands"), level = G.GAME.hands[hand].level, 
@@ -209,8 +210,8 @@ function BadDirector.misprint_all(card, seed)
             G.GAME.hands[hand].mult = G.GAME.hands[hand].mult * range
             G.GAME.hands[hand].chips = G.GAME.hands[hand].chips * range2
         elseif SMODS.pseudorandom_probability(card, seed, 1, 2) then
-            local range = math.floor((pseudorandom(seed)*49 + 1) * 100) / 100
-            local range2 = math.floor((pseudorandom(seed)*49 + 1) * 100) / 100
+            local range = math.floor((pseudorandom(seed)*39 + 1) * 100) / 100
+            local range2 = math.floor((pseudorandom(seed)*39 + 1) * 100) / 100
             G.GAME.hands[hand].mult = G.GAME.hands[hand].mult + range
             G.GAME.hands[hand].chips = G.GAME.hands[hand].chips + range2
         else
