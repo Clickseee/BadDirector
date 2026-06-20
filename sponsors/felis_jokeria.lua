@@ -4,7 +4,7 @@ BadDirector.Sponsor{
     coder = { "Foo54", "squeax09" },
     artist = {"LasagnaFelidae"},
     pos = { x = 1, y = 0 },
-    config = { extra = { hands = 1, xblind = 1.2 }},
+    config = { extra = { hands = 1, xblind = 1.3 }},
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
