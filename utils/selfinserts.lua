@@ -260,7 +260,7 @@ SMODS.Joker {
     discovered = true,
     rarity = 4,
     pos = { x = 0, y = 0 },
-    soul_pos = { x = 1, y = 0 },
+    pixel_size = {x = 71, y = 76},
     atlas = "gingerselfinsert",
     cost = 666,
     no_collection = true,
