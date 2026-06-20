@@ -483,7 +483,8 @@ return {
                 text = {
                     "{C:attention}Glass Cards{} that",
                     "would break instead",
-                    "become {C:hearts}Hearts{}"
+                    "become {C:hearts}Hearts{} and",
+                    "lose their {C:purple}Enhancement{}"
                 }
             },
             j_bd_newlove = {

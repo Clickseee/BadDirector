@@ -16,6 +16,7 @@ SMODS.Enhancement:take_ownership(
                 if next(SMODS.find_card("j_bd_heartbreak")) then
 
                     card:change_suit("Hearts")
+                    card:set_ability('c_base')
 
                     G.E_MANAGER:add_event(Event({
                         func = function()
