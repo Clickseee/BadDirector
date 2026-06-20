@@ -137,8 +137,8 @@ function BadDirector.misprint_hand(hand, card, seed)
         update_hand_text({sound = 'button', volume = 0.7, pitch = 0.9, delay = 0}, {level=G.GAME.hands[hand].level})
         delay(1.3)
     elseif SMODS.pseudorandom_probability(card, seed, 1, 2) then
-        local range = math.floor((pseudorandom(seed)*49 + 1) * 100) / 100
-        local range2 = math.floor((pseudorandom(seed)*49 + 1) * 100) / 100
+        local range = math.floor((pseudorandom(seed)*29 + 1) * 100) / 100
+        local range2 = math.floor((pseudorandom(seed)*29 + 1) * 100) / 100
         G.GAME.hands[hand].mult = G.GAME.hands[hand].mult + range
         G.GAME.hands[hand].chips = G.GAME.hands[hand].chips + range2
         G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.2, func = function()
