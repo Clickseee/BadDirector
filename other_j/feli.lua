@@ -64,6 +64,31 @@ SMODS.Joker {
             end
         end
         return false
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                {text = "+"},
+                {ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult"}
+            },
+            text_config = {colour = G.C.CHIPS},
+            calc_function = function (card)
+                local misprint_tally = 0
+                for _, playing_card in ipairs(G.playing_cards) do
+                    local flag = false
+                    for _, enh in ipairs(BadDirector.misprint_enhancements) do
+                        if SMODS.has_enhancement(playing_card, enh.key) then 
+                            misprint_tally = misprint_tally + 1 
+                        end
+                    end
+                    if not flag and playing_card.edition and playing_card.edition.key == "e_bd_misprinted" then 
+                        misprint_tally = misprint_tally + 1 
+                    end
+                end
+                card.joker_display_values.chips = card.ability.extra.chips * misprint_tally
+            end
+        }
     end
 }
 
@@ -114,6 +139,17 @@ SMODS.Joker {
             
         end
     end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                {border_nodes = {
+                    { text = "X" },
+                    { ref_table = "card.ability.extra", ref_value = "blindsize", retrigger_type = "exp" }
+                }, border_colour = G.C.BLACK, colour = G.C.WHITE},
+            },
+        }
+    end
 }
 
 SMODS.Joker {
@@ -199,6 +235,21 @@ SMODS.Joker {
                     }
                 end
             end,
+    -- feli how did you screw up the indents this bad
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                {border_nodes = {
+                    { text = "X" },
+                    { ref_table = "card.joker_display_values", ref_value = "xchips", retrigger_type = "exp" }
+                }, border_colour = G.C.CHIPS},
+            },
+            calc_function = function (card)
+                card.joker_display_values.xchips = 1 + (BadDirector.count_browsers() * card.ability.extra.xchips)
+            end
+        }
+    end
         }
         
         SMODS.Joker {
@@ -252,6 +303,30 @@ SMODS.Joker {
                     }
                 end
             end,
+	joker_display_def = function(JokerDisplay)
+		---@type JDJokerDefinition
+		return {
+			text = {
+                {border_nodes = {
+                    { text = "+" },
+                    { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" },
+                }}
+            },
+			text_config = { colour = G.C.MULT },
+			calc_function = function(card)
+				local playing_hand = next(G.play.cards)
+				local xmult = 1
+				for _, playing_card in ipairs(G.hand.cards) do
+					if playing_hand or not playing_card.highlighted then
+						if playing_card.facing and not (playing_card.facing == 'back') and not playing_card.debuff and context.other_card:get_id() == card.ability.imm.rank.nominal then
+							xmult = xmult * (card.ability.extra.xmult ^ JokerDisplay.calculate_card_triggers(playing_card, nil, true))
+						end
+					end
+				end
+				card.joker_display_values.xmult = xmult
+			end
+		}
+	end,
         }
         
         SMODS.Joker {
@@ -343,6 +418,7 @@ SMODS.Joker {
                     \   /
                     \/
                     
+                    -- feli your heart is broken - foo
                     ]]
                     if not (card and card.ability and card.ability.plush and card.ability.plush.enabled) then
                         return

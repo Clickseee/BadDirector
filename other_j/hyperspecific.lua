@@ -148,5 +148,58 @@ SMODS.Joker {
                 }
             end
         end
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                {text = "$"},
+                {ref_table = "card.joker_display_values", ref_value = "dollars", retrigger_type = "mult"}
+            },
+            reminder_text = {
+                {text = "("},
+                {ref_table = "card.ability.extra", ref_value = "required_matches"},
+                {text = " matches)"}
+            },
+            text_config = {colour = G.C.CHIPS},
+            calc_function = function (card)
+                local jokers = {}
+
+                for _, joker in ipairs(G.jokers.cards) do
+                    if joker ~= card then
+                        jokers[#jokers + 1] = joker
+                    end
+                end
+                local valid = true
+
+                for i = 1, #jokers do
+                    for j = i + 1, #jokers do
+                        local attrs1 = jokers[i].config.center.attributes or {}
+                        local attrs2 = jokers[j].config.center.attributes or {}
+
+                        local matches = 0
+
+                        for _, attr1 in ipairs(attrs1) do
+                            for _, attr2 in ipairs(attrs2) do
+                                if attr1 == attr2 then
+                                    matches = matches + 1
+                                end
+                            end
+                        end
+
+                        if matches < card.ability.extra.required_matches then
+                            valid = false
+                            break
+                        end
+                    end
+
+                    if not valid then
+                        break
+                    end
+                end
+                if #jokers < 2 then valid = false end
+                card.joker_display_values.dollars = valid and card.ability.extra.dollars or 0
+            end
+        }
     end
 }

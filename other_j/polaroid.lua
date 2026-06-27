@@ -66,5 +66,42 @@ SMODS.Joker {
                 card = context.other_card
             }
         end
-    end
+    end,
+	joker_display_def = function(JokerDisplay)
+		---@type JDJokerDefinition
+		return {
+			text = {
+				{
+					border_nodes = {
+						{ text = "X" },
+						{ ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+					},
+                    border_colour = G.C.CHIPS
+				}
+			},
+			reminder_text = {
+					{ text = "(first unscored face)" },
+			},
+			calc_function = function(card)
+					local xmult = 1
+					local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+					if text ~= 'Unknown' then
+						for _, _card in ipairs(JokerDisplay.current_hand) do
+---@diagnostic disable-next-line: undefined-field
+							if _card:is_face() then
+								for _, __card in ipairs(scoring_hand) do
+									if _card == __card then
+										goto continue
+									end
+								end
+								xmult = xmult * card.ability.extra.xchips
+                                break
+							end
+							::continue::
+						end
+					end
+					card.joker_display_values.xmult = xmult
+			end,
+		}
+	end
 }
