@@ -145,7 +145,7 @@ SMODS.Joker {
             text = {
                 {border_nodes = {
                     { text = "X" },
-                    { ref_table = "card.ability.extra", ref_value = "blindsize", retrigger_type = "exp" }
+                    { ref_table = "card.ability.extra", ref_value = "xblindsize", retrigger_type = "exp" }
                 }, border_colour = G.C.BLACK, colour = G.C.WHITE},
             },
         }
@@ -312,13 +312,12 @@ SMODS.Joker {
                     { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" },
                 }}
             },
-			text_config = { colour = G.C.MULT },
 			calc_function = function(card)
 				local playing_hand = next(G.play.cards)
 				local xmult = 1
 				for _, playing_card in ipairs(G.hand.cards) do
 					if playing_hand or not playing_card.highlighted then
-						if playing_card.facing and not (playing_card.facing == 'back') and not playing_card.debuff and context.other_card:get_id() == card.ability.imm.rank.nominal then
+						if playing_card.facing and not (playing_card.facing == 'back') and not playing_card.debuff and playing_card:get_id() == card.ability.imm.rank.nominal then
 							xmult = xmult * (card.ability.extra.xmult ^ JokerDisplay.calculate_card_triggers(playing_card, nil, true))
 						end
 					end

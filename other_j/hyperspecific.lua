@@ -161,7 +161,7 @@ SMODS.Joker {
                 {ref_table = "card.ability.extra", ref_value = "required_matches"},
                 {text = " matches)"}
             },
-            text_config = {colour = G.C.CHIPS},
+            text_config = {colour = G.C.MONEY},
             calc_function = function (card)
                 local jokers = {}
 
