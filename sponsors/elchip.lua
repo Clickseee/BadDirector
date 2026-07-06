@@ -60,8 +60,8 @@ BadDirector.Sponsor{
         G.GAME.used_sponsors.spon_bd_elchip_active = true
 
         -- honest to god idk
-        G.GAME.interest_cap = (G.GAME.interest_cap or 5)
-            + 1
+        G.GAME.interest_cap = (G.GAME.interest_cap or 25)
+            + 5
 
         if G.sponsor_images.spon_bd_elchip.next_ad == 0 then
             G.sponsor_images.spon_bd_elchip.next_ad =
