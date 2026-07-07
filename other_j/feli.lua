@@ -671,21 +671,24 @@ SMODS.Joker {
     end,
     
     update = function(self, card, dt)
-        
         if not (card and card.ability and card.ability.timer and card.ability.timer.enabled) then
             return
         end
         
         local timer = card.ability.timer
         
-        if G.TIMERS.REAL - timer.saved_time > timer.maxTime then
-            
-            
-            
+        if G.TIMERS.REAL - timer.saved_time > timer.maxTime and not card.exploded then
+            card.exploded = true
             
             G.E_MANAGER:add_event(Event({
                 func = function()
-                    card:start_dissolve()
+                    local exploded = SMODS.destroy_cards(card, {immediate = true})
+                    if not next(exploded) then
+                        SMODS.calculate_effect{message = "Saved?!", card = card}
+                        timer.saved_time = G.TIMERS.REAL
+                        card.exploded = false
+                        return true
+                    end
                     card_eval_status_text(card, 'extra', nil, nil, nil, {
                         message = "Got You!",
                         colour = G.C.RED
