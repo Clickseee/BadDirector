@@ -100,7 +100,8 @@ SMODS.Sound {
     volume = 1.5
 }
 
-function BadDirector.misprint_hand(hand, card, seed, silent)
+function BadDirector.misprint_hand(hand, card, seed, silent, args)
+    args = args or {}
     seed = seed or hand..card.config.center.key
     local params = SMODS.Scoring_Parameter.obj_buffer --Change this to {"chips", "mult"} if we want to actively not give a shit about glop etc
 
@@ -116,21 +117,26 @@ function BadDirector.misprint_hand(hand, card, seed, silent)
     if SMODS.pseudorandom_probability(card, seed, 1, 4) then
         param_action = function (num, param)
             local variance = pseudorandom(seed)
-            local outcome = num * math.floor((variance*1.3 + 0.7) * 100) / 100
+            local min = args[param.."_multiply_min"] or args.multiply_min or 0.7
+            local range = (args[param.."_multiply_max"] or args.multiply_max or 2.0) - min
+            local outcome = num * math.floor((variance*range + min) * 100) / 100
             total_level_result = total_level_result + (outcome / G.GAME.hands[hand]["l_" .. param])
             return outcome
         end
     elseif SMODS.pseudorandom_probability(card, seed, 1, 2) then
         param_action = function (num, param)
             local variance = pseudorandom(seed)
-            local outcome = num + math.floor((variance*29 + 1) * 100) / 100
+            local min = args[param.."_add_min"] or args.add_min or 1
+            local range = (args[param.."_add_min"] or args.add_max or 29) - min
+            local outcome = num + math.floor((variance*range + min) * 100) / 100
             total_level_result = total_level_result + (outcome / G.GAME.hands[hand]["l_" .. param])
             return outcome
         end
     else
         param_action = function (num, param)
-            total_level_result = total_level_result + 0.5
-            return num + (G.GAME.hands[hand]["l_" .. param] and (G.GAME.hands[hand]["l_" .. param] / 2))
+            local amt = args.fixed_result or 0.5
+            total_level_result = total_level_result + amt
+            return num + (G.GAME.hands[hand]["l_" .. param] and (G.GAME.hands[hand]["l_" .. param] * amt))
         end
     end
 
@@ -186,7 +192,7 @@ function BadDirector.misprint_all(card, seed)
     mult = "...", chips = "..."})
     delay(1)
     for hand, v in pairs(G.GAME.hands) do
-        BadDirector.misprint_hand(hand, card, seed, true)
+        BadDirector.misprint_hand(hand, card, seed, true, {add_range = 40})
     end
     G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.2, func = function()
         play_sound('bd_inapmit_fast')
