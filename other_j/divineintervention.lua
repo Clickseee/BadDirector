@@ -65,7 +65,10 @@ SMODS.Joker {
                 func = function()
                     if fool then
                         if (G.GAME.last_tarot_planet and G.GAME.last_tarot_planet ~= 'c_fool') then
+                            --G.GAME.consumeable_buffer = G.GAME.consumeable_buffer - 1
+                            draw_card(fool.area, G.play, 1, 'down', false, fool)
                             fool:use_consumeable()
+                            --G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
                         end
                         SMODS.destroy_cards(fool,true,nil)
                     end
