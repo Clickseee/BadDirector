@@ -57,6 +57,7 @@ function Game:update(dt)
             G.lolbit_event.progress = ""
 
             play_sound("bd_lolbit_spawn", 1, 1)
+            G.lolbit_event.sound:setLooping(true)
 
             if G.lolbit_event.sound then
                 G.lolbit_event.sound:stop()
@@ -113,6 +114,11 @@ local function lolbit_k()
 
     G.lolbit_event.active = false
     G.lolbit_event.progress = ""
+    if G.lolbit_event.sound then
+        G.lolbit_event.sound:stop()
+        G.lolbit_event.sound:setLooping(false)
+    end
+    
 
     play_sound("tarot1", 1, 1)
 
