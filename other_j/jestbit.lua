@@ -105,8 +105,8 @@ local function lolbit_k()
             nil,
             nil,
             {
-                message = "X+" ..
-                    tostring(owner.ability.extra.gain),
+                message = "+" ..
+                    tostring(owner.ability.extra.gain).. " xMult",
                 colour = G.C.MULT
             }
         )
@@ -229,6 +229,18 @@ SMODS.Joker {
         G.lolbit_event.owner = card
         G.lolbit_event.enabled = true
         schedule_next_lolbit()
+    end,
+
+    load = function(self, card, card_table, other_card)
+        G.E_MANAGER:add_event(Event({
+            trigger = 'immediate',
+            func = function()
+                G.lolbit_event.owner = card
+                G.lolbit_event.enabled = true
+                schedule_next_lolbit()
+                return true
+            end
+        }))
     end,
 
     remove_from_deck = function(self, card, from_debuff)
