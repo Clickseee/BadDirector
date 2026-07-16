@@ -19,7 +19,9 @@ SMODS.Joker {
 
     config = {
         extra = {
-            xchips = 2.5
+            xchips = 2.5,
+            target = {},
+            triggered = false,
         }
     },
 
@@ -36,7 +38,7 @@ SMODS.Joker {
         if context.before then
 
             card.ability.extra.triggered = false
-
+            card.ability.extra.target = {}
             local scored_ids = {}
 
             for _, scored_card in ipairs(context.scoring_hand) do
@@ -44,7 +46,6 @@ SMODS.Joker {
             end
 
             for _, played_card in ipairs(context.full_hand) do
-
                 if not scored_ids[played_card]
                 and played_card:is_face()
                 then
@@ -55,16 +56,14 @@ SMODS.Joker {
         end
 
         if context.individual
-        and context.cardarea == G.play
+        and context.cardarea == "unscored"
         and context.other_card == card.ability.extra.target
         and not card.ability.extra.triggered then
 
             card.ability.extra.triggered = true
 
-            return {
-                x_chips = card.ability.extra.xchips,
-                card = context.other_card
-            }
+            SMODS.calculate_effect(
+			    {xchips = card.ability.extra.xchips, juice_card = card.ability.extra.target, message_card = card.ability.extra.target}, card)
         end
     end,
 	joker_display_def = function(JokerDisplay)
