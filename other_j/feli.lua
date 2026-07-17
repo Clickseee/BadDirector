@@ -271,32 +271,31 @@ SMODS.Joker {
             loc_vars = function(self, info_queue, card)
                 return {
                     vars = {
-                        card.ability.extra.xmult, card.ability.imm.rank.key,
+                        card.ability.extra.xmult, localize(card.ability.imm.rank.key, "ranks"),
                     }
                 }
             end,
-            load = function(self, card, card_table, other_card)
-                G.E_MANAGER:add_event(Event({
-                    func = function() 
-                        card.ability.imm.rank = pseudorandom_element(SMODS.Ranks, pseudoseed('j_bd_alberto'))
-                        return true 
-                    end
-                }))
-                
-            end,    
             set_ability = function(self, card, initial, info_queue)
-                card.ability.imm.rank = pseudorandom_element(SMODS.Ranks, pseudoseed('j_bd_alberto'))
+                local rank = pseudorandom_element(SMODS.Ranks, pseudoseed('j_bd_alberto'))
+                card.ability.imm.rank = {
+                    id = rank.id,
+                    key = rank.key
+                }
             end,
             calculate = function(self, card, context)
                 if context.individual and context.cardarea == G.hand and not context.end_of_round then
-                    if context.other_card:get_id() == card.ability.imm.rank.nominal then
+                    if context.other_card:get_id() == card.ability.imm.rank.id then
                         return {
                             xmult = card.ability.extra.xmult
                         }
                     end     
                 end
                 if context.end_of_round and context.main_eval and not context.game_over then
-                    card.ability.imm.rank = pseudorandom_element(SMODS.Ranks, pseudoseed('j_bd_alberto'))
+                    local rank = pseudorandom_element(SMODS.Ranks, pseudoseed('j_bd_alberto'))
+                    card.ability.imm.rank = {
+                        id = rank.id,
+                        key = rank.key
+                    }
                     return {
                         message = "Changed!",
                         colour = G.C.FILTER,
@@ -317,7 +316,7 @@ SMODS.Joker {
 				local xmult = 1
 				for _, playing_card in ipairs(G.hand.cards) do
 					if playing_hand or not playing_card.highlighted then
-						if playing_card.facing and not (playing_card.facing == 'back') and not playing_card.debuff and playing_card:get_id() == card.ability.imm.rank.nominal then
+						if playing_card.facing and not (playing_card.facing == 'back') and not playing_card.debuff and playing_card:get_id() == card.ability.imm.rank.id then
 							xmult = xmult * (card.ability.extra.xmult ^ JokerDisplay.calculate_card_triggers(playing_card, nil, true))
 						end
 					end
@@ -672,21 +671,24 @@ SMODS.Joker {
     end,
     
     update = function(self, card, dt)
-        
         if not (card and card.ability and card.ability.timer and card.ability.timer.enabled) then
             return
         end
         
         local timer = card.ability.timer
         
-        if G.TIMERS.REAL - timer.saved_time > timer.maxTime then
-            
-            
-            
+        if G.TIMERS.REAL - timer.saved_time > timer.maxTime and not card.exploded then
+            card.exploded = true
             
             G.E_MANAGER:add_event(Event({
                 func = function()
-                    card:start_dissolve()
+                    local exploded = SMODS.destroy_cards(card, {immediate = true})
+                    if not next(exploded) then
+                        SMODS.calculate_effect{message = "Saved?!", card = card}
+                        timer.saved_time = G.TIMERS.REAL
+                        card.exploded = false
+                        return true
+                    end
                     card_eval_status_text(card, 'extra', nil, nil, nil, {
                         message = "Got You!",
                         colour = G.C.RED

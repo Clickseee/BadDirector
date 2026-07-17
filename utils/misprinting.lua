@@ -100,102 +100,90 @@ SMODS.Sound {
     volume = 1.5
 }
 
-
-function BadDirector.misprint_hand(hand, card, seed)
+function BadDirector.misprint_hand(hand, card, seed, silent, args)
+    args = args or {}
     seed = seed or hand..card.config.center.key
-    update_hand_text({delay = 0}, {handname = localize(hand, "poker_hands"), level = G.GAME.hands[hand].level, 
-    mult = G.GAME.hands[hand].mult, chips = G.GAME.hands[hand].chips, hand})
-    delay(1)
-    if SMODS.pseudorandom_probability(card, seed, 1, 4) then
-        local range = math.floor((pseudorandom(seed)*1.3 + 0.7) * 100) / 100
-        local range2 = math.floor((pseudorandom(seed)*1.3 + 0.7) * 100) / 100
-        G.GAME.hands[hand].mult = G.GAME.hands[hand].mult * range
-        G.GAME.hands[hand].chips = G.GAME.hands[hand].chips * range2
-        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.2, func = function()
-            play_sound('bd_inapmit_fast')
-            if card and card.juice_up then card:juice_up(0.8, 0.5) end
-            G.TAROT_INTERRUPT_PULSE = true
-            return true end }))
-        update_hand_text({delay = 0}, {mult = "X"..range, StatusText = true})
-        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.9, func = function()
-            play_sound('bd_inapmit_fast')
-            if card and card.juice_up then card:juice_up(0.8, 0.5) end
-            return true end }))
-            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.9, func = function()
-            play_sound('bd_inapmit_fast')
-            if card and card.juice_up then card:juice_up(0.8, 0.5) end
-            return true end }))
+    local params = SMODS.Scoring_Parameter.obj_buffer --Change this to {"chips", "mult"} if we want to actively not give a shit about glop etc
+
+    if not silent then
         update_hand_text({delay = 0}, {handname = localize(hand, "poker_hands"), level = G.GAME.hands[hand].level, 
-            mult = G.GAME.hands[hand].mult, chips = G.GAME.hands[hand].chips, hand})
-        update_hand_text({delay = 0}, {chips = "X"..range2, StatusText = true})
-        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.9, func = function()
-            play_sound('bd_inapmit_fast')
-            if card and card.juice_up then card:juice_up(0.8, 0.5) end
-            G.TAROT_INTERRUPT_PULSE = nil
-            return true end }))
-        update_hand_text({delay = 0}, {handname = localize(hand, "poker_hands"), level = G.GAME.hands[hand].level, 
-            mult = G.GAME.hands[hand].mult, chips = G.GAME.hands[hand].chips, hand})
-        update_hand_text({sound = 'button', volume = 0.7, pitch = 0.9, delay = 0}, {level=G.GAME.hands[hand].level})
-        delay(1.3)
-    elseif SMODS.pseudorandom_probability(card, seed, 1, 2) then
-        local range = math.floor((pseudorandom(seed)*29 + 1) * 100) / 100
-        local range2 = math.floor((pseudorandom(seed)*29 + 1) * 100) / 100
-        G.GAME.hands[hand].mult = G.GAME.hands[hand].mult + range
-        G.GAME.hands[hand].chips = G.GAME.hands[hand].chips + range2
-        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.2, func = function()
-            play_sound('bd_inapmit_fast')
-            if card and card.juice_up then card:juice_up(0.8, 0.5) end
-            G.TAROT_INTERRUPT_PULSE = true
-            return true end }))
-        update_hand_text({delay = 0}, {mult = G.GAME.hands[hand].mult, StatusText = true})
-        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.9, func = function()
-            play_sound('bd_inapmit_fast')
-            if card and card.juice_up then card:juice_up(0.8, 0.5) end
-            return true end }))
-            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.9, func = function()
-            play_sound('bd_inapmit_fast')
-            if card and card.juice_up then card:juice_up(0.8, 0.5) end
-            return true end }))
-        update_hand_text({delay = 0}, {chips = G.GAME.hands[hand].chips, StatusText = true})
-        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.9, func = function()
-            play_sound('bd_inapmit_fast')
-            if card and card.juice_up then card:juice_up(0.8, 0.5) end
-            G.TAROT_INTERRUPT_PULSE = nil
-            return true end }))
-        update_hand_text({sound = 'button', volume = 0.7, pitch = 0.9, delay = 0}, {level=G.GAME.hands[hand].level})
-        delay(1.3)
-    else    
-        G.GAME.hands[hand].mult = G.GAME.hands[hand].mult + 0.5
-        G.GAME.hands[hand].chips = G.GAME.hands[hand].chips + 0.5
-        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.2, func = function()
-            play_sound('bd_inapmit_fast')
-            if card and card.juice_up then card:juice_up(0.8, 0.5) end
-            G.TAROT_INTERRUPT_PULSE = true
-            return true end }))
-        update_hand_text({delay = 0}, {mult = G.GAME.hands[hand].mult, StatusText = true})
-        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.9, func = function()
-            play_sound('bd_inapmit_fast')
-            if card and card.juice_up then card:juice_up(0.8, 0.5) end
-            return true end }))
-            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.9, func = function()
-            play_sound('bd_inapmit_fast')
-            if card and card.juice_up then card:juice_up(0.8, 0.5) end
-            return true end }))
-        update_hand_text({delay = 0}, {chips = G.GAME.hands[hand].chips, StatusText = true})
-        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.9, func = function()
-            play_sound('bd_inapmit_fast')
-            if card and card.juice_up then card:juice_up(0.8, 0.5) end
-            G.TAROT_INTERRUPT_PULSE = nil
-            return true end }))
-        update_hand_text({sound = 'button', volume = 0.7, pitch = 0.9, delay = 0}, {level=G.GAME.hands[hand].level})
-        delay(1.3)
+        mult = G.GAME.hands[hand].mult, chips = G.GAME.hands[hand].chips, hand})
+        delay(1)
     end
-    update_hand_text({ delay = 0 }, {
-        mult = 0,
-        chips = 0,
-        level = "",
-        handname = "",
-    })
+
+    local total_level_result, affected_params = 0,0
+
+    local param_action
+    if SMODS.pseudorandom_probability(card, seed, 1, 4) then
+        param_action = function (num, param)
+            local variance = pseudorandom(seed)
+            local min = args[param.."_multiply_min"] or args.multiply_min or 0.7
+            local range = (args[param.."_multiply_max"] or args.multiply_max or 2.0) - min
+            local outcome = num * math.floor((variance*range + min) * 100) / 100
+            total_level_result = total_level_result + (outcome / G.GAME.hands[hand]["l_" .. param])
+            return outcome
+        end
+    elseif SMODS.pseudorandom_probability(card, seed, 1, 2) then
+        param_action = function (num, param)
+            local variance = pseudorandom(seed)
+            local min = args[param.."_add_min"] or args.add_min or 1
+            local range = (args[param.."_add_min"] or args.add_max or 29) - min
+            local outcome = num + math.floor((variance*range + min) * 100) / 100
+            total_level_result = total_level_result + (outcome / G.GAME.hands[hand]["l_" .. param])
+            return outcome
+        end
+    else
+        param_action = function (num, param)
+            local amt = args.fixed_result or 0.5
+            total_level_result = total_level_result + amt
+            return num + (G.GAME.hands[hand]["l_" .. param] and (G.GAME.hands[hand]["l_" .. param] * amt))
+        end
+    end
+
+    for i, parameter in ipairs(params) do
+        if G.GAME.hands[hand][parameter] then
+            affected_params = affected_params + 1
+            G.GAME.hands[hand][parameter] = param_action(G.GAME.hands[hand][parameter], parameter)
+            if not silent then
+                update_hand_text({ delay = 0 }, { [parameter] = G.GAME.hands[hand][parameter], StatusText = true })
+                if i == 1 then
+                    G.E_MANAGER:add_event(Event({
+                        trigger = 'after',
+                        delay = 0.2,
+                        func = function()
+                            play_sound('bd_inapmit_fast')
+                            if card and card.juice_up then card:juice_up(0.8, 0.5) end
+                            G.TAROT_INTERRUPT_PULSE = true
+                            return true
+                        end
+                }))
+                end
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'after',
+                    delay = 0.9,
+                    func = function()
+                        play_sound('bd_inapmit_fast')
+                        if card and card.juice_up then card:juice_up(0.8, 0.5) end
+                        G.TAROT_INTERRUPT_PULSE = true
+                        return true
+                    end
+            }))
+            end
+        end
+    end
+
+    G.GAME.hands[hand].level = G.GAME.hands[hand].level + (total_level_result / affected_params)
+    if not silent then
+        update_hand_text({ sound = 'button', volume = 0.7, pitch = 0.9, delay = 0 }, { level = G.GAME.hands[hand].level })
+        delay(1.3)
+
+        update_hand_text({ delay = 0 }, {
+            mult = 0,
+            chips = 0,
+            level = "",
+            handname = "",
+        })
+    end
 end
 
 function BadDirector.misprint_all(card, seed)
@@ -204,20 +192,7 @@ function BadDirector.misprint_all(card, seed)
     mult = "...", chips = "..."})
     delay(1)
     for hand, v in pairs(G.GAME.hands) do
-        if SMODS.pseudorandom_probability(card, seed, 1, 4) then
-            local range = math.floor((pseudorandom(seed)*1.3 + 0.7) * 100) / 100
-            local range2 = math.floor((pseudorandom(seed)*1.3 + 0.7) * 100) / 100
-            G.GAME.hands[hand].mult = G.GAME.hands[hand].mult * range
-            G.GAME.hands[hand].chips = G.GAME.hands[hand].chips * range2
-        elseif SMODS.pseudorandom_probability(card, seed, 1, 2) then
-            local range = math.floor((pseudorandom(seed)*39 + 1) * 100) / 100
-            local range2 = math.floor((pseudorandom(seed)*39 + 1) * 100) / 100
-            G.GAME.hands[hand].mult = G.GAME.hands[hand].mult + range
-            G.GAME.hands[hand].chips = G.GAME.hands[hand].chips + range2
-        else
-            G.GAME.hands[hand].mult = G.GAME.hands[hand].mult + 0.5
-            G.GAME.hands[hand].chips = G.GAME.hands[hand].chips + 0.5
-        end
+        BadDirector.misprint_hand(hand, card, seed, true, {add_range = 40})
     end
     G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.2, func = function()
         play_sound('bd_inapmit_fast')

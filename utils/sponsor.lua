@@ -1,5 +1,3 @@
-G.P_CENTER_POOLS.bd_Sponsor = G.P_CENTER_POOLS.bd_Sponsor or {}
-
 --- @class BadDirector.Sponsor: SMODS.Voucher
 BadDirector.Sponsor = SMODS.Voucher:extend {
 	unlocked = true,
@@ -22,6 +20,7 @@ BadDirector.Sponsor = SMODS.Voucher:extend {
 	inject = function(self)
 		-- call the parent function to ensure all pools are set
 		-- don't call the voucher one though, we are just using voucher for its redeem code and shader
+		G.P_CENTER_POOLS.bd_Sponsor = G.P_CENTER_POOLS.bd_Sponsor or {}
 		SMODS.Center.inject(self)
 	end,
 }

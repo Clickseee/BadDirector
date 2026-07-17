@@ -14,14 +14,16 @@ SMODS.Stake {
     sticker_pos = { x = 0, y = 0 },
     colour = HEX("fcf2c6"),
 	modifiers = function()
-        G.E_MANAGER:add_event(Event({
-            func = function()
-                ease_ante(-1)
-                G.GAME.round_resets.blind_ante = G.GAME.round_resets.blind_ante or G.GAME.round_resets.ante
-                G.GAME.round_resets.blind_ante = G.GAME.round_resets.blind_ante - 1
-                return true
-            end
-        }))
+        if SMODS.stake_from_index(G.GAME.stake) == "stake_bd_offbrand" then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    ease_ante(-1)
+                    G.GAME.round_resets.blind_ante = G.GAME.round_resets.blind_ante or G.GAME.round_resets.ante
+                    G.GAME.round_resets.blind_ante = G.GAME.round_resets.blind_ante - 1
+                    return true
+                end
+            }))
+        end
     end,
 }
 
@@ -29,16 +31,6 @@ SMODS.Stake:take_ownership('stake_white', {
     --above_stake = "bd_offbrand",
 	applied_stakes = { "bd_offbrand" },
     prefix_config = { applied_stakes = { mod = false, } },
-	modifiers = function()
-        G.E_MANAGER:add_event(Event({
-            func = function()
-                ease_ante(1)
-                G.GAME.round_resets.blind_ante = G.GAME.round_resets.blind_ante or G.GAME.round_resets.ante
-                G.GAME.round_resets.blind_ante = G.GAME.round_resets.blind_ante + 1
-                return true
-            end
-        }))
-    end,
 },
 true
 )
