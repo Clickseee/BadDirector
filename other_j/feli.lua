@@ -785,6 +785,7 @@ SMODS.Joker {
     end,
     add_to_deck = function(self,card,from_debuff)
         play_sound("bd_pickupcrash")
+        G.consumeables:emplace(card, 'front', true)
         G.consumeables.config.card_limit = G.consumeables.config.card_limit + card.ability.extra.mod_slot
     end,
 }

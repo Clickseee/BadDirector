@@ -11,10 +11,12 @@ SMODS.Joker { -- Mostly helped with Neato's code
     pos = { x = 0, y = 0 },
     pools = {
         ["BadDirector_Jokers"] = true,
+        ["Food"] = true,
     },
     attributes = {
         "retrigger",
-        "editions"
+        "editions",
+        "food"
     },
 
     config = {
